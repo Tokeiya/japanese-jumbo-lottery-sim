@@ -57,7 +57,6 @@ mod tests {
 	use rand::TryRng;
 	use rand::rngs::Xoshiro256PlusPlus;
 	use std::assert_matches;
-	use std::collections::VecDeque;
 
 	mock! {
 		pub Rng {}
@@ -91,20 +90,26 @@ mod tests {
 			Err(Error::InvalidGroupRange)
 		);
 
-		assert_matches!(
-			Ticket::try_from_rng(100..0, 0..100, &mut mock),
-			Err(Error::InvalidGroupRange)
-		);
+		#[expect(
+			clippy::reversed_empty_ranges,
+			reason = "This is a test for invalid ranges, so the reversed range is intentional."
+		)]
+		let fixture = Ticket::try_from_rng(100..0, 0..100, &mut mock);
+
+		assert_matches!(fixture, Err(Error::InvalidGroupRange));
 
 		assert_matches!(
 			Ticket::try_from_rng(1..100, 0..0, &mut mock),
 			Err(Error::InvalidNumberRange)
 		);
 
-		assert_matches!(
-			Ticket::try_from_rng(1..100, 1000..100, &mut mock),
-			Err(Error::InvalidNumberRange)
-		);
+		#[expect(
+			clippy::reversed_empty_ranges,
+			reason = "This is a test for invalid ranges, so the reversed range is intentional."
+		)]
+		let fixture = Ticket::try_from_rng(1..100, 1000..100, &mut mock);
+
+		assert_matches!(fixture, Err(Error::InvalidNumberRange));
 	}
 
 	#[test]
