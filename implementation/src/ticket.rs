@@ -1,5 +1,4 @@
-use rand::{Rng, RngExt};
-use std::ops::RangeBounds;
+use rand::{Rng, RngExt, distr::uniform::SampleRange};
 use thiserror::Error as ThisError;
 
 #[derive(ThisError, Debug)]
@@ -18,29 +17,34 @@ pub struct Ticket {
 	number: u32,
 }
 
-fn range_check<Idx: PartialEq + Eq + PartialOrd + Ord>(range: impl RangeBounds<Idx>) {
-	todo!()
-}
-
 impl Ticket {
 	pub fn try_from_rng(
-		group_range: impl RangeBounds<u8>,
-		number_range: impl RangeBounds<u32>,
+		group_range: impl SampleRange<u8>,
+		number_range: impl SampleRange<u32>,
 		rng: &mut impl Rng,
 	) -> Result<Self> {
-		todo!()
+		if group_range.is_empty() {
+			Err(Error::InvalidGroupRange)
+		} else if number_range.is_empty() {
+			Err(Error::InvalidNumberRange)
+		} else {
+			Ok(Self::new(
+				rng.random_range(group_range),
+				rng.random_range(number_range),
+			))
+		}
 	}
 
 	pub fn new(group: u8, number: u32) -> Self {
-		todo!()
+		Self { group, number }
 	}
 
 	pub fn group(&self) -> u8 {
-		todo!()
+		self.group
 	}
 
 	pub fn number(&self) -> u32 {
-		todo!()
+		self.number
 	}
 }
 
@@ -65,16 +69,6 @@ mod tests {
 			fn try_next_u64(&mut self) -> std::result::Result<u64, Infallible>;
 			fn try_fill_bytes(&mut self, dest: &mut [u8]) -> std::result::Result<(), Infallible>;
 		}
-	}
-
-	#[test]
-	fn foo() {
-		let mut rng = Xoshiro256PlusPlus::seed_from_u64(114514);
-		print!("vec![");
-		for _ in 0..100 {
-			print!("{}u32,", rng.next_u32());
-		}
-		print!("]");
 	}
 
 	#[test]
@@ -130,5 +124,17 @@ mod tests {
 			number: 114514,
 			group: 19,
 		};
+
+		assert_eq!(fixture.number(), 114514);
+	}
+
+	#[test]
+	fn group() {
+		let fixture = Ticket {
+			number: 114514,
+			group: 19,
+		};
+
+		assert_eq!(fixture.group(), 19);
 	}
 }
