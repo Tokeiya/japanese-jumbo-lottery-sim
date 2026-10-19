@@ -1,3 +1,6 @@
+#![expect(unused_variables, reason = "Under construction")]
+#![expect(dead_code, reason = "under construction")]
+#![expect(unfulfilled_lint_expectations, reason = "Under construction")]
 use super::{Group, Number};
 pub struct Record {
 	rank: u8,

@@ -1,3 +1,6 @@
+#![expect(unused_variables, reason = "Under construction")]
+#![expect(unfulfilled_lint_expectations, reason = "Under construction")]
+
 pub enum Number {
 	AllDigits(u32),
 	Last4Digits(u16),

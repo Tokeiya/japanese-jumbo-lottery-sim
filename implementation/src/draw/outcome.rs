@@ -1,3 +1,7 @@
+#![expect(unused_variables, reason = "Under construction")]
+#![expect(dead_code, reason = "under construction")]
+#![expect(unfulfilled_lint_expectations, reason = "Under construction")]
+
 pub struct Record {
 	rank: u8,
 	payout: u64,
