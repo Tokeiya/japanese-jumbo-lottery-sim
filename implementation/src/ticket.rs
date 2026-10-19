@@ -11,11 +11,20 @@ pub enum Error {
 
 pub type Result<T> = std::result::Result<T, Error>;
 
-#[derive(Debug)]
-pub struct Ticket {
-	group: u8,
-	number: u32,
+const NUMBER_MASK: u32 = 0x00_ff_ff_ff;
+const GROUP_OFFSET: usize = 24;
+
+fn encode(group: u8, number: u32) -> u32 {
+	(group as u32) << GROUP_OFFSET | (number & NUMBER_MASK)
 }
+
+fn decode(scr: u32) -> (u8, u32) {
+	let group = (scr >> GROUP_OFFSET) as u8;
+	let number = scr & NUMBER_MASK;
+	(group, number)
+}
+#[derive(Debug)]
+pub struct Ticket(u32);
 
 impl Ticket {
 	pub fn try_from_rng(
@@ -36,15 +45,15 @@ impl Ticket {
 	}
 
 	pub fn new(group: u8, number: u32) -> Self {
-		Self { group, number }
+		Self(encode(group, number))
 	}
 
 	pub fn group(&self) -> u8 {
-		self.group
+		decode(self.0).0
 	}
 
 	pub fn number(&self) -> u32 {
-		self.number
+		decode(self.0).1
 	}
 }
 
@@ -103,8 +112,9 @@ mod tests {
 
 		for _ in 0..10000 {
 			let fixture = Ticket::try_from_rng(1u8..=100, 1u32..=10_000, &mut act).unwrap();
-			assert_eq!(fixture.group, exp.random_range(1u8..=100));
-			assert_eq!(fixture.number, exp.random_range(1u32..=10_000));
+			let grp = exp.random_range(1u8..=100);
+			let num = exp.random_range(1u32..=10_000);
+			assert_eq!(decode(fixture.0), (grp, num));
 		}
 	}
 
@@ -143,28 +153,22 @@ mod tests {
 		for g in 1u8..10 {
 			for n in 1u32..100 {
 				let fixture = Ticket::new(g, n);
-				assert_eq!(fixture.number, n);
-				assert_eq!(fixture.group, g);
+				let exp = encode(g, n);
+				assert_eq!(fixture.0, exp);
 			}
 		}
 	}
 
 	#[test]
 	fn number() {
-		let fixture = Ticket {
-			number: 114514,
-			group: 19,
-		};
+		let fixture = Ticket(encode(19, 114514));
 
 		assert_eq!(fixture.number(), 114514);
 	}
 
 	#[test]
 	fn group() {
-		let fixture = Ticket {
-			number: 114514,
-			group: 19,
-		};
+		let fixture = Ticket(encode(19, 114514));
 
 		assert_eq!(fixture.group(), 19);
 	}
