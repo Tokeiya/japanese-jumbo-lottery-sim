@@ -181,7 +181,7 @@ mod tests {
 		let mut rng_left = Xoshiro256PlusPlus::from_rng(&mut rand::rng());
 		let mut rng_right = rng_left.clone();
 
-		for i in 0u32..1_000 {
+		for _ in 0u32..1_000 {
 			let mut l_h = DefaultHasher::new();
 			let mut r_h = DefaultHasher::new();
 
