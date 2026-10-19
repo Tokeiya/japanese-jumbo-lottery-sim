@@ -71,6 +71,32 @@ mod tests {
 	}
 
 	#[test]
+	fn playground() {
+		const MASK: u32 = (0x00_FF_FF_FF);
+		let mut hoge = 0u32;
+		let piyo = 19u8;
+
+		hoge |= piyo as u32;
+		hoge <<= 24;
+		println!("{hoge:0x}");
+
+		hoge |= 114_514;
+		println!("{hoge:0x}");
+
+		println!("{:0x}", (hoge & MASK));
+	}
+
+	fn encode(group: u8, number: u32) -> u32 {
+		(group as u32) << 24 | (number & 0x00_FF_FF_FF)
+	}
+
+	fn decode(scr: u32) -> (u8, u32) {
+		let group = (scr >> 24) as u8;
+		let number = scr & 0x00_FF_FF_FF;
+		(group, number)
+	}
+
+	#[test]
 	fn try_from_rng() {
 		let mut act = Xoshiro256PlusPlus::from_rng(&mut rand::rng());
 		let mut exp = act.clone();
