@@ -38,3 +38,8 @@ impl Number {
 		todo!()
 	}
 }
+
+#[cfg(test)]
+mod tests {
+	use super::*;
+}
