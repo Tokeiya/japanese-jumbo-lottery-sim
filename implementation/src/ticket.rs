@@ -23,7 +23,7 @@ fn decode(scr: u32) -> (u8, u32) {
 	let number = scr & NUMBER_MASK;
 	(group, number)
 }
-#[derive(Debug)]
+#[derive(Debug, Hash, PartialEq, Eq)]
 pub struct Ticket(u32);
 
 impl Ticket {
@@ -66,6 +66,7 @@ mod tests {
 	use rand::TryRng;
 	use rand::rngs::Xoshiro256PlusPlus;
 	use std::assert_matches;
+	use std::hash::{DefaultHasher, Hash, Hasher};
 
 	mock! {
 		pub Rng {}
@@ -77,22 +78,6 @@ mod tests {
 			fn try_next_u64(&mut self) -> std::result::Result<u64, Infallible>;
 			fn try_fill_bytes(&mut self, dest: &mut [u8]) -> std::result::Result<(), Infallible>;
 		}
-	}
-
-	#[test]
-	fn playground() {
-		const MASK: u32 = (0x00_FF_FF_FF);
-		let mut hoge = 0u32;
-		let piyo = 19u8;
-
-		hoge |= piyo as u32;
-		hoge <<= 24;
-		println!("{hoge:0x}");
-
-		hoge |= 114_514;
-		println!("{hoge:0x}");
-
-		println!("{:0x}", (hoge & MASK));
 	}
 
 	fn encode(group: u8, number: u32) -> u32 {
@@ -169,7 +154,43 @@ mod tests {
 	#[test]
 	fn group() {
 		let fixture = Ticket(encode(19, 114514));
-
 		assert_eq!(fixture.group(), 19);
+	}
+
+	#[test]
+	fn eq_test() {
+		let mut rng_left = Xoshiro256PlusPlus::from_rng(&mut rand::rng());
+		let mut rng_right = rng_left.clone();
+		let mut rng_other = rng_right.clone();
+
+		for _ in 0..1_000 {
+			let left = Ticket(rng_left.next_u32());
+			let right = Ticket(rng_right.next_u32());
+			let other = Ticket(rng_other.next_u32());
+
+			assert!(left == left);
+			assert!(left == right);
+			assert!(right == left);
+			assert!(right == other);
+			assert!(left == other);
+		}
+	}
+
+	#[test]
+	fn hash_test() {
+		let mut rng_left = Xoshiro256PlusPlus::from_rng(&mut rand::rng());
+		let mut rng_right = rng_left.clone();
+
+		for i in 0u32..1_000 {
+			let mut l_h = DefaultHasher::new();
+			let mut r_h = DefaultHasher::new();
+
+			let left = Ticket(rng_left.next_u32());
+
+			left.hash(&mut l_h);
+			Ticket(rng_right.next_u32()).hash(&mut r_h);
+
+			assert_eq!(l_h.finish(), r_h.finish());
+		}
 	}
 }
