@@ -9,6 +9,33 @@ pub struct Record {
 	number: Number,
 }
 
+impl Record {
+	pub fn new(rank: u8, payout: u64, group: Group, number: Number) -> Self {
+		Self {
+			rank,
+			payout,
+			group,
+			number,
+		}
+	}
+
+	pub fn rank(&self) -> u8 {
+		self.rank
+	}
+
+	pub fn payout(&self) -> u64 {
+		self.payout
+	}
+
+	pub fn group(&self) -> &Group {
+		&self.group
+	}
+
+	pub fn number(&self) -> &Number {
+		&self.number
+	}
+}
+
 pub struct Report(Vec<Record>);
 
 impl Report {

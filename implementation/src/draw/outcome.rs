@@ -7,6 +7,20 @@ pub struct Record {
 	payout: u64,
 }
 
+impl Record {
+	pub fn new(rank: u8, payout: u64) -> Self {
+		todo!()
+	}
+
+	pub fn rank(&self) -> u8 {
+		todo!()
+	}
+
+	pub fn payout(&self) -> u64 {
+		todo!()
+	}
+}
+
 pub struct Outcome(Vec<Record>);
 
 impl Outcome {
