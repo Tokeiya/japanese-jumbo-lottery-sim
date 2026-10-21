@@ -23,7 +23,7 @@ fn decode(scr: u32) -> (u8, u32) {
 	let number = scr & NUMBER_MASK;
 	(group, number)
 }
-#[derive(Debug, Hash, PartialEq, Eq)]
+#[derive(Debug, Hash, PartialEq, Eq, Clone)]
 pub struct Ticket(u32);
 
 impl Ticket {
@@ -192,5 +192,15 @@ mod tests {
 
 			assert_eq!(l_h.finish(), r_h.finish());
 		}
+	}
+
+	#[test]
+	fn clone() {
+		let fixture = Ticket::new(42, 114514);
+		let mut cloned = fixture.clone();
+
+		assert_eq!(fixture.0, cloned.0);
+		cloned.0 = 1_145_141_919;
+		assert_ne!(fixture.0, cloned.0);
 	}
 }
