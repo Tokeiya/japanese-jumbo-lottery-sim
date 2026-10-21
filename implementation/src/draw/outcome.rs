@@ -37,7 +37,7 @@ impl Outcome {
 #[cfg(test)]
 mod tests {
 	use super::*;
-	use rand::{Rng, RngExt, rng};
+	use rand::{RngExt, rng};
 
 	mod outcome {
 		use super::*;
