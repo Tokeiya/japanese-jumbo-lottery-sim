@@ -1,4 +1,5 @@
 #[derive(Debug)]
+#[cfg_attr(test, derive(PartialEq, Eq))]
 pub enum Number {
 	AllDigits(u32),
 	Last4Digits(u16),

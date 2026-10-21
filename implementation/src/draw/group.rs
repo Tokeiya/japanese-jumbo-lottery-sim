@@ -1,10 +1,11 @@
 use crate::Ticket;
 
 #[derive(Debug)]
+#[cfg_attr(test, derive(PartialEq, Eq))]
 pub enum Group {
 	AllDigits(u8),
 	Last1Digits(u8),
-	None
+	None,
 }
 
 impl Group {
