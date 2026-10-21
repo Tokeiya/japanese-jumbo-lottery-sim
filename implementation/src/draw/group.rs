@@ -4,6 +4,7 @@ use crate::Ticket;
 pub enum Group {
 	AllDigits(u8),
 	Last1Digits(u8),
+	None
 }
 
 impl Group {
@@ -23,6 +24,7 @@ impl Group {
 		match self {
 			Group::AllDigits(x) => ticket.group() == *x,
 			Group::Last1Digits(x) => ticket.group() % 10 == *x,
+			Group::None => true,
 		}
 	}
 }
@@ -77,6 +79,15 @@ mod tests {
 					assert!(!fixture.verify(&Ticket::new(g, 114514)));
 				}
 			}
+		}
+	}
+
+	#[test]
+	fn none_verify() {
+		let fixture = Group::None;
+		for t in 1..=100u8 {
+			let ticket = Ticket::new(t, 114514);
+			assert!(fixture.verify(&ticket));
 		}
 	}
 }
