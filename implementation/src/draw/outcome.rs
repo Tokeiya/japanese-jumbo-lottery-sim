@@ -1,12 +1,13 @@
 use crate::ticket::Ticket;
 
+#[cfg_attr(test, derive(PartialEq, Eq))]
 pub struct Record {
 	rank: u8,
 	payout: u64,
 }
 
 impl Record {
-	pub fn new(rank: u8, payout: u64) -> Self {
+	fn new(rank: u8, payout: u64) -> Self {
 		Self { rank, payout }
 	}
 
@@ -22,8 +23,12 @@ impl Record {
 pub struct Outcome(Ticket, Vec<Record>);
 
 impl Outcome {
-	pub fn new(ticket: Ticket, records: Vec<Record>) -> Self {
-		Self(ticket, records)
+	pub fn new(ticket: Ticket) -> Self {
+		Self(ticket, Vec::new())
+	}
+
+	pub(super) fn add_record(&mut self, rank: u8, payout: u64) {
+		self.1.push(Record::new(rank, payout));
 	}
 
 	pub fn records(&self) -> &[Record] {
@@ -50,28 +55,20 @@ mod tests {
 				rng.random_range(100_000..200_000),
 			);
 
-			let records = vec![Record::new(1, 100_000), Record::new(2, 20000)];
-			let outcome = Outcome::new(ticket.clone(), records);
+			let outcome = Outcome::new(ticket.clone());
 
 			assert_eq!(outcome.ticket(), ticket);
-			assert_eq!(outcome.1.len(), 2);
-			let expected = vec![Record::new(1, 100_000), Record::new(2, 20000)];
-
-			for i in 0..expected.len() {
-				assert_eq!(outcome.records()[i].payout, expected[i].payout);
-				assert_eq!(outcome.records()[i].rank, expected[i].rank);
-			}
+			assert_eq!(outcome.1.len(), 0);
 		}
 
 		#[test]
 		fn records() {
 			let ticket = Ticket::new(1, 100_000);
-			let records = vec![
-				Record::new(1, 100_000),
-				Record::new(2, 20000),
-				Record::new(3, 3000),
-			];
-			let fixture = Outcome::new(ticket, records);
+			let mut fixture = Outcome::new(ticket);
+
+			fixture.1.push(Record::new(1, 100_000));
+			fixture.1.push(Record::new(2, 20000));
+			fixture.1.push(Record::new(3, 3000));
 
 			assert_eq!(fixture.records().len(), 3);
 
@@ -85,6 +82,27 @@ mod tests {
 			) {
 				assert_eq!(act.rank, exp.rank);
 				assert_eq!(act.payout, exp.payout);
+			}
+		}
+
+		#[test]
+		fn add_record() {
+			let mut fixture = Outcome::new(Ticket::new(1, 100_000));
+			let mut rng = rng();
+
+			let mut expected = Vec::new();
+
+			for r in 1u8..=4 {
+				let payout = rng.random_range(10_000..=1_000_000);
+				let record = Record::new(r, payout);
+				fixture.add_record(r, payout);
+				expected.push(record);
+			}
+
+			assert_eq!(fixture.1.len(), 4);
+
+			for exp in expected.iter() {
+				assert!(fixture.1.contains(exp))
 			}
 		}
 	}
