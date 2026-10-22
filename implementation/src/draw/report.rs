@@ -1,6 +1,3 @@
-#![expect(unused_variables, reason = "Under construction")]
-#![expect(dead_code, reason = "under construction")]
-#![expect(unfulfilled_lint_expectations, reason = "Under construction")]
 use super::{Group, Number};
 pub struct Record {
 	rank: u8,
@@ -40,7 +37,7 @@ pub struct Report(Vec<Record>);
 
 impl Report {
 	pub fn new(records: Vec<Record>) -> Self {
-		todo!()
+		Self(records)
 	}
 
 	pub fn verify(&self, ticket: &crate::Ticket) -> bool {
@@ -48,7 +45,7 @@ impl Report {
 	}
 
 	pub fn records(&self) -> &[Record] {
-		todo!()
+		self.0.as_slice()
 	}
 }
 
