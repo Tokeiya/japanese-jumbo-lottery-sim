@@ -1,4 +1,4 @@
-use super::{Group, Number};
+use super::{Group, Number, Outcome};
 pub struct Record {
 	rank: u8,
 	payout: u64,
@@ -40,7 +40,7 @@ impl Report {
 		Self(records)
 	}
 
-	pub fn verify(&self, ticket: &crate::Ticket) -> bool {
+	pub fn verify(&self, ticket: &crate::Ticket) -> Outcome {
 		todo!()
 	}
 
