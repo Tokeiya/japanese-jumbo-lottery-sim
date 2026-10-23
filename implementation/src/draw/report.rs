@@ -1,17 +1,15 @@
-#![expect(unused_variables, reason = "Under construction")]
-#![expect(dead_code, reason = "under construction")]
-#![expect(unfulfilled_lint_expectations, reason = "Under construction")]
-
-use super::{Group, Number, Outcome};
+use super::outcome::{Outcome, PrizeCategory};
+use super::{Group, Number, outcome};
+use crate::Ticket;
 pub struct Record {
-	rank: u8,
+	rank: PrizeCategory,
 	payout: u64,
 	group: Group,
 	number: Number,
 }
 
 impl Record {
-	pub fn new(rank: u8, payout: u64, group: Group, number: Number) -> Self {
+	pub fn new(rank: PrizeCategory, payout: u64, group: Group, number: Number) -> Self {
 		Self {
 			rank,
 			payout,
@@ -20,7 +18,7 @@ impl Record {
 		}
 	}
 
-	pub fn rank(&self) -> u8 {
+	pub fn rank(&self) -> PrizeCategory {
 		self.rank
 	}
 
@@ -35,6 +33,10 @@ impl Record {
 	pub fn number(&self) -> &Number {
 		&self.number
 	}
+
+	pub fn verify(&self, ticket: &Ticket) -> bool {
+		self.group.verify(ticket) && self.number.verify(ticket)
+	}
 }
 
 pub struct Report(Vec<Record>);
@@ -45,11 +47,19 @@ impl Report {
 	}
 
 	pub fn verify(&self, ticket: &crate::Ticket) -> Outcome {
-		todo!()
+		let mut records: Vec<outcome::Record> = Vec::new();
+
+		for prize in self.0.iter() {
+			if prize.verify(ticket) {
+				records.push(outcome::Record::new(prize.rank.clone(), prize.payout));
+			}
+		}
+
+		Outcome::new(ticket.clone(), records)
 	}
 
 	pub fn records(&self) -> &[Record] {
-		self.0.as_slice()
+		&self.0
 	}
 }
 
@@ -60,24 +70,40 @@ mod tests {
 
 	mod report {
 		use super::*;
-		#[test]
-		fn new() {
-			let records = vec![
-				Record::new(1, 100, Group::AllDigits(42), Number::all_digits(114514)),
+		use crate::Ticket;
+
+		fn sample_records() -> Vec<Record> {
+			vec![
 				Record::new(
-					2,
+					PrizeCategory::First,
+					100,
+					Group::AllDigits(42),
+					Number::all_digits(114514),
+				),
+				Record::new(
+					PrizeCategory::Second,
 					200,
 					Group::Last1Digits(4),
 					Number::last_four_digits(4515),
 				),
-			];
+			]
+		}
+
+		#[test]
+		fn new() {
+			let records = sample_records();
 			let report = Report::new(records);
 			assert_eq!(report.records().len(), 2);
 
 			for (a, e) in report.0.iter().zip(vec![
-				Record::new(1, 100, Group::AllDigits(42), Number::all_digits(114514)),
 				Record::new(
-					2,
+					PrizeCategory::First,
+					100,
+					Group::AllDigits(42),
+					Number::all_digits(114514),
+				),
+				Record::new(
+					PrizeCategory::Second,
 					200,
 					Group::Last1Digits(4),
 					Number::last_four_digits(4515),
@@ -92,18 +118,33 @@ mod tests {
 
 		#[test]
 		fn rank() {
-			let records = vec![
-				Record::new(1, 100, Group::AllDigits(42), Number::all_digits(114514)),
-				Record::new(
-					2,
-					200,
-					Group::Last1Digits(4),
-					Number::last_four_digits(4515),
-				),
-			];
+			let records = sample_records();
 			let report = Report::new(records);
-			assert_eq!(report.records()[0].rank(), 1);
-			assert_eq!(report.records()[1].rank(), 2);
+
+			assert_matches!(report.records()[0].rank(), PrizeCategory::First);
+			assert_matches!(report.records()[1].rank(), PrizeCategory::Second);
+		}
+
+		#[test]
+		fn verify() {
+			let mut records = sample_records();
+			records.push(Record::new(
+				PrizeCategory::Third,
+				300,
+				Group::last_one_digits(2),
+				Number::last_four_digits(4514),
+			));
+			let report = Report::new(records);
+
+			let ticket = Ticket::new(42, 114514);
+			let outcome = report.verify(&ticket);
+
+			assert_eq!(outcome.records().len(), 2);
+			assert_matches!(outcome.records()[0].rank(), PrizeCategory::First);
+			assert_matches!(outcome.records()[1].rank(), PrizeCategory::Third);
+
+			assert_eq!(outcome.records()[0].payout(), 100);
+			assert_eq!(outcome.records()[1].payout(), 300);
 		}
 	}
 
@@ -111,8 +152,13 @@ mod tests {
 		use super::*;
 		#[test]
 		fn new() {
-			let record = Record::new(1, 100, Group::AllDigits(42), Number::all_digits(114514));
-			assert_eq!(record.rank, 1);
+			let record = Record::new(
+				PrizeCategory::First,
+				100,
+				Group::AllDigits(42),
+				Number::all_digits(114514),
+			);
+			assert_matches!(record.rank(), PrizeCategory::First);
 			assert_eq!(record.payout, 100);
 
 			assert_eq!(record.group, Group::AllDigits(42));
@@ -120,26 +166,71 @@ mod tests {
 		}
 
 		#[test]
+		fn verify() {
+			let record = Record::new(
+				PrizeCategory::First,
+				100,
+				Group::AllDigits(42),
+				Number::all_digits(114514),
+			);
+			let ticket = Ticket::new(42, 114514);
+			let other = Ticket::new(52, 334514);
+
+			assert!(record.verify(&ticket));
+			assert!(!record.verify(&other));
+
+			let record = Record::new(
+				PrizeCategory::First,
+				100,
+				Group::Last1Digits(2),
+				Number::last_four_digits(4514),
+			);
+
+			assert!(record.verify(&ticket));
+			assert!(record.verify(&other));
+		}
+
+		#[test]
 		fn rank() {
-			let record = Record::new(1, 100, Group::AllDigits(42), Number::all_digits(114514));
-			assert_eq!(record.rank(), 1);
+			let record = Record::new(
+				PrizeCategory::First,
+				100,
+				Group::AllDigits(42),
+				Number::all_digits(114514),
+			);
+			assert_matches!(record.rank(), PrizeCategory::First);
 		}
 
 		#[test]
 		fn payout() {
-			let record = Record::new(1, 100, Group::AllDigits(42), Number::all_digits(114514));
+			let record = Record::new(
+				PrizeCategory::First,
+				100,
+				Group::AllDigits(42),
+				Number::all_digits(114514),
+			);
 			assert_eq!(record.payout(), 100);
 		}
 
 		#[test]
 		fn group() {
-			let record = Record::new(1, 100, Group::AllDigits(42), Number::all_digits(114514));
+			let record = Record::new(
+				PrizeCategory::First,
+				100,
+				Group::AllDigits(42),
+				Number::all_digits(114514),
+			);
 			assert_matches!(record.group(), Group::AllDigits(x) if *x==42);
 		}
 
 		#[test]
 		fn number() {
-			let record = Record::new(1, 100, Group::AllDigits(42), Number::all_digits(114514));
+			let record = Record::new(
+				PrizeCategory::First,
+				100,
+				Group::AllDigits(42),
+				Number::all_digits(114514),
+			);
 			assert_matches!(record.number(), Number::AllDigits(x) if *x==114514);
 		}
 	}

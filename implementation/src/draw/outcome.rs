@@ -1,17 +1,29 @@
 use crate::ticket::Ticket;
 
-#[cfg_attr(test, derive(PartialEq, Eq))]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum PrizeCategory {
+	First,
+	FirstAdjacent,       // 1等前後賞
+	FirstDifferentGroup, // 1等組違い賞
+	Second,
+	Third,
+	Fourth,
+	Fifth,
+	Sixth,
+	Seventh,
+}
+
 pub struct Record {
-	rank: u8,
+	rank: PrizeCategory,
 	payout: u64,
 }
 
 impl Record {
-	fn new(rank: u8, payout: u64) -> Self {
+	pub fn new(rank: PrizeCategory, payout: u64) -> Self {
 		Self { rank, payout }
 	}
 
-	pub fn rank(&self) -> u8 {
+	pub fn rank(&self) -> PrizeCategory {
 		self.rank
 	}
 
@@ -23,12 +35,8 @@ impl Record {
 pub struct Outcome(Ticket, Vec<Record>);
 
 impl Outcome {
-	pub fn new(ticket: Ticket) -> Self {
-		Self(ticket, Vec::new())
-	}
-
-	pub(super) fn add_record(&mut self, rank: u8, payout: u64) {
-		self.1.push(Record::new(rank, payout));
+	pub fn new(ticket: Ticket, records: Vec<Record>) -> Self {
+		Self(ticket, records)
 	}
 
 	pub fn records(&self) -> &[Record] {
@@ -55,54 +63,47 @@ mod tests {
 				rng.random_range(100_000..200_000),
 			);
 
-			let outcome = Outcome::new(ticket.clone());
+			let records = vec![
+				Record::new(PrizeCategory::First, 100_000),
+				Record::new(PrizeCategory::Second, 20000),
+			];
+			let outcome = Outcome::new(ticket.clone(), records);
 
 			assert_eq!(outcome.ticket(), ticket);
-			assert_eq!(outcome.1.len(), 0);
+			assert_eq!(outcome.1.len(), 2);
+			let expected = vec![
+				Record::new(PrizeCategory::First, 100_000),
+				Record::new(PrizeCategory::Second, 20000),
+			];
+
+			for i in 0..expected.len() {
+				assert_eq!(outcome.records()[i].payout, expected[i].payout);
+				assert_eq!(outcome.records()[i].rank, expected[i].rank);
+			}
 		}
 
 		#[test]
 		fn records() {
 			let ticket = Ticket::new(1, 100_000);
-			let mut fixture = Outcome::new(ticket);
-
-			fixture.1.push(Record::new(1, 100_000));
-			fixture.1.push(Record::new(2, 20000));
-			fixture.1.push(Record::new(3, 3000));
+			let records = vec![
+				Record::new(PrizeCategory::First, 100_000),
+				Record::new(PrizeCategory::Second, 20000),
+				Record::new(PrizeCategory::Third, 3000),
+			];
+			let fixture = Outcome::new(ticket, records);
 
 			assert_eq!(fixture.records().len(), 3);
 
 			for (act, exp) in fixture.records().iter().zip(
 				vec![
-					Record::new(1, 100_000),
-					Record::new(2, 20000),
-					Record::new(3, 3000),
+					Record::new(PrizeCategory::First, 100_000),
+					Record::new(PrizeCategory::Second, 20000),
+					Record::new(PrizeCategory::Third, 3000),
 				]
 				.iter(),
 			) {
 				assert_eq!(act.rank, exp.rank);
 				assert_eq!(act.payout, exp.payout);
-			}
-		}
-
-		#[test]
-		fn add_record() {
-			let mut fixture = Outcome::new(Ticket::new(1, 100_000));
-			let mut rng = rng();
-
-			let mut expected = Vec::new();
-
-			for r in 1u8..=4 {
-				let payout = rng.random_range(10_000..=1_000_000);
-				let record = Record::new(r, payout);
-				fixture.add_record(r, payout);
-				expected.push(record);
-			}
-
-			assert_eq!(fixture.1.len(), 4);
-
-			for exp in expected.iter() {
-				assert!(fixture.1.contains(exp))
 			}
 		}
 	}
@@ -111,20 +112,20 @@ mod tests {
 		use super::*;
 		#[test]
 		fn new() {
-			let record = Record::new(1, 100);
-			assert_eq!(record.rank, 1);
+			let record = Record::new(PrizeCategory::First, 100);
+			assert_eq!(record.rank, PrizeCategory::First);
 			assert_eq!(record.payout, 100);
 		}
 
 		#[test]
 		fn rank() {
-			let record = Record::new(1, 100);
-			assert_eq!(record.rank(), 1);
+			let record = Record::new(PrizeCategory::First, 100);
+			assert_eq!(record.rank(), PrizeCategory::First);
 		}
 
 		#[test]
 		fn payout() {
-			let record = Record::new(1, 100);
+			let record = Record::new(PrizeCategory::First, 100);
 			assert_eq!(record.payout(), 100);
 		}
 	}

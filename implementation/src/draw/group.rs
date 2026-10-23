@@ -1,6 +1,6 @@
 use crate::Ticket;
 
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 #[cfg_attr(test, derive(PartialEq, Eq))]
 pub enum Group {
 	AllDigits(u8),
