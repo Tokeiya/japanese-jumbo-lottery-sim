@@ -2,6 +2,7 @@ mod group;
 mod number;
 mod outcome;
 mod report;
+pub mod drawing_machine;
 
 pub use group::Group;
 pub use number::Number;

@@ -67,6 +67,7 @@ impl Report {
 mod tests {
 	use super::*;
 	use std::assert_matches;
+	
 
 	mod report {
 		use super::*;
