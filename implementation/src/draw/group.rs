@@ -6,7 +6,7 @@ use crate::Ticket;
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum GroupKind {
 	AllDigits,
-	Last1Digits,
+	LastOneDigits,
 	None,
 }
 
@@ -22,7 +22,7 @@ impl Group {
 		if value > 9 {
 			panic!("Value must be in 0..=9");
 		}
-		Self(GroupKind::Last1Digits, value)
+		Self(GroupKind::LastOneDigits, value)
 	}
 
 	pub fn none() -> Self {
@@ -57,7 +57,7 @@ mod tests {
 	#[test]
 	fn last_one_digits() {
 		let fixture = Group::last_one_digits(5);
-		assert_matches!(fixture.0, GroupKind::Last1Digits);
+		assert_matches!(fixture.0, GroupKind::LastOneDigits);
 		assert_eq!(fixture.1, 5);
 	}
 
@@ -79,7 +79,21 @@ mod tests {
 		let fixture = Group(GroupKind::AllDigits, 42);
 		assert_matches!(fixture.kind(), GroupKind::AllDigits);
 
-		let fixture = Group(GroupKind::Last1Digits, 2);
-		assert_matches!(fixture.kind(), GroupKind::Last1Digits);
+		let fixture = Group(GroupKind::LastOneDigits, 2);
+		assert_matches!(fixture.kind(), GroupKind::LastOneDigits);
+
+		let fixture = Group(GroupKind::None, 0);
+		assert_matches!(fixture.kind(), GroupKind::None);
+	}
+
+	#[test]
+	fn value() {
+		let fixture = Group(GroupKind::AllDigits, 42);
+		assert_matches!(fixture.value(),Some(i) if i==42);
+
+		let fixture = Group(GroupKind::LastOneDigits, 4);
+		assert_matches!(fixture.value(),Some(i) if i==4);
+
+		assert_matches!(Group(GroupKind::None, 0).value(), None);
 	}
 }
