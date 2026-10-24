@@ -3,15 +3,29 @@ use super::number::{self, Number};
 use rand::{Rng, RngExt};
 
 pub fn draw_group_100(rng: &mut impl Rng, group: group::Kind) -> Group {
-	todo!()
+	match group {
+		group::Kind::AllDigits => Group::all_digits(rng.random_range(1..=100u8)),
+		group::Kind::LastOneDigit => Group::last_one_digit(rng.random_range(0..10u8)),
+		group::Kind::None => Group::none(),
+	}
 }
 
 pub fn draw_group_200(rng: &mut impl Rng, group: group::Kind) -> Group {
-	todo!()
+	match group {
+		group::Kind::AllDigits => Group::all_digits(rng.random_range(1..=200u8)),
+		group::Kind::LastOneDigit => Group::last_one_digit(rng.random_range(0..10u8)),
+		group::Kind::None => Group::none(),
+	}
 }
 
 pub fn draw_number(rng: &mut impl Rng, number: number::Kind) -> Number {
-	todo!()
+	match number {
+		number::Kind::AllDigits => Number::all_digits(rng.random_range(100_000u32..200_000)),
+		number::Kind::LastFourDigits => Number::last_four_digits(rng.random_range(0u32..10_000)),
+		number::Kind::LastThreeDigits => Number::last_three_digits(rng.random_range(0..1_000u32)),
+		number::Kind::LastTwoDigits => Number::last_two_digits(rng.random_range(0..100u32)),
+		number::Kind::LastOneDigit => Number::last_one_digit(rng.random_range(0..10u32)),
+	}
 }
 
 #[cfg(test)]
@@ -115,7 +129,7 @@ mod tests {
 
 		for _ in 0..ITERATION {
 			let actual = super::draw_group_100(&mut rng, group::Kind::AllDigits);
-			let expected = rng.random_range(1..100u8);
+			let expected = rng.random_range(1..=100u8);
 
 			assert_matches!(actual.kind(), group::Kind::AllDigits);
 			assert_matches!(actual.value(),Some(x) if x==expected);
@@ -137,10 +151,10 @@ mod tests {
 
 		for _ in 0..ITERATION {
 			let actual = super::draw_group_200(&mut rng, group::Kind::AllDigits);
-			let expected = rng.random_range(1..100u8);
+			let expected = rng.random_range(1..=100u8);
 
 			assert_matches!(actual.kind(), group::Kind::AllDigits);
-			assert_matches!(actual.value(),Some(x) if x==expected);
+			assert_matches!(actual.value(),Some(x) if x==expected,"act:{:?} exp:{expected}",actual.value());
 
 			let actual = super::draw_group_200(&mut rng, group::Kind::LastOneDigit);
 			let expected = rng.random_range(0..10u8);
