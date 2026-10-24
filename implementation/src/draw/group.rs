@@ -96,4 +96,37 @@ mod tests {
 
 		assert_matches!(Group(GroupKind::None, 0).value(), None);
 	}
+
+	#[test]
+	fn verify() {
+		let fixture = Group(GroupKind::AllDigits, 42);
+
+		for i in 1u8..=100 {
+			let ticket = Ticket::new(i, 114514);
+			if i == 42 {
+				assert!(fixture.verify(&ticket));
+			} else {
+				assert!(!fixture.verify(&ticket));
+			}
+		}
+
+		let fixture = Group(GroupKind::LastOneDigits, 1);
+
+		for i in 1u8..=100 {
+			let ticket = Ticket::new(i, 114514);
+			if i % 10 == 1 {
+				assert!(fixture.verify(&ticket));
+			} else {
+				assert!(!fixture.verify(&ticket));
+			}
+		}
+
+		let fixture = Group(GroupKind::None, 0);
+
+		for i in 1u8..=100 {
+			let ticket = Ticket::new(i, 114514);
+
+			assert!(fixture.verify(&ticket));
+		}
+	}
 }
