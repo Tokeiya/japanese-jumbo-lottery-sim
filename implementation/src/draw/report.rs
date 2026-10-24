@@ -1,5 +1,5 @@
 use super::outcome::{Outcome, PrizeCategory};
-use super::{Group, GroupKind, Number, NumberKind, outcome};
+use super::{Group, Number, outcome};
 use crate::Ticket;
 pub struct Record {
 	rank: PrizeCategory,
@@ -139,6 +139,8 @@ mod tests {
 
 	mod record {
 		use super::*;
+		use crate::draw::group::Kind as GroupKind;
+		use crate::draw::number::Kind as NumberKind;
 
 		#[test]
 		fn new() {

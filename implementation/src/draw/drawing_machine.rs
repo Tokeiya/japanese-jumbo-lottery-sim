@@ -1,8 +1,8 @@
-// use super::group::GroupKind;
+// use super::group::Kind;
 // use super::number::Number;
 // use rand::{Rng, RngExt};
 //
-// pub fn draw_group(rng: &mut impl Rng, group: GroupKind)->GroupKind {
+// pub fn draw_group(rng: &mut impl Rng, group: Kind)->Kind {
 // 	todo!()
 // }
 //
@@ -73,10 +73,10 @@
 // 	}
 // 	#[test]
 // 	fn draw_group() {
-// 		let mut g = GroupKind::last_one_digits(10);
-// 		g = GroupKind::all_digits(20);
+// 		let mut g = Kind::last_one_digit(10);
+// 		g = Kind::all_digits(20);
 //
-// 		g = GroupKind::None;
+// 		g = Kind::None;
 //
 // 		todo!()
 // 	}

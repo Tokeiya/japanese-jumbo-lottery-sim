@@ -1,5 +1,5 @@
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum NumberKind {
+pub enum Kind {
 	AllDigits,
 	LastFourDigits,
 	LastThreeDigits,
@@ -7,11 +7,11 @@ pub enum NumberKind {
 	LastOneDigit,
 }
 
-pub struct Number(NumberKind, u32);
+pub struct Number(Kind, u32);
 
 impl Number {
 	pub fn all_digits(value: u32) -> Self {
-		Self(NumberKind::AllDigits, value)
+		Self(Kind::AllDigits, value)
 	}
 
 	pub fn last_four_digits(value: u32) -> Self {
@@ -19,7 +19,7 @@ impl Number {
 		if value >= 10_000 {
 			panic!("Value out of range for last four digits");
 		}
-		Self(NumberKind::LastFourDigits, value)
+		Self(Kind::LastFourDigits, value)
 	}
 
 	pub fn last_three_digits(value: u32) -> Self {
@@ -27,7 +27,7 @@ impl Number {
 		if value >= 1_000 {
 			panic!("Value out of range for last three digits");
 		}
-		Self(NumberKind::LastThreeDigits, value)
+		Self(Kind::LastThreeDigits, value)
 	}
 
 	pub fn last_two_digits(value: u32) -> Self {
@@ -35,7 +35,7 @@ impl Number {
 		if value >= 100 {
 			panic!("Value out of range for last two digits");
 		}
-		Self(NumberKind::LastTwoDigits, value)
+		Self(Kind::LastTwoDigits, value)
 	}
 
 	pub fn last_one_digit(value: u32) -> Self {
@@ -43,16 +43,16 @@ impl Number {
 		if value >= 10 {
 			panic!("Value out of range for last one digit");
 		}
-		Self(NumberKind::LastOneDigit, value)
+		Self(Kind::LastOneDigit, value)
 	}
 
 	pub fn verify(&self, ticket: &crate::Ticket) -> bool {
 		match self.0 {
-			NumberKind::AllDigits => self.1 == ticket.number(),
-			NumberKind::LastFourDigits => self.1 == ticket.number() % 10_000,
-			NumberKind::LastThreeDigits => self.1 == ticket.number() % 1_000,
-			NumberKind::LastTwoDigits => self.1 == ticket.number() % 100,
-			NumberKind::LastOneDigit => self.1 == ticket.number() % 10,
+			Kind::AllDigits => self.1 == ticket.number(),
+			Kind::LastFourDigits => self.1 == ticket.number() % 10_000,
+			Kind::LastThreeDigits => self.1 == ticket.number() % 1_000,
+			Kind::LastTwoDigits => self.1 == ticket.number() % 100,
+			Kind::LastOneDigit => self.1 == ticket.number() % 10,
 		}
 	}
 
@@ -60,7 +60,7 @@ impl Number {
 		self.1
 	}
 
-	pub fn kind(&self) -> NumberKind {
+	pub fn kind(&self) -> Kind {
 		self.0
 	}
 }
@@ -96,7 +96,7 @@ mod tests {
 			assert!(!fixture.verify(&Ticket::new(grp, exp.wrapping_add(1))));
 
 			assert_eq!(fixture.value(), exp);
-			assert_eq!(fixture.kind(), NumberKind::AllDigits);
+			assert_eq!(fixture.kind(), Kind::AllDigits);
 		}
 	}
 
@@ -112,7 +112,7 @@ mod tests {
 			assert!(!fixture.verify(&Ticket::new(1, exp.wrapping_sub(1))));
 
 			assert_eq!(fixture.value(), exp);
-			assert_eq!(fixture.kind(), NumberKind::LastFourDigits);
+			assert_eq!(fixture.kind(), Kind::LastFourDigits);
 		}
 	}
 
@@ -134,7 +134,7 @@ mod tests {
 			assert!(!fixture.verify(&Ticket::new(1, exp.wrapping_sub(1))));
 
 			assert_eq!(fixture.value(), exp);
-			assert_eq!(fixture.kind(), NumberKind::LastThreeDigits);
+			assert_eq!(fixture.kind(), Kind::LastThreeDigits);
 		}
 	}
 
@@ -155,7 +155,7 @@ mod tests {
 			assert!(fixture.verify(&Ticket::new(1, act)));
 			assert!(!fixture.verify(&Ticket::new(1, exp.wrapping_sub(1))));
 			assert_eq!(fixture.value(), exp);
-			assert_eq!(fixture.kind(), NumberKind::LastTwoDigits);
+			assert_eq!(fixture.kind(), Kind::LastTwoDigits);
 		}
 	}
 
@@ -177,7 +177,7 @@ mod tests {
 			assert!(!fixture.verify(&Ticket::new(1, exp.wrapping_sub(1))));
 
 			assert_eq!(fixture.value(), exp);
-			assert_eq!(fixture.kind(), NumberKind::LastOneDigit);
+			assert_eq!(fixture.kind(), Kind::LastOneDigit);
 		}
 	}
 
