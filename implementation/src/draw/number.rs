@@ -1,16 +1,17 @@
-#[derive(Debug, Clone)]
-#[cfg_attr(test, derive(PartialEq, Eq))]
-pub enum Number {
-	AllDigits(u32),
-	Last4Digits(u16),
-	Last3Digits(u16),
-	Last2Digits(u8),
-	Last1Digit(u8),
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum NumberKind {
+	AllDigits,
+	LastFourDigits,
+	LastThreeDigits,
+	LastTwoDigits,
+	LastOneDigits,
 }
+
+pub struct Number(NumberKind, u32);
 
 impl Number {
 	pub fn all_digits(value: u32) -> Self {
-		Self::AllDigits(value)
+		Self(NumberKind::AllDigits, value)
 	}
 
 	pub fn last_four_digits(value: u32) -> Self {
@@ -18,7 +19,7 @@ impl Number {
 		if value >= 10_000 {
 			panic!("Value out of range for last four digits");
 		}
-		Self::Last4Digits(value as u16)
+		Self(NumberKind::LastFourDigits, value)
 	}
 
 	pub fn last_three_digits(value: u32) -> Self {
@@ -26,7 +27,7 @@ impl Number {
 		if value >= 1_000 {
 			panic!("Value out of range for last three digits");
 		}
-		Self::Last3Digits(value as u16)
+		Self(NumberKind::LastThreeDigits, value)
 	}
 
 	pub fn last_two_digits(value: u32) -> Self {
@@ -34,7 +35,7 @@ impl Number {
 		if value >= 100 {
 			panic!("Value out of range for last two digits");
 		}
-		Self::Last2Digits(value as u8)
+		Self(NumberKind::LastTwoDigits, value)
 	}
 
 	pub fn last_one_digit(value: u32) -> Self {
@@ -42,16 +43,16 @@ impl Number {
 		if value >= 10 {
 			panic!("Value out of range for last one digit");
 		}
-		Self::Last1Digit(value as u8)
+		Self(NumberKind::LastOneDigits, value)
 	}
 
 	pub fn verify(&self, ticket: &crate::Ticket) -> bool {
-		match self {
-			Self::AllDigits(value) => *value == ticket.number(),
-			Self::Last4Digits(value) => *value as u32 == ticket.number() % 10_000,
-			Self::Last3Digits(value) => *value as u32 == ticket.number() % 1_000,
-			Self::Last2Digits(value) => *value as u32 == ticket.number() % 100,
-			Self::Last1Digit(value) => *value as u32 == ticket.number() % 10,
+		match self.0 {
+			NumberKind::AllDigits => self.1 == ticket.number(),
+			NumberKind::LastFourDigits => self.1 == ticket.number() % 10_000,
+			NumberKind::LastThreeDigits => self.1 == ticket.number() % 1_000,
+			NumberKind::LastTwoDigits => self.1 == ticket.number() % 100,
+			NumberKind::LastOneDigits => self.1 == ticket.number() % 10,
 		}
 	}
 }
