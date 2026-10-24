@@ -1,5 +1,5 @@
+use rand::Rng;
 use rand::distr::uniform::{Error, SampleRange};
-use rand::{Rng, RngExt};
 pub struct GroupRange100;
 
 impl SampleRange<u8> for GroupRange100 {

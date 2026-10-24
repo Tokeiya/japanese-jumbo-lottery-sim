@@ -71,7 +71,7 @@ mod tests {
 
 			assert_eq!(outcome.ticket(), ticket);
 			assert_eq!(outcome.1.len(), 2);
-			let expected = vec![
+			let expected = [
 				Record::new(PrizeCategory::First, 100_000),
 				Record::new(PrizeCategory::Second, 20000),
 			];
@@ -95,7 +95,7 @@ mod tests {
 			assert_eq!(fixture.records().len(), 3);
 
 			for (act, exp) in fixture.records().iter().zip(
-				vec![
+				[
 					Record::new(PrizeCategory::First, 100_000),
 					Record::new(PrizeCategory::Second, 20000),
 					Record::new(PrizeCategory::Third, 3000),
