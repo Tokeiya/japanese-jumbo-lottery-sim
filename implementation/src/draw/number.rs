@@ -4,7 +4,7 @@ pub enum NumberKind {
 	LastFourDigits,
 	LastThreeDigits,
 	LastTwoDigits,
-	LastOneDigits,
+	LastOneDigit,
 }
 
 pub struct Number(NumberKind, u32);
@@ -43,7 +43,7 @@ impl Number {
 		if value >= 10 {
 			panic!("Value out of range for last one digit");
 		}
-		Self(NumberKind::LastOneDigits, value)
+		Self(NumberKind::LastOneDigit, value)
 	}
 
 	pub fn verify(&self, ticket: &crate::Ticket) -> bool {
@@ -52,8 +52,16 @@ impl Number {
 			NumberKind::LastFourDigits => self.1 == ticket.number() % 10_000,
 			NumberKind::LastThreeDigits => self.1 == ticket.number() % 1_000,
 			NumberKind::LastTwoDigits => self.1 == ticket.number() % 100,
-			NumberKind::LastOneDigits => self.1 == ticket.number() % 10,
+			NumberKind::LastOneDigit => self.1 == ticket.number() % 10,
 		}
+	}
+
+	pub fn value(&self) -> u32 {
+		self.1
+	}
+
+	pub fn kind(&self) -> NumberKind {
+		self.0
 	}
 }
 
@@ -86,6 +94,9 @@ mod tests {
 			let ticket = Ticket::new(grp, exp);
 			assert!(fixture.verify(&ticket));
 			assert!(!fixture.verify(&Ticket::new(grp, exp.wrapping_add(1))));
+
+			assert_eq!(fixture.value(), exp);
+			assert_eq!(fixture.kind(), NumberKind::AllDigits);
 		}
 	}
 
@@ -99,6 +110,9 @@ mod tests {
 			let act = rng.random_range(0u32..10u32) * 10_000 + exp;
 			assert!(fixture.verify(&Ticket::new(1, act)));
 			assert!(!fixture.verify(&Ticket::new(1, exp.wrapping_sub(1))));
+
+			assert_eq!(fixture.value(), exp);
+			assert_eq!(fixture.kind(), NumberKind::LastFourDigits);
 		}
 	}
 
@@ -118,6 +132,9 @@ mod tests {
 			let act = rng.random_range(0u32..100u32) * 1_000 + exp;
 			assert!(fixture.verify(&Ticket::new(1, act)));
 			assert!(!fixture.verify(&Ticket::new(1, exp.wrapping_sub(1))));
+
+			assert_eq!(fixture.value(), exp);
+			assert_eq!(fixture.kind(), NumberKind::LastThreeDigits);
 		}
 	}
 
@@ -137,6 +154,8 @@ mod tests {
 			let act = rng.random_range(0u32..1_000u32) * 100 + exp;
 			assert!(fixture.verify(&Ticket::new(1, act)));
 			assert!(!fixture.verify(&Ticket::new(1, exp.wrapping_sub(1))));
+			assert_eq!(fixture.value(), exp);
+			assert_eq!(fixture.kind(), NumberKind::LastTwoDigits);
 		}
 	}
 
@@ -156,6 +175,9 @@ mod tests {
 			let act = rng.random_range(0u32..10_000u32) * 10 + exp;
 			assert!(fixture.verify(&Ticket::new(1, act)));
 			assert!(!fixture.verify(&Ticket::new(1, exp.wrapping_sub(1))));
+
+			assert_eq!(fixture.value(), exp);
+			assert_eq!(fixture.kind(), NumberKind::LastOneDigit);
 		}
 	}
 
