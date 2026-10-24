@@ -14,7 +14,7 @@ impl Group {
 		Self(GroupKind::AllDigits, value)
 	}
 
-	pub fn last_one_digits(value: u8) -> Self {
+	pub fn last_one_digit(value: u8) -> Self {
 		//Probably panic if value is not in 0..=9
 		if value > 9 {
 			panic!("Value must be in 0..=9");
@@ -61,7 +61,7 @@ mod tests {
 
 	#[test]
 	fn last_one_digits() {
-		let fixture = Group::last_one_digits(5);
+		let fixture = Group::last_one_digit(5);
 		assert_matches!(fixture.0, GroupKind::LastOneDigit);
 		assert_eq!(fixture.1, 5);
 	}
@@ -69,7 +69,7 @@ mod tests {
 	#[should_panic]
 	#[test]
 	fn invalid_last_one_digits() {
-		_ = Group::last_one_digits(10);
+		_ = Group::last_one_digit(10);
 	}
 
 	#[test]
