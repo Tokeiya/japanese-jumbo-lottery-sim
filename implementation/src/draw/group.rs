@@ -3,7 +3,7 @@
 
 use crate::Ticket;
 
-#[derive(Debug, Clone, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum GroupKind {
 	AllDigits,
 	LastOneDigits,
@@ -30,15 +30,23 @@ impl Group {
 	}
 
 	pub fn verify(&self, ticket: &Ticket) -> bool {
-		todo!()
+		match self.0 {
+			GroupKind::AllDigits => ticket.group() == self.1,
+			GroupKind::LastOneDigits => ticket.group() % 10 == self.1,
+			GroupKind::None => true,
+		}
 	}
 
 	pub fn kind(&self) -> GroupKind {
-		todo!()
+		self.0
 	}
 
 	pub fn value(&self) -> Option<u8> {
-		todo!()
+		match self.0 {
+			GroupKind::AllDigits => Some(self.1),
+			GroupKind::LastOneDigits => Some(self.1),
+			GroupKind::None => None,
+		}
 	}
 }
 
