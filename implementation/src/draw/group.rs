@@ -3,19 +3,18 @@
 
 use crate::Ticket;
 
-#[derive(Debug, Clone)]
-#[cfg_attr(test, derive(PartialEq, Eq))]
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub enum GroupKind {
-	AllDigits(u8),
-	Last1Digits(u8),
+	AllDigits,
+	Last1Digits,
 	None,
 }
 
-pub struct Group(GroupKind);
+pub struct Group(GroupKind, u8);
 
 impl Group {
 	pub fn all_digits(value: u8) -> Self {
-		Self(GroupKind::AllDigits(value))
+		Self(GroupKind::AllDigits, value)
 	}
 
 	pub fn last_one_digits(value: u8) -> Self {
@@ -23,17 +22,64 @@ impl Group {
 		if value > 9 {
 			panic!("Value must be in 0..=9");
 		}
-		Self(GroupKind::Last1Digits(value))
+		Self(GroupKind::Last1Digits, value)
+	}
+
+	pub fn none() -> Self {
+		Self(GroupKind::None, 0)
 	}
 
 	pub fn verify(&self, ticket: &Ticket) -> bool {
+		todo!()
+	}
+
+	pub fn kind(&self) -> GroupKind {
+		todo!()
+	}
+
+	pub fn value(&self) -> Option<u8> {
 		todo!()
 	}
 }
 
 #[cfg(test)]
 mod tests {
-
 	use super::*;
 	use std::assert_matches;
+
+	#[test]
+	fn all_digits() {
+		let fixture = Group::all_digits(42);
+		assert_matches!(fixture.0, GroupKind::AllDigits);
+		assert_eq!(fixture.1, 42);
+	}
+
+	#[test]
+	fn last_one_digits() {
+		let fixture = Group::last_one_digits(5);
+		assert_matches!(fixture.0, GroupKind::Last1Digits);
+		assert_eq!(fixture.1, 5);
+	}
+
+	#[should_panic]
+	#[test]
+	fn invalid_last_one_digits() {
+		_ = Group::last_one_digits(10);
+	}
+
+	#[test]
+	fn none() {
+		let fixture = Group::none();
+		assert_matches!(fixture.0, GroupKind::None);
+		assert_eq!(fixture.1, 0);
+	}
+
+	#[test]
+	fn kind() {
+		let fixture = Group(GroupKind::AllDigits, 42);
+		assert_matches!(fixture.kind(), GroupKind::AllDigits);
+
+		let fixture = Group(GroupKind::Last1Digits, 2);
+		assert_matches!(fixture.kind(), GroupKind::Last1Digits);
+	}
 }

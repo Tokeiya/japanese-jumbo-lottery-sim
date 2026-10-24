@@ -2,11 +2,11 @@
 // use super::number::Number;
 // use rand::{Rng, RngExt};
 //
-// pub fn draw_group(rng: &mut impl Rng, group: &mut GroupKind) {
+// pub fn draw_group(rng: &mut impl Rng, group: GroupKind)->GroupKind {
 // 	todo!()
 // }
 //
-// pub fn draw_number(rng: &mut impl Rng, number: &mut Number) {
+// pub fn draw_number(rng: &mut impl Rng, number: Number) -> Number {
 // 	todo!()
 // }
 //
