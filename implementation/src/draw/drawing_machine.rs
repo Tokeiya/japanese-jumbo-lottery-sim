@@ -151,7 +151,7 @@ mod tests {
 
 		for _ in 0..ITERATION {
 			let actual = super::draw_group_200(&mut rng, group::Kind::AllDigits);
-			let expected = rng.random_range(1..=100u8);
+			let expected = rng.random_range(1..=200u8);
 
 			assert_matches!(actual.kind(), group::Kind::AllDigits);
 			assert_matches!(actual.value(),Some(x) if x==expected,"act:{:?} exp:{expected}",actual.value());
