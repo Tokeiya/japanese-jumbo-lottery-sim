@@ -3,6 +3,7 @@ pub mod group;
 pub mod number;
 pub mod outcome;
 pub mod report;
+pub mod range;
 
 pub use group::Group;
 pub use number::Number;

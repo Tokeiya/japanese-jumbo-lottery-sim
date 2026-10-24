@@ -1,3 +1,4 @@
+pub mod counter;
 pub mod draw;
 mod lottery;
 mod ticket;
