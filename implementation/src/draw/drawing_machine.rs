@@ -2,22 +2,12 @@ use super::group::Group;
 use super::number::Number;
 use rand::{Rng, RngExt};
 
-pub struct DrawingMachine<R: Rng>(R);
-
-impl<R: Rng> From<R> for DrawingMachine<R> {
-	fn from(rng: R) -> Self {
-		Self(rng)
-	}
+pub fn draw_group(rng: &mut impl Rng, group: &mut Group) {
+	todo!()
 }
 
-impl<R: Rng> DrawingMachine<R> {
-	pub fn draw_group(&mut self, group: &mut Group) {
-		todo!()
-	}
-
-	pub fn draw_number(&mut self, number: &mut Number) {
-		todo!()
-	}
+pub fn draw_number(rng: &mut impl Rng, number: &mut Number) {
+	todo!()
 }
 
 #[cfg(test)]
@@ -42,62 +32,47 @@ mod tests {
 		}
 	}
 
-	#[test]
-	fn from() {
+	fn generate(repeat: usize) -> MockRng {
 		let mut mock = MockRng::new();
-		let mut seq = mockall::Sequence::new();
+		let mut cnt = repeat;
+		let mut rng = rand::rng();
+		let mut register = 0;
 
-		let tmp = mock.expect_try_next_u32();
-		tmp.in_sequence(&mut seq).return_const(Ok(42)).times(1);
-		tmp.in_sequence(&mut seq).return_const(Ok(114514)).times(1);
-		tmp.in_sequence(&mut seq).return_const(Ok(810)).times(1);
+		mock.expect_try_next_u32().returning_st(move || {
+			cnt += 1;
 
-		let mut fixture = DrawingMachine::from(mock);
+			if cnt < repeat {
+				Ok(register)
+			} else {
+				cnt = 0;
+				register = rng.next_u32();
+				Ok(register)
+			}
+		});
 
-		assert_eq!(fixture.0.next_u32(), 42);
-		assert_eq!(fixture.0.next_u32(), 114514);
-		assert_eq!(fixture.0.next_u32(), 810);
+		mock
 	}
 
+	#[test]
+	fn mock() {
+		let mut fixture = generate(2);
+
+		let mut recent = 0;
+
+		for i in 0..10 {
+			if i % 2 == 0 {
+				recent = fixture.next_u32();
+			} else {
+				assert_eq!(fixture.next_u32(), recent)
+			}
+		}
+	}
 	#[test]
 	fn draw_number() {
-		todo!();
+		todo!()
 	}
-
 	#[test]
 	fn draw_group() {
-		let mut mock = MockRng::new();
-
-		mock.expect_try_next_u32()
-			.return_const(Ok(rand::rng().next_u32()));
-
-		let expected1 = mock.random_range(0..10u8);
-		let expected2 = mock.random_range(1..=100u8);
-
-		let mut fixture = DrawingMachine::from(mock);
-
-		let mut act = Group::last_one_digits(0);
-
-		fixture.draw_group(&mut act);
-
-		if let Group::Last1Digits(x) = act {
-			assert_eq!(x, expected1);
-		} else {
-			unreachable!()
-		}
-
-		let mut act = Group::all_digits(0);
-
-		fixture.draw_group(&mut act);
-
-		if let Group::AllDigits(x) = act {
-			assert_eq!(x, expected2);
-		} else {
-			unreachable!()
-		}
-
-		let mut act = Group::None;
-
-		fixture.draw_group(&mut act);
+		todo!()
 	}
 }
