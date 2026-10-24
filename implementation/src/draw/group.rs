@@ -1,6 +1,3 @@
-#![expect(unused, reason = "Under construction")]
-#![expect(dead_code, reason = "under construction")]
-
 use crate::Ticket;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
