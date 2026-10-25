@@ -27,23 +27,6 @@ fn decode(scr: u32) -> (u8, u32) {
 pub struct Ticket(u32);
 
 impl Ticket {
-	pub fn try_from_rng(
-		group_range: impl SampleRange<u8>,
-		number_range: impl SampleRange<u32>,
-		rng: &mut impl Rng,
-	) -> Result<Self> {
-		if group_range.is_empty() {
-			Err(Error::InvalidGroupRange)
-		} else if number_range.is_empty() {
-			Err(Error::InvalidNumberRange)
-		} else {
-			Ok(Self::new(
-				rng.random_range(group_range),
-				rng.random_range(number_range),
-			))
-		}
-	}
-
 	pub fn new(group: u8, number: u32) -> Self {
 		Self(encode(group, number))
 	}
@@ -88,49 +71,6 @@ mod tests {
 		let group = (scr >> 24) as u8;
 		let number = scr & 0x00_FF_FF_FF;
 		(group, number)
-	}
-
-	#[test]
-	fn try_from_rng() {
-		let mut act = Xoshiro256PlusPlus::from_rng(&mut rand::rng());
-		let mut exp = act.clone();
-
-		for _ in 0..10000 {
-			let fixture = Ticket::try_from_rng(1u8..=100, 1u32..=10_000, &mut act).unwrap();
-			let grp = exp.random_range(1u8..=100);
-			let num = exp.random_range(1u32..=10_000);
-			assert_eq!(decode(fixture.0), (grp, num));
-		}
-	}
-
-	#[test]
-	fn invalid_try_from_rng() {
-		let mut mock = MockRng::new();
-		assert_matches!(
-			Ticket::try_from_rng(0..0, 0..100, &mut mock),
-			Err(Error::InvalidGroupRange)
-		);
-
-		#[expect(
-			clippy::reversed_empty_ranges,
-			reason = "This is a test for invalid ranges, so the reversed range is intentional."
-		)]
-		let fixture = Ticket::try_from_rng(100..0, 0..100, &mut mock);
-
-		assert_matches!(fixture, Err(Error::InvalidGroupRange));
-
-		assert_matches!(
-			Ticket::try_from_rng(1..100, 0..0, &mut mock),
-			Err(Error::InvalidNumberRange)
-		);
-
-		#[expect(
-			clippy::reversed_empty_ranges,
-			reason = "This is a test for invalid ranges, so the reversed range is intentional."
-		)]
-		let fixture = Ticket::try_from_rng(1..100, 1000..100, &mut mock);
-
-		assert_matches!(fixture, Err(Error::InvalidNumberRange));
 	}
 
 	#[test]
