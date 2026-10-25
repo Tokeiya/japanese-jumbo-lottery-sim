@@ -42,7 +42,7 @@ impl Iterator for Rack {
 		} else {
 			if !self.flg {
 				self.flg = true;
-				self.range = (NUM_BEGIN..self.begin);
+				self.range = NUM_BEGIN..self.begin;
 
 				match self.range.next() {
 					Some(i) => {

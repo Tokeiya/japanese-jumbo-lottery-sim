@@ -1,5 +1,3 @@
-use rand::Rng;
-
 const NUMBER_MASK: u32 = 0x00_ff_ff_ff;
 const GROUP_OFFSET: usize = 24;
 
@@ -38,8 +36,8 @@ mod tests {
 	use core::convert::Infallible;
 	use mockall::mock;
 	use rand::SeedableRng;
-	use rand::TryRng;
 	use rand::rngs::Xoshiro256PlusPlus;
+	use rand::{Rng, TryRng};
 	use std::hash::{DefaultHasher, Hash, Hasher};
 
 	mock! {
