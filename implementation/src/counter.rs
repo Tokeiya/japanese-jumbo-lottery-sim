@@ -1,2 +1,1 @@
-mod seq_set;
-pub mod seq_shelf;
+pub mod rack;
