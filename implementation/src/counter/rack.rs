@@ -30,6 +30,10 @@ impl Rack {
 			cnt: 0,
 		}
 	}
+
+	pub fn group(&self) -> u8 {
+		self.group
+	}
 }
 
 impl Iterator for Rack {
@@ -67,9 +71,20 @@ impl ExactSizeIterator for Rack {
 impl FusedIterator for Rack {}
 
 #[cfg(test)]
+pub mod test_helper {
+	use super::*;
+
+	impl Rack {
+		pub fn begin(&self) -> u32 {
+			self.begin
+		}
+	}
+}
+
+#[cfg(test)]
 mod tests {
 	use super::*;
-	use std::collections::HashSet;
+
 	use std::panic::catch_unwind;
 	#[test]
 	fn new() {
@@ -132,5 +147,11 @@ mod tests {
 	fn iteration_test() {
 		iteration_impl(42, 100_000);
 		iteration_impl(45, 110_000);
+	}
+
+	#[test]
+	fn group() {
+		let fixture = Rack::new(42, 100_000);
+		assert_eq!(fixture.group(), 42);
 	}
 }

@@ -1,6 +1,4 @@
-use std::assert_matches;
 use std::ops::Range;
-use std::ops::RangeBounds;
 
 const NUM_THRESHOLD: u32 = 200_000;
 const CNT_THRESHOLD: usize = 100_000;
@@ -33,7 +31,7 @@ impl Iterator for Rack {
 		} else {
 			if !self.flg {
 				self.flg = true;
-				self.range = (100_000..self.begin);
+				self.range = 100_000..self.begin;
 
 				match self.range.next() {
 					Some(i) => {
@@ -58,8 +56,8 @@ impl ExactSizeIterator for Rack {
 impl std::iter::FusedIterator for Rack {}
 
 fn main() {
-	let mut rng = (100_000..NUM_THRESHOLD);
-	let mut recent = 0u32;
+	let mut rng = 100_000..NUM_THRESHOLD;
+	let _recent = 0u32;
 	let mut cnt = 0usize;
 
 	while let Some(i) = rng.next() {
