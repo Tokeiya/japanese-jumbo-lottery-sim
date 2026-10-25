@@ -1,20 +1,12 @@
-use rand::{Rng, RngExt, distr::uniform::SampleRange};
-use thiserror::Error as ThisError;
-
-#[derive(ThisError, Debug)]
-pub enum Error {
-	#[error("Invalid group range")]
-	InvalidGroupRange,
-	#[error("Invalid number range")]
-	InvalidNumberRange,
-}
-
-pub type Result<T> = std::result::Result<T, Error>;
+use rand::Rng;
 
 const NUMBER_MASK: u32 = 0x00_ff_ff_ff;
 const GROUP_OFFSET: usize = 24;
 
 fn encode(group: u8, number: u32) -> u32 {
+	if number >= 200_000 {
+		panic!("Invalid number range")
+	}
 	(group as u32) << GROUP_OFFSET | (number & NUMBER_MASK)
 }
 
@@ -48,7 +40,6 @@ mod tests {
 	use rand::SeedableRng;
 	use rand::TryRng;
 	use rand::rngs::Xoshiro256PlusPlus;
-	use std::assert_matches;
 	use std::hash::{DefaultHasher, Hash, Hasher};
 
 	mock! {
@@ -67,11 +58,11 @@ mod tests {
 		(group as u32) << 24 | (number & 0x00_FF_FF_FF)
 	}
 
-	fn decode(scr: u32) -> (u8, u32) {
-		let group = (scr >> 24) as u8;
-		let number = scr & 0x00_FF_FF_FF;
-		(group, number)
-	}
+	// fn decode(scr: u32) -> (u8, u32) {
+	// 	let group = (scr >> 24) as u8;
+	// 	let number = scr & 0x00_FF_FF_FF;
+	// 	(group, number)
+	// }
 
 	#[test]
 	fn new() {
@@ -82,6 +73,12 @@ mod tests {
 				assert_eq!(fixture.0, exp);
 			}
 		}
+	}
+
+	#[test]
+	#[should_panic]
+	fn invalid_number() {
+		_ = Ticket::new(1, 200_000);
 	}
 
 	#[test]

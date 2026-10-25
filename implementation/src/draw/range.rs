@@ -38,7 +38,6 @@ impl SampleRange<u32> for NumberRange {
 #[cfg(test)]
 mod tests {
 	use super::*;
-	use rand::rng;
 
 	const ITERATION: usize = 1_000_000;
 
