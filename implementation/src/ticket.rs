@@ -1,5 +1,8 @@
 const NUMBER_MASK: u32 = 0x00_ff_ff_ff;
-const GROUP_OFFSET: usize = 24;
+const GROUP_MASK: u32 = 0x00_FE_00_00;
+
+const GROUP_OFFSET: usize = 17;
+const UNIT_OFFSET: usize = 25;
 
 fn encode(group: u8, number: u32) -> u32 {
 	if number >= 200_000 {
