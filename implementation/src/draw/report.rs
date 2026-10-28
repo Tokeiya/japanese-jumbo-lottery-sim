@@ -125,7 +125,7 @@ mod tests {
 			));
 			let report = Report::new(records);
 
-			let ticket = Ticket::new(42, 114514);
+			let ticket = Ticket::new(10, 42, 114514);
 			let outcome = report.verify(&ticket);
 
 			assert_eq!(outcome.records().len(), 2);
@@ -168,8 +168,8 @@ mod tests {
 				Group::all_digits(42),
 				Number::all_digits(114514),
 			);
-			let ticket = Ticket::new(42, 114514);
-			let other = Ticket::new(52, 334514);
+			let ticket = Ticket::new(10, 42, 114514);
+			let other = Ticket::new(10, 52, 334514);
 
 			assert!(record.verify(&ticket));
 			assert!(!record.verify(&other));

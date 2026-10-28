@@ -107,7 +107,7 @@ mod tests {
 		let fixture = Group(Kind::AllDigits, 42);
 
 		for i in 1u8..=100 {
-			let ticket = Ticket::new(i, 114514);
+			let ticket = Ticket::new(10, i, 114514);
 			if i == 42 {
 				assert!(fixture.verify(&ticket));
 			} else {
@@ -118,7 +118,7 @@ mod tests {
 		let fixture = Group(Kind::LastOneDigit, 1);
 
 		for i in 1u8..=100 {
-			let ticket = Ticket::new(i, 114514);
+			let ticket = Ticket::new(10, i, 114514);
 			if i % 10 == 1 {
 				assert!(fixture.verify(&ticket));
 			} else {
@@ -129,7 +129,7 @@ mod tests {
 		let fixture = Group(Kind::None, 0);
 
 		for i in 1u8..=100 {
-			let ticket = Ticket::new(i, 114514);
+			let ticket = Ticket::new(10, i, 114514);
 
 			assert!(fixture.verify(&ticket));
 		}

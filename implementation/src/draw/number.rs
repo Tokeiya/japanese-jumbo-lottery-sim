@@ -91,9 +91,9 @@ mod tests {
 			(0..200).map(|_| (rng.random_range(NumberRange), rng.random_range(1u8..=100)))
 		{
 			let fixture = Number::all_digits(exp);
-			let ticket = Ticket::new(grp, exp);
+			let ticket = Ticket::new(10, grp, exp);
 			assert!(fixture.verify(&ticket));
-			assert!(!fixture.verify(&Ticket::new(grp, exp.wrapping_add(1))));
+			assert!(!fixture.verify(&Ticket::new(10, grp, exp.wrapping_add(1))));
 
 			assert_eq!(fixture.value(), exp);
 			assert_eq!(fixture.kind(), Kind::AllDigits);
@@ -108,8 +108,8 @@ mod tests {
 			let exp = rng.random_range(0u32..10_000);
 			let fixture = Number::last_four_digits(exp);
 			let act = rng.random_range(0u32..10u32) * 10_000 + exp;
-			assert!(fixture.verify(&Ticket::new(1, act)));
-			assert!(!fixture.verify(&Ticket::new(1, exp.wrapping_sub(1))));
+			assert!(fixture.verify(&Ticket::new(10, 1, act)));
+			assert!(!fixture.verify(&Ticket::new(10, 1, exp.wrapping_sub(1))));
 
 			assert_eq!(fixture.value(), exp);
 			assert_eq!(fixture.kind(), Kind::LastFourDigits);
@@ -130,8 +130,8 @@ mod tests {
 			let exp = rng.random_range(0u32..1_000);
 			let fixture = Number::last_three_digits(exp);
 			let act = rng.random_range(0u32..100u32) * 1_000 + exp;
-			assert!(fixture.verify(&Ticket::new(1, act)));
-			assert!(!fixture.verify(&Ticket::new(1, exp.wrapping_sub(1))));
+			assert!(fixture.verify(&Ticket::new(10, 1, act)));
+			assert!(!fixture.verify(&Ticket::new(10, 1, exp.wrapping_sub(1))));
 
 			assert_eq!(fixture.value(), exp);
 			assert_eq!(fixture.kind(), Kind::LastThreeDigits);
@@ -152,8 +152,8 @@ mod tests {
 			let exp = rng.random_range(0u32..100);
 			let fixture = Number::last_two_digits(exp);
 			let act = rng.random_range(0u32..1_000u32) * 100 + exp;
-			assert!(fixture.verify(&Ticket::new(1, act)));
-			assert!(!fixture.verify(&Ticket::new(1, exp.wrapping_sub(1))));
+			assert!(fixture.verify(&Ticket::new(1, 1, act)));
+			assert!(!fixture.verify(&Ticket::new(10, 1, exp.wrapping_sub(1))));
 			assert_eq!(fixture.value(), exp);
 			assert_eq!(fixture.kind(), Kind::LastTwoDigits);
 		}
@@ -173,8 +173,8 @@ mod tests {
 			let exp = rng.random_range(0u32..10);
 			let fixture = Number::last_one_digit(exp);
 			let act = rng.random_range(0u32..10_000u32) * 10 + exp;
-			assert!(fixture.verify(&Ticket::new(1, act)));
-			assert!(!fixture.verify(&Ticket::new(1, exp.wrapping_sub(1))));
+			assert!(fixture.verify(&Ticket::new(10, 1, act)));
+			assert!(!fixture.verify(&Ticket::new(10, 1, exp.wrapping_sub(1))));
 
 			assert_eq!(fixture.value(), exp);
 			assert_eq!(fixture.kind(), Kind::LastOneDigit);

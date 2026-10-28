@@ -48,9 +48,6 @@ impl IndexMut<usize> for Shelf {
 #[cfg(test)]
 mod tests {
 	use super::*;
-	use rand::Rng;
-	use rand::distr::uniform::{Error, SampleRange};
-	use std::cell::Cell;
 	use std::collections::HashSet;
 
 	#[test]
@@ -69,9 +66,6 @@ mod tests {
 	fn build_with_rand() {
 		let mut rng = rand::rng();
 		let mut set: HashSet<u32, _> = HashSet::new();
-
 		let fixture = Shelf::build_with_rand(1..=100, &mut rng);
-
-		todo()
 	}
 }

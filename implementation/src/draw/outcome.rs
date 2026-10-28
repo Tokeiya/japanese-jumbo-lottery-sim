@@ -59,6 +59,7 @@ mod tests {
 		fn new() {
 			let mut rng = rng();
 			let ticket = Ticket::new(
+				10,
 				rng.random_range(0u8..100),
 				rng.random_range(100_000..200_000),
 			);
@@ -84,7 +85,7 @@ mod tests {
 
 		#[test]
 		fn records() {
-			let ticket = Ticket::new(1, 100_000);
+			let ticket = Ticket::new(10, 1, 100_000);
 			let records = vec![
 				Record::new(PrizeCategory::First, 100_000),
 				Record::new(PrizeCategory::Second, 20000),

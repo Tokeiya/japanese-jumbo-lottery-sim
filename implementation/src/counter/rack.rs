@@ -42,7 +42,7 @@ impl Iterator for Rack {
 	fn next(&mut self) -> Option<Self::Item> {
 		if let Some(i) = self.range.next() {
 			self.cnt += 1;
-			Some(Ticket::new(self.group, i))
+			Some(Ticket::new(10, self.group, i))
 		} else {
 			if !self.flg {
 				self.flg = true;
@@ -51,7 +51,7 @@ impl Iterator for Rack {
 				match self.range.next() {
 					Some(i) => {
 						self.cnt += 1;
-						Some(Ticket::new(self.group, i))
+						Some(Ticket::new(10, self.group, i))
 					}
 					None => None,
 				}
@@ -112,7 +112,7 @@ mod tests {
 		assert_eq!(fixture.len(), COUNT);
 
 		let tmp = fixture.next().unwrap();
-		assert_eq!(tmp, Ticket::new(group, begin));
+		assert_eq!(tmp, Ticket::new(10, group, begin));
 		assert_eq!(fixture.len(), COUNT - 1);
 
 		let mut recent = tmp.number();

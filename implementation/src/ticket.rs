@@ -30,8 +30,9 @@ fn encode(unit: u8, group: u8, number: u32) -> u32 {
 
 fn decode(scr: u32) -> Datum {
 	let unit = (scr >> UNIT_OFFSET) as u8;
-	let group = ((scr >> GROUP_OFFSET) & GROUP_MASK) as u8;
+	let group = ((scr & GROUP_MASK) >> GROUP_OFFSET) as u8;
 	let number = scr & NUMBER_MASK;
+
 	Datum {
 		unit,
 		group,
@@ -112,6 +113,7 @@ mod tests {
 
 	#[test]
 	fn group() {
+		println!("DATUM: {:0x}", DATUM);
 		let fixture = Ticket(DATUM);
 		assert_eq!(fixture.group(), GROUP);
 	}

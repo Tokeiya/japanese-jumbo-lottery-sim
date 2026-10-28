@@ -14,6 +14,10 @@ fn main() {
 	data |= (GROUP as u32) << GROUP_OFFSET;
 	data |= NUMBER;
 
+	let hoge = ((UNIT as u32) << 26) | (GROUP as u32) << GROUP_OFFSET | NUMBER;
+
+	assert_eq!(hoge, data);
+
 	println!("0x{data:x}:{data}");
 
 	println!("NUM:{}", data & NUMBER_MASK);
