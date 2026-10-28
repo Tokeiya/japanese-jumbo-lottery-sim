@@ -1,35 +1,60 @@
-const NUMBER_MASK: u32 = 0x00_ff_ff_ff;
-const GROUP_MASK: u32 = 0x00_FE_00_00;
+const NUMBER_MASK: u32 = 0x00_03_FF_FF;
+const GROUP_MASK: u32 = 0x03_FC_00_00;
 
-const GROUP_OFFSET: usize = 17;
-const UNIT_OFFSET: usize = 25;
+const GROUP_OFFSET: usize = 18;
+const UNIT_OFFSET: usize = 26;
+const UNIT_THRESHOLD: u8 = 64;
 
-fn encode(group: u8, number: u32) -> u32 {
+struct Datum {
+	pub unit: u8,
+	pub group: u8,
+	pub number: u32,
+}
+
+fn encode(unit: u8, group: u8, number: u32) -> u32 {
+	if unit >= 64 {
+		panic!("Invalid unit range")
+	}
+
 	if number >= 200_000 {
 		panic!("Invalid number range")
 	}
-	(group as u32) << GROUP_OFFSET | (number & NUMBER_MASK)
+	let mut tmp = unit as u32;
+	tmp >>= UNIT_OFFSET;
+	tmp |= group as u32;
+	tmp >>= GROUP_OFFSET;
+	tmp |= number;
+
+	tmp
 }
 
-fn decode(scr: u32) -> (u8, u32) {
-	let group = (scr >> GROUP_OFFSET) as u8;
+fn decode(scr: u32) -> Datum {
+	let unit = (scr >> UNIT_OFFSET) as u8;
+	let group = ((scr >> GROUP_OFFSET) & GROUP_MASK) as u8;
 	let number = scr & NUMBER_MASK;
-	(group, number)
+	Datum {
+		unit,
+		group,
+		number,
+	}
 }
 #[derive(Debug, Hash, PartialEq, Eq, Clone)]
 pub struct Ticket(u32);
 
 impl Ticket {
-	pub fn new(group: u8, number: u32) -> Self {
-		Self(encode(group, number))
+	pub fn new(unit: u8, group: u8, number: u32) -> Self {
+		Self(encode(unit, group, number))
 	}
 
+	pub fn unit(&self) -> u8 {
+		decode(self.0).unit
+	}
 	pub fn group(&self) -> u8 {
-		decode(self.0).0
+		decode(self.0).group
 	}
 
 	pub fn number(&self) -> u32 {
-		decode(self.0).1
+		decode(self.0).number
 	}
 }
 
@@ -43,6 +68,11 @@ mod tests {
 	use rand::{Rng, TryRng};
 	use std::hash::{DefaultHasher, Hash, Hasher};
 
+	const UNIT: u8 = 60;
+	const GROUP: u8 = 152;
+	const NUMBER: u32 = 195_436;
+	const DATUM: u32 = (UNIT as u32) << UNIT_OFFSET | (GROUP as u32) << GROUP_OFFSET | NUMBER;
+
 	mock! {
 		pub Rng {}
 
@@ -55,44 +85,40 @@ mod tests {
 		}
 	}
 
-	fn encode(group: u8, number: u32) -> u32 {
-		(group as u32) << 24 | (number & 0x00_FF_FF_FF)
-	}
-
-	// fn decode(scr: u32) -> (u8, u32) {
-	// 	let group = (scr >> 24) as u8;
-	// 	let number = scr & 0x00_FF_FF_FF;
-	// 	(group, number)
-	// }
-
 	#[test]
 	fn new() {
-		for g in 1u8..10 {
-			for n in 1u32..100 {
-				let fixture = Ticket::new(g, n);
-				let exp = encode(g, n);
-				assert_eq!(fixture.0, exp);
-			}
-		}
+		let fixture = Ticket(DATUM);
+		assert_eq!(fixture.0, DATUM);
 	}
 
 	#[test]
 	#[should_panic]
 	fn invalid_number() {
-		_ = Ticket::new(1, 200_000);
+		_ = Ticket::new(10, 1, 200_000);
+	}
+
+	#[test]
+	#[should_panic]
+	fn invalid_unit() {
+		_ = Ticket::new(65, 1, 100_000);
 	}
 
 	#[test]
 	fn number() {
-		let fixture = Ticket(encode(19, 114514));
+		let fixture = Ticket(DATUM);
 
-		assert_eq!(fixture.number(), 114514);
+		assert_eq!(fixture.number(), NUMBER);
 	}
 
 	#[test]
 	fn group() {
-		let fixture = Ticket(encode(19, 114514));
-		assert_eq!(fixture.group(), 19);
+		let fixture = Ticket(DATUM);
+		assert_eq!(fixture.group(), GROUP);
+	}
+
+	#[test]
+	fn unit() {
+		assert_eq!(Ticket(DATUM).unit(), UNIT)
 	}
 
 	#[test]
@@ -134,7 +160,7 @@ mod tests {
 
 	#[test]
 	fn clone() {
-		let fixture = Ticket::new(42, 114514);
+		let fixture = Ticket(DATUM);
 		let mut cloned = fixture.clone();
 
 		assert_eq!(fixture.0, cloned.0);
