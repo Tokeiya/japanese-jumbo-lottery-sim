@@ -1,3 +1,5 @@
+use std::fmt::Debug;
+
 const NUMBER_MASK: u32 = 0x00_03_FF_FF;
 const GROUP_MASK: u32 = 0x03_FC_00_00;
 
@@ -39,7 +41,7 @@ fn decode(scr: u32) -> Datum {
 		number,
 	}
 }
-#[derive(Debug, Hash, PartialEq, Eq, Clone)]
+#[derive(Hash, PartialEq, Eq, Clone)]
 pub struct Ticket(u32);
 
 impl Ticket {
@@ -53,9 +55,19 @@ impl Ticket {
 	pub fn group(&self) -> u8 {
 		decode(self.0).group
 	}
-
 	pub fn number(&self) -> u32 {
 		decode(self.0).number
+	}
+}
+
+impl Debug for Ticket {
+	fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+		let datum = decode(self.0);
+		f.debug_struct("Ticket")
+			.field("unit", &datum.unit)
+			.field("group", &datum.group)
+			.field("number", &datum.number)
+			.finish()
 	}
 }
 

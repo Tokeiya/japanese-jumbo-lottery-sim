@@ -1,6 +1,3 @@
-#![expect(unused_variables, reason = "Under construction")]
-#![expect(unfulfilled_lint_expectations, reason = "Under construction")]
-
 use crate::Ticket;
 use std::iter::{ExactSizeIterator, FusedIterator, Iterator};
 use std::ops::Range;
@@ -9,6 +6,7 @@ pub const NUM_END: u32 = 200_000;
 pub const COUNT: usize = 100_000;
 
 pub struct Rack {
+	unit: u8,
 	group: u8,
 	begin: u32,
 	flg: bool,
@@ -17,12 +15,13 @@ pub struct Rack {
 }
 
 impl Rack {
-	pub fn new(group: u8, begin: u32) -> Self {
+	pub fn new(unit: u8, group: u8, begin: u32) -> Self {
 		if !(NUM_BEGIN..NUM_END).contains(&begin) {
 			panic!("Invalid begin value");
 		}
 
 		Self {
+			unit,
 			group,
 			begin,
 			flg: false,
@@ -33,6 +32,10 @@ impl Rack {
 
 	pub fn group(&self) -> u8 {
 		self.group
+	}
+
+	pub fn unit(&self) -> u8 {
+		self.unit
 	}
 }
 
@@ -88,27 +91,28 @@ mod tests {
 	use std::panic::catch_unwind;
 	#[test]
 	fn new() {
-		let fixture = Rack::new(100, 100_100);
+		let fixture = Rack::new(40, 100, 100_100);
 		assert_eq!(fixture.group, 100);
 		assert_eq!(fixture.begin, 100_100);
 		assert!(!fixture.flg);
 		assert_eq!(fixture.cnt, 0);
+		assert_eq!(fixture.unit, 40);
 	}
 
 	#[test]
 	#[should_panic]
 	fn invalid_bottom_new() {
-		_ = Rack::new(42, 99_999);
+		_ = Rack::new(10, 42, 99_999);
 	}
 
 	#[test]
 	#[should_panic]
 	fn invalid_ceil_new() {
-		_ = Rack::new(41, NUM_END);
+		_ = Rack::new(10, 41, NUM_END);
 	}
 
 	fn iteration_impl(group: u8, begin: u32) {
-		let mut fixture = Rack::new(group, begin);
+		let mut fixture = Rack::new(10, group, begin);
 		assert_eq!(fixture.len(), COUNT);
 
 		let tmp = fixture.next().unwrap();
@@ -127,7 +131,7 @@ mod tests {
 				recent = 100_000;
 			} else {
 				let ans = catch_unwind(|| t.number() - recent);
-
+				assert!(ans.is_ok());
 				assert_eq!(
 					t.number() - recent,
 					1,
@@ -151,7 +155,21 @@ mod tests {
 
 	#[test]
 	fn group() {
-		let fixture = Rack::new(42, 100_000);
+		let fixture = Rack::new(10, 42, 100_000);
 		assert_eq!(fixture.group(), 42);
+	}
+
+	#[test]
+	fn unit() {
+		let fixture = Rack {
+			unit: 10,
+			group: 100,
+			begin: 150_000,
+			flg: false,
+			range: (0..100),
+			cnt: 0,
+		};
+
+		assert_eq!(fixture.unit(), 10);
 	}
 }
