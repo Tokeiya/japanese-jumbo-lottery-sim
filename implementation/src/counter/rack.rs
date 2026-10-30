@@ -1,3 +1,6 @@
+#![expect(unused_variables, reason = "Under construction")]
+#![expect(unfulfilled_lint_expectations, reason = "Under construction")]
+
 use crate::Ticket;
 use std::iter::{ExactSizeIterator, FusedIterator, Iterator};
 use std::ops::Range;
@@ -39,7 +42,13 @@ impl Rack {
 	}
 
 	pub fn trim(&mut self, list: &mut Vec<Ticket>) -> usize {
-		todo!()
+		let rem = (COUNT - self.cnt) % 10;
+
+		for _ in 0..rem {
+			list.push(self.next().unwrap());
+		}
+
+		rem
 	}
 }
 
@@ -179,6 +188,25 @@ mod tests {
 
 	#[test]
 	fn trim() {
-		let mut fixture = Rack::new(42, 19, 100_000);
+		for i in 0usize..10 {
+			let mut fixture = Rack::new(10, 42, 100_000);
+			let mut vec = Vec::new();
+
+			(0..i).for_each(|_| {
+				_ = fixture.next();
+			});
+
+			if i == 0 {
+				fixture.trim(&mut vec);
+				assert_eq!(vec.len(), 0);
+			} else {
+				fixture.trim(&mut vec);
+				assert_eq!(vec.len(), 10 - i);
+
+				vec.iter().enumerate().for_each(|(idx, tkt)| {
+					assert_eq!(tkt.number(), 100_000 + (i + idx) as u32);
+				})
+			}
+		}
 	}
 }
