@@ -18,14 +18,14 @@ fn encode(unit: u8, group: u8, number: u32) -> u32 {
 		panic!("Invalid unit range")
 	}
 
-	if number >= 200_000 {
+	if !(100_000..200_000).contains(&number) {
 		panic!("Invalid number range")
 	}
 
 	let mut tmp = unit as u32;
-	tmp >>= UNIT_OFFSET;
-	tmp |= group as u32;
-	tmp >>= GROUP_OFFSET;
+	tmp <<= UNIT_OFFSET;
+	tmp |= (group as u32) << GROUP_OFFSET;
+	//tmp <<= GROUP_OFFSET;
 	tmp |= number;
 
 	tmp
@@ -107,8 +107,14 @@ mod tests {
 
 	#[test]
 	#[should_panic]
-	fn invalid_number() {
+	fn invalid_greater_number() {
 		_ = Ticket::new(10, 1, 200_000);
+	}
+
+	#[test]
+	#[should_panic]
+	fn invalid_less_number() {
+		_ = Ticket::new(10, 1, 99_999)
 	}
 
 	#[test]
@@ -181,5 +187,14 @@ mod tests {
 		assert_eq!(fixture.0, cloned.0);
 		cloned.0 = 1_145_141_919;
 		assert_ne!(fixture.0, cloned.0);
+	}
+
+	#[test]
+	fn total() {
+		let fixture = Ticket::new(13, 200, 100_500);
+
+		assert_eq!(fixture.unit(), 13);
+		assert_eq!(fixture.group(), 200);
+		assert_eq!(fixture.number(), 100_500);
 	}
 }
