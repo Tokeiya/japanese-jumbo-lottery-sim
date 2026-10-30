@@ -37,6 +37,10 @@ impl Rack {
 	pub fn unit(&self) -> u8 {
 		self.unit
 	}
+
+	pub fn trim(&mut self, list: &mut Vec<Ticket>) -> usize {
+		todo!()
+	}
 }
 
 impl Iterator for Rack {
@@ -171,5 +175,10 @@ mod tests {
 		};
 
 		assert_eq!(fixture.unit(), 10);
+	}
+
+	#[test]
+	fn trim() {
+		let mut fixture = Rack::new(42, 19, 100_000);
 	}
 }
