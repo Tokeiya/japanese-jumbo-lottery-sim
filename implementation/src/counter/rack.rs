@@ -1,5 +1,5 @@
-#![expect(unused_variables, reason = "Under construction")]
-#![expect(unfulfilled_lint_expectations, reason = "Under construction")]
+// #![expect(unused_variables, reason = "Under construction")]
+// #![expect(unfulfilled_lint_expectations, reason = "Under construction")]
 
 use crate::Ticket;
 use std::iter::{ExactSizeIterator, FusedIterator, Iterator};

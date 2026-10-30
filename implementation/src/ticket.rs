@@ -14,13 +14,14 @@ struct Datum {
 }
 
 fn encode(unit: u8, group: u8, number: u32) -> u32 {
-	if unit >= 64 {
+	if unit >= UNIT_THRESHOLD {
 		panic!("Invalid unit range")
 	}
 
 	if number >= 200_000 {
 		panic!("Invalid number range")
 	}
+
 	let mut tmp = unit as u32;
 	tmp >>= UNIT_OFFSET;
 	tmp |= group as u32;

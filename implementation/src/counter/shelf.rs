@@ -9,9 +9,9 @@ pub struct Shelf {
 	racks: Vec<Rack>,
 }
 
-fn todo<T>() -> T {
-	todo!()
-}
+// fn todo<T>() -> T {
+// 	todo!()
+// }
 impl Shelf {
 	pub fn build(unit: u8, range: impl RangeBounds<u8> + Iterator<Item = u8>) -> Self {
 		let mut vec = Vec::new();
