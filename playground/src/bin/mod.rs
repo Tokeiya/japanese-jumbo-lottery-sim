@@ -1,3 +1,1 @@
-fn main() {
-	let int = 108;
-}
+fn main() {}

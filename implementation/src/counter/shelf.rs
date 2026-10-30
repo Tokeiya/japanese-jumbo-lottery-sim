@@ -1,5 +1,4 @@
 use super::rack::Rack;
-use crate::Ticket;
 use rand::RngExt;
 use std::ops::{Index, IndexMut, RangeBounds};
 
@@ -66,6 +65,7 @@ impl IndexMut<usize> for Shelf {
 #[cfg(test)]
 mod tests {
 	use super::*;
+	use crate::Ticket;
 	use std::collections::HashSet;
 
 	const GROUP_SIZE: usize = 100;

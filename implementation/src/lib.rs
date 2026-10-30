@@ -1,6 +1,5 @@
 pub mod counter;
 pub mod draw;
-pub mod iter;
 mod lottery;
 mod ticket;
 
