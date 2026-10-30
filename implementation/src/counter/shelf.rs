@@ -47,11 +47,6 @@ impl Shelf {
 	) -> impl ExactSizeIterator<Item = &mut Rack> + std::iter::FusedIterator {
 		self.racks.iter_mut()
 	}
-	pub fn trim(&mut self) -> Vec<Ticket> {
-		//let mut vec=Vec::new();
-
-		todo!()
-	}
 }
 
 impl Index<usize> for Shelf {
@@ -172,24 +167,6 @@ mod tests {
 			assert_eq!(ticket.number(), exp_num);
 
 			exp_num += 1_000;
-		}
-	}
-
-	#[test]
-	fn trim() {
-		let mut fixture = generate();
-		let mut rng = rand::rng();
-
-		for r in fixture.iter_mut() {
-			println!("{}", r.group());
-			for _ in 0..rng.random_range(0..10usize) {
-				let ticket = r.next().unwrap();
-				println!("{ticket:?}")
-			}
-		}
-
-		for r in fixture.iter() {
-			println!("{}", r.begin());
 		}
 	}
 }
