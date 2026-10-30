@@ -2,8 +2,6 @@ use super::rack::Rack;
 use rand::RngExt;
 use std::ops::{Index, IndexMut, RangeBounds};
 
-const NUMBER_BEGIN: u32 = 100_000;
-
 pub struct Shelf {
 	racks: Vec<Rack>,
 }
@@ -16,7 +14,7 @@ impl Shelf {
 		let mut vec = Vec::new();
 
 		for grp in range {
-			vec.push(Rack::new(unit, grp, NUMBER_BEGIN))
+			vec.push(Rack::new(unit, grp, super::NUM_BEGIN))
 		}
 
 		Self { racks: vec }
@@ -30,7 +28,7 @@ impl Shelf {
 		let mut vec = Vec::new();
 
 		for grp in range {
-			let begin = rnd.random_range(10_000..20_000) * 10;
+			let begin = rnd.random_range(super::NUM_BEGIN / 10..super::NUM_END / 10) * 10;
 			vec.push(Rack::new(unit, grp, begin));
 		}
 

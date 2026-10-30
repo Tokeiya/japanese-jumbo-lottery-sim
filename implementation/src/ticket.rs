@@ -15,11 +15,11 @@ struct Datum {
 
 fn encode(unit: u8, group: u8, number: u32) -> u32 {
 	if unit >= UNIT_THRESHOLD {
-		panic!("Invalid unit range")
+		panic!("{unit} is out of unit range")
 	}
 
 	if !(100_000..200_000).contains(&number) {
-		panic!("Invalid number range")
+		panic!("{number} is out of number range")
 	}
 
 	let mut tmp = unit as u32;
@@ -178,6 +178,9 @@ mod tests {
 			assert_eq!(l_h.finish(), r_h.finish());
 		}
 	}
+
+	#[test]
+	fn hoge() {}
 
 	#[test]
 	fn clone() {
