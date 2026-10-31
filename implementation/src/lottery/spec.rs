@@ -1,28 +1,22 @@
+use crate::PrizeCategory;
 use crate::draw::group::Kind as GroupKind;
 use crate::draw::number::Kind as NumberKind;
 use rust_decimal::Decimal;
-#[derive(Debug, Eq, PartialEq, Copy, Clone)]
-pub enum Kind {
-	First,
-	Adjacent,
-	GroupMismatch,
-	Second,
-	Third,
-	Forth,
-	Fifth,
-	Sixth,
-	Seventh,
-}
 
 pub struct Record {
-	kind: Kind,
+	kind: PrizeCategory,
 	number_kind: NumberKind,
 	group_kind: GroupKind,
 	prize: Decimal,
 }
 
 impl Record {
-	pub fn new(kind: Kind, number_kind: NumberKind, group_kind: GroupKind, prize: Decimal) -> Self {
+	pub fn new(
+		kind: PrizeCategory,
+		number_kind: NumberKind,
+		group_kind: GroupKind,
+		prize: Decimal,
+	) -> Self {
 		Self {
 			kind,
 			number_kind,
@@ -43,7 +37,7 @@ impl Record {
 		self.prize
 	}
 
-	pub fn kind(&self) -> Kind {
+	pub fn kind(&self) -> PrizeCategory {
 		self.kind
 	}
 }
@@ -85,13 +79,13 @@ mod tests {
 		fn new() {
 			let v = vec![
 				Record::new(
-					Kind::First,
+					PrizeCategory::First,
 					NumberKind::AllDigits,
 					GroupKind::AllDigits,
 					500.into(),
 				),
 				Record::new(
-					Kind::Adjacent,
+					PrizeCategory::FirstAdjacent,
 					NumberKind::AllDigits,
 					GroupKind::AllDigits,
 					5000.into(),
@@ -106,7 +100,7 @@ mod tests {
 			assert(
 				&fixture.prize[0],
 				&Record::new(
-					Kind::First,
+					PrizeCategory::First,
 					NumberKind::AllDigits,
 					GroupKind::AllDigits,
 					500.into(),
@@ -116,7 +110,7 @@ mod tests {
 			assert(
 				&fixture.prize[1],
 				&Record::new(
-					Kind::Adjacent,
+					PrizeCategory::FirstAdjacent,
 					NumberKind::AllDigits,
 					GroupKind::AllDigits,
 					5000.into(),
@@ -135,7 +129,7 @@ mod tests {
 			let fixture = Spec::new(
 				"Name".into(),
 				vec![Record::new(
-					Kind::First,
+					PrizeCategory::First,
 					NumberKind::AllDigits,
 					GroupKind::AllDigits,
 					500.into(),
@@ -150,7 +144,7 @@ mod tests {
 
 		fn generate() -> Record {
 			Record {
-				kind: Kind::Fifth,
+				kind: PrizeCategory::Fifth,
 				number_kind: NumberKind::AllDigits,
 				group_kind: GroupKind::None,
 				prize: 200.into(),
@@ -159,13 +153,13 @@ mod tests {
 		#[test]
 		fn new() {
 			let fixture = Record::new(
-				Kind::Fifth,
+				PrizeCategory::Fifth,
 				NumberKind::AllDigits,
 				GroupKind::None,
 				100.into(),
 			);
 
-			assert_eq!(fixture.kind, Kind::Fifth);
+			assert_eq!(fixture.kind, PrizeCategory::Fifth);
 			assert_eq!(fixture.number_kind, NumberKind::AllDigits);
 			assert_eq!(fixture.group_kind, GroupKind::None);
 			assert_eq!(fixture.prize, 100.into());
