@@ -11,3 +11,4 @@ mockall = "*"
 [dependencies]
 rand = "*"
 thiserror = "*"
+rust_decimal = "*"
