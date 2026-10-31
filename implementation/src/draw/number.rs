@@ -109,8 +109,13 @@ mod tests {
 			let fixture = Number::last_four_digits(exp);
 			let act = rng.random_range(0u32..10u32) * 10_000 + exp + 100_000;
 			assert!(fixture.verify(&Ticket::new(10, 1, act)));
+
+			let act = rng.random_range(0u32..10u32) * 10_000
+				+ if exp == 0 { 1 } else { exp.wrapping_sub(1) }
+				+ 100_000;
+
 			assert!(
-				!fixture.verify(&Ticket::new(10, 1, exp.wrapping_sub(1))),
+				!fixture.verify(&Ticket::new(10, 1, act)),
 				"exp:{exp} act:{act}"
 			);
 
@@ -132,10 +137,14 @@ mod tests {
 		for _ in 0..200 {
 			let exp = rng.random_range(0u32..1_000);
 			let fixture = Number::last_three_digits(exp);
-			let act = rng.random_range(0u32..100u32) * 1_000 + exp;
-			println!("{act}");
+			let act = rng.random_range(0u32..100u32) * 1_000 + exp + 100_000;
 			assert!(fixture.verify(&Ticket::new(10, 1, act)));
-			assert!(!fixture.verify(&Ticket::new(10, 1, exp.wrapping_sub(1))));
+
+			let act = rng.random_range(0u32..100u32) * 1_000
+				+ if exp == 0 { 1 } else { exp - 1 }
+				+ 100_000;
+
+			assert!(!fixture.verify(&Ticket::new(10, 1, act)));
 
 			assert_eq!(fixture.value(), exp);
 			assert_eq!(fixture.kind(), Kind::LastThreeDigits);
@@ -155,9 +164,13 @@ mod tests {
 		for _ in 0..200 {
 			let exp = rng.random_range(0u32..100);
 			let fixture = Number::last_two_digits(exp);
-			let act = rng.random_range(0u32..1_000u32) * 100 + exp;
+			let act = rng.random_range(0u32..1_000u32) * 100 + exp + 100_000;
 			assert!(fixture.verify(&Ticket::new(1, 1, act)));
-			//assert!(!fixture.verify(&Ticket::new(10, 1, exp.wrapping_sub(1))));
+
+			let act = rng.random_range(0u32..1_000u32) * 100
+				+ if exp == 0 { 1 } else { exp.wrapping_sub(1) }
+				+ 100_000;
+			assert!(!fixture.verify(&Ticket::new(10, 1, act)));
 			assert_eq!(fixture.value(), exp);
 			assert_eq!(fixture.kind(), Kind::LastTwoDigits);
 		}
@@ -176,13 +189,14 @@ mod tests {
 		for _ in 0..200 {
 			let exp = rng.random_range(0u32..10);
 			let fixture = Number::last_one_digit(exp);
-			let act = rng.random_range(0u32..10_000u32) * 10 + exp;
+			let act = rng.random_range(0u32..10_000u32) * 10 + exp + 100_000;
 			assert!(fixture.verify(&Ticket::new(10, 1, act)));
 
-			let mut tmp = exp.wrapping_sub(1);
-			tmp = if tmp > 200_000 { 100_000 } else { tmp };
+			let act = rng.random_range(0u32..10_000u32) * 10
+				+ if exp == 0 { 1 } else { exp - 1 }
+				+ 100_000;
 
-			assert!(!fixture.verify(&Ticket::new(10, 1, tmp)));
+			assert!(!fixture.verify(&Ticket::new(10, 1, act)));
 
 			assert_eq!(fixture.value(), exp);
 			assert_eq!(fixture.kind(), Kind::LastOneDigit);
