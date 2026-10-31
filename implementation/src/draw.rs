@@ -1,3 +1,4 @@
+pub mod discriminator;
 pub mod drawing_machine;
 pub mod group;
 pub mod number;
