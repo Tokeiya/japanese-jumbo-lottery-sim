@@ -1,15 +1,16 @@
 use super::outcome::{Outcome, PrizeCategory};
 use super::{Group, Number, outcome};
 use crate::Ticket;
+use rust_decimal::Decimal;
 pub struct Record {
 	rank: PrizeCategory,
-	payout: u64,
+	payout: Decimal,
 	group: Group,
 	number: Number,
 }
 
 impl Record {
-	pub fn new(rank: PrizeCategory, payout: u64, group: Group, number: Number) -> Self {
+	pub fn new(rank: PrizeCategory, payout: Decimal, group: Group, number: Number) -> Self {
 		Self {
 			rank,
 			payout,
@@ -22,7 +23,7 @@ impl Record {
 		self.rank
 	}
 
-	pub fn payout(&self) -> u64 {
+	pub fn payout(&self) -> Decimal {
 		self.payout
 	}
 
@@ -76,13 +77,13 @@ mod tests {
 			vec![
 				Record::new(
 					PrizeCategory::First,
-					100,
+					100.into(),
 					Group::all_digits(42),
 					Number::all_digits(114514),
 				),
 				Record::new(
 					PrizeCategory::Second,
-					200,
+					200.into(),
 					Group::last_one_digit(4),
 					Number::last_four_digits(4515),
 				),
@@ -119,7 +120,7 @@ mod tests {
 			let mut records = sample_records();
 			records.push(Record::new(
 				PrizeCategory::Third,
-				300,
+				300.into(),
 				Group::last_one_digit(2),
 				Number::last_four_digits(4514),
 			));
@@ -132,8 +133,8 @@ mod tests {
 			assert_matches!(outcome.records()[0].rank(), PrizeCategory::First);
 			assert_matches!(outcome.records()[1].rank(), PrizeCategory::Third);
 
-			assert_eq!(outcome.records()[0].payout(), 100);
-			assert_eq!(outcome.records()[1].payout(), 300);
+			assert_eq!(outcome.records()[0].payout(), 100.into());
+			assert_eq!(outcome.records()[1].payout(), 300.into());
 		}
 	}
 
@@ -146,12 +147,12 @@ mod tests {
 		fn new() {
 			let record = Record::new(
 				PrizeCategory::First,
-				100,
+				100.into(),
 				Group::all_digits(42),
 				Number::all_digits(114514),
 			);
 			assert_matches!(record.rank(), PrizeCategory::First);
-			assert_eq!(record.payout, 100);
+			assert_eq!(record.payout, 100.into());
 
 			assert_eq!(record.group.value(), Some(42));
 			assert_matches!(record.group.kind(), GroupKind::AllDigits);
@@ -164,7 +165,7 @@ mod tests {
 		fn verify() {
 			let record = Record::new(
 				PrizeCategory::First,
-				100,
+				100.into(),
 				Group::all_digits(42),
 				Number::all_digits(114514),
 			);
@@ -176,7 +177,7 @@ mod tests {
 
 			let record = Record::new(
 				PrizeCategory::First,
-				100,
+				100.into(),
 				Group::last_one_digit(2),
 				Number::last_four_digits(4514),
 			);
@@ -189,7 +190,7 @@ mod tests {
 		fn rank() {
 			let record = Record::new(
 				PrizeCategory::First,
-				100,
+				100.into(),
 				Group::all_digits(42),
 				Number::all_digits(114514),
 			);
@@ -200,18 +201,18 @@ mod tests {
 		fn payout() {
 			let record = Record::new(
 				PrizeCategory::First,
-				100,
+				100.into(),
 				Group::all_digits(42),
 				Number::all_digits(114514),
 			);
-			assert_eq!(record.payout(), 100);
+			assert_eq!(record.payout(), 100.into());
 		}
 
 		#[test]
 		fn group() {
 			let record = Record::new(
 				PrizeCategory::First,
-				100,
+				100.into(),
 				Group::all_digits(42),
 				Number::all_digits(114514),
 			);
@@ -224,7 +225,7 @@ mod tests {
 		fn number() {
 			let record = Record::new(
 				PrizeCategory::First,
-				100,
+				100.into(),
 				Group::all_digits(42),
 				Number::all_digits(114514),
 			);

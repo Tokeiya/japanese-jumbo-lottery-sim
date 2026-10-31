@@ -1,5 +1,5 @@
 use crate::ticket::Ticket;
-
+use rust_decimal::Decimal;
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum PrizeCategory {
 	First,
@@ -15,11 +15,11 @@ pub enum PrizeCategory {
 
 pub struct Record {
 	rank: PrizeCategory,
-	payout: u64,
+	payout: Decimal,
 }
 
 impl Record {
-	pub fn new(rank: PrizeCategory, payout: u64) -> Self {
+	pub fn new(rank: PrizeCategory, payout: Decimal) -> Self {
 		Self { rank, payout }
 	}
 
@@ -27,7 +27,7 @@ impl Record {
 		self.rank
 	}
 
-	pub fn payout(&self) -> u64 {
+	pub fn payout(&self) -> Decimal {
 		self.payout
 	}
 }
@@ -65,16 +65,16 @@ mod tests {
 			);
 
 			let records = vec![
-				Record::new(PrizeCategory::First, 100_000),
-				Record::new(PrizeCategory::Second, 20000),
+				Record::new(PrizeCategory::First, 100_000.into()),
+				Record::new(PrizeCategory::Second, 20000.into()),
 			];
 			let outcome = Outcome::new(ticket.clone(), records);
 
 			assert_eq!(outcome.ticket(), ticket);
 			assert_eq!(outcome.1.len(), 2);
 			let expected = [
-				Record::new(PrizeCategory::First, 100_000),
-				Record::new(PrizeCategory::Second, 20000),
+				Record::new(PrizeCategory::First, 100_000.into()),
+				Record::new(PrizeCategory::Second, 20000.into()),
 			];
 
 			for i in 0..expected.len() {
@@ -87,9 +87,9 @@ mod tests {
 		fn records() {
 			let ticket = Ticket::new(10, 1, 100_000);
 			let records = vec![
-				Record::new(PrizeCategory::First, 100_000),
-				Record::new(PrizeCategory::Second, 20000),
-				Record::new(PrizeCategory::Third, 3000),
+				Record::new(PrizeCategory::First, 100_000.into()),
+				Record::new(PrizeCategory::Second, 20000.into()),
+				Record::new(PrizeCategory::Third, 3000.into()),
 			];
 			let fixture = Outcome::new(ticket, records);
 
@@ -97,9 +97,9 @@ mod tests {
 
 			for (act, exp) in fixture.records().iter().zip(
 				[
-					Record::new(PrizeCategory::First, 100_000),
-					Record::new(PrizeCategory::Second, 20000),
-					Record::new(PrizeCategory::Third, 3000),
+					Record::new(PrizeCategory::First, 100_000.into()),
+					Record::new(PrizeCategory::Second, 20000.into()),
+					Record::new(PrizeCategory::Third, 3000.into()),
 				]
 				.iter(),
 			) {
@@ -113,21 +113,21 @@ mod tests {
 		use super::*;
 		#[test]
 		fn new() {
-			let record = Record::new(PrizeCategory::First, 100);
+			let record = Record::new(PrizeCategory::First, 100.into());
 			assert_eq!(record.rank, PrizeCategory::First);
-			assert_eq!(record.payout, 100);
+			assert_eq!(record.payout, 100.into());
 		}
 
 		#[test]
 		fn rank() {
-			let record = Record::new(PrizeCategory::First, 100);
+			let record = Record::new(PrizeCategory::First, 100.into());
 			assert_eq!(record.rank(), PrizeCategory::First);
 		}
 
 		#[test]
 		fn payout() {
-			let record = Record::new(PrizeCategory::First, 100);
-			assert_eq!(record.payout(), 100);
+			let record = Record::new(PrizeCategory::First, 100.into());
+			assert_eq!(record.payout(), 100.into());
 		}
 	}
 }
