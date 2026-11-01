@@ -1,7 +1,8 @@
-use super::outcome::{Outcome, PrizeCategory};
-use super::{Group, Number, outcome};
-use crate::Ticket;
+use super::{Group, Number};
+use crate::ticket::Payout;
+use crate::{PrizeCategory, Ticket};
 use rust_decimal::Decimal;
+
 pub struct Record {
 	rank: PrizeCategory,
 	payout: Decimal,
@@ -47,16 +48,16 @@ impl Report {
 		Self(records)
 	}
 
-	pub fn verify(&self, ticket: &crate::Ticket) -> Outcome {
-		let mut records: Vec<outcome::Record> = Vec::new();
+	pub fn verify(&self, ticket: &crate::Ticket) -> Payout {
+		let mut records: Vec<crate::ticket::Record> = Vec::new();
 
 		for prize in self.0.iter() {
 			if prize.verify(ticket) {
-				records.push(outcome::Record::new(prize.rank.clone(), prize.payout));
+				records.push(crate::ticket::Record::new(prize.rank.clone(), prize.payout));
 			}
 		}
 
-		Outcome::new(ticket.clone(), records)
+		Payout::new(ticket.clone(), records)
 	}
 
 	pub fn records(&self) -> &[Record] {

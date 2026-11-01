@@ -32,9 +32,9 @@ impl Record {
 	}
 }
 
-pub struct Outcome(Ticket, Vec<Record>);
+pub struct Payout(Ticket, Vec<Record>);
 
-impl Outcome {
+impl Payout {
 	pub fn new(ticket: Ticket, records: Vec<Record>) -> Self {
 		Self(ticket, records)
 	}
@@ -52,7 +52,7 @@ mod tests {
 	use super::*;
 	use rand::{RngExt, rng};
 
-	mod outcome {
+	mod payout {
 		use super::*;
 
 		#[test]
@@ -68,7 +68,7 @@ mod tests {
 				Record::new(PrizeCategory::First, 100_000.into()),
 				Record::new(PrizeCategory::Second, 20000.into()),
 			];
-			let outcome = Outcome::new(ticket.clone(), records);
+			let outcome = Payout::new(ticket.clone(), records);
 
 			assert_eq!(outcome.ticket(), ticket);
 			assert_eq!(outcome.1.len(), 2);
@@ -91,7 +91,7 @@ mod tests {
 				Record::new(PrizeCategory::Second, 20000.into()),
 				Record::new(PrizeCategory::Third, 3000.into()),
 			];
-			let fixture = Outcome::new(ticket, records);
+			let fixture = Payout::new(ticket, records);
 
 			assert_eq!(fixture.records().len(), 3);
 
