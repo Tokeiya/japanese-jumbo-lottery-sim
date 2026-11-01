@@ -3,5 +3,5 @@ pub mod draw;
 pub mod lottery;
 mod ticket;
 
-pub use draw::{Group, Number, PrizeCategory, Report, group, number, report};
+pub use draw::{Group, Number, Outcome, PrizeCategory, group, number, outcome};
 pub use ticket::Ticket;

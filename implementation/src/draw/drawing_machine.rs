@@ -1,3 +1,6 @@
+#![expect(unused_variables, reason = "Under construction")]
+#![expect(unfulfilled_lint_expectations, reason = "Under construction")]
+
 use super::group::{self, Group};
 use super::number::{self, Number};
 use rand::{Rng, RngExt};
@@ -26,6 +29,10 @@ pub fn draw_number(rng: &mut impl Rng, number: number::Kind) -> Number {
 		number::Kind::LastTwoDigits => Number::last_two_digits(rng.random_range(0..100u32)),
 		number::Kind::LastOneDigit => Number::last_one_digit(rng.random_range(0..10u32)),
 	}
+}
+
+pub fn draw(rng: &mut impl Rng, spec: &crate::lottery::spec::Spec) -> super::outcome::Outcome {
+	todo!()
 }
 
 #[cfg(test)]
