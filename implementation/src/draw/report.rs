@@ -36,6 +36,21 @@ impl Record {
 	}
 
 	pub fn verify(&self, ticket: &Ticket) -> bool {
+		#[cfg(test)]
+		{
+			if self.rank == PrizeCategory::Second {
+				println!(
+					"verify: ticket group {}, number {}",
+					ticket.group(),
+					ticket.number()
+				);
+
+				println!("group:{:?}", self.number);
+
+				println!("num:{}", self.number.verify(ticket));
+			}
+		}
+
 		self.group.verify(ticket) && self.number.verify(ticket)
 	}
 }
@@ -49,10 +64,19 @@ impl Report {
 
 	pub fn verify(&self, ticket: &crate::Ticket) -> Payout {
 		let mut records: Vec<super::payout::Record> = Vec::new();
+		let mut flg = false;
 
 		for prize in self.0.iter() {
 			if prize.verify(ticket) {
-				records.push(super::payout::Record::new(prize.rank, prize.payout));
+				if prize.rank == PrizeCategory::First {
+					flg = true;
+				};
+
+				if (prize.rank == PrizeCategory::FirstAdjacent && !flg)
+					|| prize.rank != PrizeCategory::FirstAdjacent
+				{
+					records.push(super::payout::Record::new(prize.rank, prize.payout));
+				}
 			}
 		}
 
@@ -135,6 +159,59 @@ mod tests {
 
 			assert_eq!(outcome.records()[0].payout(), 100.into());
 			assert_eq!(outcome.records()[1].payout(), 300.into());
+		}
+
+		#[test]
+		fn first_adjacent_verify() {
+			let mut records = vec![
+				Record::new(
+					PrizeCategory::First,
+					1_000.into(),
+					Group::all_digits(42),
+					Number::all_digits(114514),
+				),
+				Record::new(
+					PrizeCategory::FirstAdjacent,
+					100.into(),
+					Group::none(),
+					Number::all_digits(114514),
+				),
+				Record::new(
+					PrizeCategory::Second,
+					200.into(),
+					Group::last_one_digit(2),
+					Number::last_four_digits(4514),
+				),
+				Record::new(
+					PrizeCategory::Third,
+					30.into(),
+					Group::last_one_digit(1),
+					Number::last_four_digits(4514),
+				),
+			];
+
+			let report = Report::new(records);
+			let ticket = Ticket::new(10, 42, 114514);
+			let actual = report.verify(&ticket);
+
+			assert_eq!(actual.records().len(), 2);
+
+			assert_matches!(actual.records()[0].rank(), PrizeCategory::First);
+			assert_eq!(actual.records()[0].payout(), 1_000.into());
+
+			assert_matches!(actual.records()[1].rank(), PrizeCategory::Second);
+			assert_eq!(actual.records()[1].payout(), 200.into());
+
+			let ticket = Ticket::new(10, 41, 114514);
+
+			let actual = report.verify(&ticket);
+			assert_eq!(actual.records().len(), 2);
+
+			assert_matches!(actual.records()[0].rank(), PrizeCategory::FirstAdjacent);
+			assert_eq!(actual.records()[0].payout(), 100.into());
+
+			assert_matches!(actual.records()[1].rank(), PrizeCategory::Third);
+			assert_eq!(actual.records()[1].payout(), 30.into());
 		}
 	}
 

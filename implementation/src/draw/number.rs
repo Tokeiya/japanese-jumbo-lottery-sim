@@ -7,6 +7,7 @@ pub enum Kind {
 	LastOneDigit,
 }
 
+#[derive(Debug)]
 pub struct Number(Kind, u32);
 
 impl Number {
@@ -47,6 +48,18 @@ impl Number {
 	}
 
 	pub fn verify(&self, ticket: &crate::Ticket) -> bool {
+		#[cfg(test)]
+		{
+			if self.1 == 4514 && self.0 == Kind::LastFourDigits {
+				println!(
+					"ticket number: {}, value: {} result:{}",
+					ticket.number(),
+					self.1,
+					self.1 == ticket.number() % 10_000
+				);
+			}
+		}
+
 		match self.0 {
 			Kind::AllDigits => self.1 == ticket.number(),
 			Kind::LastFourDigits => self.1 == ticket.number() % 10_000,
