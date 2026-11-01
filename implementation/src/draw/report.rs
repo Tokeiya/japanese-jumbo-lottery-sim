@@ -1,5 +1,4 @@
-use super::{Group, Number};
-use crate::ticket::Payout;
+use super::{Group, Number, Payout};
 use crate::{PrizeCategory, Ticket};
 use rust_decimal::Decimal;
 
@@ -49,11 +48,11 @@ impl Report {
 	}
 
 	pub fn verify(&self, ticket: &crate::Ticket) -> Payout {
-		let mut records: Vec<crate::ticket::Record> = Vec::new();
+		let mut records: Vec<super::payout::Record> = Vec::new();
 
 		for prize in self.0.iter() {
 			if prize.verify(ticket) {
-				records.push(crate::ticket::Record::new(prize.rank, prize.payout));
+				records.push(super::payout::Record::new(prize.rank, prize.payout));
 			}
 		}
 
