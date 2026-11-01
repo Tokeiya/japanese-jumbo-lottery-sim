@@ -53,7 +53,7 @@ impl Report {
 
 		for prize in self.0.iter() {
 			if prize.verify(ticket) {
-				records.push(crate::ticket::Record::new(prize.rank.clone(), prize.payout));
+				records.push(crate::ticket::Record::new(prize.rank, prize.payout));
 			}
 		}
 
