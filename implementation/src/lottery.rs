@@ -1,8 +1,12 @@
 pub mod dream_jumbo;
 pub mod dream_jumbo_mini;
+pub mod halloween_jumbo_mini;
+pub mod hawlloween_jumbo;
 pub mod spec;
 pub mod summer_jumbo;
 pub mod summer_jumbo_mini;
 pub mod summer_jumbo_premium;
 pub mod valentine;
 pub mod valentine_mini;
+pub mod year_end_jumbo;
+pub mod year_end_jumbo_mini;

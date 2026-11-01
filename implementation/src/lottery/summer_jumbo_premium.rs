@@ -54,5 +54,5 @@ pub static SUMMER_JUMBO_PREMIUM: LazyLock<Spec> = LazyLock::new(|| {
 			500.into(),
 		),
 	];
-	Spec::new("サマージャンボプレミアム".into(), v)
+	Spec::new("サマージャンボプレミアム".into(), 100, 500.into(), v)
 });

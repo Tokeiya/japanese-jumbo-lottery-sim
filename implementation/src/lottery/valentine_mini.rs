@@ -102,5 +102,5 @@ pub static VALENTINE_MINI: LazyLock<Spec> = LazyLock::new(|| {
 			300.into(),
 		),
 	];
-	Spec::new("バレンタインミニジャンボ宝くじ".into(), v)
+	Spec::new("バレンタインミニジャンボ宝くじ".into(), 100, 200.into(), v)
 });

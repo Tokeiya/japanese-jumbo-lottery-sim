@@ -44,12 +44,19 @@ impl Record {
 
 pub struct Spec {
 	name: String,
+	group_size: u8,
+	unit_price: Decimal,
 	prize: Vec<Record>,
 }
 
 impl Spec {
-	pub fn new(name: String, prize: Vec<Record>) -> Self {
-		Self { name, prize }
+	pub fn new(name: String, group_size: u8, unit_price: Decimal, prize: Vec<Record>) -> Self {
+		Self {
+			name,
+			group_size,
+			unit_price,
+			prize,
+		}
 	}
 
 	pub fn name(&self) -> &str {
@@ -58,6 +65,14 @@ impl Spec {
 
 	pub fn prize(&self) -> &[Record] {
 		&self.prize
+	}
+
+	pub fn group_size(&self) -> u8 {
+		self.group_size
+	}
+
+	pub fn unit_price(&self) -> Decimal {
+		self.unit_price
 	}
 }
 
@@ -92,10 +107,13 @@ mod tests {
 				),
 			];
 
-			let fixture = Spec::new("Name".into(), v);
+			let fixture = Spec::new("Name".into(), 100, 200.into(), v);
 
 			assert_eq!(fixture.name, "Name");
 			assert_eq!(fixture.prize.len(), 2);
+
+			assert_eq!(fixture.group_size, 100);
+			assert_eq!(fixture.unit_price, 200.into());
 
 			assert(
 				&fixture.prize[0],
@@ -120,7 +138,7 @@ mod tests {
 
 		#[test]
 		fn name() {
-			let fixture = Spec::new("Name".into(), vec![]);
+			let fixture = Spec::new("Name".into(), 100, 200.into(), vec![]);
 			assert_eq!(fixture.name(), "Name");
 		}
 
@@ -128,6 +146,8 @@ mod tests {
 		fn prize() {
 			let fixture = Spec::new(
 				"Name".into(),
+				100,
+				200.into(),
 				vec![Record::new(
 					PrizeCategory::First,
 					NumberKind::AllDigits,
@@ -137,6 +157,18 @@ mod tests {
 			);
 			assert_eq!(fixture.prize().len(), 1);
 			assert(&fixture.prize[0], &fixture.prize()[0]);
+		}
+
+		#[test]
+		fn group_size() {
+			let fixture = Spec::new("Name".into(), 100, 200.into(), vec![]);
+			assert_eq!(fixture.group_size(), 100);
+		}
+
+		#[test]
+		fn unit_price() {
+			let fixture = Spec::new("Name".into(), 100, 200.into(), vec![]);
+			assert_eq!(fixture.unit_price(), 200.into());
 		}
 	}
 	mod record {

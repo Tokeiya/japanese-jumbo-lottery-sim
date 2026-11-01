@@ -90,5 +90,5 @@ pub static DREAM_JUMBO: LazyLock<Spec> = LazyLock::new(|| {
 			300.into(),
 		),
 	];
-	Spec::new("ドリームジャンボ宝くじ".into(), v)
+	Spec::new("ドリームジャンボ宝くじ".into(), 200, 200.into(), v)
 });

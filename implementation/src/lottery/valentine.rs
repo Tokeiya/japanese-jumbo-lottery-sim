@@ -103,5 +103,5 @@ pub static VALENTINE: LazyLock<Spec> = LazyLock::new(|| {
 		),
 	];
 
-	Spec::new("バレンタインジャンボ宝くじ".into(), v)
+	Spec::new("バレンタインジャンボ宝くじ".into(), 100, 200.into(), v)
 });

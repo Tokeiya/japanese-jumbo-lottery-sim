@@ -48,5 +48,5 @@ pub static SUMMER_JUMBO_MINI: LazyLock<Spec> = LazyLock::new(|| {
 			300.into(),
 		),
 	];
-	Spec::new("サマージャンボミニ宝くじ".into(), v)
+	Spec::new("サマージャンボミニ宝くじ".into(), 100, 200.into(), v)
 });
