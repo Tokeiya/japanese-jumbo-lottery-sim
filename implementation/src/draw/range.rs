@@ -4,7 +4,7 @@
 use rand::Rng;
 use rand::distr::uniform::{Error, SampleRange};
 
-mod group {
+pub mod group {
 	use super::*;
 	pub struct AllRange100;
 
@@ -43,7 +43,7 @@ mod group {
 	}
 }
 
-mod number {
+pub mod number {
 	use super::*;
 
 	pub struct AllRange;
@@ -110,8 +110,20 @@ mod tests {
 	use super::group::*;
 	use super::number::*;
 	use super::*;
+	use rand::rng;
 
 	const ITERATION: usize = 1_000_000;
+
+	#[test]
+	fn group_last_one_digit() {
+		let mut rng = rand::rng();
+
+		for _ in 0..ITERATION {
+			assert!((0..=9).contains(&group::LastOneDigit.sample_single(&mut rng).unwrap()));
+		}
+
+		assert!(!group::LastOneDigit.is_empty());
+	}
 
 	#[test]
 	fn test_group_range_100() {
@@ -145,5 +157,36 @@ mod tests {
 			assert!((100_000..200_000).contains(&result));
 		}
 		assert!(!AllRange.is_empty());
+	}
+
+	#[test]
+	fn number_last_four_digits() {
+		let mut rng = rand::rng();
+
+		for _ in 0..ITERATION {
+			assert!((0..10_000).contains(&LastFourDigits.sample_single(&mut rng).unwrap()));
+		}
+
+		assert!(!LastFourDigits.is_empty());
+	}
+
+	#[test]
+	fn number_last_three_digits() {
+		let mut rng = rand::rng();
+
+		for _ in 0..ITERATION {
+			assert!((0..1_000).contains(&LastThreeDigits.sample_single(&mut rng).unwrap()));
+		}
+		assert!(!LastThreeDigits.is_empty());
+	}
+
+	#[test]
+	fn number_last_one_digits() {
+		let mut rng = rand::rng();
+
+		for _ in 0..ITERATION {
+			assert!((0..10).contains(&number::LastOneDigit.sample_single(&mut rng).unwrap()));
+		}
+		assert!(!number::LastOneDigit.is_empty());
 	}
 }
