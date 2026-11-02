@@ -34,11 +34,11 @@ pub mod group {
 
 	impl SampleRange<u8> for LastOneDigit {
 		fn sample_single<R: Rng + ?Sized>(self, rng: &mut R) -> Result<u8, Error> {
-			todo!()
+			(0..10).sample_single(rng)
 		}
 
 		fn is_empty(&self) -> bool {
-			todo!()
+			false
 		}
 	}
 }
@@ -61,11 +61,11 @@ pub mod number {
 
 	impl SampleRange<u32> for LastFourDigits {
 		fn sample_single<R: Rng + ?Sized>(self, rng: &mut R) -> Result<u32, Error> {
-			todo!()
+			(0..10_000).sample_single(rng)
 		}
 
 		fn is_empty(&self) -> bool {
-			todo!()
+			false
 		}
 	}
 
@@ -73,11 +73,11 @@ pub mod number {
 
 	impl SampleRange<u32> for LastThreeDigits {
 		fn sample_single<R: Rng + ?Sized>(self, rng: &mut R) -> Result<u32, Error> {
-			todo!()
+			(0..1_000).sample_single(rng)
 		}
 
 		fn is_empty(&self) -> bool {
-			todo!()
+			false
 		}
 	}
 
@@ -85,11 +85,11 @@ pub mod number {
 
 	impl SampleRange<u32> for LastTwoDigits {
 		fn sample_single<R: Rng + ?Sized>(self, rng: &mut R) -> Result<u32, Error> {
-			todo!()
+			(0..100).sample_single(rng)
 		}
 
 		fn is_empty(&self) -> bool {
-			todo!()
+			false
 		}
 	}
 
@@ -97,11 +97,11 @@ pub mod number {
 
 	impl SampleRange<u32> for LastOneDigit {
 		fn sample_single<R: Rng + ?Sized>(self, rng: &mut R) -> Result<u32, Error> {
-			todo!()
+			(0..10).sample_single(rng)
 		}
 
 		fn is_empty(&self) -> bool {
-			todo!()
+			false
 		}
 	}
 }
@@ -178,6 +178,16 @@ mod tests {
 			assert!((0..1_000).contains(&LastThreeDigits.sample_single(&mut rng).unwrap()));
 		}
 		assert!(!LastThreeDigits.is_empty());
+	}
+
+	#[test]
+	fn number_last_two_digits() {
+		let mut rng = rand::rng();
+
+		for _ in 0..ITERATION {
+			assert!((0..100).contains(&LastTwoDigits.sample_single(&mut rng).unwrap()));
+		}
+		assert!(!LastTwoDigits.is_empty());
 	}
 
 	#[test]
