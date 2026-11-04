@@ -7,6 +7,7 @@ pub enum Kind {
 	None,
 }
 
+#[derive(Debug, Clone)]
 pub struct Group(Kind, u8);
 
 impl Group {
