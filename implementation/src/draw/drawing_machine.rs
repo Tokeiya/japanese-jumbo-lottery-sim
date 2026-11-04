@@ -1,5 +1,7 @@
 use super::group::{self, Group};
 use super::number::{self, Number};
+use super::outcome::{Outcome, Record as OutcomeRecord};
+use crate::lottery::{Record, Spec};
 use rand::{Rng, RngExt};
 
 pub fn draw_group_100(rng: &mut impl Rng, group: group::Kind) -> Group {
@@ -26,6 +28,14 @@ pub fn draw_number(rng: &mut impl Rng, number: number::Kind) -> Number {
 		number::Kind::LastTwoDigits => Number::last_two_digits(rng.random_range(0..100u32)),
 		number::Kind::LastOneDigit => Number::last_one_digit(rng.random_range(0..10u32)),
 	}
+}
+
+pub fn draw(spec: &Spec, rng: &mut impl Rng) -> Outcome {
+	let mut vec: Vec<OutcomeRecord> = Vec::new();
+
+	for r in spec.prize().iter() {}
+
+	todo!()
 }
 
 #[cfg(test)]
