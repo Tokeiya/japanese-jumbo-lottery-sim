@@ -1,9 +1,8 @@
 use super::spec::{Record, Spec};
 use crate::PrizeCategory;
 use crate::draw::{group::Kind as GroupKind, number::Kind as NumberKind};
-use std::sync::LazyLock;
 
-pub static HALLOWEEN_JUMBO: LazyLock<Spec> = LazyLock::new(|| {
+pub fn halloween_jumbo() -> Spec {
 	let v = vec![
 		Record::new(
 			PrizeCategory::First,
@@ -73,4 +72,4 @@ pub static HALLOWEEN_JUMBO: LazyLock<Spec> = LazyLock::new(|| {
 		),
 	];
 	Spec::new("ハロウィンジャンボ宝くじ".into(), 100, 200.into(), v)
-});
+}

@@ -3,6 +3,9 @@
 
 use super::group::{self, Group};
 use super::number::{self, Number};
+use super::outcome::{Outcome, Record as OutcomeRecord};
+use crate::PrizeCategory;
+use crate::lottery::{Record, Spec};
 use rand::{Rng, RngExt};
 
 pub fn draw_group_100(rng: &mut impl Rng, group: group::Kind) -> Group {
@@ -31,7 +34,87 @@ pub fn draw_number(rng: &mut impl Rng, number: number::Kind) -> Number {
 	}
 }
 
-pub fn draw(rng: &mut impl Rng, spec: &crate::lottery::spec::Spec) -> super::outcome::Outcome {
+fn next_number(number: &Number) -> Number {
+	todo!()
+}
+
+fn previous_number(number: &Number) -> Number {
+	todo!()
+}
+
+fn find_first_adjacent(scr: &[Record]) -> &Record {
+	todo!()
+}
+
+fn find_different_group(scr: &[Record]) -> &Record {
+	todo!()
+}
+
+pub fn draw(spec: &Spec, rng: &mut impl Rng) -> Outcome {
+	let mut vec: Vec<OutcomeRecord> = Vec::new();
+
+	let first: Vec<&Record> = spec
+		.prize()
+		.iter()
+		.filter(|&x| x.kind() == PrizeCategory::First)
+		.collect();
+
+	if first.len() != 1 {
+		panic!("First prize must be unique")
+	}
+
+	let first = first[0];
+
+	let grp = if spec.group_size() == 100 {
+		draw_group_100(rng, first.group_kind())
+	} else if spec.group_size() == 200 {
+		draw_group_200(rng, first.group_kind())
+	} else {
+		panic!("Invalid group size")
+	};
+
+	let num = draw_number(rng, first.number_kind());
+
+	let next_num = next_number(&num);
+	let previous_num = previous_number(&num);
+
+	let adjacent_prize = find_first_adjacent(spec.prize()).prize();
+
+	vec.push(OutcomeRecord::new(
+		PrizeCategory::First,
+		first.prize(),
+		grp.clone(),
+		num,
+	));
+
+	vec.push(OutcomeRecord::new(
+		PrizeCategory::FirstAdjacent,
+		adjacent_prize,
+		grp.clone(),
+		next_num,
+	));
+
+	vec.push(OutcomeRecord::new(
+		PrizeCategory::FirstAdjacent,
+		adjacent_prize,
+		grp.clone(),
+		previous_num,
+	));
+
+	for r in spec.prize().iter() {
+		match r.kind() {
+			PrizeCategory::First => {}
+			PrizeCategory::FirstAdjacent => {}
+			PrizeCategory::FirstDifferentGroup => {}
+			PrizeCategory::Second => {}
+			PrizeCategory::Third => {}
+			PrizeCategory::Fourth => {}
+			PrizeCategory::Fifth => {}
+			PrizeCategory::Sixth => {}
+			PrizeCategory::Seventh => {}
+		}
+	}
+
 	todo!()
 }
 

@@ -7,7 +7,7 @@ pub enum Kind {
 	LastOneDigit,
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct Number(Kind, u32);
 
 impl Number {
