@@ -55,9 +55,9 @@ impl Record {
 	}
 }
 
-pub struct Report(Vec<Record>);
+pub struct Outcome(Vec<Record>);
 
-impl Report {
+impl Outcome {
 	pub fn new(records: Vec<Record>) -> Self {
 		Self(records)
 	}
@@ -117,7 +117,7 @@ mod tests {
 		#[test]
 		fn new() {
 			let records = sample_records();
-			let report = Report::new(records);
+			let report = Outcome::new(records);
 			assert_eq!(report.records().len(), 2);
 
 			for (a, e) in report.0.iter().zip(sample_records()) {
@@ -133,7 +133,7 @@ mod tests {
 		#[test]
 		fn rank() {
 			let records = sample_records();
-			let report = Report::new(records);
+			let report = Outcome::new(records);
 
 			assert_matches!(report.records()[0].rank(), PrizeCategory::First);
 			assert_matches!(report.records()[1].rank(), PrizeCategory::Second);
@@ -148,7 +148,7 @@ mod tests {
 				Group::last_one_digit(2),
 				Number::last_four_digits(4514),
 			));
-			let report = Report::new(records);
+			let report = Outcome::new(records);
 
 			let ticket = Ticket::new(10, 42, 114514);
 			let outcome = report.verify(&ticket);
@@ -190,7 +190,7 @@ mod tests {
 				),
 			];
 
-			let report = Report::new(records);
+			let report = Outcome::new(records);
 			let ticket = Ticket::new(10, 42, 114514);
 			let actual = report.verify(&ticket);
 
