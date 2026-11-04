@@ -163,7 +163,7 @@ mod tests {
 
 		#[test]
 		fn first_adjacent_verify() {
-			let mut records = vec![
+			let records = vec![
 				Record::new(
 					PrizeCategory::First,
 					1_000.into(),

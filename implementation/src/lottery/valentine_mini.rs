@@ -1,9 +1,8 @@
 use super::spec::{Record, Spec};
 use crate::PrizeCategory;
 use crate::draw::{group::Kind as GroupKind, number::Kind as NumberKind};
-use std::sync::LazyLock;
 
-pub static VALENTINE_MINI: LazyLock<Spec> = LazyLock::new(|| {
+pub fn valentine_mini() -> Spec {
 	let v = vec![
 		Record::new(
 			PrizeCategory::First,
@@ -103,4 +102,4 @@ pub static VALENTINE_MINI: LazyLock<Spec> = LazyLock::new(|| {
 		),
 	];
 	Spec::new("バレンタインミニジャンボ宝くじ".into(), 100, 200.into(), v)
-});
+}
