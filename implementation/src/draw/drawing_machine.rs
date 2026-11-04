@@ -35,19 +35,69 @@ pub fn draw_number(rng: &mut impl Rng, number: number::Kind) -> Number {
 }
 
 fn next_number(number: &Number) -> Number {
-	todo!()
+	if number.kind() != number::Kind::AllDigits {
+		panic!("Only all digits numbers can be incremented")
+	}
+
+	if number.value() == 199_999 {
+		Number::all_digits(100_000)
+	} else {
+		Number::all_digits(number.value() + 1)
+	}
 }
 
 fn previous_number(number: &Number) -> Number {
-	todo!()
+	if number.kind() != number::Kind::AllDigits {
+		panic!("Only all digits numbers can be decremented")
+	}
+
+	if number.value() == 100_000 {
+		Number::all_digits(199_999)
+	} else {
+		Number::all_digits(number.value() - 1)
+	}
 }
 
 fn find_first_adjacent(scr: &[Record]) -> &Record {
-	todo!()
+	let vec: Vec<_> = scr
+		.iter()
+		.filter(|&x| x.kind() == PrizeCategory::FirstAdjacent)
+		.collect();
+	if vec.len() != 2 {
+		panic!("First adjacent prize must be unique")
+	}
+
+	if vec[0].prize() != vec[1].prize() {
+		panic!("First adjacent prize must be unique")
+	}
+
+	vec[0]
 }
 
 fn find_different_group(scr: &[Record]) -> &Record {
-	todo!()
+	let vec: Vec<_> = scr
+		.iter()
+		.filter(|&x| x.kind() == PrizeCategory::FirstDifferentGroup)
+		.collect();
+
+	if vec.len() != 1 {
+		panic!("First different group prize must be unique")
+	}
+	vec[0]
+}
+
+fn draw_impl(datum: &Record, group_size: u8, rng: &mut impl Rng) -> OutcomeRecord {
+	let grp = if group_size == 100 {
+		draw_group_100(rng, datum.group_kind())
+	} else if group_size == 200 {
+		draw_group_200(rng, datum.group_kind())
+	} else {
+		panic!("Invalid group size")
+	};
+
+	let num = draw_number(rng, datum.number_kind());
+
+	OutcomeRecord::new(datum.kind(), datum.prize(), grp, num)
 }
 
 pub fn draw(spec: &Spec, rng: &mut impl Rng) -> Outcome {
@@ -84,7 +134,7 @@ pub fn draw(spec: &Spec, rng: &mut impl Rng) -> Outcome {
 		PrizeCategory::First,
 		first.prize(),
 		grp.clone(),
-		num,
+		num.clone(),
 	));
 
 	vec.push(OutcomeRecord::new(
@@ -101,21 +151,23 @@ pub fn draw(spec: &Spec, rng: &mut impl Rng) -> Outcome {
 		previous_num,
 	));
 
+	vec.push(OutcomeRecord::new(
+		PrizeCategory::FirstDifferentGroup,
+		find_different_group(spec.prize()).prize(),
+		Group::none(),
+		num,
+	));
+
 	for r in spec.prize().iter() {
 		match r.kind() {
-			PrizeCategory::First => {}
-			PrizeCategory::FirstAdjacent => {}
-			PrizeCategory::FirstDifferentGroup => {}
-			PrizeCategory::Second => {}
-			PrizeCategory::Third => {}
-			PrizeCategory::Fourth => {}
-			PrizeCategory::Fifth => {}
-			PrizeCategory::Sixth => {}
-			PrizeCategory::Seventh => {}
+			PrizeCategory::First => continue,
+			PrizeCategory::FirstAdjacent => continue,
+			PrizeCategory::FirstDifferentGroup => continue,
+			_ => vec.push(draw_impl(r, spec.group_size(), rng)),
 		}
 	}
 
-	todo!()
+	Outcome::new(vec)
 }
 
 #[cfg(test)]
@@ -255,5 +307,223 @@ mod tests {
 			assert_matches!(actual.kind(), group::Kind::None);
 			assert_matches!(actual.value(), None);
 		}
+	}
+
+	#[test]
+	fn next_number_test() {
+		let piv = Number::all_digits(100_000);
+		let fixture = next_number(&piv);
+
+		assert_eq!(fixture.kind(), number::Kind::AllDigits);
+		assert_eq!(fixture.value(), 100_001);
+
+		let piv = Number::all_digits(199_999);
+		let fixture = next_number(&piv);
+
+		assert_eq!(fixture.kind(), number::Kind::AllDigits);
+		assert_eq!(fixture.value(), 100_000);
+	}
+
+	#[test]
+	fn invalid_next_number() {
+		use std::panic::catch_unwind;
+
+		let err = catch_unwind(|| _ = next_number(&Number::last_four_digits(4321)));
+
+		err.unwrap_err();
+	}
+
+	#[test]
+	fn previous_number_test() {
+		use super::previous_number as target;
+		use number::Kind;
+
+		let piv = Number::all_digits(100_000);
+		let fixture = target(&piv);
+
+		assert_eq!(fixture.kind(), Kind::AllDigits);
+		assert_eq!(fixture.value(), 199_999);
+
+		let piv = Number::all_digits(199_999);
+		let fixture = target(&piv);
+
+		assert_eq!(fixture.kind(), Kind::AllDigits);
+		assert_eq!(fixture.value(), 199_998);
+	}
+
+	#[test]
+	fn invalid_previous_number() {
+		use std::panic::catch_unwind;
+
+		catch_unwind(|| {
+			_ = previous_number(&Number::last_four_digits(4321));
+		})
+		.unwrap_err();
+	}
+
+	#[test]
+	fn find_different_group_test() {
+		let vec: Vec<Record> = vec![
+			Record::new(
+				PrizeCategory::FirstDifferentGroup,
+				number::Kind::AllDigits,
+				group::Kind::None,
+				100.into(),
+			),
+			Record::new(
+				PrizeCategory::First,
+				number::Kind::AllDigits,
+				group::Kind::AllDigits,
+				200.into(),
+			),
+		];
+		let fixture = find_different_group(&vec);
+
+		assert!(std::ptr::eq(&vec[0], fixture));
+	}
+
+	#[test]
+	#[should_panic]
+	fn invalid_find_different_group() {
+		let vec: Vec<Record> = vec![
+			Record::new(
+				PrizeCategory::FirstDifferentGroup,
+				number::Kind::AllDigits,
+				group::Kind::None,
+				100.into(),
+			),
+			Record::new(
+				PrizeCategory::FirstDifferentGroup,
+				number::Kind::AllDigits,
+				group::Kind::AllDigits,
+				200.into(),
+			),
+		];
+
+		_ = find_different_group(&vec);
+	}
+
+	#[test]
+	fn find_first_adjacent_test() {
+		let vec: Vec<Record> = vec![
+			Record::new(
+				PrizeCategory::FirstAdjacent,
+				number::Kind::AllDigits,
+				group::Kind::None,
+				100.into(),
+			),
+			Record::new(
+				PrizeCategory::FirstAdjacent,
+				number::Kind::AllDigits,
+				group::Kind::AllDigits,
+				100.into(),
+			),
+			Record::new(
+				PrizeCategory::First,
+				number::Kind::AllDigits,
+				group::Kind::AllDigits,
+				1000.into(),
+			),
+		];
+
+		let fixture = find_first_adjacent(&vec);
+
+		assert_eq!(fixture.kind(), PrizeCategory::FirstAdjacent);
+		assert_eq!(fixture.prize(), 100.into());
+	}
+
+	#[test]
+	fn draw_test() {
+		fn take_one<T>(mut iter: impl Iterator<Item = T>) -> T {
+			let ret = iter.next().unwrap();
+			assert!(iter.next().is_none());
+			ret
+		}
+
+		let vec = vec![
+			Record::new(
+				PrizeCategory::FirstAdjacent,
+				number::Kind::AllDigits,
+				group::Kind::None,
+				100.into(),
+			),
+			Record::new(
+				PrizeCategory::FirstAdjacent,
+				number::Kind::AllDigits,
+				group::Kind::AllDigits,
+				100.into(),
+			),
+			Record::new(
+				PrizeCategory::First,
+				number::Kind::AllDigits,
+				group::Kind::AllDigits,
+				1000.into(),
+			),
+			Record::new(
+				PrizeCategory::FirstDifferentGroup,
+				number::Kind::AllDigits,
+				group::Kind::None,
+				200.into(),
+			),
+			Record::new(
+				PrizeCategory::Second,
+				number::Kind::AllDigits,
+				group::Kind::AllDigits,
+				500.into(),
+			),
+		];
+
+		let spec = Spec::new("Sample".to_string(), 100, 200.into(), vec);
+
+		let mut rng = rand::rng();
+
+		let fixture = draw(&spec, &mut rng);
+
+		assert_eq!(fixture.records().len(), 5);
+
+		let num = take_one(
+			fixture
+				.records()
+				.iter()
+				.filter(|x| x.rank() == PrizeCategory::First),
+		)
+		.number()
+		.clone();
+
+		let adjacent: Vec<_> = fixture
+			.records()
+			.iter()
+			.filter(|x| x.rank() == PrizeCategory::FirstAdjacent)
+			.collect();
+
+		assert_eq!(adjacent.len(), 2);
+
+		let expected = if num.value() == 199_999 {
+			100_000
+		} else {
+			num.value() + 1
+		};
+
+		assert_eq!(
+			adjacent
+				.iter()
+				.filter(|&x| x.number().value() == expected)
+				.count(),
+			1
+		);
+
+		let expected = if num.value() == 100_000 {
+			199_999
+		} else {
+			num.value() - 1
+		};
+
+		assert_eq!(
+			adjacent
+				.iter()
+				.filter(|x| x.number().value() == expected)
+				.count(),
+			1
+		);
 	}
 }
