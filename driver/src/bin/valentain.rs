@@ -1,4 +1,3 @@
-use implementation::ticket::Ticket;
 use implementation::{counter, draw, lottery, ticket};
 
 fn main() {

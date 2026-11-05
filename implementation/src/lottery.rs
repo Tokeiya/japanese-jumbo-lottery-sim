@@ -23,3 +23,39 @@ pub use valentine::valentine;
 pub use valentine_mini::valentine_mini;
 pub use year_end_jumbo::year_end_jumbo;
 pub use year_end_jumbo_mini::year_end_jumbo_mini;
+
+pub fn annual() -> Vec<Spec> {
+	vec![
+		valentine(),
+		valentine_mini(),
+		dream_jumbo(),
+		dream_jumbo_mini(),
+		summer_jumbo_premium(),
+		summer_jumbo(),
+		summer_jumbo_mini(),
+		halloween_jumbo(),
+		halloween_jumbo_mini(),
+		year_end_jumbo(),
+		year_end_jumbo_mini(),
+	]
+}
+
+pub fn annual_mini() -> Vec<Spec> {
+	vec![
+		valentine_mini(),
+		dream_jumbo_mini(),
+		summer_jumbo_mini(),
+		halloween_jumbo_mini(),
+		year_end_jumbo_mini(),
+	]
+}
+
+pub fn annual_jumbo() -> Vec<Spec> {
+	vec![
+		valentine(),
+		dream_jumbo(),
+		summer_jumbo(),
+		halloween_jumbo(),
+		year_end_jumbo(),
+	]
+}
