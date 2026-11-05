@@ -1,6 +1,3 @@
-#![expect(unused_variables, reason = "Under construction")]
-#![expect(unfulfilled_lint_expectations, reason = "Under construction")]
-
 use super::group::{self, Group};
 use super::number::{self, Number};
 use super::outcome::{Outcome, Record as OutcomeRecord};
@@ -74,16 +71,19 @@ fn find_first_adjacent(scr: &[Record]) -> &Record {
 	vec[0]
 }
 
-fn find_different_group(scr: &[Record]) -> &Record {
+fn find_different_group(scr: &[Record]) -> Option<&Record> {
 	let vec: Vec<_> = scr
 		.iter()
 		.filter(|&x| x.kind() == PrizeCategory::FirstDifferentGroup)
 		.collect();
 
-	if vec.len() != 1 {
+	if vec.len() == 0 {
+		None
+	} else if vec.len() != 1 {
 		panic!("First different group prize must be unique")
+	} else {
+		vec[0].into()
 	}
-	vec[0]
 }
 
 fn draw_impl(datum: &Record, group_size: u8, rng: &mut impl Rng) -> OutcomeRecord {
@@ -151,12 +151,14 @@ pub fn draw(spec: &Spec, rng: &mut impl Rng) -> Outcome {
 		previous_num,
 	));
 
-	vec.push(OutcomeRecord::new(
-		PrizeCategory::FirstDifferentGroup,
-		find_different_group(spec.prize()).prize(),
-		Group::none(),
-		num,
-	));
+	if let Some(rec) = find_different_group(spec.prize()) {
+		vec.push(OutcomeRecord::new(
+			PrizeCategory::FirstDifferentGroup,
+			rec.prize(),
+			Group::none(),
+			num,
+		))
+	}
 
 	for r in spec.prize().iter() {
 		match r.kind() {
@@ -379,7 +381,7 @@ mod tests {
 		];
 		let fixture = find_different_group(&vec);
 
-		assert!(std::ptr::eq(&vec[0], fixture));
+		assert!(std::ptr::eq(&vec[0], fixture.unwrap()));
 	}
 
 	#[test]
