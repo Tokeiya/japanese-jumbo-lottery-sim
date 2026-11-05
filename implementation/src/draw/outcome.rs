@@ -72,8 +72,8 @@ impl Outcome {
 					flg = true;
 				};
 
-				if (prize.rank == PrizeCategory::FirstAdjacent && !flg)
-					|| prize.rank != PrizeCategory::FirstAdjacent
+				if (prize.rank == PrizeCategory::FirstDifferentGroup && !flg)
+					|| prize.rank != PrizeCategory::FirstDifferentGroup
 				{
 					records.push(super::payout::Record::new(prize.rank, prize.payout));
 				}
