@@ -17,14 +17,9 @@
     </cargoProject>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2268c769-96bb-4645-a0b2-2a826b3c14e4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/driver/src/decimal_formatter.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/playground/src/bin/format.rs" afterDir="false" />
+    <list default="true" id="2268c769-96bb-4645-a0b2-2a826b3c14e4" name="Changes" comment="Fix FirstDifferentGroup outcome test; add decimal formatter playground">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/driver/src/bin/valentain.rs" beforeDir="false" afterPath="$PROJECT_DIR$/driver/src/bin/valentain.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/driver/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/driver/src/lib.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/implementation/src/draw/outcome.rs" beforeDir="false" afterPath="$PROJECT_DIR$/implementation/src/draw/outcome.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/playground/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/playground/Cargo.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/playground/src/bin/format.rs" beforeDir="false" afterPath="$PROJECT_DIR$/playground/src/bin/format.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +27,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="48" />
+    <option name="cachedIndexableFilesCount" value="50" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="RsBuildProfile:dev" />
@@ -42,6 +37,9 @@
         <option value="Rust File" />
       </list>
     </option>
+  </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -55,61 +53,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.002472180847646" />
-      <entry key="MS500" value="1.3032547548974556" />
-      <entry key="S2" value="2.04336976224498" />
-      <entry key="S5" value="2.949431548418721" />
-      <entry key="S10" value="4.146962507836655" />
-      <entry key="S30" value="6.804658223624411" />
-      <entry key="S60" value="8.14499553545518" />
-      <entry key="M2" value="9.098849147784918" />
-      <entry key="M5" value="13.607796465963961" />
-      <entry key="M10" value="27.61063632153204" />
-      <entry key="M15" value="41.86322785997835" />
-      <entry key="M30" value="72.12700061785495" />
-      <entry key="H1" value="99.9772569827785" />
-      <entry key="H2" value="119.40901002524761" />
-      <entry key="H4" value="130.9714747479464" />
-      <entry key="D1" value="141.7182254070607" />
-      <entry key="W1" value="143.67121022432764" />
+      <entry key="MS100" value="1.0000000000000004" />
+      <entry key="MS500" value="1.0008143857849854" />
+      <entry key="S2" value="1.1689337268695015" />
+      <entry key="S5" value="1.4975195361273566" />
+      <entry key="S10" value="1.7817405761875973" />
+      <entry key="S30" value="2.779202257332966" />
+      <entry key="S60" value="6.499858323013212" />
+      <entry key="M2" value="15.475643990854623" />
+      <entry key="M5" value="31.94318229506682" />
+      <entry key="M10" value="50.624799702316714" />
+      <entry key="M15" value="66.66334345263687" />
+      <entry key="M30" value="100.26599803950593" />
+      <entry key="H1" value="131.7930780735517" />
+      <entry key="H2" value="154.1985822114758" />
+      <entry key="H4" value="167.6811393155195" />
+      <entry key="D1" value="180.30770630595703" />
+      <entry key="W1" value="182.61181535508027" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="3.0413370478850165E-18" />
-      <entry key="MS500" value="3.137710784837434E-4" />
-      <entry key="S2" value="0.13314818630147945" />
-      <entry key="S5" value="0.46622553470336964" />
-      <entry key="S10" value="0.809115888073104" />
-      <entry key="S30" value="1.3947217863391868" />
-      <entry key="S60" value="1.6572843929478815" />
-      <entry key="M2" value="1.9056702918310782" />
-      <entry key="M5" value="4.215159804821801" />
-      <entry key="M10" value="10.546794841808932" />
-      <entry key="M15" value="16.314585758153196" />
-      <entry key="M30" value="27.567537100964444" />
-      <entry key="H1" value="37.29375006311479" />
-      <entry key="H2" value="43.86464008649643" />
-      <entry key="H4" value="47.71180507986424" />
-      <entry key="D1" value="51.252268807769354" />
-      <entry key="W1" value="51.89233879667158" />
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="2.9604493284763853E-86" />
+      <entry key="S2" value="4.163744194946984E-22" />
+      <entry key="S5" value="3.2153039951185523E-9" />
+      <entry key="S10" value="8.752645632685026E-5" />
+      <entry key="S30" value="0.1345209967906821" />
+      <entry key="S60" value="1.0785507258768172" />
+      <entry key="M2" value="3.4191499115140016" />
+      <entry key="M5" value="8.265838385163288" />
+      <entry key="M10" value="15.246631294005757" />
+      <entry key="M15" value="21.380366268209134" />
+      <entry key="M30" value="33.70712502815922" />
+      <entry key="H1" value="44.74906176131054" />
+      <entry key="H2" value="52.382117140065354" />
+      <entry key="H4" value="56.90859175457696" />
+      <entry key="D1" value="61.10885562695408" />
+      <entry key="W1" value="61.871604114804974" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.914512477410238" />
-      <entry key="MS500" value="1.2160299598593445" />
-      <entry key="S2" value="2.0444276844940052" />
-      <entry key="S5" value="3.273286952734392" />
-      <entry key="S10" value="4.835750918460525" />
-      <entry key="S30" value="8.130103823192876" />
-      <entry key="S60" value="9.760969829905482" />
-      <entry key="M2" value="10.979619553043923" />
-      <entry key="M5" value="17.791261775274457" />
-      <entry key="M10" value="38.112125823885656" />
-      <entry key="M15" value="58.1300244409035" />
-      <entry key="M30" value="99.65390113022475" />
-      <entry key="H1" value="137.24364070840662" />
-      <entry key="H2" value="163.2576260968655" />
-      <entry key="H4" value="178.67458899877462" />
-      <entry key="D1" value="192.9689422626225" />
-      <entry key="W1" value="195.5633246498008" />
+      <entry key="MS100" value="0.15496346249237333" />
+      <entry key="MS500" value="0.6889297517522234" />
+      <entry key="S2" value="1.0306063572065107" />
+      <entry key="S5" value="1.3975588256680571" />
+      <entry key="S10" value="1.7163993587943207" />
+      <entry key="S30" value="2.8817452121750846" />
+      <entry key="S60" value="7.537849970454034" />
+      <entry key="M2" value="18.840562180918603" />
+      <entry key="M5" value="40.15382790097595" />
+      <entry key="M10" value="65.8144254937814" />
+      <entry key="M15" value="87.98772317277073" />
+      <entry key="M30" value="133.92709404959547" />
+      <entry key="H1" value="176.51116798847158" />
+      <entry key="H2" value="206.56249777829402" />
+      <entry key="H4" value="224.579831244411" />
+      <entry key="D1" value="241.41478902310897" />
+      <entry key="W1" value="244.48316301675567" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -123,7 +121,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Cargo.Run format.executor": "Debug",
+    "Cargo.Run format.executor": "Run",
     "Cargo.Run valentain.executor": "Run",
     "Cargo.Test draw::outcome::tests::report::first_adjacent_verify.executor": "Run",
     "Cargo.Test number::tests.executor": "Run",
@@ -134,6 +132,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.rust.reset.selective.auto.import": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "code.cleanup.on.save": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
     "git-widget-placeholder": "initial__devel",
@@ -147,7 +146,8 @@
     "org.rust.cargo.project.model.PROJECT_DISCOVERY": "true",
     "org.rust.cargo.project.model.impl.CargoExternalSystemProjectAware.subscribe.first.balloon": "",
     "org.rust.first.attach.projects": "true",
-    "settings.editor.selected.configurable": "preferences.general",
+    "rearrange.code.on.save": "true",
+    "settings.editor.selected.configurable": "actions.on.save",
     "to.speed.mode.migration.done": "true"
   }
 }]]></component>
@@ -298,13 +298,17 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Fix FirstDifferentGroup outcome test; add decimal formatter playground" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix FirstDifferentGroup outcome test; add decimal formatter playground" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/playground/src/bin/format.rs</url>
-          <line>25</line>
-          <option name="timeStamp" value="2" />
+          <line>2</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
