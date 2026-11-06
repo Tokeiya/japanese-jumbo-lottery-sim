@@ -17,9 +17,9 @@
     </cargoProject>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2268c769-96bb-4645-a0b2-2a826b3c14e4" name="Changes" comment="Fix FirstDifferentGroup outcome test; add decimal formatter playground">
+    <list default="true" id="2268c769-96bb-4645-a0b2-2a826b3c14e4" name="Changes" comment="Fix decimal formatter negative value handling">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/playground/src/bin/format.rs" beforeDir="false" afterPath="$PROJECT_DIR$/playground/src/bin/format.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/driver/src/decimal_formatter.rs" beforeDir="false" afterPath="$PROJECT_DIR$/driver/src/decimal_formatter.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +30,7 @@
     <option name="cachedIndexableFilesCount" value="50" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="RsBuildProfile:dev" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="RsBuildProfile:test" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -53,61 +53,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0000000000000004" />
-      <entry key="MS500" value="1.0008143857849854" />
-      <entry key="S2" value="1.1689337268695015" />
-      <entry key="S5" value="1.4975195361273566" />
-      <entry key="S10" value="1.7817405761875973" />
-      <entry key="S30" value="2.779202257332966" />
-      <entry key="S60" value="6.499858323013212" />
-      <entry key="M2" value="15.475643990854623" />
-      <entry key="M5" value="31.94318229506682" />
-      <entry key="M10" value="50.624799702316714" />
-      <entry key="M15" value="66.66334345263687" />
-      <entry key="M30" value="100.26599803950593" />
-      <entry key="H1" value="131.7930780735517" />
-      <entry key="H2" value="154.1985822114758" />
-      <entry key="H4" value="167.6811393155195" />
-      <entry key="D1" value="180.30770630595703" />
-      <entry key="W1" value="182.61181535508027" />
+      <entry key="MS100" value="9.123835746062853E-5" />
+      <entry key="MS500" value="0.1556105082964483" />
+      <entry key="S2" value="0.6824151609097574" />
+      <entry key="S5" value="1.5410903397575995" />
+      <entry key="S10" value="2.8613799995467923" />
+      <entry key="S30" value="5.211291021880997" />
+      <entry key="S60" value="7.305518427784342" />
+      <entry key="M2" value="12.296453980084094" />
+      <entry key="M5" value="24.171730973082894" />
+      <entry key="M10" value="35.69480122344546" />
+      <entry key="M15" value="48.50765612757882" />
+      <entry key="M30" value="94.10210109894435" />
+      <entry key="H1" value="162.86309958173047" />
+      <entry key="H2" value="227.8936032838555" />
+      <entry key="H4" value="273.71177309495295" />
+      <entry key="D1" value="321.2708932423072" />
+      <entry key="W1" value="330.4402075283711" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="2.9604493284763853E-86" />
-      <entry key="S2" value="4.163744194946984E-22" />
-      <entry key="S5" value="3.2153039951185523E-9" />
-      <entry key="S10" value="8.752645632685026E-5" />
-      <entry key="S30" value="0.1345209967906821" />
-      <entry key="S60" value="1.0785507258768172" />
-      <entry key="M2" value="3.4191499115140016" />
-      <entry key="M5" value="8.265838385163288" />
-      <entry key="M10" value="15.246631294005757" />
-      <entry key="M15" value="21.380366268209134" />
-      <entry key="M30" value="33.70712502815922" />
-      <entry key="H1" value="44.74906176131054" />
-      <entry key="H2" value="52.382117140065354" />
-      <entry key="H4" value="56.90859175457696" />
-      <entry key="D1" value="61.10885562695408" />
-      <entry key="W1" value="61.871604114804974" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0000000000000042" />
+      <entry key="S2" value="1.0002542437624034" />
+      <entry key="S5" value="1.0364838048724918" />
+      <entry key="S10" value="1.191027989641324" />
+      <entry key="S30" value="1.6652595206749445" />
+      <entry key="S60" value="2.676613646402843" />
+      <entry key="M2" value="5.603139028071423" />
+      <entry key="M5" value="12.229855139439657" />
+      <entry key="M10" value="17.793551032660673" />
+      <entry key="M15" value="22.55591658374042" />
+      <entry key="M30" value="37.49660387806587" />
+      <entry key="H1" value="59.39368249267003" />
+      <entry key="H2" value="80.02417109302984" />
+      <entry key="H4" value="94.54387462127868" />
+      <entry key="D1" value="109.60405862585658" />
+      <entry key="W1" value="112.50633563174115" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.15496346249237333" />
-      <entry key="MS500" value="0.6889297517522234" />
-      <entry key="S2" value="1.0306063572065107" />
-      <entry key="S5" value="1.3975588256680571" />
-      <entry key="S10" value="1.7163993587943207" />
-      <entry key="S30" value="2.8817452121750846" />
-      <entry key="S60" value="7.537849970454034" />
-      <entry key="M2" value="18.840562180918603" />
-      <entry key="M5" value="40.15382790097595" />
-      <entry key="M10" value="65.8144254937814" />
-      <entry key="M15" value="87.98772317277073" />
-      <entry key="M30" value="133.92709404959547" />
-      <entry key="H1" value="176.51116798847158" />
-      <entry key="H2" value="206.56249777829402" />
-      <entry key="H4" value="224.579831244411" />
-      <entry key="D1" value="241.41478902310897" />
-      <entry key="W1" value="244.48316301675567" />
+      <entry key="MS100" value="0.0012057916300821465" />
+      <entry key="MS500" value="0.3636333811237022" />
+      <entry key="S2" value="1.311290372144721" />
+      <entry key="S5" value="2.2927389210103994" />
+      <entry key="S10" value="3.8030087784114985" />
+      <entry key="S30" value="6.728669838348231" />
+      <entry key="S60" value="9.872627580712608" />
+      <entry key="M2" value="17.803405196475303" />
+      <entry key="M5" value="36.32672252294537" />
+      <entry key="M10" value="53.43478373027621" />
+      <entry key="M15" value="71.01729292388215" />
+      <entry key="M30" value="131.55699004926075" />
+      <entry key="H1" value="222.22154225546797" />
+      <entry key="H2" value="307.8932509373892" />
+      <entry key="H4" value="368.2409401633377" />
+      <entry key="D1" value="430.87207643939837" />
+      <entry key="W1" value="442.9461206909114" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -123,6 +123,9 @@
   "keyToString": {
     "Cargo.Run format.executor": "Run",
     "Cargo.Run valentain.executor": "Run",
+    "Cargo.Test decimal_formatter::test.executor": "Coverage",
+    "Cargo.Test decimal_formatter::test::negative_integer.executor": "Run",
+    "Cargo.Test decimal_formatter::test::positive_integer.executor": "Run",
     "Cargo.Test draw::outcome::tests::report::first_adjacent_verify.executor": "Run",
     "Cargo.Test number::tests.executor": "Run",
     "CidrDebugProfileConversion": "true",
@@ -151,7 +154,7 @@
     "to.speed.mode.migration.done": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Cargo.Run format">
+  <component name="RunManager" selected="Cargo.Test decimal_formatter::test">
     <configuration name="Run annual" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
       <option name="command" value="run --package driver --bin annual" />
       <option name="workingDirectory" value="file://$PROJECT_DIR$" />
@@ -221,8 +224,43 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test draw::outcome::tests::report::first_adjacent_verify" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
-      <option name="command" value="test --package implementation --lib -- draw::outcome::tests::report::first_adjacent_verify --exact" />
+    <configuration name="Test decimal_formatter::test" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="command" value="test --package driver --lib -- decimal_formatter::test" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <envs />
+      <option name="emulateTerminal" value="true" />
+      <option name="channel" value="DEFAULT" />
+      <option name="requiredFeatures" value="true" />
+      <option name="allFeatures" value="false" />
+      <option name="withSudo" value="false" />
+      <option name="buildTarget" value="REMOTE" />
+      <option name="backtrace" value="SHORT" />
+      <option name="isRedirectInput" value="false" />
+      <option name="redirectInputPath" value="" />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test decimal_formatter::test::negative_integer" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="command" value="test --package driver --lib -- decimal_formatter::test::negative_integer --exact" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <envs />
+      <option name="emulateTerminal" value="true" />
+      <option name="channel" value="DEFAULT" />
+      <option name="requiredFeatures" value="true" />
+      <option name="allFeatures" value="false" />
+      <option name="withSudo" value="false" />
+      <option name="buildTarget" value="REMOTE" />
+      <option name="backtrace" value="SHORT" />
+      <option name="isRedirectInput" value="false" />
+      <option name="redirectInputPath" value="" />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test decimal_formatter::test::positive_integer" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="buildProfileId" value="test" />
+      <option name="command" value="test --package driver --lib -- decimal_formatter::test::positive_integer --exact" />
       <option name="workingDirectory" value="file://$PROJECT_DIR$" />
       <envs />
       <option name="emulateTerminal" value="true" />
@@ -256,29 +294,13 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test number::tests" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
-      <option name="command" value="test --package implementation --lib -- draw::number::tests" />
-      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
-      <envs />
-      <option name="emulateTerminal" value="true" />
-      <option name="channel" value="DEFAULT" />
-      <option name="requiredFeatures" value="true" />
-      <option name="allFeatures" value="false" />
-      <option name="withSudo" value="false" />
-      <option name="buildTarget" value="REMOTE" />
-      <option name="backtrace" value="SHORT" />
-      <option name="isRedirectInput" value="false" />
-      <option name="redirectInputPath" value="" />
-      <method v="2">
-        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Cargo.Test decimal_formatter::test" />
+        <item itemvalue="Cargo.Test decimal_formatter::test::negative_integer" />
+        <item itemvalue="Cargo.Test decimal_formatter::test::positive_integer" />
         <item itemvalue="Cargo.Run format" />
         <item itemvalue="Cargo.Run valentain" />
-        <item itemvalue="Cargo.Test draw::outcome::tests::report::first_adjacent_verify" />
-        <item itemvalue="Cargo.Test number::tests" />
       </list>
     </recent_temporary>
   </component>
@@ -300,7 +322,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Fix FirstDifferentGroup outcome test; add decimal formatter playground" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix FirstDifferentGroup outcome test; add decimal formatter playground" />
+    <MESSAGE value="Fix decimal formatter negative value handling" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix decimal formatter negative value handling" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
