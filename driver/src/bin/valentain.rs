@@ -1,10 +1,9 @@
-use implementation::{counter, draw, lottery, ticket};
+use implementation::{counter, draw, lottery,};
 
 fn main() {
 	let mut rnd = rand::rng();
 
 	let mut shelf = counter::Shelf::build(10, 1..=100);
-	let mut cnt = 0usize;
 
 	let spec = lottery::valentine_mini();
 	let outcome = draw::drawing_machine::draw(&spec, &mut rnd);
@@ -18,6 +17,5 @@ fn main() {
 		}
 	}
 
-	dbg!(cnt);
 	dbg!(accum);
 }

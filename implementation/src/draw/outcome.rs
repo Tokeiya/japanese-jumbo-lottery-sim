@@ -171,7 +171,7 @@ mod tests {
 					Number::all_digits(114514),
 				),
 				Record::new(
-					PrizeCategory::FirstAdjacent,
+					PrizeCategory::FirstDifferentGroup,
 					100.into(),
 					Group::none(),
 					Number::all_digits(114514),
@@ -207,7 +207,7 @@ mod tests {
 			let actual = report.verify(&ticket);
 			assert_eq!(actual.records().len(), 2);
 
-			assert_matches!(actual.records()[0].rank(), PrizeCategory::FirstAdjacent);
+			assert_matches!(actual.records()[0].rank(), PrizeCategory::FirstDifferentGroup);
 			assert_eq!(actual.records()[0].payout(), 100.into());
 
 			assert_matches!(actual.records()[1].rank(), PrizeCategory::Third);
