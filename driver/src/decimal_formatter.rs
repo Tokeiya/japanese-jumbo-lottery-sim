@@ -1,5 +1,3 @@
-#![expect(unused_variables, reason = "Under construction")]
-#![expect(unfulfilled_lint_expectations, reason = "Under construction")]
 
 use super::formatter::ThousandsSeparator;
 use rust_decimal::Decimal;
