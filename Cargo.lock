@@ -250,7 +250,6 @@ version = "0.1.0"
 dependencies = [
  "driver",
  "implementation",
- "rust_decimal",
 ]
 
 [[package]]
