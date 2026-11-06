@@ -89,5 +89,5 @@ pub fn dream_jumbo() -> Spec {
 			300.into(),
 		),
 	];
-	Spec::new("ドリームジャンボ宝くじ".into(), 200, 200.into(), v)
+	Spec::new("ドリームジャンボ宝くじ".into(), 100, 200.into(), v)
 }

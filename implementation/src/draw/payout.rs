@@ -1,6 +1,6 @@
 use crate::ticket::Ticket;
 use rust_decimal::Decimal;
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum PrizeCategory {
 	First,
 	FirstAdjacent,       // 1等前後賞

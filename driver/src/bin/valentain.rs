@@ -1,21 +1,44 @@
-use implementation::{counter, draw, lottery,};
-
+use driver::decimal_formatter;
+use driver::formatter::*;
+use implementation::{PrizeCategory, counter, draw, lottery};
+use rust_decimal::Decimal;
+use std::collections::HashMap;
 fn main() {
 	let mut rnd = rand::rng();
-
 	let mut shelf = counter::Shelf::build(10, 1..=100);
 
-	let spec = lottery::valentine_mini();
-	let outcome = draw::drawing_machine::draw(&spec, &mut rnd);
+	let mut accum: HashMap<PrizeCategory, Decimal> = std::collections::HashMap::new();
 
-	let mut accum: rust_decimal::Decimal = 0.into();
+	let arr = [
+		PrizeCategory::First,
+		PrizeCategory::FirstAdjacent,
+		PrizeCategory::FirstDifferentGroup,
+		PrizeCategory::Second,
+		PrizeCategory::Third,
+		PrizeCategory::Fourth,
+		PrizeCategory::Fifth,
+		PrizeCategory::Sixth,
+		PrizeCategory::Seventh,
+	];
+
+	for p in arr.iter() {
+		accum.insert(*p, 0.into());
+	}
+
+	let spec = lottery::dream_jumbo_mini();
+	let outcome = draw::drawing_machine::draw(&spec, &mut rnd);
 
 	for ticket in shelf.iter_mut().flatten() {
 		let result = outcome.verify(&ticket);
-		for p in result.records().iter().map(|x| x.payout()) {
-			accum += p;
+
+		for o in result.records() {
+			*accum.get_mut(&o.rank()).unwrap() += o.payout();
 		}
 	}
 
-	dbg!(accum);
+	for p in arr.iter() {
+		println!("{:?}:￥{}", p, accum.get(p).unwrap().separated());
+	}
+
+	println!("TTL:{}", accum.values().sum::<Decimal>().separated());
 }

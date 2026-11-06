@@ -17,25 +17,37 @@
     </cargoProject>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2268c769-96bb-4645-a0b2-2a826b3c14e4" name="Changes" comment="add">
-      <change afterPath="$PROJECT_DIR$/driver/src/u32_formatter.rs" afterDir="false" />
+    <list default="true" id="2268c769-96bb-4645-a0b2-2a826b3c14e4" name="Changes" comment="Implement u32 thousands separator formatting with test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Cargo.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/driver/src/decimal_formatter.rs" beforeDir="false" afterPath="$PROJECT_DIR$/driver/src/decimal_formatter.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/driver/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/driver/src/lib.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/driver/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/driver/Cargo.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/driver/src/bin/annual.rs" beforeDir="false" afterPath="$PROJECT_DIR$/driver/src/bin/annual.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/driver/src/bin/valentain.rs" beforeDir="false" afterPath="$PROJECT_DIR$/driver/src/bin/valentain.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/implementation/src/draw/drawing_machine.rs" beforeDir="false" afterPath="$PROJECT_DIR$/implementation/src/draw/drawing_machine.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/implementation/src/draw/payout.rs" beforeDir="false" afterPath="$PROJECT_DIR$/implementation/src/draw/payout.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/implementation/src/lottery/dream_jumbo.rs" beforeDir="false" afterPath="$PROJECT_DIR$/implementation/src/lottery/dream_jumbo.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/implementation/src/lottery/dream_jumbo_mini.rs" beforeDir="false" afterPath="$PROJECT_DIR$/implementation/src/lottery/dream_jumbo_mini.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/implementation/src/lottery/year_end_jumbo.rs" beforeDir="false" afterPath="$PROJECT_DIR$/implementation/src/lottery/year_end_jumbo.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="RsBuildProfile:test" />
+  <component name="EmbeddingIndexingInfo">
+    <option name="cachedIndexableFilesCount" value="55" />
+    <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="RsBuildProfile:dev" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Rust File" />
       </list>
     </option>
+  </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -44,63 +56,67 @@
   <component name="MacroExpansionManager">
     <option name="directoryName" value="IUfk6DyE" />
   </component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="2.0023039685415923E-89" />
-      <entry key="MS500" value="2.0635772973272003E-18" />
-      <entry key="S2" value="5.896437439140477E-5" />
-      <entry key="S5" value="0.031850738185189485" />
-      <entry key="S10" value="0.31834799738426306" />
-      <entry key="S30" value="3.2825066577309983" />
-      <entry key="S60" value="9.107019068349935" />
-      <entry key="M2" value="18.415999136233623" />
-      <entry key="M5" value="30.700998792440988" />
-      <entry key="M10" value="37.00944875768735" />
-      <entry key="M15" value="39.46328324216066" />
-      <entry key="M30" value="42.12037932866107" />
-      <entry key="H1" value="43.5310938621006" />
-      <entry key="H2" value="44.2581058721112" />
-      <entry key="H4" value="44.627171322088344" />
-      <entry key="D1" value="44.93759871782076" />
-      <entry key="W1" value="44.99107906209441" />
-    </decayedCancelled>
-    <decayedSelected>
       <entry key="MS100" value="1.0" />
       <entry key="MS500" value="1.0" />
-      <entry key="S2" value="1.0000874734651717" />
-      <entry key="S5" value="1.0363179673773952" />
-      <entry key="S10" value="1.3377402423132012" />
-      <entry key="S30" value="3.1587385956073466" />
-      <entry key="S60" value="5.555610772703818" />
-      <entry key="M2" value="8.829526301020113" />
-      <entry key="M5" value="12.754567999938587" />
-      <entry key="M10" value="14.662369515512372" />
-      <entry key="M15" value="15.38891660699173" />
-      <entry key="M30" value="16.16677549386387" />
-      <entry key="H1" value="16.576200859872614" />
-      <entry key="H2" value="16.78626926202447" />
-      <entry key="H4" value="16.892672457676525" />
-      <entry key="D1" value="16.98204751009375" />
-      <entry key="W1" value="16.997433772452112" />
+      <entry key="S2" value="1.0000000000002907" />
+      <entry key="S5" value="1.0000097496088582" />
+      <entry key="S10" value="1.003427740004897" />
+      <entry key="S30" value="1.3846884225207223" />
+      <entry key="S60" value="3.3665644890231046" />
+      <entry key="M2" value="8.169044903998406" />
+      <entry key="M5" value="20.47415689197943" />
+      <entry key="M10" value="39.83287264597944" />
+      <entry key="M15" value="57.13551362954419" />
+      <entry key="M30" value="106.38699277021895" />
+      <entry key="H1" value="185.9211217605915" />
+      <entry key="H2" value="270.69402700379595" />
+      <entry key="H4" value="335.1718024244752" />
+      <entry key="D1" value="405.6474884496867" />
+      <entry key="W1" value="419.61281478156246" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="5.886124321264087E-232" />
+      <entry key="MS500" value="5.675008828762942E-47" />
+      <entry key="S2" value="2.8900372910471836E-12" />
+      <entry key="S5" value="3.472169786052064E-5" />
+      <entry key="S10" value="0.009573199764924132" />
+      <entry key="S30" value="0.5400044964054331" />
+      <entry key="S60" value="2.240481880236651" />
+      <entry key="M2" value="5.812944074423326" />
+      <entry key="M5" value="15.40628727705218" />
+      <entry key="M10" value="31.627324996098228" />
+      <entry key="M15" value="44.83568041588169" />
+      <entry key="M30" value="73.4889586658202" />
+      <entry key="H1" value="108.80492440594674" />
+      <entry key="H2" value="142.18006174290338" />
+      <entry key="H4" value="166.35367317220897" />
+      <entry key="D1" value="192.09985042251347" />
+      <entry key="W1" value="197.14016155213852" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="4.8828124999999995E-4" />
-      <entry key="MS500" value="0.2176376408240311" />
-      <entry key="S2" value="0.68315332408558" />
-      <entry key="S5" value="0.9222151430188039" />
-      <entry key="S10" value="1.5439606300542894" />
-      <entry key="S30" value="6.284592568938818" />
-      <entry key="S60" value="14.499950578333038" />
-      <entry key="M2" value="27.10392100647908" />
-      <entry key="M5" value="43.36806282136418" />
-      <entry key="M10" value="51.620219830823245" />
-      <entry key="M15" value="54.81577288246526" />
-      <entry key="M30" value="58.267845281747206" />
-      <entry key="H1" value="60.09734938572478" />
-      <entry key="H2" value="61.03932764682842" />
-      <entry key="H4" value="61.51730105199835" />
-      <entry key="D1" value="61.91921977922586" />
-      <entry key="W1" value="61.98845184782873" />
+      <entry key="MS100" value="0.9460576467255959" />
+      <entry key="MS500" value="0.9889709163809315" />
+      <entry key="S2" value="0.997231251352769" />
+      <entry key="S5" value="0.9989203498761374" />
+      <entry key="S10" value="1.0102806497130825" />
+      <entry key="S30" value="1.8873630346802919" />
+      <entry key="S60" value="5.534999643474498" />
+      <entry key="M2" value="13.88312589191635" />
+      <entry key="M5" value="35.77112793757607" />
+      <entry key="M10" value="71.35564892977168" />
+      <entry key="M15" value="101.8760226851602" />
+      <entry key="M30" value="179.80017542077832" />
+      <entry key="H1" value="294.66903874873196" />
+      <entry key="H2" value="412.83582524157896" />
+      <entry key="H4" value="501.5026581738267" />
+      <entry key="D1" value="597.7428644515307" />
+      <entry key="W1" value="616.7523180997581" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -112,32 +128,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Cargo.Test decimal_formatter::test.executor&quot;: &quot;Run&quot;,
-    &quot;Cargo.Test u32_formatter::test.executor&quot;: &quot;Run&quot;,
-    &quot;CidrDebugProfileConversion&quot;: &quot;true&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.rust.reset.selective.auto.import&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;initial__devel&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/mnt/wsl/repo/japanese-jumbo-lottery-sim&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;org.rust.cargo.project.model.PROJECT_DISCOVERY&quot;: &quot;true&quot;,
-    &quot;org.rust.cargo.project.model.impl.CargoExternalSystemProjectAware.subscribe.first.balloon&quot;: &quot;&quot;,
-    &quot;org.rust.first.attach.projects&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Cargo.Run annual.executor": "Run",
+    "Cargo.Run valentain.executor": "Run",
+    "Cargo.Test decimal_formatter::test.executor": "Run",
+    "Cargo.Test drawing_machine::tests.executor": "Run",
+    "Cargo.Test u32_formatter::test.executor": "Run",
+    "CidrDebugProfileConversion": "true",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.rust.reset.selective.auto.import": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "code.cleanup.on.save": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "initial__devel",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "/mnt/wsl/repo/japanese-jumbo-lottery-sim",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "org.rust.cargo.project.model.PROJECT_DISCOVERY": "true",
+    "org.rust.cargo.project.model.impl.CargoExternalSystemProjectAware.subscribe.first.balloon": "",
+    "org.rust.first.attach.projects": "true",
+    "rearrange.code.on.save": "true",
+    "settings.editor.selected.configurable": "actions.on.save",
+    "to.speed.mode.migration.done": "true"
   }
-}</component>
-  <component name="RunManager" selected="Cargo.Test u32_formatter::test">
+}]]></component>
+  <component name="RunManager" selected="Cargo.Run valentain">
     <configuration name="Run annual" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
+      <option name="buildProfileId" value="dev" />
       <option name="command" value="run --package driver --bin annual" />
       <option name="workingDirectory" value="file://$PROJECT_DIR$" />
       <envs />
@@ -171,8 +197,44 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Run valentain" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="buildProfileId" value="dev" />
+      <option name="command" value="run --package driver --bin valentain" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <envs />
+      <option name="emulateTerminal" value="true" />
+      <option name="channel" value="DEFAULT" />
+      <option name="requiredFeatures" value="true" />
+      <option name="allFeatures" value="false" />
+      <option name="withSudo" value="false" />
+      <option name="buildTarget" value="REMOTE" />
+      <option name="backtrace" value="SHORT" />
+      <option name="isRedirectInput" value="false" />
+      <option name="redirectInputPath" value="" />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Test decimal_formatter::test" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
       <option name="command" value="test --package driver --lib -- decimal_formatter::test" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <envs />
+      <option name="emulateTerminal" value="true" />
+      <option name="channel" value="DEFAULT" />
+      <option name="requiredFeatures" value="true" />
+      <option name="allFeatures" value="false" />
+      <option name="withSudo" value="false" />
+      <option name="buildTarget" value="REMOTE" />
+      <option name="backtrace" value="SHORT" />
+      <option name="isRedirectInput" value="false" />
+      <option name="redirectInputPath" value="" />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test drawing_machine::tests" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="buildProfileId" value="test" />
+      <option name="command" value="test --package implementation --lib -- draw::drawing_machine::tests" />
       <option name="workingDirectory" value="file://$PROJECT_DIR$" />
       <envs />
       <option name="emulateTerminal" value="true" />
@@ -225,6 +287,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Cargo.Run valentain" />
+        <item itemvalue="Cargo.Test drawing_machine::tests" />
         <item itemvalue="Cargo.Test u32_formatter::test" />
         <item itemvalue="Cargo.Test decimal_formatter::test" />
       </list>
@@ -248,7 +312,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add" />
-    <option name="LAST_COMMIT_MESSAGE" value="add" />
+    <MESSAGE value="Implement u32 thousands separator formatting with test" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implement u32 thousands separator formatting with test" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -257,6 +322,11 @@
           <url>file://$PROJECT_DIR$/driver/src/decimal_formatter.rs</url>
           <line>1</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/driver/src/bin/valentain.rs</url>
+          <line>6</line>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

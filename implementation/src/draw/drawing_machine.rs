@@ -60,11 +60,12 @@ fn find_first_adjacent(scr: &[Record]) -> &Record {
 		.iter()
 		.filter(|&x| x.kind() == PrizeCategory::FirstAdjacent)
 		.collect();
-	if vec.len() != 2 {
-		panic!("First adjacent prize must be unique")
+
+	if vec.len() == 0 {
+		panic!("No first adjacent prize found")
 	}
 
-	if vec[0].prize() != vec[1].prize() {
+	if !vec.iter().map(|x| x.prize()).all(|x| x == vec[0].prize()) {
 		panic!("First adjacent prize must be unique")
 	}
 
@@ -100,65 +101,63 @@ fn draw_impl(datum: &Record, group_size: u8, rng: &mut impl Rng) -> OutcomeRecor
 	OutcomeRecord::new(datum.kind(), datum.prize(), grp, num)
 }
 
+fn draw_first(vec: &mut Vec<OutcomeRecord>, spec: &Spec, rng: &mut impl Rng) {
+	for first in spec
+		.prize()
+		.iter()
+		.filter(|x| x.kind() == PrizeCategory::First)
+	{
+		let grp = if spec.group_size() == 100 {
+			draw_group_100(rng, first.group_kind())
+		} else if spec.group_size() == 200 {
+			draw_group_200(rng, first.group_kind())
+		} else {
+			panic!("Invalid group size")
+		};
+
+		let num = draw_number(rng, first.number_kind());
+
+		let next_num = next_number(&num);
+		let previous_num = previous_number(&num);
+
+		let adjacent_prize = find_first_adjacent(spec.prize()).prize();
+
+		vec.push(OutcomeRecord::new(
+			PrizeCategory::First,
+			first.prize(),
+			grp.clone(),
+			num.clone(),
+		));
+
+		vec.push(OutcomeRecord::new(
+			PrizeCategory::FirstAdjacent,
+			adjacent_prize,
+			grp.clone(),
+			next_num,
+		));
+
+		vec.push(OutcomeRecord::new(
+			PrizeCategory::FirstAdjacent,
+			adjacent_prize,
+			grp.clone(),
+			previous_num,
+		));
+
+		if let Some(rec) = find_different_group(spec.prize()) {
+			vec.push(OutcomeRecord::new(
+				PrizeCategory::FirstDifferentGroup,
+				rec.prize(),
+				Group::none(),
+				num,
+			))
+		}
+	}
+}
+
 pub fn draw(spec: &Spec, rng: &mut impl Rng) -> Outcome {
 	let mut vec: Vec<OutcomeRecord> = Vec::new();
 
-	let first: Vec<&Record> = spec
-		.prize()
-		.iter()
-		.filter(|&x| x.kind() == PrizeCategory::First)
-		.collect();
-
-	if first.len() != 1 {
-		panic!("First prize must be unique")
-	}
-
-	let first = first[0];
-
-	let grp = if spec.group_size() == 100 {
-		draw_group_100(rng, first.group_kind())
-	} else if spec.group_size() == 200 {
-		draw_group_200(rng, first.group_kind())
-	} else {
-		panic!("Invalid group size")
-	};
-
-	let num = draw_number(rng, first.number_kind());
-
-	let next_num = next_number(&num);
-	let previous_num = previous_number(&num);
-
-	let adjacent_prize = find_first_adjacent(spec.prize()).prize();
-
-	vec.push(OutcomeRecord::new(
-		PrizeCategory::First,
-		first.prize(),
-		grp.clone(),
-		num.clone(),
-	));
-
-	vec.push(OutcomeRecord::new(
-		PrizeCategory::FirstAdjacent,
-		adjacent_prize,
-		grp.clone(),
-		next_num,
-	));
-
-	vec.push(OutcomeRecord::new(
-		PrizeCategory::FirstAdjacent,
-		adjacent_prize,
-		grp.clone(),
-		previous_num,
-	));
-
-	if let Some(rec) = find_different_group(spec.prize()) {
-		vec.push(OutcomeRecord::new(
-			PrizeCategory::FirstDifferentGroup,
-			rec.prize(),
-			Group::none(),
-			num,
-		))
-	}
+	draw_first(&mut vec, spec, rng);
 
 	for r in spec.prize().iter() {
 		match r.kind() {

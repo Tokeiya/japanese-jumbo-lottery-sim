@@ -95,5 +95,5 @@ pub fn year_end_jumbo() -> Spec {
 			300.into(),
 		),
 	];
-	Spec::new("年末ジャンボ宝くじ".into(), 100, 200.into(), v)
+	Spec::new("年末ジャンボ宝くじ".into(), 200, 200.into(), v)
 }
