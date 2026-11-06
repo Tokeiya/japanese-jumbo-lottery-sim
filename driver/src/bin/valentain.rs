@@ -4,7 +4,7 @@ use rust_decimal::Decimal;
 use std::collections::HashMap;
 fn main() {
 	let mut rnd = rand::rng();
-	let mut shelf = counter::Shelf::build(10, 1..=200);
+	let mut shelf = counter::Shelf::build(10, 1..=100);
 
 	let mut accum: HashMap<PrizeCategory, Decimal> = std::collections::HashMap::new();
 
@@ -24,7 +24,7 @@ fn main() {
 		accum.insert(*p, 0.into());
 	}
 
-	let spec = lottery::year_end_jumbo();
+	let spec = lottery::year_end_jumbo_mini();
 	let outcome = draw::drawing_machine::draw(&spec, &mut rnd);
 
 	for ticket in shelf.iter_mut().flatten() {
