@@ -1,4 +1,3 @@
-
 use super::formatter::ThousandsSeparator;
 use rust_decimal::Decimal;
 use std::fmt::Formatter;
@@ -28,7 +27,7 @@ impl ThousandsSeparator for Decimal {
 			cnt += 1;
 		}
 
-		let str = String::from_utf8(buff.into()).map_err(|x| std::fmt::Error)?;
+		let str = String::from_utf8(buff.into()).map_err(|_| std::fmt::Error)?;
 		write!(f, "{str}")
 	}
 }

@@ -47,10 +47,16 @@ pub fn year_end_jumbo() -> Spec {
 			10_000_000.into(),
 		),
 		Record::new(
-			PrizeCategory::Fourth,
+			PrizeCategory::Third,
 			NumberKind::AllDigits,
-			GroupKind::LastOneDigit,
-			1_000_000.into(),
+			GroupKind::AllDigits,
+			10_000_000.into(),
+		),
+		Record::new(
+			PrizeCategory::Third,
+			NumberKind::AllDigits,
+			GroupKind::AllDigits,
+			10_000_000.into(),
 		),
 		Record::new(
 			PrizeCategory::Fourth,
