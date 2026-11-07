@@ -13,6 +13,20 @@ pub enum PrizeCategory {
 	Seventh,
 }
 
+pub fn prizes() -> [PrizeCategory; 9] {
+	[
+		PrizeCategory::First,
+		PrizeCategory::FirstAdjacent,
+		PrizeCategory::FirstDifferentGroup,
+		PrizeCategory::Second,
+		PrizeCategory::Third,
+		PrizeCategory::Fourth,
+		PrizeCategory::Fifth,
+		PrizeCategory::Sixth,
+		PrizeCategory::Seventh,
+	]
+}
+
 pub struct Record {
 	rank: PrizeCategory,
 	payout: Decimal,

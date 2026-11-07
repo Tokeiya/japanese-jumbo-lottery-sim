@@ -8,3 +8,4 @@ implementation = { path = "../implementation" }
 rand = "*"
 rust_decimal = "*"
 rayon = "*"
+dashmap = "*"
