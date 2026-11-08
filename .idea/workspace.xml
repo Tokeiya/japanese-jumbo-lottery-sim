@@ -17,10 +17,7 @@
     </cargoProject>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2268c769-96bb-4645-a0b2-2a826b3c14e4" name="Changes" comment="Update Valentine driver to use Year End Jumbo Mini">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/driver/src/random_store.rs" beforeDir="false" afterPath="$PROJECT_DIR$/driver/src/random_store.rs" afterDir="false" />
-    </list>
+    <list default="true" id="2268c769-96bb-4645-a0b2-2a826b3c14e4" name="Changes" comment="sync" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -314,7 +311,8 @@
     <MESSAGE value="Handle multiple First prizes; update Jumbo specs and drivers" />
     <MESSAGE value="Fix Year End Jumbo Third prizes; update Valentine driver" />
     <MESSAGE value="Update Valentine driver to use Year End Jumbo Mini" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update Valentine driver to use Year End Jumbo Mini" />
+    <MESSAGE value="sync" />
+    <option name="LAST_COMMIT_MESSAGE" value="sync" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
