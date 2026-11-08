@@ -5,22 +5,15 @@ use std::sync::{Arc, Mutex};
 pub struct Store(Vec<VecDeque<Ticket>>);
 
 impl Store {
-	pub fn new(
-		shelf: &mut shelf::Shelf,
-		unit_size: u32,
-		group_size: u8,
-		rng: &mut impl Rng,
-	) -> Self {
-		let mut vec = (0..group_size)
-			.map(|_| VecDeque::<Ticket>::new())
-			.collect::<Vec<VecDeque<_>>>();
-
-		for _ in 0..unit_size {}
+	pub fn new(size: u32, rng: &mut impl Rng) -> Self {
+		if size % 10 != 0 {
+			panic!("size must be multiple of 10")
+		}
 
 		todo!()
 	}
 
-	pub fn random_10(&mut self) -> Vec<Ticket> {
+	pub fn take_10() -> [Ticket; 10] {
 		todo!()
 	}
 }
