@@ -44,19 +44,25 @@ impl Shelf {
 	) -> impl ExactSizeIterator<Item = &mut Rack> + std::iter::FusedIterator {
 		self.racks.iter_mut()
 	}
-}
 
-impl Index<usize> for Shelf {
-	type Output = Rack;
-
-	fn index(&self, index: usize) -> &Self::Output {
-		&self.racks[index]
+	pub fn len(&self) -> usize {
+		self.racks.len()
 	}
-}
 
-impl IndexMut<usize> for Shelf {
-	fn index_mut(&mut self, index: usize) -> &mut Self::Output {
-		&mut self.racks[index]
+	pub fn is_empty(&self) -> bool {
+		self.racks.is_empty()
+	}
+
+	pub fn trim(&mut self) {
+		self.racks.retain(|x| x.len() != 0)
+	}
+
+	pub fn racks(&self) -> &[Rack] {
+		self.racks.as_slice()
+	}
+
+	pub fn racks_mut(&mut self) -> &mut [Rack] {
+		self.racks.as_mut()
 	}
 }
 
@@ -68,6 +74,38 @@ mod tests {
 
 	const GROUP_SIZE: usize = 100;
 	const NUMBER_BEGIN: u32 = 100_000;
+
+	fn generate() -> Shelf {
+		let mut vec = Vec::new();
+
+		let mut begin = 100_000;
+
+		for i in 1..=100u8 {
+			vec.push(Rack::new(20, i, begin));
+			begin += 1_000;
+		}
+
+		Shelf { racks: vec }
+	}
+
+	#[test]
+	fn racks() {
+		let fixture = generate();
+		assert!(std::ptr::eq(
+			fixture.racks.as_ptr(),
+			fixture.racks().as_ptr()
+		));
+	}
+
+	#[test]
+	fn racks_mut() {
+		let mut fixture = generate();
+
+		assert!(std::ptr::eq(
+			fixture.racks_mut().as_ptr(),
+			fixture.racks.as_ptr()
+		));
+	}
 
 	#[test]
 	fn build() {
@@ -98,17 +136,48 @@ mod tests {
 		}
 	}
 
-	fn generate() -> Shelf {
-		let mut vec = Vec::new();
+	#[test]
+	fn len_is_empty() {
+		let mut fixture = generate();
 
-		let mut begin = 100_000;
+		assert_eq!(fixture.len(), GROUP_SIZE);
+		for i in 0..GROUP_SIZE {
+			fixture.racks.retain(|x| x.len() != 0);
 
-		for i in 1..=100u8 {
-			vec.push(Rack::new(20, i, begin));
-			begin += 1_000;
+			if fixture.racks.len() == 0 {
+				break;
+			}
+
+			assert_eq!(fixture.len(), GROUP_SIZE - i);
+			assert!(!fixture.is_empty());
+
+			for _ in fixture.racks[0].by_ref() {}
 		}
 
-		Shelf { racks: vec }
+		fixture.racks.retain(|x| x.len() != 0);
+		assert_eq!(fixture.len(), 0);
+		assert!(fixture.is_empty());
+	}
+
+	#[test]
+	fn trim() {
+		let mut fixture = generate();
+
+		assert_eq!(fixture.len(), GROUP_SIZE);
+		for i in 0..GROUP_SIZE {
+			fixture.trim();
+
+			if fixture.racks.len() == 0 {
+				break;
+			}
+
+			assert_eq!(fixture.racks.len(), GROUP_SIZE - i);
+
+			for _ in fixture.racks[0].by_ref() {}
+		}
+
+		fixture.trim();
+		assert_eq!(fixture.racks.len(), 0);
 	}
 
 	#[test]
@@ -134,37 +203,6 @@ mod tests {
 			let ticket = r.next().unwrap();
 			assert_eq!(ticket.number(), exp_begin);
 			exp_begin += 1_000;
-		}
-	}
-
-	#[test]
-	fn index_test() {
-		let fixture = generate();
-
-		let mut exp_num = 100_000;
-
-		for i in 0..GROUP_SIZE {
-			let rack = &fixture[i];
-			assert_eq!(rack.group(), (i + 1) as u8);
-			assert_eq!(rack.begin(), exp_num);
-			exp_num += 1_000;
-		}
-	}
-
-	#[test]
-	fn index_mut_test() {
-		let mut fixture = generate();
-
-		let mut exp_num = 100_000;
-
-		for i in 0..GROUP_SIZE {
-			let rack = &mut fixture[i];
-			assert_eq!(rack.group(), (i + 1) as u8);
-			assert_eq!(rack.begin(), exp_num);
-			let ticket = rack.next().unwrap();
-			assert_eq!(ticket.number(), exp_num);
-
-			exp_num += 1_000;
 		}
 	}
 }

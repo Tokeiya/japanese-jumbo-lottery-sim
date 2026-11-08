@@ -7,7 +7,10 @@ pub use draw::{Group, Number, Outcome, PrizeCategory, group, number, outcome};
 pub use ticket::Ticket;
 
 pub mod prelude {
-	pub use super::counter::{rack, shelf};
+	pub use super::counter::{
+		rack::{self, Rack},
+		shelf::{self, Shelf},
+	};
 	pub use super::draw::payout::{PrizeCategory, prizes};
 	pub use super::draw::{drawing_machine, group, number, outcome, payout};
 	pub use super::lottery::{self, annual, annual_jumbo, annual_mini};
