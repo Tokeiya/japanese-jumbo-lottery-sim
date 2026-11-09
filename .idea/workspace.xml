@@ -20,8 +20,6 @@
     <list default="true" id="2268c769-96bb-4645-a0b2-2a826b3c14e4" name="Changes" comment="Update Valentine driver to use Year End Jumbo Mini">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/driver/src/random_store.rs" beforeDir="false" afterPath="$PROJECT_DIR$/driver/src/random_store.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/implementation/src/counter/shelf.rs" beforeDir="false" afterPath="$PROJECT_DIR$/implementation/src/counter/shelf.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/implementation/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/implementation/src/lib.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,60 +55,60 @@
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
       <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0000000239400266" />
-      <entry key="S2" value="1.0124436736709843" />
-      <entry key="S5" value="1.1811202723274246" />
-      <entry key="S10" value="1.5526796711807234" />
-      <entry key="S30" value="3.4475911316859458" />
-      <entry key="S60" value="5.715107081325677" />
-      <entry key="M2" value="9.391944238950598" />
-      <entry key="M5" value="20.791776289579627" />
-      <entry key="M10" value="41.3758095175967" />
-      <entry key="M15" value="62.97857396205413" />
-      <entry key="M30" value="129.32669898232572" />
-      <entry key="H1" value="249.04364127468253" />
-      <entry key="H2" value="451.4503643539951" />
-      <entry key="H4" value="733.2867113427247" />
-      <entry key="D1" value="1286.3315906174587" />
-      <entry key="W1" value="1439.9649690908102" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.0000000729020795" />
+      <entry key="S5" value="1.0042896806036419" />
+      <entry key="S10" value="1.172156095260878" />
+      <entry key="S30" value="3.046071565682204" />
+      <entry key="S60" value="5.239443461398005" />
+      <entry key="M2" value="9.419019427390994" />
+      <entry key="M5" value="23.37728198647521" />
+      <entry key="M10" value="46.291090374177955" />
+      <entry key="M15" value="69.3425106199112" />
+      <entry key="M30" value="139.09843010258797" />
+      <entry key="H1" value="268.5768979385661" />
+      <entry key="H2" value="487.1990976714952" />
+      <entry key="H4" value="794.7947305142162" />
+      <entry key="D1" value="1423.7730327215038" />
+      <entry key="W1" value="1603.9066838253088" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="3.0037490143123876E-45" />
-      <entry key="MS500" value="1.2460421349723917E-9" />
-      <entry key="S2" value="0.005941323256323491" />
-      <entry key="S5" value="0.12872496101294653" />
-      <entry key="S10" value="0.3683749281373804" />
-      <entry key="S30" value="1.1689180740382499" />
-      <entry key="S60" value="2.276781224428392" />
-      <entry key="M2" value="4.32099531318632" />
-      <entry key="M5" value="10.061118298020695" />
-      <entry key="M10" value="17.968989782725764" />
-      <entry key="M15" value="25.118355521763327" />
-      <entry key="M30" value="47.47839946374277" />
-      <entry key="H1" value="90.29785139630964" />
-      <entry key="H2" value="164.17958362969284" />
-      <entry key="H4" value="269.3508209439568" />
-      <entry key="D1" value="479.47263929216683" />
-      <entry key="W1" value="538.2606043725573" />
+      <entry key="MS100" value="0.028972925382836173" />
+      <entry key="MS500" value="0.6036926904641035" />
+      <entry key="S2" value="1.4280733300005566" />
+      <entry key="S5" value="2.1248998258744263" />
+      <entry key="S10" value="3.420335572307974" />
+      <entry key="S30" value="6.734445235674299" />
+      <entry key="S60" value="9.001222886515558" />
+      <entry key="M2" value="12.835390235172554" />
+      <entry key="M5" value="24.549137433787237" />
+      <entry key="M10" value="39.77656881242688" />
+      <entry key="M15" value="52.194508183528036" />
+      <entry key="M30" value="83.29735897648567" />
+      <entry key="H1" value="134.31450887473946" />
+      <entry key="H2" value="216.6163977011699" />
+      <entry key="H4" value="332.2963953971183" />
+      <entry key="D1" value="571.450249202147" />
+      <entry key="W1" value="640.3329052397173" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.2365103171602766E-24" />
-      <entry key="MS500" value="1.6539005794333582E-5" />
-      <entry key="S2" value="0.0710059048811294" />
-      <entry key="S5" value="0.4925012075597017" />
-      <entry key="S10" value="1.170822627168064" />
-      <entry key="S30" value="3.9451782254057695" />
-      <entry key="S60" value="7.3466003000480535" />
-      <entry key="M2" value="13.152028052971502" />
-      <entry key="M5" value="30.435862656092496" />
-      <entry key="M10" value="59.044829622558325" />
-      <entry key="M15" value="87.85871767602544" />
-      <entry key="M30" value="176.64551101651767" />
-      <entry key="H1" value="339.23300561723437" />
-      <entry key="H2" value="615.555112468636" />
-      <entry key="H4" value="1002.5864999899144" />
-      <entry key="D1" value="1765.7912371854152" />
-      <entry key="W1" value="1978.2235370148223" />
+      <entry key="MS100" value="0.8586576633461771" />
+      <entry key="MS500" value="1.1770478671458282" />
+      <entry key="S2" value="2.1059188492039658" />
+      <entry key="S5" value="2.9201431752563916" />
+      <entry key="S10" value="4.409278237335286" />
+      <entry key="S30" value="9.643766462928742" />
+      <entry key="S60" value="14.13952812677301" />
+      <entry key="M2" value="22.166689986626213" />
+      <entry key="M5" value="47.84243058643104" />
+      <entry key="M10" value="85.98170081524262" />
+      <entry key="M15" value="121.44308502754821" />
+      <entry key="M30" value="222.2918991054761" />
+      <entry key="H1" value="402.7960129656642" />
+      <entry key="H2" value="703.7397197570482" />
+      <entry key="H4" value="1127.0364334478932" />
+      <entry key="D1" value="1995.208762485488" />
+      <entry key="W1" value="2244.237295941151" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -122,45 +120,45 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Cargo.Run annual.executor": "Run",
-    "Cargo.Run valentain.executor": "Run",
-    "Cargo.Test counter::shelf::tests::len.executor": "Run",
-    "Cargo.Test counter::shelf::tests::racks.executor": "Run",
-    "Cargo.Test counter::shelf::tests::racks_mut.executor": "Run",
-    "Cargo.Test counter::shelf::tests::trim.executor": "Run",
-    "Cargo.Test decimal_formatter::test.executor": "Run",
-    "Cargo.Test drawing_machine::tests.executor": "Run",
-    "Cargo.Test random_store::tests::foo.executor": "Run",
-    "Cargo.Test random_store::tests::new.executor": "Run",
-    "Cargo.Test u32_formatter::test.executor": "Run",
-    "CidrDebugProfileConversion": "true",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.rust.reset.selective.auto.import": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "code.cleanup.on.save": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "initial__devel",
-    "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "/mnt/wsl/repo/japanese-jumbo-lottery-sim",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "org.rust.cargo.project.model.PROJECT_DISCOVERY": "true",
-    "org.rust.cargo.project.model.impl.CargoExternalSystemProjectAware.subscribe.first.balloon": "",
-    "org.rust.first.attach.projects": "true",
-    "rearrange.code.on.save": "true",
-    "settings.editor.selected.configurable": "language.rust.cargo.check",
-    "to.speed.mode.migration.done": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Cargo.Run annual.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Run valentain.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Test counter::shelf::tests::len.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Test counter::shelf::tests::racks.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Test counter::shelf::tests::racks_mut.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Test counter::shelf::tests::trim.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Test decimal_formatter::test.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Test drawing_machine::tests.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Test random_store::tests::foo.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Test random_store::tests::new.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Test u32_formatter::test.executor&quot;: &quot;Run&quot;,
+    &quot;CidrDebugProfileConversion&quot;: &quot;true&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.rust.reset.selective.auto.import&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;code.cleanup.on.save&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;initial__devel&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/mnt/wsl/repo/japanese-jumbo-lottery-sim&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;org.rust.cargo.project.model.PROJECT_DISCOVERY&quot;: &quot;true&quot;,
+    &quot;org.rust.cargo.project.model.impl.CargoExternalSystemProjectAware.subscribe.first.balloon&quot;: &quot;&quot;,
+    &quot;org.rust.first.attach.projects&quot;: &quot;true&quot;,
+    &quot;rearrange.code.on.save&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;language.rust.cargo.check&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RsExternalLinterProjectSettings">
     <option name="tool" value="Clippy" />
   </component>
@@ -287,6 +285,7 @@
       </method>
     </configuration>
     <configuration name="Test random_store::tests::new" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="buildProfileId" value="test" />
       <option name="command" value="test --package driver --lib -- random_store::tests::new --exact" />
       <option name="workingDirectory" value="file://$PROJECT_DIR$" />
       <envs />

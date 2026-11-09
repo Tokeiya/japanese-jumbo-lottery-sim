@@ -54,10 +54,36 @@ mod tests {
 	use super::*;
 
 	#[test]
+	fn len_is_empty() {
+		let mut shelf = Shelf::build(42, 0..100);
+		let mut fixture = Store::new(1_000, &mut shelf, &mut rand::rng());
+
+		assert_eq!(fixture.len(), 1_000);
+		assert!(!fixture.is_empty());
+
+		let mut expected = 1_000;
+
+		for idx in 0..fixture.0.len() {
+			while fixture.0[idx].pop_front().is_none() {
+				expected -= 1;
+				assert_eq!(fixture.len(), expected);
+				assert!(!fixture.is_empty());
+			}
+		}
+
+		assert_eq!(0, fixture.len());
+		assert!(fixture.is_empty());
+	}
+
+	#[test]
 	fn new() {
 		let mut shelf = Shelf::build(42, 0..100);
-
 		let fixture = Store::new(1_000, &mut shelf, &mut rand::rng());
+
+		assert_eq!(shelf.iter().map(|x| x.len()).sum::<usize>(), 9_999_000);
+
+		assert_eq!(fixture.0.iter().map(|x| x.len()).sum::<usize>(), 1_000usize);
+		assert_eq!(1_000usize, fixture.0.iter().map(|x| x.len()).sum::<_>());
 
 		for (idx, deque) in fixture.0.iter().enumerate() {
 			for t in deque.iter() {
@@ -80,7 +106,5 @@ mod tests {
 			let actual = fixture.take_10();
 			assert(actual.as_ref())
 		}
-		
-		let a=shelf.
 	}
 }
