@@ -71,5 +71,5 @@ pub fn halloween_jumbo_mini() -> Spec {
 			300.into(),
 		),
 	];
-	Spec::new("ハロウィンジャンボミニ宝くじ".into(), 100, 200.into(), v)
+	Spec::new("ハロウィンジャンボミニ宝くじ".into(), 100, 300.into(), v)
 }

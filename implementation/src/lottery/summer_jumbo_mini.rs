@@ -47,5 +47,5 @@ pub fn summer_jumbo_mini() -> Spec {
 			300.into(),
 		),
 	];
-	Spec::new("サマージャンボミニ宝くじ".into(), 100, 200.into(), v)
+	Spec::new("サマージャンボミニ宝くじ".into(), 100, 300.into(), v)
 }

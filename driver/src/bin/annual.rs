@@ -34,5 +34,13 @@ fn proc(spec: &Spec, rng: &mut ThreadRng) {
 		accum += result.records().iter().map(|x| x.payout()).sum::<Decimal>();
 	}
 
-	println!("{}:￥{}", spec.name(), accum.separated());
+	let total: f64 =
+		(Decimal::from(spec.group_size()) * spec.unit_price() * Decimal::from(100_000)).as_f64();
+
+	println!(
+		"{}:￥{} ratio:{:.2}%",
+		spec.name(),
+		accum.separated(),
+		accum.as_f64() / total * 100f64
+	);
 }

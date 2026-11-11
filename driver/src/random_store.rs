@@ -80,7 +80,5 @@ mod tests {
 			let actual = fixture.take_10();
 			assert(actual.as_ref())
 		}
-		
-		let a=shelf.
 	}
 }

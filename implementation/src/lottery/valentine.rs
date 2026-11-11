@@ -102,5 +102,5 @@ pub fn valentine() -> Spec {
 		),
 	];
 
-	Spec::new("バレンタインジャンボ宝くじ".into(), 100, 200.into(), v)
+	Spec::new("バレンタインジャンボ宝くじ".into(), 100, 300.into(), v)
 }
