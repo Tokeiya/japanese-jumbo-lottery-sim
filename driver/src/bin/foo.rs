@@ -4,6 +4,7 @@ use implementation::lottery::Spec;
 use implementation::prelude::*;
 use rand::Rng;
 use rand::seq::IndexedMutRandom;
+use std::fs::File;
 
 fn main() {
 	let _annual = annual();
@@ -17,12 +18,17 @@ fn main() {
 		random.push(Player::new(i, Strategy::Random10));
 	}
 
-	proc(
-		&lottery::dream_jumbo(),
-		&mut rand::rng(),
-		&mut sequence,
-		&mut random,
-	);
+	for year in 0..2 {
+		println!("Year:{year}");
+
+		for spec in annual() {
+			proc(&spec, &mut rand::rng(), &mut sequence, &mut random);
+		}
+		println!();
+	}
+
+	let file = File::create("outpt.tsv").unwrap();
+	let mut writer = dsv_writer::RawWriter::try_new(file, '\t', dsv_writer::NewLine::CrLf);
 }
 
 fn take_sequence(shelf: &mut Shelf, rng: &mut impl Rng) -> [Ticket; 10] {
@@ -43,6 +49,8 @@ fn take_sequence(shelf: &mut Shelf, rng: &mut impl Rng) -> [Ticket; 10] {
 }
 
 fn proc(spec: &Spec, rng: &mut impl Rng, sequence: &mut [Player], random: &mut [Player]) {
+	println!("{}", spec.name());
+
 	let mut shelf = if spec.group_size() == 100 {
 		shelf::Shelf::build(10, 1..=100)
 	} else if spec.group_size() == 200 {

@@ -9,3 +9,4 @@ rand = "*"
 rust_decimal = "*"
 rayon = "*"
 dashmap = "*"
+dsv_writer = { git = "https://github.com/Tokeiya/dsv_writer.git" }
