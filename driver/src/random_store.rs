@@ -37,15 +37,21 @@ impl Store {
 	}
 
 	pub fn take_10(&mut self) -> Option<[Ticket; 10]> {
-		todo!()
+		if self.len() < 10 {
+			None
+		} else {
+			Some(std::array::from_fn(|idx| {
+				self.0[idx].pop_front().unwrap().clone()
+			}))
+		}
 	}
 
 	pub fn len(&self) -> usize {
-		todo!()
+		self.0.iter().map(|x| x.len()).sum()
 	}
 
 	pub fn is_empty(&self) -> bool {
-		todo!()
+		self.len() == 0
 	}
 }
 

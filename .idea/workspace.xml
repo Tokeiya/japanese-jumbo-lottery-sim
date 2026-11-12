@@ -17,9 +17,10 @@
     </cargoProject>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2268c769-96bb-4645-a0b2-2a826b3c14e4" name="Changes" comment="Update Jumbo specs to 300 yen unit price">
+    <list default="true" id="2268c769-96bb-4645-a0b2-2a826b3c14e4" name="Changes" comment="Fix shelf length and empty checks">
+      <change afterPath="$PROJECT_DIR$/driver/src/bin/foo.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/driver/src/player.rs" beforeDir="false" afterPath="$PROJECT_DIR$/driver/src/player.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/driver/src/random_store.rs" beforeDir="false" afterPath="$PROJECT_DIR$/driver/src/random_store.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,10 +33,10 @@
     </persistenceIdMap>
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="61" />
+    <option name="cachedIndexableFilesCount" value="62" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="RsBuildProfile:test" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="RsBuildProfile:dev" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -59,61 +60,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0001577579142504" />
-      <entry key="MS500" value="1.176854433617759" />
-      <entry key="S2" value="1.8854620344209247" />
-      <entry key="S5" value="2.533115772856126" />
-      <entry key="S10" value="3.309571960821455" />
-      <entry key="S30" value="6.074599215792809" />
-      <entry key="S60" value="10.077064676317155" />
-      <entry key="M2" value="16.143419306845367" />
-      <entry key="M5" value="37.45191421224554" />
-      <entry key="M10" value="75.52456620439433" />
-      <entry key="M15" value="105.43713160768753" />
-      <entry key="M30" value="170.3736479696797" />
-      <entry key="H1" value="282.7851875550067" />
-      <entry key="H2" value="491.8508762581909" />
-      <entry key="H4" value="808.6992006241603" />
-      <entry key="D1" value="1503.5256391050702" />
-      <entry key="W1" value="1710.633535044829" />
+      <entry key="MS100" value="1.0000000000000013" />
+      <entry key="MS500" value="1.0010642223410533" />
+      <entry key="S2" value="1.1930852606262743" />
+      <entry key="S5" value="1.9431748528711883" />
+      <entry key="S10" value="4.120602393381072" />
+      <entry key="S30" value="11.556340994474654" />
+      <entry key="S60" value="17.445672632709257" />
+      <entry key="M2" value="27.018799204784358" />
+      <entry key="M5" value="53.72532259112698" />
+      <entry key="M10" value="89.09161344716799" />
+      <entry key="M15" value="116.30957183868985" />
+      <entry key="M30" value="185.7952533994891" />
+      <entry key="H1" value="323.665458789493" />
+      <entry key="H2" value="576.8363312568943" />
+      <entry key="H4" value="964.6010100886309" />
+      <entry key="D1" value="1900.4356651363016" />
+      <entry key="W1" value="2202.080728298505" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="1.5199107990319098E-28" />
-      <entry key="MS500" value="2.731263779804024E-6" />
-      <entry key="S2" value="0.04166230917308976" />
-      <entry key="S5" value="0.3818365188359696" />
-      <entry key="S10" value="1.150573971622188" />
-      <entry key="S30" value="4.15271639581657" />
-      <entry key="S60" value="7.689567912208561" />
-      <entry key="M2" value="12.918783255623719" />
-      <entry key="M5" value="29.43991394615946" />
-      <entry key="M10" value="53.99147183919149" />
-      <entry key="M15" value="70.88493459233644" />
-      <entry key="M30" value="102.8401029427767" />
-      <entry key="H1" value="149.8853648271508" />
-      <entry key="H2" value="230.49069520499086" />
-      <entry key="H4" value="350.55648547549754" />
-      <entry key="D1" value="615.1234173367509" />
-      <entry key="W1" value="694.3174099759937" />
+      <entry key="MS100" value="2.6808195716083387E-22" />
+      <entry key="MS500" value="5.710784932059792E-5" />
+      <entry key="S2" value="0.14249407347865892" />
+      <entry key="S5" value="0.8784457841144612" />
+      <entry key="S10" value="1.9442136861538706" />
+      <entry key="S30" value="4.130062566805499" />
+      <entry key="S60" value="6.112896958191429" />
+      <entry key="M2" value="10.036862764463244" />
+      <entry key="M5" value="20.273087811243048" />
+      <entry key="M10" value="34.59467538687505" />
+      <entry key="M15" value="46.64168456107994" />
+      <entry key="M30" value="79.17219491443534" />
+      <entry key="H1" value="143.48992348727913" />
+      <entry key="H2" value="254.3105666905578" />
+      <entry key="H4" value="413.24761507898273" />
+      <entry key="D1" value="782.8861773883879" />
+      <entry key="W1" value="900.7843067976863" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.9075207815892804" />
-      <entry key="MS500" value="1.0529445929657069" />
-      <entry key="S2" value="1.7682570587362536" />
-      <entry key="S5" value="2.7877737520309696" />
-      <entry key="S10" value="4.340747208549693" />
-      <entry key="S30" value="10.082272220616664" />
-      <entry key="S60" value="17.61551054730855" />
-      <entry key="M2" value="28.92677506480687" />
-      <entry key="M5" value="66.76006988737582" />
-      <entry key="M10" value="129.39029620400683" />
-      <entry key="M15" value="176.2080670276914" />
-      <entry key="M30" value="273.1179814374591" />
-      <entry key="H1" value="432.58586012360234" />
-      <entry key="H2" value="722.2704874429742" />
-      <entry key="H4" value="1159.2017500625984" />
-      <entry key="D1" value="2118.633885623283" />
-      <entry key="W1" value="2404.9485202033256" />
+      <entry key="MS100" value="1.8785772908935252E-5" />
+      <entry key="MS500" value="0.1142003995598159" />
+      <entry key="S2" value="0.8533337524757911" />
+      <entry key="S5" value="2.459682538644107" />
+      <entry key="S10" value="5.761728117233765" />
+      <entry key="S30" value="15.496182118845306" />
+      <entry key="S60" value="23.399041547854296" />
+      <entry key="M2" value="36.890385223185106" />
+      <entry key="M5" value="73.85118064356567" />
+      <entry key="M10" value="123.56439377953765" />
+      <entry key="M15" value="162.8418314470908" />
+      <entry key="M30" value="264.87087547744704" />
+      <entry key="H1" value="467.06385194054945" />
+      <entry key="H2" value="831.0636233766407" />
+      <entry key="H4" value="1377.7816118644175" />
+      <entry key="D1" value="2683.301589223287" />
+      <entry key="W1" value="3102.8617421031395" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -145,17 +146,21 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Cargo.Run annual.executor": "Run",
+    "Cargo.Run foo.executor": "Run",
     "Cargo.Run valentain.executor": "Run",
     "Cargo.Test counter::shelf::tests::len.executor": "Run",
+    "Cargo.Test counter::shelf::tests::len_is_empty.executor": "Run",
     "Cargo.Test counter::shelf::tests::racks.executor": "Run",
     "Cargo.Test counter::shelf::tests::racks_mut.executor": "Run",
     "Cargo.Test counter::shelf::tests::trim.executor": "Run",
     "Cargo.Test decimal_formatter::test.executor": "Run",
     "Cargo.Test drawing_machine::tests.executor": "Run",
+    "Cargo.Test player::test.executor": "Run",
     "Cargo.Test player::test::new.executor": "Run",
     "Cargo.Test player::test::try_accumlate.executor": "Run",
     "Cargo.Test random_store::tests::foo.executor": "Run",
     "Cargo.Test random_store::tests::new.executor": "Run",
+    "Cargo.Test shelf::tests.executor": "Run",
     "Cargo.Test u32_formatter::test.executor": "Run",
     "CidrDebugProfileConversion": "true",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
@@ -180,14 +185,14 @@
     "org.rust.cargo.project.model.impl.CargoExternalSystemProjectAware.subscribe.first.balloon": "",
     "org.rust.first.attach.projects": "true",
     "rearrange.code.on.save": "true",
-    "settings.editor.selected.configurable": "settings.sync",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
     "to.speed.mode.migration.done": "true"
   }
 }]]></component>
   <component name="RsExternalLinterProjectSettings">
     <option name="tool" value="Clippy" />
   </component>
-  <component name="RunManager" selected="Cargo.Test player::test">
+  <component name="RunManager" selected="Cargo.Run foo">
     <configuration name="Run annual" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
       <option name="buildProfileId" value="dev" />
       <option name="command" value="run --package driver --bin annual" />
@@ -206,8 +211,60 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Run foo" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="buildProfileId" value="dev" />
+      <option name="command" value="run --package driver --bin foo" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <envs />
+      <option name="emulateTerminal" value="true" />
+      <option name="channel" value="DEFAULT" />
+      <option name="requiredFeatures" value="true" />
+      <option name="allFeatures" value="false" />
+      <option name="withSudo" value="false" />
+      <option name="buildTarget" value="REMOTE" />
+      <option name="backtrace" value="SHORT" />
+      <option name="isRedirectInput" value="false" />
+      <option name="redirectInputPath" value="" />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Run main" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
       <option name="command" value="run --package playground --bin main" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <envs />
+      <option name="emulateTerminal" value="true" />
+      <option name="channel" value="DEFAULT" />
+      <option name="requiredFeatures" value="true" />
+      <option name="allFeatures" value="false" />
+      <option name="withSudo" value="false" />
+      <option name="buildTarget" value="REMOTE" />
+      <option name="backtrace" value="SHORT" />
+      <option name="isRedirectInput" value="false" />
+      <option name="redirectInputPath" value="" />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test counter::shelf::tests::len_is_empty" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="command" value="test --package implementation --lib -- counter::shelf::tests::len_is_empty --exact" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <envs />
+      <option name="emulateTerminal" value="true" />
+      <option name="channel" value="DEFAULT" />
+      <option name="requiredFeatures" value="true" />
+      <option name="allFeatures" value="false" />
+      <option name="withSudo" value="false" />
+      <option name="buildTarget" value="REMOTE" />
+      <option name="backtrace" value="SHORT" />
+      <option name="isRedirectInput" value="false" />
+      <option name="redirectInputPath" value="" />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test counter::shelf::tests::trim" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="command" value="test --package implementation --lib -- counter::shelf::tests::trim --exact" />
       <option name="workingDirectory" value="file://$PROJECT_DIR$" />
       <envs />
       <option name="emulateTerminal" value="true" />
@@ -241,75 +298,6 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test player::test" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
-      <option name="command" value="test --package driver --lib -- player::test" />
-      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
-      <envs />
-      <option name="emulateTerminal" value="true" />
-      <option name="channel" value="DEFAULT" />
-      <option name="requiredFeatures" value="true" />
-      <option name="allFeatures" value="false" />
-      <option name="withSudo" value="false" />
-      <option name="buildTarget" value="REMOTE" />
-      <option name="backtrace" value="SHORT" />
-      <option name="isRedirectInput" value="false" />
-      <option name="redirectInputPath" value="" />
-      <method v="2">
-        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Test player::test::new" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
-      <option name="buildProfileId" value="test" />
-      <option name="command" value="test --package driver --lib -- player::test::new --exact" />
-      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
-      <envs />
-      <option name="emulateTerminal" value="true" />
-      <option name="channel" value="DEFAULT" />
-      <option name="requiredFeatures" value="true" />
-      <option name="allFeatures" value="false" />
-      <option name="withSudo" value="false" />
-      <option name="buildTarget" value="REMOTE" />
-      <option name="backtrace" value="SHORT" />
-      <option name="isRedirectInput" value="false" />
-      <option name="redirectInputPath" value="" />
-      <method v="2">
-        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Test player::test::try_accumlate" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
-      <option name="command" value="test --package driver --lib -- player::test::try_accumlate --exact" />
-      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
-      <envs />
-      <option name="emulateTerminal" value="true" />
-      <option name="channel" value="DEFAULT" />
-      <option name="requiredFeatures" value="true" />
-      <option name="allFeatures" value="false" />
-      <option name="withSudo" value="false" />
-      <option name="buildTarget" value="REMOTE" />
-      <option name="backtrace" value="SHORT" />
-      <option name="isRedirectInput" value="false" />
-      <option name="redirectInputPath" value="" />
-      <method v="2">
-        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Test random_store::tests::foo" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
-      <option name="command" value="test --package driver --lib -- random_store::tests::foo --exact" />
-      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
-      <envs />
-      <option name="emulateTerminal" value="true" />
-      <option name="channel" value="DEFAULT" />
-      <option name="requiredFeatures" value="true" />
-      <option name="allFeatures" value="false" />
-      <option name="withSudo" value="false" />
-      <option name="buildTarget" value="REMOTE" />
-      <option name="backtrace" value="SHORT" />
-      <option name="isRedirectInput" value="false" />
-      <option name="redirectInputPath" value="" />
-      <method v="2">
-        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Test random_store::tests::new" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
       <option name="command" value="test --package driver --lib -- random_store::tests::new --exact" />
       <option name="workingDirectory" value="file://$PROJECT_DIR$" />
@@ -327,13 +315,31 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Test shelf::tests" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="buildProfileId" value="test" />
+      <option name="command" value="test --package implementation --lib -- counter::shelf::tests" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <envs />
+      <option name="emulateTerminal" value="true" />
+      <option name="channel" value="DEFAULT" />
+      <option name="requiredFeatures" value="true" />
+      <option name="allFeatures" value="false" />
+      <option name="withSudo" value="false" />
+      <option name="buildTarget" value="REMOTE" />
+      <option name="backtrace" value="SHORT" />
+      <option name="isRedirectInput" value="false" />
+      <option name="redirectInputPath" value="" />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Cargo.Test player::test" />
-        <item itemvalue="Cargo.Test player::test::try_accumlate" />
-        <item itemvalue="Cargo.Test player::test::new" />
+        <item itemvalue="Cargo.Run foo" />
+        <item itemvalue="Cargo.Test counter::shelf::tests::trim" />
+        <item itemvalue="Cargo.Test counter::shelf::tests::len_is_empty" />
+        <item itemvalue="Cargo.Test shelf::tests" />
         <item itemvalue="Cargo.Test random_store::tests::new" />
-        <item itemvalue="Cargo.Test random_store::tests::foo" />
       </list>
     </recent_temporary>
   </component>
@@ -362,7 +368,9 @@
     <MESSAGE value="Add player and random store driver modules" />
     <MESSAGE value="sync" />
     <MESSAGE value="Update Jumbo specs to 300 yen unit price" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update Jumbo specs to 300 yen unit price" />
+    <MESSAGE value="Add player payout accumulation with tests" />
+    <MESSAGE value="Fix shelf length and empty checks" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix shelf length and empty checks" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -372,9 +380,8 @@
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/implementation/src/counter/shelf.rs</url>
-          <line>91</line>
-          <option name="timeStamp" value="6" />
+          <url>file://$PROJECT_DIR$/driver/src/bin/foo.rs</url>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
