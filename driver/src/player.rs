@@ -1,14 +1,7 @@
-#![expect(unused_variables, reason = "Under construction")]
-#![expect(unfulfilled_lint_expectations, reason = "Under construction")]
-
 use implementation::prelude::*;
 use std::ops::Add;
-use std::sync::{
-	Mutex, MutexGuard, TryLockResult,
-	atomic::{AtomicBool, Ordering},
-};
+use std::sync::Mutex;
 
-use dashmap::DashMap;
 use implementation::draw::Payout;
 use rust_decimal::Decimal;
 use rust_decimal::prelude::Zero;
@@ -114,7 +107,7 @@ mod test {
 	#[test]
 	fn try_accumlate() {
 		use implementation::prelude::payout::Record;
-		let mut fixture = Player::new(42, Strategy::Random10);
+		let fixture = Player::new(42, Strategy::Random10);
 
 		let pay = Payout::new(
 			Ticket::new(2, 10, 114_514),

@@ -2,7 +2,6 @@ use implementation::prelude::*;
 use rand::Rng;
 use rand::seq::IndexedMutRandom;
 use std::collections::VecDeque;
-use std::sync::{Arc, Mutex};
 pub struct Store(Vec<VecDeque<Ticket>>);
 
 impl Store {

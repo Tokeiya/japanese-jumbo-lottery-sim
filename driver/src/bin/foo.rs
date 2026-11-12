@@ -1,4 +1,3 @@
-use driver::formatter::*;
 use driver::player::{Player, Strategy};
 use driver::random_store::Store;
 use implementation::lottery::Spec;
@@ -7,8 +6,8 @@ use rand::Rng;
 use rand::seq::IndexedMutRandom;
 
 fn main() {
-	let annual = annual();
-	let rng = rand::rng();
+	let _annual = annual();
+	let _rng = rand::rng();
 
 	let mut sequence = Vec::new();
 	let mut random = Vec::new();

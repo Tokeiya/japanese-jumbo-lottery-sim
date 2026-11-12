@@ -1,6 +1,6 @@
 use super::rack::Rack;
 use rand::RngExt;
-use std::ops::{Index, IndexMut, RangeBounds};
+use std::ops::RangeBounds;
 
 pub struct Shelf {
 	racks: Vec<Rack>,
