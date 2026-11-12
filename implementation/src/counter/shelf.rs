@@ -46,11 +46,11 @@ impl Shelf {
 	}
 
 	pub fn len(&self) -> usize {
-		self.racks.len()
+		self.racks.iter().map(|r| r.len()).sum()
 	}
 
 	pub fn is_empty(&self) -> bool {
-		self.racks.is_empty()
+		self.len() == 0
 	}
 
 	pub fn trim(&mut self) {
@@ -140,21 +140,27 @@ mod tests {
 	fn len_is_empty() {
 		let mut fixture = generate();
 
-		assert_eq!(fixture.len(), GROUP_SIZE);
-		for i in 0..GROUP_SIZE {
-			fixture.racks.retain(|x| x.len() != 0);
+		assert_eq!(fixture.len(), 10_000_000);
+		assert!(!fixture.is_empty());
 
-			if fixture.racks.len() == 0 {
-				break;
+		let mut cnt = 10_000_000usize;
+
+		loop {
+			if fixture.racks[0].next().is_some() {
+				cnt -= 1;
+				continue;
+			} else {
+				fixture.trim();
+
+				if fixture.racks.is_empty() {
+					break;
+				}
 			}
 
-			assert_eq!(fixture.len(), GROUP_SIZE - i);
+			assert_eq!(fixture.len(), cnt);
 			assert!(!fixture.is_empty());
-
-			for _ in fixture.racks[0].by_ref() {}
 		}
 
-		fixture.racks.retain(|x| x.len() != 0);
 		assert_eq!(fixture.len(), 0);
 		assert!(fixture.is_empty());
 	}
@@ -163,11 +169,11 @@ mod tests {
 	fn trim() {
 		let mut fixture = generate();
 
-		assert_eq!(fixture.len(), GROUP_SIZE);
+		assert_eq!(fixture.racks.len(), GROUP_SIZE);
 		for i in 0..GROUP_SIZE {
 			fixture.trim();
 
-			if fixture.racks.len() == 0 {
+			if fixture.racks.is_empty() {
 				break;
 			}
 
