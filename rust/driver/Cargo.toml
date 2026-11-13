@@ -1,0 +1,12 @@
+[package]
+name = "driver"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+implementation = { path = "../implementation" }
+rand = "*"
+rust_decimal = "*"
+rayon = "*"
+dashmap = "*"
+dsv_writer = { git = "https://github.com/Tokeiya/dsv_writer.git" }
