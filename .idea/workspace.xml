@@ -17,10 +17,8 @@
     </cargoProject>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2268c769-96bb-4645-a0b2-2a826b3c14e4" name="Changes" comment="Remove mutable players from driver proc call">
+    <list default="true" id="2268c769-96bb-4645-a0b2-2a826b3c14e4" name="Changes" comment="Add player TSV output to foo driver">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/driver/src/bin/foo.rs" beforeDir="false" afterPath="$PROJECT_DIR$/driver/src/bin/foo.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/driver/src/player.rs" beforeDir="false" afterPath="$PROJECT_DIR$/driver/src/player.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,61 +53,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="9.325680760545897E-11" />
-      <entry key="MS500" value="0.009861792621723372" />
-      <entry key="S2" value="0.34101084201856297" />
-      <entry key="S5" value="0.86980591548272" />
-      <entry key="S10" value="1.4038005682366768" />
-      <entry key="S30" value="3.293590143287228" />
-      <entry key="S60" value="5.87707245684549" />
-      <entry key="M2" value="11.491263853178346" />
-      <entry key="M5" value="44.11671504832905" />
-      <entry key="M10" value="94.23026044518588" />
-      <entry key="M15" value="130.26459679622764" />
-      <entry key="M30" value="215.5849199686589" />
-      <entry key="H1" value="363.526164730049" />
-      <entry key="H2" value="612.1491045325959" />
-      <entry key="H4" value="967.0521005453422" />
-      <entry key="D1" value="1738.3098288533279" />
-      <entry key="W1" value="1969.9725128712191" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.0" />
+      <entry key="S5" value="1.0000002106812742" />
+      <entry key="S10" value="1.0006908872905051" />
+      <entry key="S30" value="1.2600380002120106" />
+      <entry key="S60" value="2.6513710876291534" />
+      <entry key="M2" value="7.091294715233848" />
+      <entry key="M5" value="35.224719192849804" />
+      <entry key="M10" value="83.99630435875417" />
+      <entry key="M15" value="120.69388818206522" />
+      <entry key="M30" value="207.6527393908115" />
+      <entry key="H1" value="356.91563657654245" />
+      <entry key="H2" value="606.7074501236712" />
+      <entry key="H4" value="962.950491936755" />
+      <entry key="D1" value="1737.7780719232067" />
+      <entry key="W1" value="1970.7244345221693" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="1.0000005217998988" />
-      <entry key="MS500" value="1.0554642720604297" />
-      <entry key="S2" value="1.5750824155647445" />
-      <entry key="S5" value="2.1306325623965687" />
-      <entry key="S10" value="2.508205361295226" />
-      <entry key="S30" value="3.4234369088743493" />
-      <entry key="S60" value="4.561228190001795" />
-      <entry key="M2" value="7.233962980112295" />
-      <entry key="M5" value="19.200594906134544" />
-      <entry key="M10" value="35.66778693041229" />
-      <entry key="M15" value="48.297954835304495" />
-      <entry key="M30" value="83.49933477907031" />
-      <entry key="H1" value="148.26667079450053" />
-      <entry key="H2" value="251.03878933892463" />
-      <entry key="H4" value="391.1668373671991" />
-      <entry key="D1" value="690.669054738067" />
-      <entry key="W1" value="780.3483210291472" />
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="7.336337963048569E-67" />
+      <entry key="S2" value="4.547913869684953E-17" />
+      <entry key="S5" value="5.160741896962603E-7" />
+      <entry key="S10" value="0.0012344254912736124" />
+      <entry key="S30" value="0.27028975947419165" />
+      <entry key="S60" value="1.2816381646400457" />
+      <entry key="M2" value="3.8345826041378115" />
+      <entry key="M5" value="14.895373970574145" />
+      <entry key="M10" value="31.415539826526405" />
+      <entry key="M15" value="44.37867346660981" />
+      <entry key="M30" value="80.03976471041607" />
+      <entry key="H1" value="145.16266403574036" />
+      <entry key="H2" value="248.3971043112369" />
+      <entry key="H4" value="389.10326695172614" />
+      <entry key="D1" value="690.0604537318163" />
+      <entry key="W1" value="780.2500518797556" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="2.843590205111172E-4" />
-      <entry key="MS500" value="0.21032427091724934" />
-      <entry key="S2" value="1.2818890780733068" />
-      <entry key="S5" value="2.519205976676188" />
-      <entry key="S10" value="3.5725167535321805" />
-      <entry key="S30" value="6.5222819389930695" />
-      <entry key="S60" value="10.30021573112842" />
-      <entry key="M2" value="18.621723186323376" />
-      <entry key="M5" value="63.220144314140114" />
-      <entry key="M10" value="129.80802238045118" />
-      <entry key="M15" value="178.47928279357316" />
-      <entry key="M30" value="299.00403413273693" />
-      <entry key="H1" value="511.71014190833904" />
-      <entry key="H2" value="863.1124550152898" />
-      <entry key="H4" value="1358.1599132962635" />
-      <entry key="D1" value="2428.9620004999133" />
-      <entry key="W1" value="2750.318128322057" />
+      <entry key="MS100" value="0.3438854545349359" />
+      <entry key="MS500" value="0.8077607776096081" />
+      <entry key="S2" value="0.9480269651286454" />
+      <entry key="S5" value="0.9788779523988026" />
+      <entry key="S10" value="0.9911405348913758" />
+      <entry key="S30" value="1.5114002645989757" />
+      <entry key="S60" value="3.8924319218331367" />
+      <entry key="M2" value="10.870122912640596" />
+      <entry key="M5" value="50.044358572292424" />
+      <entry key="M10" value="115.33237391037447" />
+      <entry key="M15" value="164.99593131038262" />
+      <entry key="M30" value="287.61554791054556" />
+      <entry key="H1" value="501.9973085606148" />
+      <entry key="H2" value="855.0298945973794" />
+      <entry key="H4" value="1351.9950382392078" />
+      <entry key="D1" value="2427.821656205047" />
+      <entry key="W1" value="2750.9717809878325" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -339,7 +337,8 @@
     <MESSAGE value="Add playground hash and ordering examples" />
     <MESSAGE value="Update Valentine driver to use Year End Jumbo Mini" />
     <MESSAGE value="Remove mutable players from driver proc call" />
-    <option name="LAST_COMMIT_MESSAGE" value="Remove mutable players from driver proc call" />
+    <MESSAGE value="Add player TSV output to foo driver" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add player TSV output to foo driver" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
