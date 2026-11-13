@@ -4,6 +4,7 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-implementation = {path = "../implementation"}
-driver={path = "../driver"}
+implementation = { path = "../implementation" }
+driver = { path = "../driver" }
 rust_decimal = "*"
+overwrite-ring-buffer = "*"

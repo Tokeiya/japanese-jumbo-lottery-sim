@@ -405,6 +405,15 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "9f7c3e4beb33f85d45ae3e3a1792185706c8e16d043238c593331cc7cd313b50"
 
 [[package]]
+name = "overwrite-ring-buffer"
+version = "0.21.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "821dcff082504d5de345e4d10684e68e351fc2f7548ce5f967fe25715c5b69e1"
+dependencies = [
+ "thiserror",
+]
+
+[[package]]
 name = "parking_lot_core"
 version = "0.9.12"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -429,6 +438,7 @@ version = "0.1.0"
 dependencies = [
  "driver",
  "implementation",
+ "overwrite-ring-buffer",
  "rust_decimal",
 ]
 
