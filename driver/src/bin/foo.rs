@@ -1,5 +1,6 @@
 use driver::player::{Player, Strategy};
 use driver::random_store::Store;
+use dsv_writer::{Encoder, QuoteMode, ToDsv};
 use implementation::lottery::Spec;
 use implementation::prelude::*;
 use rand::Rng;
@@ -20,7 +21,7 @@ fn main() {
 		players.push(Player::new(i, Strategy::Random10));
 	}
 
-	for year in 0..2 {
+	for year in 0..60 {
 		println!("Year:{year}");
 
 		for spec in annual() {
@@ -31,6 +32,84 @@ fn main() {
 
 	let file = File::create("outpt.tsv").unwrap();
 	let mut writer = dsv_writer::RawWriter::try_new(file, '\t', dsv_writer::NewLine::Lf).unwrap();
+
+	writer.write_str_field("id", QuoteMode::AutoDetect).unwrap();
+	writer
+		.write_str_field("strategy", QuoteMode::AutoDetect)
+		.unwrap();
+
+	writer
+		.write_str_field("total_payed", QuoteMode::AutoDetect)
+		.unwrap();
+
+	writer
+		.write_str_field("first_cnt", QuoteMode::AutoDetect)
+		.unwrap();
+	writer
+		.write_str_field("first_prize", QuoteMode::AutoDetect)
+		.unwrap();
+
+	writer
+		.write_str_field("first_adjacent_cnt", QuoteMode::AutoDetect)
+		.unwrap();
+	writer
+		.write_str_field("first_adjacent_prize", QuoteMode::AutoDetect)
+		.unwrap();
+
+	writer
+		.write_str_field("first_different_group_cnt", QuoteMode::AutoDetect)
+		.unwrap();
+	writer
+		.write_str_field("first_different_group_prize", QuoteMode::AutoDetect)
+		.unwrap();
+
+	writer
+		.write_str_field("second_cnt", QuoteMode::AutoDetect)
+		.unwrap();
+	writer
+		.write_str_field("second_prize", QuoteMode::AutoDetect)
+		.unwrap();
+
+	writer
+		.write_str_field("third_cnt", QuoteMode::AutoDetect)
+		.unwrap();
+	writer
+		.write_str_field("third_prize", QuoteMode::AutoDetect)
+		.unwrap();
+
+	writer
+		.write_str_field("fourth_cnt", QuoteMode::AutoDetect)
+		.unwrap();
+	writer
+		.write_str_field("fourth_prize", QuoteMode::AutoDetect)
+		.unwrap();
+
+	writer
+		.write_str_field("fifth_cnt", QuoteMode::AutoDetect)
+		.unwrap();
+	writer
+		.write_str_field("fifth_prize", QuoteMode::AutoDetect)
+		.unwrap();
+
+	writer
+		.write_str_field("sixth_cnt", QuoteMode::AutoDetect)
+		.unwrap();
+	writer
+		.write_str_field("sixth_prize", QuoteMode::AutoDetect)
+		.unwrap();
+
+	writer
+		.write_str_field("seventh_cnt", QuoteMode::AutoDetect)
+		.unwrap();
+	writer
+		.write_str_field("seventh_prize", QuoteMode::AutoDetect)
+		.unwrap();
+
+	writer.end_of_record(false).unwrap();
+
+	for p in players.iter() {
+		p.to_dsv(&mut writer).unwrap();
+	}
 }
 
 fn take_sequence(shelf: &mut Shelf, rng: &mut impl Rng) -> [Ticket; 10] {

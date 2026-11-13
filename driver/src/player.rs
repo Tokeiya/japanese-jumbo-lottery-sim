@@ -6,6 +6,8 @@ use implementation::draw::Payout;
 use rust_decimal::Decimal;
 use rust_decimal::prelude::Zero;
 
+use dsv_writer::{Encoder, QuoteMode, ToDsv, ToDsvResult};
+
 #[derive(Debug, Eq, PartialEq, Copy, Clone)]
 pub enum Strategy {
 	Random10,
@@ -70,6 +72,67 @@ impl Player {
 		} else {
 			false
 		}
+	}
+}
+
+impl ToDsv for Player {
+	type Error = std::io::Error;
+
+	fn to_dsv<T: Encoder>(&self, writer: &mut T) -> ToDsvResult<(), Self::Error> {
+		writer.write_value_field(&self.id, QuoteMode::AutoDetect)?;
+		let tmp = match self.strategy {
+			Strategy::Random10 => "random_10",
+			Strategy::Sequence10 => "sequence_10",
+		};
+
+		writer.write_str_field(tmp, QuoteMode::AutoDetect)?;
+
+		let lock = self.datum.lock().unwrap();
+
+		writer.write_value_field(&lock.payed, QuoteMode::AutoDetect)?;
+
+		let (d, c) = lock.prizes.get(&PrizeCategory::First).unwrap();
+		writer.write_value_field(&c, QuoteMode::AutoDetect)?;
+		writer.write_value_field(&d, QuoteMode::AutoDetect)?;
+
+		let (d, c) = lock.prizes.get(&PrizeCategory::FirstAdjacent).unwrap();
+		writer.write_value_field(&c, QuoteMode::AutoDetect)?;
+		writer.write_value_field(&d, QuoteMode::AutoDetect)?;
+
+		let (d, c) = lock
+			.prizes
+			.get(&PrizeCategory::FirstDifferentGroup)
+			.unwrap();
+		writer.write_value_field(&c, QuoteMode::AutoDetect)?;
+		writer.write_value_field(&d, QuoteMode::AutoDetect)?;
+
+		let (d, c) = lock.prizes.get(&PrizeCategory::Second).unwrap();
+		writer.write_value_field(&c, QuoteMode::AutoDetect)?;
+		writer.write_value_field(&d, QuoteMode::AutoDetect)?;
+
+		let (d, c) = lock.prizes.get(&PrizeCategory::Third).unwrap();
+		writer.write_value_field(&c, QuoteMode::AutoDetect)?;
+		writer.write_value_field(&d, QuoteMode::AutoDetect)?;
+
+		let (d, c) = lock.prizes.get(&PrizeCategory::Fourth).unwrap();
+		writer.write_value_field(&c, QuoteMode::AutoDetect)?;
+		writer.write_value_field(&d, QuoteMode::AutoDetect)?;
+
+		let (d, c) = lock.prizes.get(&PrizeCategory::Fifth).unwrap();
+		writer.write_value_field(&c, QuoteMode::AutoDetect)?;
+		writer.write_value_field(&d, QuoteMode::AutoDetect)?;
+
+		let (d, c) = lock.prizes.get(&PrizeCategory::Sixth).unwrap();
+		writer.write_value_field(&c, QuoteMode::AutoDetect)?;
+		writer.write_value_field(&d, QuoteMode::AutoDetect)?;
+
+		let (d, c) = lock.prizes.get(&PrizeCategory::Seventh).unwrap();
+		writer.write_value_field(&c, QuoteMode::AutoDetect)?;
+		writer.write_value_field(&d, QuoteMode::AutoDetect)?;
+
+		writer.end_of_record(false)?;
+
+		Ok(())
 	}
 }
 
