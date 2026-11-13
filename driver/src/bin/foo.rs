@@ -24,7 +24,7 @@ fn main() {
 		println!("Year:{year}");
 
 		for spec in annual() {
-			proc(&spec, &mut rand::rng(), &mut players);
+			proc(&spec, &mut rand::rng(), &players);
 		}
 		println!();
 	}
@@ -71,7 +71,7 @@ fn proc(spec: &Spec, rng: &mut impl Rng, players: &[Player]) {
 			Strategy::Sequence10 => take_sequence(&mut shelf, rng),
 		};
 
-		p.push((tickets, player));
+		p.push((tickets, player))
 	}
 
 	let outcome = drawing_machine::draw(spec, rng);
