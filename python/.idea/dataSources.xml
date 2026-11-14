@@ -12,7 +12,7 @@
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://blue:5432/lottery</jdbc-url>
+      <jdbc-url>jdbc:postgresql://blue:5432/lottery?options=-c%20synchronous_commit%3Doff%20-c%20session_replication_role%3Dreplica%20-c%20work_mem%3D1GB%20-c%20maintenance_work_mem%3D2GB%20-c%20temp_buffers%3D2GB%20-c%20max_parallel_workers_per_gather%3D4</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>
