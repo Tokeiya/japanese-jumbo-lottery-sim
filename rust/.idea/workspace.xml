@@ -18,13 +18,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2268c769-96bb-4645-a0b2-2a826b3c14e4" name="Changes" comment="Add initial Rust workspace and annual driver">
-      <change afterPath="$PROJECT_DIR$/../python/.idea/data_source_mapping.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../python/split_plize.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../python/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../python/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../python/.idea/db-forest-config.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../python/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../python/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../python/.idea/data_source_mapping.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../python/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../python/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../python/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../python/.idea/pycharm.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../python/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../python/main.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../python/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../python/split_plize.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_8_26,_11_37 AM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_8_26__11_37AM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/driver/src/bin/foo.rs" beforeDir="false" afterPath="$PROJECT_DIR$/driver/src/bin/foo.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/driver/src/player.rs" beforeDir="false" afterPath="$PROJECT_DIR$/driver/src/player.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +40,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="61" />
+    <option name="cachedIndexableFilesCount" value="60" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="RsBuildProfile:dev" />
