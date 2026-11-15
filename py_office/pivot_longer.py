@@ -1,4 +1,26 @@
 
+def initial_insert():
+    arr=[
+        'first',
+        'first_adjacent',
+        'first_different_group',
+        'second',
+        'third',
+        'fourth',
+        'fifth',
+        'sixth',
+        'seventh'
+    ]
+
+    tmp=[(i,nme) for (i,nme) in enumerate(arr,start=1)]
+
+    print('INSERT INTO prize_kind(id,name) VALUES ');
+
+    for (i,nme) in tmp:
+        print(f"""({i},'{nme}'),""")
+
+
+
 def pivot_longer():
     arr=[
         'first',
@@ -21,4 +43,4 @@ def pivot_longer():
         print(cmd)
 
 if __name__ == '__main__':
-    pivot_longer()
+    initial_insert()

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3a96d88c-224b-4a50-98da-0b29b5aaf32e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sql/initial.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pivot_longer.py" beforeDir="false" afterPath="$PROJECT_DIR$/pivot_longer.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseLocalColorSettings">
+    <colors>
+      <entry key="44a715f6-42a4-480b-bec8-5e3fc340379a" value="" />
+    </colors>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.848857203983551E-19" />
+      <entry key="MS500" value="1.7980985491827586E-4" />
+      <entry key="S2" value="0.19472219127704157" />
+      <entry key="S5" value="1.3503375317043662" />
+      <entry key="S10" value="2.885834685151024" />
+      <entry key="S30" value="7.597231386072558" />
+      <entry key="S60" value="15.606262447224983" />
+      <entry key="M2" value="28.143893078462455" />
+      <entry key="M5" value="44.644170287929086" />
+      <entry key="M10" value="53.15956609262641" />
+      <entry key="M15" value="56.48196899082744" />
+      <entry key="M30" value="60.08617682033068" />
+      <entry key="H1" value="62.00253384256176" />
+      <entry key="H2" value="62.99088606046712" />
+      <entry key="H4" value="63.49281684492538" />
+      <entry key="D1" value="63.915102064657866" />
+      <entry key="W1" value="63.98786269080885" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0000000000000029" />
+      <entry key="S2" value="1.0002409847467817" />
+      <entry key="S5" value="1.046067027550486" />
+      <entry key="S10" value="1.3368989928630322" />
+      <entry key="S30" value="2.8408670439678803" />
+      <entry key="S60" value="4.886563088514814" />
+      <entry key="M2" value="9.280752367279714" />
+      <entry key="M5" value="17.280765793985786" />
+      <entry key="M10" value="22.17233127693352" />
+      <entry key="M15" value="24.198093624733097" />
+      <entry key="M30" value="26.46381899329258" />
+      <entry key="H1" value="27.696044839553245" />
+      <entry key="H2" value="28.33878478823139" />
+      <entry key="H4" value="28.66704811826547" />
+      <entry key="D1" value="28.944179421825968" />
+      <entry key="W1" value="28.992017544918543" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="6.487723701643124E-4" />
+      <entry key="MS500" value="0.23049122889642804" />
+      <entry key="S2" value="0.8680584866975817" />
+      <entry key="S5" value="2.1918382642195673" />
+      <entry key="S10" value="4.061793231560133" />
+      <entry key="S30" value="10.309026567778513" />
+      <entry key="S60" value="20.372680555980313" />
+      <entry key="M2" value="37.319916298921825" />
+      <entry key="M5" value="61.857677583942014" />
+      <entry key="M10" value="75.29138498554322" />
+      <entry key="M15" value="80.65122914754224" />
+      <entry key="M30" value="86.53457893070683" />
+      <entry key="H1" value="89.69060230207397" />
+      <entry key="H2" value="91.32561329580777" />
+      <entry key="H4" value="92.15781853948903" />
+      <entry key="D1" value="92.85893793839841" />
+      <entry key="W1" value="92.9798310964087" />
+    </decayedShown>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="3M8beYoAAaFkz8Uc9C8ITXSirGO" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.pivot_longer.executor": "Run",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "initial__devel",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "python.packages.toolwindow.project.migrated.to.right.top.v2": "true",
+    "settings.editor.selected.configurable": "SQL Resolution Scopes"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "sqlite"
+    ]
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="pivot_longer" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="py_office" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="RUN_TOOL" value="" />
+      <option name="RUN_AS_SCRIPT" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pivot_longer.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.pivot_longer" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-34611be1ca5a-e0583fc556d1-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-263.7307.206" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3a96d88c-224b-4a50-98da-0b29b5aaf32e" name="Changes" comment="" />
+      <created>1794735240202</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1794735240202</updated>
+      <workItem from="1794735243358" duration="28000" />
+      <workItem from="1794737276101" duration="983000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
