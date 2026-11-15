@@ -17,12 +17,7 @@
     </cargoProject>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2268c769-96bb-4645-a0b2-2a826b3c14e4" name="Changes" comment="Add initial Rust workspace and annual driver">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_8_26,_8_23 PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_8_26__8_23PM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/driver/src/bin/foo.rs" beforeDir="false" afterPath="$PROJECT_DIR$/driver/src/bin/foo.rs" afterDir="false" />
-    </list>
+    <list default="true" id="2268c769-96bb-4645-a0b2-2a826b3c14e4" name="Changes" comment="add PostgreSQL data source config" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -343,7 +338,8 @@
     <MESSAGE value="Add player TSV output to foo driver" />
     <MESSAGE value="Remove obsolete workspace files" />
     <MESSAGE value="Add initial Rust workspace and annual driver" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add initial Rust workspace and annual driver" />
+    <MESSAGE value="add PostgreSQL data source config" />
+    <option name="LAST_COMMIT_MESSAGE" value="add PostgreSQL data source config" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
