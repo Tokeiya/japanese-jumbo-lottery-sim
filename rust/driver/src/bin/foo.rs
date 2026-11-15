@@ -22,8 +22,6 @@ fn main() {
 		players.push(Player::new(i, Strategy::Random10));
 	}
 
-	let a = annual();
-
 	(0..60).into_par_iter().for_each(|year| {
 		for spec in annual() {
 			proc(year, &spec, &mut rand::rng(), &players)

@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0a3ce76a-2f38-44e8-992a-fe8a6e00f5b5" name="Changes" comment="edig git ignore.">
+      <change beforePath="$PROJECT_DIR$/../rust/.idea/shelf/Uncommitted_changes_before_Update_at_11_8_26,_8_23 PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rust/.idea/shelf/Uncommitted_changes_before_Update_at_11_8_26__8_23PM__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rust/driver/src/bin/foo.rs" beforeDir="false" afterPath="$PROJECT_DIR$/../rust/driver/src/bin/foo.rs" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CopilotPersistence">
+    <persistenceIdMap>
+      <entry key="_/mnt/wsl/repo/japanese-jumbo-lottery-sim/pycharm" value="3M3BzzrNKZazSi9KMqN3scV0KoK" />
+    </persistenceIdMap>
+  </component>
+  <component name="EmbeddingIndexingInfo">
+    <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Jupyter Notebook" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0005118469118734" />
+      <entry key="S2" value="1.1504128782684144" />
+      <entry key="S5" value="1.4687714573182302" />
+      <entry key="S10" value="1.6917684654639562" />
+      <entry key="S30" value="2.1048858151790197" />
+      <entry key="S60" value="2.802394907497663" />
+      <entry key="M2" value="4.617301763006283" />
+      <entry key="M5" value="10.210432818238871" />
+      <entry key="M10" value="22.087841460519133" />
+      <entry key="M15" value="36.273254934261466" />
+      <entry key="M30" value="78.39265785417723" />
+      <entry key="H1" value="134.8848922532708" />
+      <entry key="H2" value="189.4898128986925" />
+      <entry key="H4" value="249.2402962452322" />
+      <entry key="D1" value="406.8305777999665" />
+      <entry key="W1" value="463.13793732878827" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="3.3177671166785356E-26" />
+      <entry key="MS500" value="9.155505233530459E-6" />
+      <entry key="S2" value="0.08784127240173951" />
+      <entry key="S5" value="0.6883624379811092" />
+      <entry key="S10" value="1.5720920497352664" />
+      <entry key="S30" value="3.381139201273667" />
+      <entry key="S60" value="5.800809000510972" />
+      <entry key="M2" value="10.814614822919744" />
+      <entry key="M5" value="21.571359558938436" />
+      <entry key="M10" value="37.91374309807133" />
+      <entry key="M15" value="54.48974672851637" />
+      <entry key="M30" value="99.14133485363391" />
+      <entry key="H1" value="156.99976941391017" />
+      <entry key="H2" value="212.96708774255478" />
+      <entry key="H4" value="274.58602108583284" />
+      <entry key="D1" value="435.233020329411" />
+      <entry key="W1" value="492.06191771988676" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="0.9794202975869268" />
+      <entry key="MS500" value="0.9958626920843565" />
+      <entry key="S2" value="1.1021423113786697" />
+      <entry key="S5" value="1.7905157563985363" />
+      <entry key="S10" value="2.8656299519446957" />
+      <entry key="S30" value="5.238801472281328" />
+      <entry key="S60" value="8.438185613907727" />
+      <entry key="M2" value="15.315879729391499" />
+      <entry key="M5" value="31.69369988705288" />
+      <entry key="M10" value="59.91501902580373" />
+      <entry key="M15" value="90.67786528515965" />
+      <entry key="M30" value="177.45784956745663" />
+      <entry key="H1" value="291.8265246420197" />
+      <entry key="H2" value="402.41821164922163" />
+      <entry key="H4" value="523.8010813191139" />
+      <entry key="D1" value="842.0566090495103" />
+      <entry key="W1" value="955.1987138566523" />
+    </decayedShown>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0,
+  &quot;fromUser&quot;: false
+}</component>
+  <component name="ProjectId" id="3M3BzucMb1Myjt9jhy1jHhxwPzc" />
+  <component name="ProjectSessionTemplates">
+    <option name="panelTemplate">
+      <template>
+        <option name="ensembleEnabled" value="false" />
+        <option name="modeId" value="Agent" />
+        <option name="model">
+          <model>
+            <option name="modelType" value="builtin_id" />
+            <option name="modelValue" value="auto" />
+          </model>
+        </option>
+        <option name="targetType" value="BACKGROUND" />
+        <option name="worktreeMode" value="WORKSPACE" />
+      </template>
+    </option>
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.main.executor": "Run",
+    "Python.split_plize.executor": "Run",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "copilot.chat.legacySessionMetadata.migrated": "true",
+    "git-widget-placeholder": "initial__devel",
+    "last_opened_file_path": "/mnt/wsl/repo/japanese-jumbo-lottery-sim/py_home",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.jshint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.jshint": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "python.packages.toolwindow.project.migrated.to.right.top.v2": "true",
+    "settings.editor.selected.configurable": "editor.preferences.completion.inline"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
+    ]
+  }
+}]]></component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings module-name="pycharm" sdk-home="$PROJECT_DIR$/.venv/bin/python">
+        <option name="mySdkHome" value="$PROJECT_DIR$/.venv/bin/python" />
+        <option name="myModuleName" value="pycharm" />
+      </console-settings>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.split_plize">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="pycharm" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="RUN_TOOL" value="" />
+      <option name="RUN_AS_SCRIPT" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="split_plize" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="pycharm" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="RUN_TOOL" value="" />
+      <option name="RUN_AS_SCRIPT" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/split_plize.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.split_plize" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0a3ce76a-2f38-44e8-992a-fe8a6e00f5b5" name="Changes" comment="" />
+      <created>1794569636842</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1794569636842</updated>
+      <workItem from="1794569637979" duration="1580000" />
+      <workItem from="1794573903143" duration="2025000" />
+      <workItem from="1794577154445" duration="6167000" />
+      <workItem from="1794653839816" duration="2069000" />
+      <workItem from="1794657037719" duration="3902000" />
+      <workItem from="1794660943011" duration="34000" />
+      <workItem from="1794660988134" duration="4860000" />
+      <workItem from="1794753213964" duration="34000" />
+    </task>
+    <task id="LOCAL-00001" summary="Parallelize foo driver yearly runs">
+      <option name="closed" value="true" />
+      <created>1794612321798</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1794612321798</updated>
+    </task>
+    <task id="LOCAL-00002" summary="edig git ignore.">
+      <option name="closed" value="true" />
+      <created>1794612363160</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1794612363160</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Parallelize foo driver yearly runs" />
+    <MESSAGE value="edig git ignore." />
+    <option name="LAST_COMMIT_MESSAGE" value="edig git ignore." />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/pycharm$main.coverage" NAME="main Coverage Results" MODIFIED="1794569822399" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/python$split_plize.coverage" NAME="split_plize Coverage Results" MODIFIED="1794660701396" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+</project>
