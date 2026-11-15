@@ -30,6 +30,10 @@ fn main() {
 		}
 	});
 
+	// for spec in annual() {
+	// 	proc(0, &spec, &mut rand::rng(), &players);
+	// }
+
 	let file = File::create("outpt.tsv").unwrap();
 	let mut writer = dsv_writer::RawWriter::try_new(file, '\t', dsv_writer::NewLine::Lf).unwrap();
 

@@ -64,6 +64,10 @@ impl Player {
 			for p in payout.records().iter() {
 				let (ttl, cnt) = d.prizes.get_mut(&p.rank()).unwrap();
 
+				if p.payout() == Decimal::from(80_000_000_000u64) {
+					println!("detect");
+				}
+
 				*ttl = ttl.add(p.payout());
 				*cnt += 1;
 			}
