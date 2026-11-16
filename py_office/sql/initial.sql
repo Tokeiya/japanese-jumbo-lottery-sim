@@ -1,6 +1,19 @@
+PRAGMA FOREIGN_KEYS =OFF;
+PRAGMA JOURNAL_MODE =OFF;
+PRAGMA SYNCHRONOUS =OFF;
+
+
+DROP TABLE IF EXISTS raw;
+DROP TABLE IF EXISTS prize_kind;
+DROP TABLE IF EXISTS strategy_kind;
+DROP TABLE IF EXISTS prizes;
+DROP TABLE IF EXISTS person;
+
+
 CREATE TABLE raw
 (
-    id                          INTEGER PRIMARY KEY NOT NULL,
+    id                          INTEGER PRIMARY KEY AUTOINCREMENT ,
+    unit                        INTEGER NOT NULL DEFAULT 0,
     strategy                    TEXT NOT NULL,
     total_payed                 INTEGER NOT NULL,
     first_cnt                   INTEGER NOT NULL,
@@ -45,3 +58,19 @@ INSERT INTO prize_kind(id,name) VALUES
 (7,'fifth'),
 (8,'sixth'),
 (9,'seventh');
+
+CREATE TABLE person(
+    id INTEGER PRIMARY KEY ,
+    unit INTEGER NOT NULL ,
+    total_payed INTEGER NOT NULL
+);
+
+CREATE TABLE prizes(
+    id INTEGER PRIMARY KEY ,
+    person_id INTEGER NOT NULL REFERENCES person(id),
+    kind INTEGER NOT NULL REFERENCES prize_kind(id),
+    cnt INTEGER NOT NULL ,
+    reward INTEGER NOT NULL
+);
+
+VACUUM ;

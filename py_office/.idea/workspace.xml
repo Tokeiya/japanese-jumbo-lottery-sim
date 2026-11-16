@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a96d88c-224b-4a50-98da-0b29b5aaf32e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sql/initial.sql" afterDir="false" />
+    <list default="true" id="3a96d88c-224b-4a50-98da-0b29b5aaf32e" name="Changes" comment="add SQLite data source config">
+      <change afterPath="$PROJECT_DIR$/.idea/data_source_mapping.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sql/after_import.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/44a715f6-42a4-480b-bec8-5e3fc340379a.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/44a715f6-42a4-480b-bec8-5e3fc340379a.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pivot_longer.py" beforeDir="false" afterPath="$PROJECT_DIR$/pivot_longer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sql/initial.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sql/initial.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +23,17 @@
       <entry key="44a715f6-42a4-480b-bec8-5e3fc340379a" value="" />
     </colors>
   </component>
+  <component name="EmbeddingIndexingInfo">
+    <option name="cachedIndexableFilesCount" value="18" />
+    <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
@@ -28,61 +43,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.848857203983551E-19" />
-      <entry key="MS500" value="1.7980985491827586E-4" />
-      <entry key="S2" value="0.19472219127704157" />
-      <entry key="S5" value="1.3503375317043662" />
-      <entry key="S10" value="2.885834685151024" />
-      <entry key="S30" value="7.597231386072558" />
-      <entry key="S60" value="15.606262447224983" />
-      <entry key="M2" value="28.143893078462455" />
-      <entry key="M5" value="44.644170287929086" />
-      <entry key="M10" value="53.15956609262641" />
-      <entry key="M15" value="56.48196899082744" />
-      <entry key="M30" value="60.08617682033068" />
-      <entry key="H1" value="62.00253384256176" />
-      <entry key="H2" value="62.99088606046712" />
-      <entry key="H4" value="63.49281684492538" />
-      <entry key="D1" value="63.915102064657866" />
-      <entry key="W1" value="63.98786269080885" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.0" />
+      <entry key="S5" value="1.000000000008822" />
+      <entry key="S10" value="1.0000075557205932" />
+      <entry key="S30" value="1.0877295457325535" />
+      <entry key="S60" value="2.136890546658126" />
+      <entry key="M2" value="5.82678757564513" />
+      <entry key="M5" value="16.449493818530406" />
+      <entry key="M10" value="32.3714327390556" />
+      <entry key="M15" value="46.289058067648114" />
+      <entry key="M30" value="74.162536968499" />
+      <entry key="H1" value="98.70181793738527" />
+      <entry key="H2" value="115.3625952688424" />
+      <entry key="H4" value="125.12385117126028" />
+      <entry key="D1" value="134.10413347093115" />
+      <entry key="W1" value="135.72704532235898" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0000000000000029" />
-      <entry key="S2" value="1.0002409847467817" />
-      <entry key="S5" value="1.046067027550486" />
-      <entry key="S10" value="1.3368989928630322" />
-      <entry key="S30" value="2.8408670439678803" />
-      <entry key="S60" value="4.886563088514814" />
-      <entry key="M2" value="9.280752367279714" />
-      <entry key="M5" value="17.280765793985786" />
-      <entry key="M10" value="22.17233127693352" />
-      <entry key="M15" value="24.198093624733097" />
-      <entry key="M30" value="26.46381899329258" />
-      <entry key="H1" value="27.696044839553245" />
-      <entry key="H2" value="28.33878478823139" />
-      <entry key="H4" value="28.66704811826547" />
-      <entry key="D1" value="28.944179421825968" />
-      <entry key="W1" value="28.992017544918543" />
+      <entry key="MS100" value="3.2883249085048316E-9" />
+      <entry key="MS500" value="0.020109206989082355" />
+      <entry key="S2" value="0.3765726166584531" />
+      <entry key="S5" value="0.6766116873595733" />
+      <entry key="S10" value="0.8226018817205561" />
+      <entry key="S30" value="0.9975614279551835" />
+      <entry key="S60" value="1.504439523346163" />
+      <entry key="M2" value="3.0943700036006794" />
+      <entry key="M5" value="10.885470560596245" />
+      <entry key="M10" value="27.251654861688923" />
+      <entry key="M15" value="41.233534116367935" />
+      <entry key="M30" value="67.26279560150391" />
+      <entry key="H1" value="88.77473879284288" />
+      <entry key="H2" value="102.89826395369882" />
+      <entry key="H4" value="111.03502470506736" />
+      <entry key="D1" value="118.44435450777661" />
+      <entry key="W1" value="119.77620439094521" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="6.487723701643124E-4" />
-      <entry key="MS500" value="0.23049122889642804" />
-      <entry key="S2" value="0.8680584866975817" />
-      <entry key="S5" value="2.1918382642195673" />
-      <entry key="S10" value="4.061793231560133" />
-      <entry key="S30" value="10.309026567778513" />
-      <entry key="S60" value="20.372680555980313" />
-      <entry key="M2" value="37.319916298921825" />
-      <entry key="M5" value="61.857677583942014" />
-      <entry key="M10" value="75.29138498554322" />
-      <entry key="M15" value="80.65122914754224" />
-      <entry key="M30" value="86.53457893070683" />
-      <entry key="H1" value="89.69060230207397" />
-      <entry key="H2" value="91.32561329580777" />
-      <entry key="H4" value="92.15781853948903" />
-      <entry key="D1" value="92.85893793839841" />
-      <entry key="W1" value="92.9798310964087" />
+      <entry key="MS100" value="0.1294081155794319" />
+      <entry key="MS500" value="0.6743280583232797" />
+      <entry key="S2" value="1.2189238757035123" />
+      <entry key="S5" value="1.5907928548724566" />
+      <entry key="S10" value="1.7740720678312323" />
+      <entry key="S30" value="2.064950115911417" />
+      <entry key="S60" value="3.6180886490324515" />
+      <entry key="M2" value="8.888514733726403" />
+      <entry key="M5" value="27.294097288780534" />
+      <entry key="M10" value="59.57997983902609" />
+      <entry key="M15" value="87.48142788189872" />
+      <entry key="M30" value="141.39316817312957" />
+      <entry key="H1" value="187.45565153412267" />
+      <entry key="H2" value="218.2488148578206" />
+      <entry key="H4" value="236.1523938394202" />
+      <entry key="D1" value="252.5473377206894" />
+      <entry key="W1" value="255.5030835935463" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -94,30 +109,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python.pivot_longer.executor": "Run",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "initial__devel",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "python.packages.toolwindow.project.migrated.to.right.top.v2": "true",
-    "settings.editor.selected.configurable": "SQL Resolution Scopes"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.pivot_longer.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;initial__devel&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/repo/japanese-jumbo-lottery-sim/outpt.tsv&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;python.packages.toolwindow.project.migrated.to.right.top.v2&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;database.sql.templating&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "sqlite"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;sqlite&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="pivot_longer" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="py_office" />
@@ -165,11 +181,40 @@
       <option name="presentableId" value="Default" />
       <updated>1794735240202</updated>
       <workItem from="1794735243358" duration="28000" />
-      <workItem from="1794737276101" duration="983000" />
+      <workItem from="1794737276101" duration="1013000" />
+      <workItem from="1794799614275" duration="2130000" />
+      <workItem from="1794817889185" duration="2107000" />
     </task>
+    <task id="LOCAL-00001" summary="add SQLite data source config">
+      <option name="closed" value="true" />
+      <created>1794738273566</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1794738273566</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add SQLite data source config" />
+    <option name="LAST_COMMIT_MESSAGE" value="add SQLite data source config" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/pivot_longer.py</url>
+          <line>45</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/py_office$pivot_longer.coverage" NAME="pivot_longer Coverage Results" MODIFIED="1794818513137" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
