@@ -20,7 +20,7 @@ def split_prize():
     tmp=[(p,f'{p}_cnt',f'{p}_prize') for p in cat]
 
     for (cat,cnt,prize) in tmp:
-        cmd= f"""INSERT INTO prizes(person_id,prize,cnt,reward) SELECT id,'{cat}',{cnt},{prize} FROM raw WHERE {cnt}<>0;"""
+        cmd= f"""INSERT INTO prize(player_id,kind,cnt,reward) SELECT id,'{cat}',{cnt},{prize} FROM raw WHERE {cnt}<>0;"""
         print(cmd)
 
     # with psycopg.connect(uri) as conn:

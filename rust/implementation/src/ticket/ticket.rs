@@ -200,4 +200,10 @@ mod tests {
 		assert_eq!(fixture.group(), 200);
 		assert_eq!(fixture.number(), 100_500);
 	}
+
+	#[test]
+	fn foo() {
+		let fixture = Ticket(0x88CA7db2);
+		println!("{:?}", fixture);
+	}
 }
