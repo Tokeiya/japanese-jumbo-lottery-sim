@@ -2,8 +2,15 @@ import csv
 import sqlite3
 from typing import TextIO
 from sqlite3 import Connection
+from itertools import islice
 
-def create_table(conn:Connection):
+
+from collections.abc import Iterable, Iterator
+from contextlib import closing
+from pathlib import Path
+
+
+def create_table(conn:Connection)->None:
     print("Creating table")
     conn.execute("""
 PRAGMA FOREIGN_KEYS =OFF;
@@ -85,11 +92,26 @@ VACUUM ;
     """)
     print("table created")
 
-def insert(file:TextIO,conn:Connection):
-    with(file):
+
+def generate_typed_iter(path:Path):
+    with open(path,mode='r',encoding='utf-8') as file:
+        reader = csv.reader(
+            file,
+            delimiter="\t",
+        )
+
+        next(reader)
+
+        for rec in reader:
+           yield int(rec[1]=='sequence_10'), *(int(v) for v in rec[2:])
+
+
+def sample()->None:
+    for rec in generate_typed_iter(Path('../outpt.tsv')):
+        print(rec)
 
 
 
 
 if __name__ == '__main__':
-    pivot_longer()
+    sample()
