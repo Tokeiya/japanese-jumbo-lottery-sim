@@ -17,15 +17,9 @@
     </cargoProject>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2268c769-96bb-4645-a0b2-2a826b3c14e4" name="Changes" comment="add PostgreSQL data source config">
-      <change afterPath="$PROJECT_DIR$/driver/src/bin/1_5million.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../py_office/.idea/dataSources/44a715f6-42a4-480b-bec8-5e3fc340379a.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../py_office/.idea/dataSources/44a715f6-42a4-480b-bec8-5e3fc340379a.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../py_office/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../py_office/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../py_office/initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/../py_office/initial.py" afterDir="false" />
+    <list default="true" id="2268c769-96bb-4645-a0b2-2a826b3c14e4" name="Changes" comment="add TSV import to SQLite initializer">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/driver/src/bin/foo.rs" beforeDir="false" afterPath="$PROJECT_DIR$/driver/src/bin/foo.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/driver/src/random_store.rs" beforeDir="false" afterPath="$PROJECT_DIR$/driver/src/random_store.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/playground/src/bin/mod.rs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/driver/src/bin/1_5million.rs" beforeDir="false" afterPath="$PROJECT_DIR$/driver/src/bin/1_5million.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,61 +54,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0000236161074143" />
-      <entry key="MS500" value="1.1372032344287366" />
-      <entry key="S2" value="1.9766083121062437" />
-      <entry key="S5" value="2.799501172918019" />
-      <entry key="S10" value="3.8897122729552995" />
-      <entry key="S30" value="7.190036251957947" />
-      <entry key="S60" value="11.425386260751377" />
-      <entry key="M2" value="20.346953126100782" />
-      <entry key="M5" value="44.95048608096544" />
-      <entry key="M10" value="85.58210014795827" />
-      <entry key="M15" value="126.59333160403091" />
-      <entry key="M30" value="237.60638709034382" />
-      <entry key="H1" value="417.9878264998256" />
-      <entry key="H2" value="700.0656792166351" />
-      <entry key="H4" value="1092.746385666701" />
-      <entry key="D1" value="1960.879679739056" />
-      <entry key="W1" value="2227.2563844424453" />
+      <entry key="MS100" value="1.0000307298446673" />
+      <entry key="MS500" value="1.1251734069679984" />
+      <entry key="S2" value="1.5963455878607178" />
+      <entry key="S5" value="1.9232147689472756" />
+      <entry key="S10" value="2.448040118496876" />
+      <entry key="S30" value="3.9759561121891878" />
+      <entry key="S60" value="5.4882140436916576" />
+      <entry key="M2" value="8.316182175550015" />
+      <entry key="M5" value="21.31948680484686" />
+      <entry key="M10" value="52.756105568662235" />
+      <entry key="M15" value="89.16558117069297" />
+      <entry key="M30" value="197.91047275157794" />
+      <entry key="H1" value="383.42073876463866" />
+      <entry key="H2" value="674.6592936688035" />
+      <entry key="H4" value="1079.1317672677549" />
+      <entry key="D1" value="1978.3810591247372" />
+      <entry key="W1" value="2256.061413990905" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="4.166746767111381E-15" />
-      <entry key="MS500" value="0.0013303301119536013" />
-      <entry key="S2" value="0.19099551969478878" />
-      <entry key="S5" value="0.539757088279397" />
-      <entry key="S10" value="1.0848353427589519" />
-      <entry key="S30" value="4.099163934114446" />
-      <entry key="S60" value="7.772393976328989" />
-      <entry key="M2" value="12.543861330068271" />
-      <entry key="M5" value="20.779762832449123" />
-      <entry key="M10" value="31.686318140606268" />
-      <entry key="M15" value="42.71137465584685" />
-      <entry key="M30" value="76.96217398896363" />
-      <entry key="H1" value="143.71339623677554" />
-      <entry key="H2" value="254.39077477093494" />
-      <entry key="H4" value="407.56179961941746" />
-      <entry key="D1" value="743.7655166386357" />
-      <entry key="W1" value="846.767607601057" />
+      <entry key="MS100" value="9.722347299769162E-260" />
+      <entry key="MS500" value="1.576076412558399E-52" />
+      <entry key="S2" value="1.216646990516867E-13" />
+      <entry key="S5" value="9.39087594308907E-6" />
+      <entry key="S10" value="0.004721612493995974" />
+      <entry key="S30" value="0.3734676933829993" />
+      <entry key="S60" value="1.2791977403886983" />
+      <entry key="M2" value="2.7052915254511216" />
+      <entry key="M5" value="7.729760520235264" />
+      <entry key="M10" value="18.4229831788352" />
+      <entry key="M15" value="29.61035934776552" />
+      <entry key="M30" value="63.97405883205106" />
+      <entry key="H1" value="131.15701318623368" />
+      <entry key="H2" value="243.9059963526015" />
+      <entry key="H4" value="400.9327327180093" />
+      <entry key="D1" value="748.6477895048257" />
+      <entry key="W1" value="855.9334570158468" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.0927852233749399" />
-      <entry key="MS500" value="0.7129546533933522" />
-      <entry key="S2" value="1.9080108916060414" />
-      <entry key="S5" value="3.1159384794290172" />
-      <entry key="S10" value="4.763107792242787" />
-      <entry key="S30" value="11.05219988029927" />
-      <entry key="S60" value="18.963378274977302" />
-      <entry key="M2" value="32.687955204111084" />
-      <entry key="M5" value="65.58478600512035" />
-      <entry key="M10" value="117.15183837846551" />
-      <entry key="M15" value="169.1991068372554" />
-      <entry key="M30" value="314.47526908708477" />
-      <entry key="H1" value="561.6129228413049" />
-      <entry key="H2" value="954.3765572571044" />
-      <entry key="H4" value="1500.2448254508001" />
-      <entry key="D1" value="2704.626630160714" />
-      <entry key="W1" value="3074.020998694659" />
+      <entry key="MS100" value="0.15712795663728898" />
+      <entry key="MS500" value="0.7569761746351413" />
+      <entry key="S2" value="1.4206382511635915" />
+      <entry key="S5" value="1.8362519387296488" />
+      <entry key="S10" value="2.403941010593335" />
+      <entry key="S30" value="4.311492993191226" />
+      <entry key="S60" value="6.723790447210291" />
+      <entry key="M2" value="10.980230915920874" />
+      <entry key="M5" value="29.001252964557427" />
+      <entry key="M10" value="71.11726213338281" />
+      <entry key="M15" value="118.70756522964012" />
+      <entry key="M30" value="261.8096694305522" />
+      <entry key="H1" value="514.4987244515039" />
+      <entry key="H2" value="918.4895706458403" />
+      <entry key="H4" value="1480.0026085370348" />
+      <entry key="D1" value="2727.0102256103546" />
+      <entry key="W1" value="3111.9918542767614" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -350,7 +344,8 @@
     <MESSAGE value="Remove obsolete workspace files" />
     <MESSAGE value="Add initial Rust workspace and annual driver" />
     <MESSAGE value="add PostgreSQL data source config" />
-    <option name="LAST_COMMIT_MESSAGE" value="add PostgreSQL data source config" />
+    <MESSAGE value="add TSV import to SQLite initializer" />
+    <option name="LAST_COMMIT_MESSAGE" value="add TSV import to SQLite initializer" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
