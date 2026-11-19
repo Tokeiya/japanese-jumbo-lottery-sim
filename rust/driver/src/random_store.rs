@@ -54,6 +54,23 @@ impl Store {
 	}
 }
 
+pub fn take_sequence(shelf: &mut Shelf, rng: &mut impl Rng) -> [Ticket; 10] {
+	let mut cnt = 0usize;
+	let grp = loop {
+		shelf.trim();
+		let tmp = shelf.racks_mut().choose_mut(rng).unwrap();
+		if tmp.len() < 10 {
+			cnt += 1;
+			assert!(cnt > 100, "Reach Threshold");
+			continue;
+		} else {
+			break tmp;
+		}
+	};
+	
+	std::array::from_fn(|_| grp.next().unwrap())
+}
+
 #[cfg(test)]
 mod tests {
 	use super::*;

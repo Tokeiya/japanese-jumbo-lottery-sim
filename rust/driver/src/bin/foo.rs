@@ -1,5 +1,5 @@
 use driver::player::{Player, Strategy};
-use driver::random_store::Store;
+use driver::random_store::{Store, take_sequence};
 use dsv_writer::{Encoder, QuoteMode, ToDsv};
 use implementation::lottery::Spec;
 use implementation::prelude::*;
@@ -112,23 +112,6 @@ fn main() {
 	for p in players.iter() {
 		p.to_dsv(&mut writer).unwrap();
 	}
-}
-
-fn take_sequence(shelf: &mut Shelf, rng: &mut impl Rng) -> [Ticket; 10] {
-	let mut cnt = 0usize;
-	let grp = loop {
-		shelf.trim();
-		let tmp = shelf.racks_mut().choose_mut(rng).unwrap();
-		if tmp.len() < 10 {
-			cnt += 1;
-			assert!(cnt > 100, "Reach Threshold");
-			continue;
-		} else {
-			break tmp;
-		}
-	};
-
-	std::array::from_fn(|_| grp.next().unwrap())
 }
 
 fn proc(year: u8, spec: &Spec, rng: &mut impl Rng, players: &[Player]) {

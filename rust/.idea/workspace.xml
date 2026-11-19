@@ -18,15 +18,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2268c769-96bb-4645-a0b2-2a826b3c14e4" name="Changes" comment="add PostgreSQL data source config">
-      <change afterPath="$PROJECT_DIR$/../py_home/.idea/data_source_mapping.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../py_home/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../py_home/sql/initialize.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../py_home/sql/split.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../py_home/main.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../py_home/main.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../py_home/split_plize.py" beforeDir="false" afterPath="$PROJECT_DIR$/../py_home/split_plize.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/driver/src/bin/1_5million.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../py_office/.idea/dataSources/44a715f6-42a4-480b-bec8-5e3fc340379a.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../py_office/.idea/dataSources/44a715f6-42a4-480b-bec8-5e3fc340379a.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../py_office/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../py_office/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../py_office/initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/../py_office/initial.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/implementation/src/ticket/ticket.rs" beforeDir="false" afterPath="$PROJECT_DIR$/implementation/src/ticket/ticket.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/playground/src/bin/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/playground/src/bin/mod.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/driver/src/bin/foo.rs" beforeDir="false" afterPath="$PROJECT_DIR$/driver/src/bin/foo.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/driver/src/random_store.rs" beforeDir="false" afterPath="$PROJECT_DIR$/driver/src/random_store.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/playground/src/bin/mod.rs" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,61 +60,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.000635420830264" />
-      <entry key="MS500" value="1.2389041888880843" />
-      <entry key="S2" value="2.3934223176158254" />
-      <entry key="S5" value="3.5384810160769664" />
-      <entry key="S10" value="4.170513331657444" />
-      <entry key="S30" value="4.8193725869222215" />
-      <entry key="S60" value="6.3558583915913385" />
-      <entry key="M2" value="13.34109454294943" />
-      <entry key="M5" value="42.88760692239297" />
-      <entry key="M10" value="89.93811358312573" />
-      <entry key="M15" value="132.5016219002795" />
-      <entry key="M30" value="238.57729962855353" />
-      <entry key="H1" value="407.984459008519" />
-      <entry key="H2" value="677.1261339746865" />
-      <entry key="H4" value="1055.0395891721898" />
-      <entry key="D1" value="1885.8399077329757" />
-      <entry key="W1" value="2138.8455229135025" />
+      <entry key="MS100" value="1.0000236161074143" />
+      <entry key="MS500" value="1.1372032344287366" />
+      <entry key="S2" value="1.9766083121062437" />
+      <entry key="S5" value="2.799501172918019" />
+      <entry key="S10" value="3.8897122729552995" />
+      <entry key="S30" value="7.190036251957947" />
+      <entry key="S60" value="11.425386260751377" />
+      <entry key="M2" value="20.346953126100782" />
+      <entry key="M5" value="44.95048608096544" />
+      <entry key="M10" value="85.58210014795827" />
+      <entry key="M15" value="126.59333160403091" />
+      <entry key="M30" value="237.60638709034382" />
+      <entry key="H1" value="417.9878264998256" />
+      <entry key="H2" value="700.0656792166351" />
+      <entry key="H4" value="1092.746385666701" />
+      <entry key="D1" value="1960.879679739056" />
+      <entry key="W1" value="2227.2563844424453" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="2.915567430642564E-91" />
-      <entry key="S2" value="2.6080356068851857E-23" />
-      <entry key="S5" value="1.3098262356481596E-9" />
-      <entry key="S10" value="5.8066298396714425E-5" />
-      <entry key="S30" value="0.09960957663553485" />
-      <entry key="S60" value="0.9323704070092875" />
-      <entry key="M2" value="3.8679004953946112" />
-      <entry key="M5" value="11.853093138332447" />
-      <entry key="M10" value="23.349984424029135" />
-      <entry key="M15" value="35.1117414860581" />
-      <entry key="M30" value="70.54439954075075" />
-      <entry key="H1" value="137.357006877531" />
-      <entry key="H2" value="245.66318268300483" />
-      <entry key="H4" value="394.24214597337414" />
-      <entry key="D1" value="716.7902565768957" />
-      <entry key="W1" value="814.7478901528066" />
+      <entry key="MS100" value="4.166746767111381E-15" />
+      <entry key="MS500" value="0.0013303301119536013" />
+      <entry key="S2" value="0.19099551969478878" />
+      <entry key="S5" value="0.539757088279397" />
+      <entry key="S10" value="1.0848353427589519" />
+      <entry key="S30" value="4.099163934114446" />
+      <entry key="S60" value="7.772393976328989" />
+      <entry key="M2" value="12.543861330068271" />
+      <entry key="M5" value="20.779762832449123" />
+      <entry key="M10" value="31.686318140606268" />
+      <entry key="M15" value="42.71137465584685" />
+      <entry key="M30" value="76.96217398896363" />
+      <entry key="H1" value="143.71339623677554" />
+      <entry key="H2" value="254.39077477093494" />
+      <entry key="H4" value="407.56179961941746" />
+      <entry key="D1" value="743.7655166386357" />
+      <entry key="W1" value="846.767607601057" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.8071760823204249" />
-      <entry key="MS500" value="1.1886325360729975" />
-      <entry key="S2" value="2.369190360243054" />
-      <entry key="S5" value="3.523899011476514" />
-      <entry key="S10" value="4.161909471497198" />
-      <entry key="S30" value="4.912321208127732" />
-      <entry key="S60" value="7.26297878091691" />
-      <entry key="M2" value="17.14685623973561" />
-      <entry key="M5" value="54.64800562023156" />
-      <entry key="M10" value="113.19463917697779" />
-      <entry key="M15" value="167.52330032670739" />
-      <entry key="M30" value="309.0366750386808" />
-      <entry key="H1" value="545.2571049050737" />
-      <entry key="H2" value="922.7119664763825" />
-      <entry key="H4" value="1449.22041422719" />
-      <entry key="D1" value="2602.6122988918596" />
-      <entry key="W1" value="2953.5905378586485" />
+      <entry key="MS100" value="0.0927852233749399" />
+      <entry key="MS500" value="0.7129546533933522" />
+      <entry key="S2" value="1.9080108916060414" />
+      <entry key="S5" value="3.1159384794290172" />
+      <entry key="S10" value="4.763107792242787" />
+      <entry key="S30" value="11.05219988029927" />
+      <entry key="S60" value="18.963378274977302" />
+      <entry key="M2" value="32.687955204111084" />
+      <entry key="M5" value="65.58478600512035" />
+      <entry key="M10" value="117.15183837846551" />
+      <entry key="M15" value="169.1991068372554" />
+      <entry key="M30" value="314.47526908708477" />
+      <entry key="H1" value="561.6129228413049" />
+      <entry key="H2" value="954.3765572571044" />
+      <entry key="H4" value="1500.2448254508001" />
+      <entry key="D1" value="2704.626630160714" />
+      <entry key="W1" value="3074.020998694659" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -127,47 +126,47 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Cargo.Run annual.executor": "Run",
-    "Cargo.Run foo.executor": "Run",
-    "Cargo.Run valentain.executor": "Run",
-    "Cargo.Test counter::shelf::tests::len.executor": "Run",
-    "Cargo.Test counter::shelf::tests::racks.executor": "Run",
-    "Cargo.Test counter::shelf::tests::racks_mut.executor": "Run",
-    "Cargo.Test counter::shelf::tests::trim.executor": "Run",
-    "Cargo.Test decimal_formatter::test.executor": "Run",
-    "Cargo.Test drawing_machine::tests.executor": "Run",
-    "Cargo.Test random_store::tests::foo.executor": "Run",
-    "Cargo.Test random_store::tests::new.executor": "Run",
-    "Cargo.Test ticket::ticket::tests::foo.executor": "Run",
-    "Cargo.Test u32_formatter::test.executor": "Run",
-    "CidrDebugProfileConversion": "true",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.rust.reset.selective.auto.import": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "code.cleanup.on.save": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "initial__devel",
-    "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "/mnt/wsl/repo/japanese-jumbo-lottery-sim/rust",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "org.rust.cargo.project.model.PROJECT_DISCOVERY": "true",
-    "org.rust.cargo.project.model.impl.CargoExternalSystemProjectAware.subscribe.first.balloon": "",
-    "org.rust.first.attach.projects": "true",
-    "rearrange.code.on.save": "true",
-    "settings.editor.selected.configurable": "language.rust.cargo.check",
-    "to.speed.mode.migration.done": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Cargo.Run annual.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Run foo.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Run valentain.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Test counter::shelf::tests::len.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Test counter::shelf::tests::racks.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Test counter::shelf::tests::racks_mut.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Test counter::shelf::tests::trim.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Test decimal_formatter::test.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Test drawing_machine::tests.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Test random_store::tests::foo.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Test random_store::tests::new.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Test ticket::ticket::tests::foo.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Test u32_formatter::test.executor&quot;: &quot;Run&quot;,
+    &quot;CidrDebugProfileConversion&quot;: &quot;true&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.rust.reset.selective.auto.import&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;code.cleanup.on.save&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;initial__devel&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/mnt/wsl/repo/japanese-jumbo-lottery-sim/rust&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;org.rust.cargo.project.model.PROJECT_DISCOVERY&quot;: &quot;true&quot;,
+    &quot;org.rust.cargo.project.model.impl.CargoExternalSystemProjectAware.subscribe.first.balloon&quot;: &quot;&quot;,
+    &quot;org.rust.first.attach.projects&quot;: &quot;true&quot;,
+    &quot;rearrange.code.on.save&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;language.rust.cargo.check&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RsExternalLinterProjectSettings">
     <option name="tool" value="Clippy" />
   </component>
@@ -369,6 +368,15 @@
           <url>file://$PROJECT_DIR$/driver/src/player.rs</url>
           <line>67</line>
           <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/driver/src/bin/foo.rs</url>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/driver/src/bin/foo.rs</url>
+          <line>9</line>
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
