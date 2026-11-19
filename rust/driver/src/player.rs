@@ -83,7 +83,6 @@ impl ToDsv for Player {
 	type Error = std::io::Error;
 
 	fn to_dsv<T: Encoder>(&self, writer: &mut T) -> ToDsvResult<(), Self::Error> {
-		writer.write_value_field(&self.id, QuoteMode::AutoDetect)?;
 		let tmp = match self.strategy {
 			Strategy::Random10 => "random_10",
 			Strategy::Sequence10 => "sequence_10",
@@ -113,7 +112,7 @@ impl ToDsv for Player {
 			writer.write_value_field(cnt, QuoteMode::AutoDetect)?;
 			writer.write_value_field(pay, QuoteMode::AutoDetect)?;
 
-			writer.end_of_record(false)?;
+			writer.end_of_record(true)?;
 		}
 
 		Ok(())

@@ -36,7 +36,7 @@ fn main() {
 	});
 
 	{
-		let file = File::create("../15outpt_players.tsv").unwrap();
+		let file = File::create("../15output_players.tsv").unwrap();
 		let mut writer =
 			dsv_writer::RawWriter::try_new(file, '\t', dsv_writer::NewLine::Lf).unwrap();
 
@@ -55,7 +55,7 @@ fn main() {
 			.write_str_field("payout", QuoteMode::AutoDetect)
 			.unwrap();
 
-		writer.end_of_record(false).unwrap();
+		writer.end_of_record(true).unwrap();
 
 		for p in players.iter() {
 			p.to_dsv(&mut writer).unwrap();
