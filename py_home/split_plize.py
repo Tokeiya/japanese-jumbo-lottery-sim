@@ -1,6 +1,3 @@
-import psycopg
-
-
 def split_prize():
     from urllib.parse import urlencode
 
@@ -15,15 +12,16 @@ def split_prize():
 
     uri = f"postgresql://blue:5432/lottery?{urlencode({'options': options})}"
 
-    cat=['first', 'first_adjacent', 'first_different_group', 'second', 'third', 'fourth', 'fifth', 'sixth', 'seventh']
+    cat = ['first', 'first_adjacent', 'first_different_group', 'second', 'third', 'fourth', 'fifth', 'sixth', 'seventh']
 
-    tmp=[(p,f'{p}_cnt',f'{p}_prize') for p in cat]
+    tmp = [(p, f'{p}_cnt', f'{p}_prize') for p in cat]
 
-    for (cat,cnt,prize) in tmp:
-        cmd= f"""INSERT INTO prize(player_id,kind,cnt,reward) SELECT id,'{cat}',{cnt},{prize} FROM raw WHERE {cnt}<>0;"""
+    for (cat, cnt, prize) in tmp:
+        cmd = f"""INSERT INTO prizes(player_id,rank,cnt,reward) SELECT id,'{cat}',{cnt},{prize} FROM raw WHERE {cnt}<>0;"""
         print(cmd)
 
     # with psycopg.connect(uri) as conn:
+
 
 if __name__ == '__main__':
     split_prize()

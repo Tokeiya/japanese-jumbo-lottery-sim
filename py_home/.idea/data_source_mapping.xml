@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourcePerFileMappings">
-    <file url="file://$PROJECT_DIR$/main.ipynb" value="5e498640-193e-4084-9e56-98ea950788fe" />
-    <file url="file://$PROJECT_DIR$/sql/initialize.sql" value="5e498640-193e-4084-9e56-98ea950788fe" />
-    <file url="file://$PROJECT_DIR$/sql/split.sql" value="5e498640-193e-4084-9e56-98ea950788fe" />
+    <file url="file://$PROJECT_DIR$/sql/split.sql" value="c8c865ee-0e7c-4cc4-87ab-35ba6a60c2c1" />
   </component>
 </project>

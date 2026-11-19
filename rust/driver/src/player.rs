@@ -89,52 +89,32 @@ impl ToDsv for Player {
 			Strategy::Sequence10 => "sequence_10",
 		};
 
-		writer.write_str_field(tmp, QuoteMode::AutoDetect)?;
-
 		let lock = self.datum.lock().unwrap();
 
-		writer.write_value_field(&lock.payed, QuoteMode::AutoDetect)?;
+		for p in prizes() {
+			let (pay, cnt) = lock.prizes.get(&p).unwrap();
 
-		let (d, c) = lock.prizes.get(&PrizeCategory::First).unwrap();
-		writer.write_value_field(&c, QuoteMode::AutoDetect)?;
-		writer.write_value_field(&d, QuoteMode::AutoDetect)?;
+			writer.write_value_field(&self.id, QuoteMode::AutoDetect)?;
+			writer.write_str_field(tmp, QuoteMode::AutoDetect)?;
 
-		let (d, c) = lock.prizes.get(&PrizeCategory::FirstAdjacent).unwrap();
-		writer.write_value_field(&c, QuoteMode::AutoDetect)?;
-		writer.write_value_field(&d, QuoteMode::AutoDetect)?;
+			let p = match &p {
+				PrizeCategory::First => "first",
+				PrizeCategory::FirstAdjacent => "first_adjacent",
+				PrizeCategory::FirstDifferentGroup => "first_different_group",
+				PrizeCategory::Second => "second",
+				PrizeCategory::Third => "third",
+				PrizeCategory::Fourth => "fourth",
+				PrizeCategory::Fifth => "fifth",
+				PrizeCategory::Sixth => "sixth",
+				PrizeCategory::Seventh => "seventh",
+			};
 
-		let (d, c) = lock
-			.prizes
-			.get(&PrizeCategory::FirstDifferentGroup)
-			.unwrap();
-		writer.write_value_field(&c, QuoteMode::AutoDetect)?;
-		writer.write_value_field(&d, QuoteMode::AutoDetect)?;
+			writer.write_str_field(p, QuoteMode::AutoDetect)?;
+			writer.write_value_field(cnt, QuoteMode::AutoDetect)?;
+			writer.write_value_field(pay, QuoteMode::AutoDetect)?;
 
-		let (d, c) = lock.prizes.get(&PrizeCategory::Second).unwrap();
-		writer.write_value_field(&c, QuoteMode::AutoDetect)?;
-		writer.write_value_field(&d, QuoteMode::AutoDetect)?;
-
-		let (d, c) = lock.prizes.get(&PrizeCategory::Third).unwrap();
-		writer.write_value_field(&c, QuoteMode::AutoDetect)?;
-		writer.write_value_field(&d, QuoteMode::AutoDetect)?;
-
-		let (d, c) = lock.prizes.get(&PrizeCategory::Fourth).unwrap();
-		writer.write_value_field(&c, QuoteMode::AutoDetect)?;
-		writer.write_value_field(&d, QuoteMode::AutoDetect)?;
-
-		let (d, c) = lock.prizes.get(&PrizeCategory::Fifth).unwrap();
-		writer.write_value_field(&c, QuoteMode::AutoDetect)?;
-		writer.write_value_field(&d, QuoteMode::AutoDetect)?;
-
-		let (d, c) = lock.prizes.get(&PrizeCategory::Sixth).unwrap();
-		writer.write_value_field(&c, QuoteMode::AutoDetect)?;
-		writer.write_value_field(&d, QuoteMode::AutoDetect)?;
-
-		let (d, c) = lock.prizes.get(&PrizeCategory::Seventh).unwrap();
-		writer.write_value_field(&c, QuoteMode::AutoDetect)?;
-		writer.write_value_field(&d, QuoteMode::AutoDetect)?;
-
-		writer.end_of_record(false)?;
+			writer.end_of_record(false)?;
+		}
 
 		Ok(())
 	}

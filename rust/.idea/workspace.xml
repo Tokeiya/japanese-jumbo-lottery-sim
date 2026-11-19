@@ -18,8 +18,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2268c769-96bb-4645-a0b2-2a826b3c14e4" name="Changes" comment="add TSV import to SQLite initializer">
+      <change afterPath="$PROJECT_DIR$/../py_home/initialize.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../py_home/reader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../py_home/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../py_home/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../py_home/.idea/data_source_mapping.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../py_home/.idea/data_source_mapping.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../py_home/main.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../py_home/main.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../py_home/split_plize.py" beforeDir="false" afterPath="$PROJECT_DIR$/../py_home/split_plize.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../py_home/sql/split.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../py_home/sql/split.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/driver/src/bin/1_5million.rs" beforeDir="false" afterPath="$PROJECT_DIR$/driver/src/bin/1_5million.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/driver/src/player.rs" beforeDir="false" afterPath="$PROJECT_DIR$/driver/src/player.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +38,7 @@
     <option name="cachedIndexableFilesCount" value="58" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="RsBuildProfile:test" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="RsBuildProfile:dev" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -54,61 +62,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0000307298446673" />
-      <entry key="MS500" value="1.1251734069679984" />
-      <entry key="S2" value="1.5963455878607178" />
-      <entry key="S5" value="1.9232147689472756" />
-      <entry key="S10" value="2.448040118496876" />
-      <entry key="S30" value="3.9759561121891878" />
-      <entry key="S60" value="5.4882140436916576" />
-      <entry key="M2" value="8.316182175550015" />
-      <entry key="M5" value="21.31948680484686" />
-      <entry key="M10" value="52.756105568662235" />
-      <entry key="M15" value="89.16558117069297" />
-      <entry key="M30" value="197.91047275157794" />
-      <entry key="H1" value="383.42073876463866" />
-      <entry key="H2" value="674.6592936688035" />
-      <entry key="H4" value="1079.1317672677549" />
-      <entry key="D1" value="1978.3810591247372" />
-      <entry key="W1" value="2256.061413990905" />
+      <entry key="MS100" value="4.1059395277583355E-4" />
+      <entry key="MS500" value="0.21197740752076286" />
+      <entry key="S2" value="0.9544525276452758" />
+      <entry key="S5" value="1.7369232798481888" />
+      <entry key="S10" value="2.245842538188982" />
+      <entry key="S30" value="2.7152841952598528" />
+      <entry key="S60" value="3.0410449654755003" />
+      <entry key="M2" value="5.970186103467584" />
+      <entry key="M5" value="26.800586673938376" />
+      <entry key="M10" value="65.4765376143412" />
+      <entry key="M15" value="101.95678927885771" />
+      <entry key="M30" value="208.26759876716517" />
+      <entry key="H1" value="406.6401179863717" />
+      <entry key="H2" value="732.181438306668" />
+      <entry key="H4" value="1188.2892013587336" />
+      <entry key="D1" value="2232.66240406677" />
+      <entry key="W1" value="2564.4843808795117" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="9.722347299769162E-260" />
-      <entry key="MS500" value="1.576076412558399E-52" />
-      <entry key="S2" value="1.216646990516867E-13" />
-      <entry key="S5" value="9.39087594308907E-6" />
-      <entry key="S10" value="0.004721612493995974" />
-      <entry key="S30" value="0.3734676933829993" />
-      <entry key="S60" value="1.2791977403886983" />
-      <entry key="M2" value="2.7052915254511216" />
-      <entry key="M5" value="7.729760520235264" />
-      <entry key="M10" value="18.4229831788352" />
-      <entry key="M15" value="29.61035934776552" />
-      <entry key="M30" value="63.97405883205106" />
-      <entry key="H1" value="131.15701318623368" />
-      <entry key="H2" value="243.9059963526015" />
-      <entry key="H4" value="400.9327327180093" />
-      <entry key="D1" value="748.6477895048257" />
-      <entry key="W1" value="855.9334570158468" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0002903337683111" />
+      <entry key="S2" value="1.1305342228034267" />
+      <entry key="S5" value="1.4428837595511803" />
+      <entry key="S10" value="1.665495123616015" />
+      <entry key="S30" value="1.8734941780939751" />
+      <entry key="S60" value="1.991432034933989" />
+      <entry key="M2" value="2.832302204433454" />
+      <entry key="M5" value="8.645748195362355" />
+      <entry key="M10" value="20.207027660055473" />
+      <entry key="M15" value="32.10481095879368" />
+      <entry key="M30" value="68.28803311110332" />
+      <entry key="H1" value="138.77644178139894" />
+      <entry key="H2" value="260.90366823378497" />
+      <entry key="H4" value="435.42871263688704" />
+      <entry key="D1" value="837.0901354699886" />
+      <entry key="W1" value="964.9114582364446" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.15712795663728898" />
-      <entry key="MS500" value="0.7569761746351413" />
-      <entry key="S2" value="1.4206382511635915" />
-      <entry key="S5" value="1.8362519387296488" />
-      <entry key="S10" value="2.403941010593335" />
-      <entry key="S30" value="4.311492993191226" />
-      <entry key="S60" value="6.723790447210291" />
-      <entry key="M2" value="10.980230915920874" />
-      <entry key="M5" value="29.001252964557427" />
-      <entry key="M10" value="71.11726213338281" />
-      <entry key="M15" value="118.70756522964012" />
-      <entry key="M30" value="261.8096694305522" />
-      <entry key="H1" value="514.4987244515039" />
-      <entry key="H2" value="918.4895706458403" />
-      <entry key="H4" value="1480.0026085370348" />
-      <entry key="D1" value="2727.0102256103546" />
-      <entry key="W1" value="3111.9918542767614" />
+      <entry key="MS100" value="0.031035859481245938" />
+      <entry key="MS500" value="0.5706466725130586" />
+      <entry key="S2" value="1.6690652942492397" />
+      <entry key="S5" value="2.8830380588176476" />
+      <entry key="S10" value="3.7175235486016867" />
+      <entry key="S30" value="4.509858320998612" />
+      <entry key="S60" value="4.989548344523571" />
+      <entry key="M2" value="8.770276136204183" />
+      <entry key="M5" value="35.40217163657874" />
+      <entry key="M10" value="85.62877306878882" />
+      <entry key="M15" value="134.00177560199992" />
+      <entry key="M30" value="276.4881315851819" />
+      <entry key="H1" value="545.3427377497698" />
+      <entry key="H2" value="993.0108044019953" />
+      <entry key="H4" value="1623.654289821432" />
+      <entry key="D1" value="3069.7322712199475" />
+      <entry key="W1" value="3529.392515375658" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -122,6 +130,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Cargo.Run 1_5million.executor&quot;: &quot;Run&quot;,
     &quot;Cargo.Run annual.executor&quot;: &quot;Run&quot;,
     &quot;Cargo.Run foo.executor&quot;: &quot;Run&quot;,
     &quot;Cargo.Run valentain.executor&quot;: &quot;Run&quot;,
@@ -131,6 +140,7 @@
     &quot;Cargo.Test counter::shelf::tests::trim.executor&quot;: &quot;Run&quot;,
     &quot;Cargo.Test decimal_formatter::test.executor&quot;: &quot;Run&quot;,
     &quot;Cargo.Test drawing_machine::tests.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Test player::test.executor&quot;: &quot;Run&quot;,
     &quot;Cargo.Test random_store::tests::foo.executor&quot;: &quot;Run&quot;,
     &quot;Cargo.Test random_store::tests::new.executor&quot;: &quot;Run&quot;,
     &quot;Cargo.Test ticket::ticket::tests::foo.executor&quot;: &quot;Run&quot;,
@@ -164,7 +174,25 @@
   <component name="RsExternalLinterProjectSettings">
     <option name="tool" value="Clippy" />
   </component>
-  <component name="RunManager" selected="Cargo.Test ticket::ticket::tests::foo">
+  <component name="RunManager" selected="Cargo.Run 1_5million">
+    <configuration name="Run 1_5million" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="buildProfileId" value="dev" />
+      <option name="command" value="run --package driver --bin 1_5million" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <envs />
+      <option name="emulateTerminal" value="true" />
+      <option name="channel" value="DEFAULT" />
+      <option name="requiredFeatures" value="true" />
+      <option name="allFeatures" value="false" />
+      <option name="withSudo" value="false" />
+      <option name="buildTarget" value="REMOTE" />
+      <option name="backtrace" value="SHORT" />
+      <option name="isRedirectInput" value="false" />
+      <option name="redirectInputPath" value="" />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Run annual" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
       <option name="buildProfileId" value="dev" />
       <option name="command" value="run --package driver --bin annual" />
@@ -218,23 +246,6 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test counter::shelf::tests::racks_mut" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
-      <option name="command" value="test --package implementation --lib -- counter::shelf::tests::racks_mut --exact" />
-      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
-      <envs />
-      <option name="emulateTerminal" value="true" />
-      <option name="channel" value="DEFAULT" />
-      <option name="requiredFeatures" value="true" />
-      <option name="allFeatures" value="false" />
-      <option name="withSudo" value="false" />
-      <option name="buildTarget" value="REMOTE" />
-      <option name="backtrace" value="SHORT" />
-      <option name="isRedirectInput" value="false" />
-      <option name="redirectInputPath" value="" />
-      <method v="2">
-        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Test japanese-jumbo-lottery-sim" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
       <option name="buildProfileId" value="test" />
       <option name="command" value="test --workspace" />
@@ -253,8 +264,9 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test random_store::tests::foo" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
-      <option name="command" value="test --package driver --lib -- random_store::tests::foo --exact" />
+    <configuration name="Test player::test" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="buildProfileId" value="test" />
+      <option name="command" value="test --package driver --lib -- player::test" />
       <option name="workingDirectory" value="file://$PROJECT_DIR$" />
       <envs />
       <option name="emulateTerminal" value="true" />
@@ -308,11 +320,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Cargo.Run 1_5million" />
+        <item itemvalue="Cargo.Test player::test" />
         <item itemvalue="Cargo.Test ticket::ticket::tests::foo" />
         <item itemvalue="Cargo.Run foo" />
         <item itemvalue="Cargo.Test random_store::tests::new" />
-        <item itemvalue="Cargo.Test random_store::tests::foo" />
-        <item itemvalue="Cargo.Test counter::shelf::tests::racks_mut" />
       </list>
     </recent_temporary>
   </component>
@@ -358,11 +370,6 @@
           <url>file://$PROJECT_DIR$/implementation/src/counter/shelf.rs</url>
           <line>91</line>
           <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/driver/src/player.rs</url>
-          <line>67</line>
-          <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/driver/src/bin/foo.rs</url>
