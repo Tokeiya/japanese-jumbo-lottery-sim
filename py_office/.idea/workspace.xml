@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3a96d88c-224b-4a50-98da-0b29b5aaf32e" name="Changes" comment="add after import SQL script">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/44a715f6-42a4-480b-bec8-5e3fc340379a.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/44a715f6-42a4-480b-bec8-5e3fc340379a.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/data_source_mapping.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sql/after_import.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sql/initial.sql" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,61 +45,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0000000050188362" />
-      <entry key="MS500" value="1.0218836925138626" />
-      <entry key="S2" value="1.384682861405655" />
-      <entry key="S5" value="1.7120182332426315" />
-      <entry key="S10" value="2.07044893812857" />
-      <entry key="S30" value="3.1755106630064285" />
-      <entry key="S60" value="5.449550022732996" />
-      <entry key="M2" value="13.376479961614177" />
-      <entry key="M5" value="37.26460825497761" />
-      <entry key="M10" value="64.1236072617895" />
-      <entry key="M15" value="82.08726246423511" />
-      <entry key="M30" value="119.36690650072784" />
-      <entry key="H1" value="171.69330338938988" />
-      <entry key="H2" value="228.98316427014066" />
-      <entry key="H4" value="274.41485339467397" />
-      <entry key="D1" value="325.82610859761496" />
-      <entry key="W1" value="336.21729532705086" />
+      <entry key="MS100" value="2.1238261532363718E-102" />
+      <entry key="MS500" value="4.6283244189987254E-21" />
+      <entry key="S2" value="8.258741913673591E-6" />
+      <entry key="S5" value="0.010019591036544718" />
+      <entry key="S10" value="0.1338672098005979" />
+      <entry key="S30" value="1.2418212024230517" />
+      <entry key="S60" value="3.3977631059965017" />
+      <entry key="M2" value="8.709311610953801" />
+      <entry key="M5" value="30.287801558559455" />
+      <entry key="M10" value="67.28167295228185" />
+      <entry key="M15" value="99.49754088183471" />
+      <entry key="M30" value="172.91613681150983" />
+      <entry key="H1" value="265.3656709608949" />
+      <entry key="H2" value="361.9161921739094" />
+      <entry key="H4" value="440.0741770882677" />
+      <entry key="D1" value="531.7384957278464" />
+      <entry key="W1" value="550.7264740148803" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="7.312635240798808E-78" />
-      <entry key="MS500" value="3.7435703461365096E-16" />
-      <entry key="S2" value="1.7086203479299415E-4" />
-      <entry key="S5" value="0.051599369483864975" />
-      <entry key="S10" value="0.38161202715959974" />
-      <entry key="S30" value="1.5766791489215413" />
-      <entry key="S60" value="3.3388143987311807" />
-      <entry key="M2" value="9.51943650292302" />
-      <entry key="M5" value="33.79969173056121" />
-      <entry key="M10" value="64.79799555416612" />
-      <entry key="M15" value="84.6427864733587" />
-      <entry key="M30" value="120.03152545628708" />
-      <entry key="H1" value="162.92430272324629" />
-      <entry key="H2" value="208.01352442738406" />
-      <entry key="H4" value="243.4760215786253" />
-      <entry key="D1" value="283.5220666626971" />
-      <entry key="W1" value="291.61213720745496" />
+      <entry key="MS100" value="1.000010350069637" />
+      <entry key="MS500" value="1.1007079605440007" />
+      <entry key="S2" value="1.670343442349397" />
+      <entry key="S5" value="2.6984415436341225" />
+      <entry key="S10" value="4.267093817145646" />
+      <entry key="S30" value="8.039378564689969" />
+      <entry key="S60" value="11.88406077907626" />
+      <entry key="M2" value="19.270849516217208" />
+      <entry key="M5" value="42.88747475062892" />
+      <entry key="M10" value="85.72044079948098" />
+      <entry key="M15" value="125.68767723452257" />
+      <entry key="M30" value="215.85789560508624" />
+      <entry key="H1" value="318.4121597742209" />
+      <entry key="H2" value="414.52104417244846" />
+      <entry key="H4" value="487.63637930530473" />
+      <entry key="D1" value="570.2850336992257" />
+      <entry key="W1" value="587.1082227103955" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.24655818090447384" />
-      <entry key="MS500" value="0.7774323230507914" />
-      <entry key="S2" value="1.3162531788874299" />
-      <entry key="S5" value="1.7280739689501667" />
-      <entry key="S10" value="2.4101147195387953" />
-      <entry key="S30" value="4.708005936288341" />
-      <entry key="S60" value="8.735559986566527" />
-      <entry key="M2" value="22.804144889375124" />
-      <entry key="M5" value="70.93761838193706" />
-      <entry key="M10" value="128.80614141660087" />
-      <entry key="M15" value="166.63037617828869" />
-      <entry key="M30" value="239.32736772823677" />
-      <entry key="H1" value="334.5692782690687" />
-      <entry key="H2" value="436.9660581223361" />
-      <entry key="H4" value="517.8730822145513" />
-      <entry key="D1" value="609.3447513524769" />
-      <entry key="W1" value="627.8289302876168" />
+      <entry key="MS100" value="0.0030436661078978014" />
+      <entry key="MS500" value="0.3490809448946039" />
+      <entry key="S2" value="1.2656947578117128" />
+      <entry key="S5" value="2.414242090978164" />
+      <entry key="S10" value="4.140214509034044" />
+      <entry key="S30" value="9.089504517707951" />
+      <entry key="S60" value="15.12106144305626" />
+      <entry key="M2" value="27.835479670535573" />
+      <entry key="M5" value="73.02697913237138" />
+      <entry key="M10" value="152.84901340790958" />
+      <entry key="M15" value="225.03729862072188" />
+      <entry key="M30" value="388.65000381167516" />
+      <entry key="H1" value="583.6873600589638" />
+      <entry key="H2" value="776.3786529993744" />
+      <entry key="H4" value="927.6762131565513" />
+      <entry key="D1" value="1102.0168599686738" />
+      <entry key="W1" value="1137.83371656426" />
     </decayedShown>
   </component>
   <component name="OptimizeOnSaveOptions">
@@ -111,32 +114,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Python.initial.executor&quot;: &quot;Run&quot;,
-    &quot;Python.pivot_longer.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;initial__devel&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/repo/japanese-jumbo-lottery-sim/outpt.tsv&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;python.packages.toolwindow.project.migrated.to.right.top.v2&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;actions.on.save&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.initial.executor": "Run",
+    "Python.pivot_longer.executor": "Run",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "initial__devel",
+    "last_opened_file_path": "/repo/japanese-jumbo-lottery-sim/py_office/data/15output_outcome.tsv",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "python.packages.toolwindow.project.migrated.to.right.top.v2": "true",
+    "settings.editor.selected.configurable": "actions.on.save"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;sqlite&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "sqlite"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Python.pivot_longer">
     <configuration name="initial" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="py_office" />
@@ -198,7 +201,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-34611be1ca5a-e0583fc556d1-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-263.7307.206" />
+        <option value="bundled-js-predefined-d6986cc7102b-56aff7b04f6f-JavaScript-PY-263.7307.329" />
+        <option value="bundled-python-sdk-9e1d95ea72ba-e0583fc556d1-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-263.7307.329" />
       </set>
     </attachedChunks>
   </component>
@@ -216,6 +220,7 @@
       <workItem from="1794988501246" duration="4255000" />
       <workItem from="1795059690415" duration="4103000" />
       <workItem from="1795076552704" duration="200000" />
+      <workItem from="1795145188564" duration="4091000" />
     </task>
     <task id="LOCAL-00001" summary="add SQLite data source config">
       <option name="closed" value="true" />
