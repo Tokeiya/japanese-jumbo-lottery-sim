@@ -36,7 +36,7 @@ fn main() {
 	});
 
 	{
-		let file = File::create("../15output_players.tsv").unwrap();
+		let file = File::create("./15output_players.tsv").unwrap();
 		let mut writer =
 			dsv_writer::RawWriter::try_new(file, '\t', dsv_writer::NewLine::Lf).unwrap();
 
@@ -63,7 +63,7 @@ fn main() {
 	}
 
 	{
-		let file = File::create("../15output_outcome.tsv").unwrap();
+		let file = File::create("./15output_outcome.tsv").unwrap();
 		let mut writer = dsv_writer::RawWriter::try_new(file, '\t', NewLine::Lf).unwrap();
 
 		writer
