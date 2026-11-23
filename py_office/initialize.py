@@ -26,6 +26,8 @@ def insert_raw_player():
         conn.execute("PRAGMA journal_mode = OFF;")
         conn.execute("PRAGMA synchronous = OFF;")
         conn.execute("PRAGMA foreign_keys = OFF;")
+        conn.execute("DROP TABLE IF EXISTS raw_players");
+        
 
         conn.executemany('INSERT INTO raw_players(id, strategy, prize, cnt, payout) VALUES (?, ?, ?, ?, ?)', records)
 

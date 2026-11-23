@@ -4,15 +4,9 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a96d88c-224b-4a50-98da-0b29b5aaf32e" name="Changes" comment="remove SQL initialize scripts">
-      <change afterPath="$PROJECT_DIR$/initialize.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/44a715f6-42a4-480b-bec8-5e3fc340379a.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/44a715f6-42a4-480b-bec8-5e3fc340379a.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/44a715f6-42a4-480b-bec8-5e3fc340379a/storage_v2/_src_/schema/main.uQUzAA.zip" beforeDir="false" />
+    <list default="true" id="3a96d88c-224b-4a50-98da-0b29b5aaf32e" name="Changes" comment="add TSV reader and remove legacy scripts">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pivot_longer.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../rust/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../rust/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/initialize.py" beforeDir="false" afterPath="$PROJECT_DIR$/initialize.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,61 +42,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0002746724828304" />
-      <entry key="MS500" value="1.1981231541288595" />
-      <entry key="S2" value="1.9173181832915114" />
-      <entry key="S5" value="2.42743490988555" />
-      <entry key="S10" value="2.7394735008419984" />
-      <entry key="S30" value="4.1124726686743" />
-      <entry key="S60" value="6.339189645900079" />
-      <entry key="M2" value="11.848446785088353" />
-      <entry key="M5" value="29.051030971457347" />
-      <entry key="M10" value="50.31632840007127" />
-      <entry key="M15" value="68.66412859459915" />
-      <entry key="M30" value="127.07243099409257" />
-      <entry key="H1" value="248.39035770979206" />
-      <entry key="H2" value="430.06490021739825" />
-      <entry key="H4" value="615.0548602143352" />
-      <entry key="D1" value="873.5716846668436" />
-      <entry key="W1" value="932.6293219223609" />
+      <entry key="MS100" value="1.0871714791469003" />
+      <entry key="MS500" value="1.613867844509839" />
+      <entry key="S2" value="1.8944929998765274" />
+      <entry key="S5" value="2.308501699457259" />
+      <entry key="S10" value="3.3946983102436494" />
+      <entry key="S30" value="6.507162660468272" />
+      <entry key="S60" value="10.651069131681739" />
+      <entry key="M2" value="18.55788032265206" />
+      <entry key="M5" value="38.49414632749861" />
+      <entry key="M10" value="63.3061129594194" />
+      <entry key="M15" value="83.69020084562906" />
+      <entry key="M30" value="143.9634333653089" />
+      <entry key="H1" value="266.01977929508047" />
+      <entry key="H2" value="449.88251977251485" />
+      <entry key="H4" value="638.6529491890263" />
+      <entry key="D1" value="904.347660407248" />
+      <entry key="W1" value="965.2901175462673" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="5.791431301286892E-168" />
-      <entry key="MS500" value="3.6174168168454975E-34" />
-      <entry key="S2" value="6.436569663313431E-9" />
-      <entry key="S5" value="0.0010236334906206408" />
-      <entry key="S10" value="0.06391184210808627" />
-      <entry key="S30" value="1.2612095920244855" />
-      <entry key="S60" value="3.290365519400985" />
-      <entry key="M2" value="8.342881093812275" />
-      <entry key="M5" value="28.25902091200051" />
-      <entry key="M10" value="54.742354385505344" />
-      <entry key="M15" value="73.73114628762085" />
-      <entry key="M30" value="124.05376585183559" />
-      <entry key="H1" value="234.00171033431246" />
-      <entry key="H2" value="408.73674171027073" />
-      <entry key="H4" value="588.1578522363782" />
-      <entry key="D1" value="836.7720515195334" />
-      <entry key="W1" value="893.1218756506549" />
+      <entry key="MS100" value="2.237005137026803E-6" />
+      <entry key="MS500" value="0.07474372829333789" />
+      <entry key="S2" value="0.6831770590516995" />
+      <entry key="S5" value="1.3515098359080173" />
+      <entry key="S10" value="1.9241302643102747" />
+      <entry key="S30" value="3.961428860449146" />
+      <entry key="S60" value="7.79018067776713" />
+      <entry key="M2" value="14.642411902194205" />
+      <entry key="M5" value="33.6581580698888" />
+      <entry key="M10" value="61.279234987428744" />
+      <entry key="M15" value="82.29412746495757" />
+      <entry key="M30" value="135.61257173814192" />
+      <entry key="H1" value="246.6380924693582" />
+      <entry key="H2" value="423.27083736859294" />
+      <entry key="H4" value="606.1999536118992" />
+      <entry key="D1" value="861.647280418006" />
+      <entry key="W1" value="919.7978349456101" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.9014946032368969" />
-      <entry key="MS500" value="1.172917675179958" />
-      <entry key="S2" value="1.9065696166521382" />
-      <entry key="S5" value="2.422692754099007" />
-      <entry key="S10" value="2.7957649357440397" />
-      <entry key="S30" value="5.346340316368981" />
-      <entry key="S60" value="9.594090616072732" />
-      <entry key="M2" value="20.140900619714536" />
-      <entry key="M5" value="57.238326077146866" />
-      <entry key="M10" value="104.98716231648991" />
-      <entry key="M15" value="142.32704071333785" />
-      <entry key="M30" value="251.05919045776267" />
-      <entry key="H1" value="482.3227081529664" />
-      <entry key="H2" value="838.7399335760707" />
-      <entry key="H4" value="1203.168408195574" />
-      <entry key="D1" value="1710.3333083699215" />
-      <entry key="W1" value="1825.74961032473" />
+      <entry key="MS100" value="0.28809727596027496" />
+      <entry key="MS500" value="1.1485228592629542" />
+      <entry key="S2" value="2.1935231906231496" />
+      <entry key="S5" value="3.3324944521261264" />
+      <entry key="S10" value="5.0395418838195" />
+      <entry key="S30" value="10.283109623757895" />
+      <entry key="S60" value="18.2863717654924" />
+      <entry key="M2" value="33.069518161657925" />
+      <entry key="M5" value="72.04635063748634" />
+      <entry key="M10" value="124.49459564950034" />
+      <entry key="M15" value="165.902066761434" />
+      <entry key="M30" value="279.5015616489526" />
+      <entry key="H1" value="512.5848551434188" />
+      <entry key="H2" value="873.0895754579321" />
+      <entry key="H4" value="1244.8072966033073" />
+      <entry key="D1" value="1765.9842101639608" />
+      <entry key="W1" value="1885.0863187760156" />
     </decayedShown>
   </component>
   <component name="OptimizeOnSaveOptions">
@@ -117,33 +111,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python.initial.executor": "Run",
-    "Python.initialize.executor": "Run",
-    "Python.pivot_longer.executor": "Run",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "initial__devel",
-    "last_opened_file_path": "/repo/japanese-jumbo-lottery-sim/py_office/data/15output_outcome.tsv",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "python.packages.toolwindow.project.migrated.to.right.top.v2": "true",
-    "settings.editor.selected.configurable": "editor.preferences.completion.inline"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.initial.executor&quot;: &quot;Run&quot;,
+    &quot;Python.initialize.executor&quot;: &quot;Run&quot;,
+    &quot;Python.pivot_longer.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;initial__devel&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/repo/japanese-jumbo-lottery-sim/py_office/data/15output_outcome.tsv&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;python.packages.toolwindow.project.migrated.to.right.top.v2&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.completion.inline&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "sqlite"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;sqlite&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Python.initialize">
     <configuration name="initial" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="py_office" />
@@ -255,7 +249,7 @@
       <workItem from="1795161981779" duration="1102000" />
       <workItem from="1795163604372" duration="11000" />
       <workItem from="1795164581937" duration="1771000" />
-      <workItem from="1795420301580" duration="4175000" />
+      <workItem from="1795420301580" duration="4480000" />
     </task>
     <task id="LOCAL-00001" summary="add SQLite data source config">
       <option name="closed" value="true" />
@@ -281,7 +275,15 @@
       <option name="project" value="LOCAL" />
       <updated>1795149295759</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add TSV reader and remove legacy scripts">
+      <option name="closed" value="true" />
+      <created>1795424810316</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1795424810316</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -291,14 +293,15 @@
     <MESSAGE value="add SQLite data source config" />
     <MESSAGE value="add after import SQL script" />
     <MESSAGE value="remove SQL initialize scripts" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove SQL initialize scripts" />
+    <MESSAGE value="add TSV reader and remove legacy scripts" />
+    <option name="LAST_COMMIT_MESSAGE" value="add TSV reader and remove legacy scripts" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/initialize.py</url>
-          <line>32</line>
+          <line>34</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
