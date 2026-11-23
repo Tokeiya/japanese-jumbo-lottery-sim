@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a96d88c-224b-4a50-98da-0b29b5aaf32e" name="Changes" comment="add after import SQL script">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+    <list default="true" id="3a96d88c-224b-4a50-98da-0b29b5aaf32e" name="Changes" comment="remove SQL initialize scripts">
+      <change afterPath="$PROJECT_DIR$/note.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/44a715f6-42a4-480b-bec8-5e3fc340379a.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/44a715f6-42a4-480b-bec8-5e3fc340379a.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/data_source_mapping.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sql/after_import.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sql/initial.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rust/.idea/shelf/Uncommitted_changes_before_Update_at_11_13_26,_5_00 PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rust/.idea/shelf/Uncommitted_changes_before_Update_at_11_13_26__5_00PM__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rust/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../rust/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,13 +23,14 @@
     </colors>
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="19" />
+    <option name="cachedIndexableFilesCount" value="20" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="Jupyter Notebook" />
       </list>
     </option>
   </component>
@@ -45,61 +46,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="2.1238261532363718E-102" />
-      <entry key="MS500" value="4.6283244189987254E-21" />
-      <entry key="S2" value="8.258741913673591E-6" />
-      <entry key="S5" value="0.010019591036544718" />
-      <entry key="S10" value="0.1338672098005979" />
-      <entry key="S30" value="1.2418212024230517" />
-      <entry key="S60" value="3.3977631059965017" />
-      <entry key="M2" value="8.709311610953801" />
-      <entry key="M5" value="30.287801558559455" />
-      <entry key="M10" value="67.28167295228185" />
-      <entry key="M15" value="99.49754088183471" />
-      <entry key="M30" value="172.91613681150983" />
-      <entry key="H1" value="265.3656709608949" />
-      <entry key="H2" value="361.9161921739094" />
-      <entry key="H4" value="440.0741770882677" />
-      <entry key="D1" value="531.7384957278464" />
-      <entry key="W1" value="550.7264740148803" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.0000000000007025" />
+      <entry key="S5" value="1.0000205427795679" />
+      <entry key="S10" value="1.0064488660033257" />
+      <entry key="S30" value="1.3621635998585717" />
+      <entry key="S60" value="2.260846843476503" />
+      <entry key="M2" value="4.6077268789515475" />
+      <entry key="M5" value="16.084957341260463" />
+      <entry key="M10" value="40.02405505700506" />
+      <entry key="M15" value="64.90364939917009" />
+      <entry key="M30" value="138.6851230345663" />
+      <entry key="H1" value="260.17722390579917" />
+      <entry key="H2" value="407.4575003858415" />
+      <entry key="H4" value="537.9837106114337" />
+      <entry key="D1" value="702.3613962101517" />
+      <entry key="W1" value="737.8364789981968" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="1.000010350069637" />
-      <entry key="MS500" value="1.1007079605440007" />
-      <entry key="S2" value="1.670343442349397" />
-      <entry key="S5" value="2.6984415436341225" />
-      <entry key="S10" value="4.267093817145646" />
-      <entry key="S30" value="8.039378564689969" />
-      <entry key="S60" value="11.88406077907626" />
-      <entry key="M2" value="19.270849516217208" />
-      <entry key="M5" value="42.88747475062892" />
-      <entry key="M10" value="85.72044079948098" />
-      <entry key="M15" value="125.68767723452257" />
-      <entry key="M30" value="215.85789560508624" />
-      <entry key="H1" value="318.4121597742209" />
-      <entry key="H2" value="414.52104417244846" />
-      <entry key="H4" value="487.63637930530473" />
-      <entry key="D1" value="570.2850336992257" />
-      <entry key="W1" value="587.1082227103955" />
+      <entry key="MS100" value="7.059538531183356E-221" />
+      <entry key="MS500" value="1.2227903265971352E-44" />
+      <entry key="S2" value="2.205792744112843E-11" />
+      <entry key="S5" value="1.2206765420031538E-4" />
+      <entry key="S10" value="0.024315540980634858" />
+      <entry key="S30" value="0.98758705735427" />
+      <entry key="S60" value="2.6526073811201263" />
+      <entry key="M2" value="5.144748222565469" />
+      <entry key="M5" value="13.42325100155157" />
+      <entry key="M10" value="29.092693132180763" />
+      <entry key="M15" value="47.50398654157566" />
+      <entry key="M30" value="116.77750915618402" />
+      <entry key="H1" value="245.1488374483958" />
+      <entry key="H2" value="398.99181665995394" />
+      <entry key="H4" value="530.5744700892658" />
+      <entry key="D1" value="691.078855770792" />
+      <entry key="W1" value="725.1071139507164" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.0030436661078978014" />
-      <entry key="MS500" value="0.3490809448946039" />
-      <entry key="S2" value="1.2656947578117128" />
-      <entry key="S5" value="2.414242090978164" />
-      <entry key="S10" value="4.140214509034044" />
-      <entry key="S30" value="9.089504517707951" />
-      <entry key="S60" value="15.12106144305626" />
-      <entry key="M2" value="27.835479670535573" />
-      <entry key="M5" value="73.02697913237138" />
-      <entry key="M10" value="152.84901340790958" />
-      <entry key="M15" value="225.03729862072188" />
-      <entry key="M30" value="388.65000381167516" />
-      <entry key="H1" value="583.6873600589638" />
-      <entry key="H2" value="776.3786529993744" />
-      <entry key="H4" value="927.6762131565513" />
-      <entry key="D1" value="1102.0168599686738" />
-      <entry key="W1" value="1137.83371656426" />
+      <entry key="MS100" value="1.5560008480503926E-30" />
+      <entry key="MS500" value="1.0924509982869678E-6" />
+      <entry key="S2" value="0.032329611942023655" />
+      <entry key="S5" value="0.2535533600180889" />
+      <entry key="S10" value="0.5331411132185259" />
+      <entry key="S30" value="2.1292605868573027" />
+      <entry key="S60" value="4.782797379314694" />
+      <entry key="M2" value="9.670967471217555" />
+      <entry key="M5" value="29.444687236376527" />
+      <entry key="M10" value="69.0496956111726" />
+      <entry key="M15" value="112.336071109029" />
+      <entry key="M30" value="255.38205110438548" />
+      <entry key="H1" value="505.24745593127386" />
+      <entry key="H2" value="806.3877658408435" />
+      <entry key="H4" value="1068.5180335861412" />
+      <entry key="D1" value="1393.4316755011434" />
+      <entry key="W1" value="1462.9423109651673" />
     </decayedShown>
   </component>
   <component name="OptimizeOnSaveOptions">
@@ -132,7 +133,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "python.packages.toolwindow.project.migrated.to.right.top.v2": "true",
-    "settings.editor.selected.configurable": "actions.on.save"
+    "settings.editor.selected.configurable": "editor.preferences.completion.inline"
   },
   "keyToStringList": {
     "DatabaseDriversLRU": [
@@ -220,7 +221,11 @@
       <workItem from="1794988501246" duration="4255000" />
       <workItem from="1795059690415" duration="4103000" />
       <workItem from="1795076552704" duration="200000" />
-      <workItem from="1795145188564" duration="4091000" />
+      <workItem from="1795145188564" duration="4117000" />
+      <workItem from="1795159634264" duration="1251000" />
+      <workItem from="1795161981779" duration="1102000" />
+      <workItem from="1795163604372" duration="11000" />
+      <workItem from="1795164581937" duration="1771000" />
     </task>
     <task id="LOCAL-00001" summary="add SQLite data source config">
       <option name="closed" value="true" />
@@ -238,7 +243,15 @@
       <option name="project" value="LOCAL" />
       <updated>1794820402199</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="remove SQL initialize scripts">
+      <option name="closed" value="true" />
+      <created>1795149295759</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1795149295759</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -247,7 +260,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add SQLite data source config" />
     <MESSAGE value="add after import SQL script" />
-    <option name="LAST_COMMIT_MESSAGE" value="add after import SQL script" />
+    <MESSAGE value="remove SQL initialize scripts" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove SQL initialize scripts" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
