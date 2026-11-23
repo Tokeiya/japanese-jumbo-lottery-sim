@@ -1,6 +1,7 @@
 use implementation::prelude::*;
 use rand::Rng;
 use rand::seq::IndexedMutRandom;
+use rand::seq::SliceRandom;
 use std::collections::VecDeque;
 pub struct Store(Vec<VecDeque<Ticket>>);
 
@@ -30,6 +31,10 @@ impl Store {
 				let idx = (t.number() % 10) as usize;
 				vec[idx].push_back(t)
 			}
+		}
+
+		for elem in vec.iter_mut() {
+			elem.make_contiguous().shuffle(rng);
 		}
 
 		Store(vec)
@@ -67,13 +72,14 @@ pub fn take_sequence(shelf: &mut Shelf, rng: &mut impl Rng) -> [Ticket; 10] {
 			break tmp;
 		}
 	};
-	
+
 	std::array::from_fn(|_| grp.next().unwrap())
 }
 
 #[cfg(test)]
 mod tests {
 	use super::*;
+	use std::collections::HashSet;
 
 	#[test]
 	fn len_is_empty() {
@@ -86,10 +92,13 @@ mod tests {
 		let mut expected = 1_000;
 
 		for idx in 0..fixture.0.len() {
-			while fixture.0[idx].pop_front().is_none() {
+			while !fixture.0[idx].pop_front().is_none() {
 				expected -= 1;
 				assert_eq!(fixture.len(), expected);
-				assert!(!fixture.is_empty());
+
+				if expected != 0 {
+					assert!(!fixture.is_empty());
+				}
 			}
 		}
 
@@ -128,5 +137,28 @@ mod tests {
 			let actual = fixture.take_10();
 			assert(actual.as_ref())
 		}
+	}
+
+	#[test]
+	fn take_10_digit_seq() {
+		let mut rng = rand::rng();
+		let mut shelf = Shelf::build_with_rand(42, 0..=100, &mut rng);
+		let mut fixture = Store::new(1000, &mut shelf, &mut rng);
+
+		let actual = fixture.take_10().unwrap();
+
+		let mut num = HashSet::new();
+		let mut grp = HashSet::new();
+
+		for i in 0..10 {
+			assert_eq!(actual[i].number() % 10, i as u32);
+			num.insert(actual[i].number() / 10);
+			grp.insert(actual[i].group());
+
+			println!("{i}:{:?}", actual[i]);
+		}
+
+		assert!(num.len() >= 8);
+		assert!(grp.len() >= 8);
 	}
 }
