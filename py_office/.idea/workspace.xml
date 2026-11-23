@@ -5,11 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3a96d88c-224b-4a50-98da-0b29b5aaf32e" name="Changes" comment="remove SQL initialize scripts">
-      <change afterPath="$PROJECT_DIR$/note.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/initialize.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/44a715f6-42a4-480b-bec8-5e3fc340379a.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/44a715f6-42a4-480b-bec8-5e3fc340379a.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/44a715f6-42a4-480b-bec8-5e3fc340379a/storage_v2/_src_/schema/main.uQUzAA.zip" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../rust/.idea/shelf/Uncommitted_changes_before_Update_at_11_13_26,_5_00 PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../rust/.idea/shelf/Uncommitted_changes_before_Update_at_11_13_26__5_00PM__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pivot_longer.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../rust/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../rust/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -23,14 +25,14 @@
     </colors>
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="20" />
+    <option name="cachedIndexableFilesCount" value="21" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="Jupyter Notebook" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -46,61 +48,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0" />
-      <entry key="S2" value="1.0000000000007025" />
-      <entry key="S5" value="1.0000205427795679" />
-      <entry key="S10" value="1.0064488660033257" />
-      <entry key="S30" value="1.3621635998585717" />
-      <entry key="S60" value="2.260846843476503" />
-      <entry key="M2" value="4.6077268789515475" />
-      <entry key="M5" value="16.084957341260463" />
-      <entry key="M10" value="40.02405505700506" />
-      <entry key="M15" value="64.90364939917009" />
-      <entry key="M30" value="138.6851230345663" />
-      <entry key="H1" value="260.17722390579917" />
-      <entry key="H2" value="407.4575003858415" />
-      <entry key="H4" value="537.9837106114337" />
-      <entry key="D1" value="702.3613962101517" />
-      <entry key="W1" value="737.8364789981968" />
+      <entry key="MS100" value="1.0002746724828304" />
+      <entry key="MS500" value="1.1981231541288595" />
+      <entry key="S2" value="1.9173181832915114" />
+      <entry key="S5" value="2.42743490988555" />
+      <entry key="S10" value="2.7394735008419984" />
+      <entry key="S30" value="4.1124726686743" />
+      <entry key="S60" value="6.339189645900079" />
+      <entry key="M2" value="11.848446785088353" />
+      <entry key="M5" value="29.051030971457347" />
+      <entry key="M10" value="50.31632840007127" />
+      <entry key="M15" value="68.66412859459915" />
+      <entry key="M30" value="127.07243099409257" />
+      <entry key="H1" value="248.39035770979206" />
+      <entry key="H2" value="430.06490021739825" />
+      <entry key="H4" value="615.0548602143352" />
+      <entry key="D1" value="873.5716846668436" />
+      <entry key="W1" value="932.6293219223609" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="7.059538531183356E-221" />
-      <entry key="MS500" value="1.2227903265971352E-44" />
-      <entry key="S2" value="2.205792744112843E-11" />
-      <entry key="S5" value="1.2206765420031538E-4" />
-      <entry key="S10" value="0.024315540980634858" />
-      <entry key="S30" value="0.98758705735427" />
-      <entry key="S60" value="2.6526073811201263" />
-      <entry key="M2" value="5.144748222565469" />
-      <entry key="M5" value="13.42325100155157" />
-      <entry key="M10" value="29.092693132180763" />
-      <entry key="M15" value="47.50398654157566" />
-      <entry key="M30" value="116.77750915618402" />
-      <entry key="H1" value="245.1488374483958" />
-      <entry key="H2" value="398.99181665995394" />
-      <entry key="H4" value="530.5744700892658" />
-      <entry key="D1" value="691.078855770792" />
-      <entry key="W1" value="725.1071139507164" />
+      <entry key="MS100" value="5.791431301286892E-168" />
+      <entry key="MS500" value="3.6174168168454975E-34" />
+      <entry key="S2" value="6.436569663313431E-9" />
+      <entry key="S5" value="0.0010236334906206408" />
+      <entry key="S10" value="0.06391184210808627" />
+      <entry key="S30" value="1.2612095920244855" />
+      <entry key="S60" value="3.290365519400985" />
+      <entry key="M2" value="8.342881093812275" />
+      <entry key="M5" value="28.25902091200051" />
+      <entry key="M10" value="54.742354385505344" />
+      <entry key="M15" value="73.73114628762085" />
+      <entry key="M30" value="124.05376585183559" />
+      <entry key="H1" value="234.00171033431246" />
+      <entry key="H2" value="408.73674171027073" />
+      <entry key="H4" value="588.1578522363782" />
+      <entry key="D1" value="836.7720515195334" />
+      <entry key="W1" value="893.1218756506549" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.5560008480503926E-30" />
-      <entry key="MS500" value="1.0924509982869678E-6" />
-      <entry key="S2" value="0.032329611942023655" />
-      <entry key="S5" value="0.2535533600180889" />
-      <entry key="S10" value="0.5331411132185259" />
-      <entry key="S30" value="2.1292605868573027" />
-      <entry key="S60" value="4.782797379314694" />
-      <entry key="M2" value="9.670967471217555" />
-      <entry key="M5" value="29.444687236376527" />
-      <entry key="M10" value="69.0496956111726" />
-      <entry key="M15" value="112.336071109029" />
-      <entry key="M30" value="255.38205110438548" />
-      <entry key="H1" value="505.24745593127386" />
-      <entry key="H2" value="806.3877658408435" />
-      <entry key="H4" value="1068.5180335861412" />
-      <entry key="D1" value="1393.4316755011434" />
-      <entry key="W1" value="1462.9423109651673" />
+      <entry key="MS100" value="0.9014946032368969" />
+      <entry key="MS500" value="1.172917675179958" />
+      <entry key="S2" value="1.9065696166521382" />
+      <entry key="S5" value="2.422692754099007" />
+      <entry key="S10" value="2.7957649357440397" />
+      <entry key="S30" value="5.346340316368981" />
+      <entry key="S60" value="9.594090616072732" />
+      <entry key="M2" value="20.140900619714536" />
+      <entry key="M5" value="57.238326077146866" />
+      <entry key="M10" value="104.98716231648991" />
+      <entry key="M15" value="142.32704071333785" />
+      <entry key="M30" value="251.05919045776267" />
+      <entry key="H1" value="482.3227081529664" />
+      <entry key="H2" value="838.7399335760707" />
+      <entry key="H4" value="1203.168408195574" />
+      <entry key="D1" value="1710.3333083699215" />
+      <entry key="W1" value="1825.74961032473" />
     </decayedShown>
   </component>
   <component name="OptimizeOnSaveOptions">
@@ -119,6 +121,7 @@
   "keyToString": {
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "Python.initial.executor": "Run",
+    "Python.initialize.executor": "Run",
     "Python.pivot_longer.executor": "Run",
     "RunOnceActivity.MCP Project settings loaded": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -141,7 +144,7 @@
     ]
   }
 }]]></component>
-  <component name="RunManager" selected="Python.pivot_longer">
+  <component name="RunManager" selected="Python.initialize">
     <configuration name="initial" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="py_office" />
       <option name="ENV_FILES" value="" />
@@ -159,6 +162,31 @@
       <option name="RUN_TOOL" value="" />
       <option name="RUN_AS_SCRIPT" value="" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/initial.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="initialize" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="py_office" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="RUN_TOOL" value="" />
+      <option name="RUN_AS_SCRIPT" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/initialize.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -194,6 +222,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.initialize" />
         <item itemvalue="Python.pivot_longer" />
         <item itemvalue="Python.initial" />
       </list>
@@ -226,6 +255,7 @@
       <workItem from="1795161981779" duration="1102000" />
       <workItem from="1795163604372" duration="11000" />
       <workItem from="1795164581937" duration="1771000" />
+      <workItem from="1795420301580" duration="4175000" />
     </task>
     <task id="LOCAL-00001" summary="add SQLite data source config">
       <option name="closed" value="true" />
@@ -267,25 +297,16 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/pivot_longer.py</url>
-          <line>45</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/initial.py</url>
-          <line>7</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/initial.py</url>
-          <line>121</line>
-          <option name="timeStamp" value="3" />
+          <url>file://$PROJECT_DIR$/initialize.py</url>
+          <line>32</line>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/py_office$pivot_longer.coverage" NAME="pivot_longer Coverage Results" MODIFIED="1795061611335" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/py_office$initialize.coverage" NAME="initialize Coverage Results" MODIFIED="1795424614985" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/py_office$initial.coverage" NAME="initial Coverage Results" MODIFIED="1795061327207" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

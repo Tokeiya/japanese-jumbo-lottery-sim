@@ -568,7 +568,7 @@
     </routine>
     <schema id="214" parent="1" name="main">
       <Current>1</Current>
-      <LastIntrospectionLocalTimestamp>2026-11-20.09:17:01</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2026-11-23.08:57:34</LastIntrospectionLocalTimestamp>
     </schema>
     <argument id="215" parent="14">
       <ArgumentDirection>R</ArgumentDirection>
@@ -1809,203 +1809,129 @@
     <table id="627" parent="214" name="players"/>
     <table id="628" parent="214" name="prize_kinds"/>
     <table id="629" parent="214" name="prizes"/>
-    <table id="630" parent="214" name="raw_outcome"/>
-    <table id="631" parent="214" name="sqlite_master">
+    <table id="630" parent="214" name="sqlite_master">
       <System>1</System>
     </table>
-    <table id="632" parent="214" name="strategy_kinds"/>
-    <table id="633" parent="214" name="tmp100"/>
-    <table id="634" parent="214" name="tmp1000"/>
-    <view id="635" parent="214" name="aggregate_prizes">
-      <SourceTextLength>660</SourceTextLength>
-    </view>
-    <column id="636" parent="627" name="id">
+    <table id="631" parent="214" name="strategy_kinds"/>
+    <column id="632" parent="627" name="id">
       <Position>1</Position>
       <StoredType>INTEGER|0s</StoredType>
     </column>
-    <column id="637" parent="627" name="strategy">
+    <column id="633" parent="627" name="strategy">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>INTEGER|0s</StoredType>
     </column>
-    <foreign-key id="638" parent="627">
+    <foreign-key id="634" parent="627">
       <ColNames>strategy</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>strategy_kinds</RefTableName>
     </foreign-key>
-    <index id="639" parent="627" name="players_strategy">
-      <ColNames>strategy</ColNames>
-    </index>
-    <key id="640" parent="627">
+    <key id="635" parent="627">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="641" parent="628" name="id">
+    <column id="636" parent="628" name="id">
       <Position>1</Position>
       <StoredType>INTEGER|0s</StoredType>
     </column>
-    <column id="642" parent="628" name="name">
+    <column id="637" parent="628" name="name">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>TEXT|0s</StoredType>
     </column>
-    <index id="643" parent="628" name="prize_kinds_name">
+    <index id="638" parent="628" name="prize_kinds_name">
       <ColNames>name</ColNames>
     </index>
-    <key id="644" parent="628">
+    <key id="639" parent="628">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="645" parent="629" name="id">
+    <column id="640" parent="629" name="id">
       <Position>1</Position>
       <StoredType>INTEGER|0s</StoredType>
     </column>
-    <column id="646" parent="629" name="player_id">
+    <column id="641" parent="629" name="player_id">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>INTEGER|0s</StoredType>
     </column>
-    <column id="647" parent="629" name="prize_kind">
+    <column id="642" parent="629" name="prize">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>INTEGER|0s</StoredType>
     </column>
-    <column id="648" parent="629" name="cnt">
+    <column id="643" parent="629" name="cnt">
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StoredType>INTEGER|0s</StoredType>
     </column>
-    <column id="649" parent="629" name="reward">
+    <column id="644" parent="629" name="reward">
       <NotNull>1</NotNull>
       <Position>5</Position>
       <StoredType>INTEGER|0s</StoredType>
     </column>
-    <foreign-key id="650" parent="629">
+    <foreign-key id="645" parent="629">
       <ColNames>player_id</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>players</RefTableName>
     </foreign-key>
-    <foreign-key id="651" parent="629">
-      <ColNames>prize_kind</ColNames>
+    <foreign-key id="646" parent="629">
+      <ColNames>prize</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>prize_kinds</RefTableName>
     </foreign-key>
-    <index id="652" parent="629" name="prizes_player_id">
+    <index id="647" parent="629" name="idx_prizes_player_id">
       <ColNames>player_id</ColNames>
     </index>
-    <key id="653" parent="629">
+    <index id="648" parent="629" name="idx_prizes_prize">
+      <ColNames>prize</ColNames>
+    </index>
+    <index id="649" parent="629" name="idx_prizes_cnt">
+      <ColNames>cnt</ColNames>
+    </index>
+    <index id="650" parent="629" name="idx_prizes_reward">
+      <ColNames>reward</ColNames>
+    </index>
+    <key id="651" parent="629">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="654" parent="630" name="year">
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-      <StoredType>INTEGER|0s</StoredType>
-    </column>
-    <column id="655" parent="630" name="name">
-      <NotNull>1</NotNull>
-      <Position>2</Position>
-      <StoredType>TEXT|0s</StoredType>
-    </column>
-    <column id="656" parent="630" name="prize_kind">
-      <NotNull>1</NotNull>
-      <Position>3</Position>
-      <StoredType>TEXT|0s</StoredType>
-    </column>
-    <column id="657" parent="630" name="cnt">
-      <NotNull>1</NotNull>
-      <Position>4</Position>
-      <StoredType>INTEGER|0s</StoredType>
-    </column>
-    <column id="658" parent="630" name="payout">
-      <NotNull>1</NotNull>
-      <Position>5</Position>
-      <StoredType>INTEGER|0s</StoredType>
-    </column>
-    <column id="659" parent="631" name="type">
+    <column id="652" parent="630" name="type">
       <Position>1</Position>
       <StoredType>TEXT|0s</StoredType>
     </column>
-    <column id="660" parent="631" name="name">
+    <column id="653" parent="630" name="name">
       <Position>2</Position>
       <StoredType>TEXT|0s</StoredType>
     </column>
-    <column id="661" parent="631" name="tbl_name">
+    <column id="654" parent="630" name="tbl_name">
       <Position>3</Position>
       <StoredType>TEXT|0s</StoredType>
     </column>
-    <column id="662" parent="631" name="rootpage">
+    <column id="655" parent="630" name="rootpage">
       <Position>4</Position>
       <StoredType>INT|0s</StoredType>
     </column>
-    <column id="663" parent="631" name="sql">
+    <column id="656" parent="630" name="sql">
       <Position>5</Position>
       <StoredType>TEXT|0s</StoredType>
     </column>
-    <column id="664" parent="632" name="id">
+    <column id="657" parent="631" name="id">
       <Position>1</Position>
       <StoredType>INTEGER|0s</StoredType>
     </column>
-    <column id="665" parent="632" name="name">
+    <column id="658" parent="631" name="name">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>TEXT|0s</StoredType>
     </column>
-    <index id="666" parent="632" name="strategy_kinds_name">
+    <index id="659" parent="631" name="strategy_kinds_name">
       <ColNames>name</ColNames>
     </index>
-    <key id="667" parent="632">
+    <key id="660" parent="631">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="668" parent="633" name="seq">
-      <Position>1</Position>
-    </column>
-    <column id="669" parent="633" name="strategy">
-      <Position>2</Position>
-      <StoredType>TEXT|0s</StoredType>
-    </column>
-    <column id="670" parent="633" name="ttl_payed">
-      <Position>3</Position>
-    </column>
-    <column id="671" parent="633" name="ttl_cnt">
-      <Position>4</Position>
-    </column>
-    <column id="672" parent="633" name="ttl_reward">
-      <Position>5</Position>
-    </column>
-    <column id="673" parent="634" name="seq">
-      <Position>1</Position>
-    </column>
-    <column id="674" parent="634" name="strategy">
-      <Position>2</Position>
-      <StoredType>TEXT|0s</StoredType>
-    </column>
-    <column id="675" parent="634" name="ttl_payed">
-      <Position>3</Position>
-    </column>
-    <column id="676" parent="634" name="ttl_cnt">
-      <Position>4</Position>
-    </column>
-    <column id="677" parent="634" name="ttl_reward">
-      <Position>5</Position>
-    </column>
-    <column id="678" parent="635" name="id">
-      <Position>1</Position>
-      <StoredType>INTEGER|0s</StoredType>
-    </column>
-    <column id="679" parent="635" name="strategy">
-      <Position>2</Position>
-      <StoredType>TEXT|0s</StoredType>
-    </column>
-    <column id="680" parent="635" name="ttl_payed">
-      <Position>3</Position>
-    </column>
-    <column id="681" parent="635" name="ttl_cnt">
-      <Position>4</Position>
-    </column>
-    <column id="682" parent="635" name="ttl_reward">
-      <Position>5</Position>
-    </column>
   </database-model>
 </dataSource>

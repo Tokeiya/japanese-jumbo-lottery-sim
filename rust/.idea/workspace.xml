@@ -17,12 +17,7 @@
     </cargoProject>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2268c769-96bb-4645-a0b2-2a826b3c14e4" name="Changes" comment="shuffle random store tickets">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cargo.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/driver/src/bin/1_5million.rs" beforeDir="false" afterPath="$PROJECT_DIR$/driver/src/bin/1_5million.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/implementation/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/implementation/src/lib.rs" afterDir="false" />
-    </list>
+    <list default="true" id="2268c769-96bb-4645-a0b2-2a826b3c14e4" name="Changes" comment="print driver and implementation versions" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -353,7 +348,8 @@
     <MESSAGE value="add PostgreSQL data source config" />
     <MESSAGE value="add TSV import to SQLite initializer" />
     <MESSAGE value="shuffle random store tickets" />
-    <option name="LAST_COMMIT_MESSAGE" value="shuffle random store tickets" />
+    <MESSAGE value="print driver and implementation versions" />
+    <option name="LAST_COMMIT_MESSAGE" value="print driver and implementation versions" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
