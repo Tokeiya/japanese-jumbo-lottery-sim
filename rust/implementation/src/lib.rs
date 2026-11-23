@@ -6,6 +6,10 @@ pub mod ticket;
 pub use draw::{Group, Number, Outcome, PrizeCategory, group, number, outcome};
 pub use ticket::Ticket;
 
+pub fn version() -> &'static str {
+	env!("CARGO_PKG_VERSION")
+}
+
 pub mod prelude {
 	pub use super::counter::{
 		rack::{self, Rack},

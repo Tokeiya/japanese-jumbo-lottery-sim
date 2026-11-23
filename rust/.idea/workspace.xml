@@ -17,12 +17,11 @@
     </cargoProject>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2268c769-96bb-4645-a0b2-2a826b3c14e4" name="Changes" comment="add TSV import to SQLite initializer">
+    <list default="true" id="2268c769-96bb-4645-a0b2-2a826b3c14e4" name="Changes" comment="shuffle random store tickets">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Cargo.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/driver/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/driver/Cargo.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/driver/src/random_store.rs" beforeDir="false" afterPath="$PROJECT_DIR$/driver/src/random_store.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/implementation/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/implementation/Cargo.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/driver/src/bin/1_5million.rs" beforeDir="false" afterPath="$PROJECT_DIR$/driver/src/bin/1_5million.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/implementation/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/implementation/src/lib.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,61 +56,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0000458728478414" />
-      <entry key="S2" value="1.0822979326287028" />
-      <entry key="S5" value="1.3682608662871831" />
-      <entry key="S10" value="1.6068596807025575" />
-      <entry key="S30" value="1.9177367469658404" />
-      <entry key="S60" value="3.0369871183608512" />
-      <entry key="M2" value="7.830878727608882" />
-      <entry key="M5" value="22.12739587927347" />
-      <entry key="M10" value="40.79027729407568" />
-      <entry key="M15" value="57.432493357540054" />
-      <entry key="M30" value="116.4817070735817" />
-      <entry key="H1" value="272.5462275966905" />
-      <entry key="H2" value="590.4328672460279" />
-      <entry key="H4" value="1078.8891296075042" />
-      <entry key="D1" value="2274.3869929878815" />
-      <entry key="W1" value="2669.8114265655363" />
+      <entry key="MS100" value="4.119179870896908E-9" />
+      <entry key="MS500" value="0.03138783008643359" />
+      <entry key="S2" value="0.8861213450756364" />
+      <entry key="S5" value="3.7678227169481158" />
+      <entry key="S10" value="8.145451013560127" />
+      <entry key="S30" value="19.607807488954315" />
+      <entry key="S60" value="28.263584640522538" />
+      <entry key="M2" value="35.958931456577716" />
+      <entry key="M5" value="47.8199826816082" />
+      <entry key="M10" value="65.41338976240999" />
+      <entry key="M15" value="82.19871916208669" />
+      <entry key="M30" value="139.45660745716074" />
+      <entry key="H1" value="290.1754828351838" />
+      <entry key="H2" value="604.815835421721" />
+      <entry key="H4" value="1095.921269785467" />
+      <entry key="D1" value="2312.044225981471" />
+      <entry key="W1" value="2716.9058996525214" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="1.3817244562599813E-101" />
-      <entry key="S2" value="8.585246862846659E-26" />
-      <entry key="S5" value="1.4031534705927108E-10" />
-      <entry key="S10" value="1.7571893761629445E-5" />
-      <entry key="S30" value="0.05630149050636212" />
-      <entry key="S60" value="0.5680401235036573" />
-      <entry key="M2" value="2.498231970154626" />
-      <entry key="M5" value="8.18293727218906" />
-      <entry key="M10" value="15.94466793941517" />
-      <entry key="M15" value="22.748220451185965" />
-      <entry key="M30" value="44.56020814469833" />
-      <entry key="H1" value="99.88561559098821" />
-      <entry key="H2" value="216.57946243220232" />
-      <entry key="H4" value="400.78505297212473" />
-      <entry key="D1" value="857.4497995787401" />
-      <entry key="W1" value="1009.1373188230358" />
+      <entry key="MS100" value="1.0000000000001688" />
+      <entry key="MS500" value="1.002789070380095" />
+      <entry key="S2" value="1.2330261199868506" />
+      <entry key="S5" value="1.6560278598976268" />
+      <entry key="S10" value="2.062548616545744" />
+      <entry key="S30" value="2.610473485712803" />
+      <entry key="S60" value="2.9566864022767643" />
+      <entry key="M2" value="3.5187161693557245" />
+      <entry key="M5" value="6.087238679820548" />
+      <entry key="M10" value="12.288918525189553" />
+      <entry key="M15" value="18.754441214103846" />
+      <entry key="M30" value="39.895835486899074" />
+      <entry key="H1" value="93.52569973024525" />
+      <entry key="H2" value="208.95041835608316" />
+      <entry key="H4" value="393.9449583376696" />
+      <entry key="D1" value="858.1795873262146" />
+      <entry key="W1" value="1013.4179331955198" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.7474246243174691" />
-      <entry key="MS500" value="0.9434811706097127" />
-      <entry key="S2" value="1.0664895243677723" />
-      <entry key="S5" value="1.3600129963567975" />
-      <entry key="S10" value="1.6019517238954895" />
-      <entry key="S30" value="1.9684303263805496" />
-      <entry key="S60" value="3.5826524613702264" />
-      <entry key="M2" value="10.280004823916151" />
-      <entry key="M5" value="30.248125825896228" />
-      <entry key="M10" value="56.679432896332415" />
-      <entry key="M15" value="80.13078529596332" />
-      <entry key="M30" value="160.9959990265968" />
-      <entry key="H1" value="372.37951144935454" />
-      <entry key="H2" value="806.9520352797198" />
-      <entry key="H4" value="1479.6165535623506" />
-      <entry key="D1" value="3131.816191465207" />
-      <entry key="W1" value="3678.9452917669073" />
+      <entry key="MS100" value="9.915255420268181E-5" />
+      <entry key="MS500" value="0.17711301435469223" />
+      <entry key="S2" value="1.560272644481788" />
+      <entry key="S5" value="5.049947243422419" />
+      <entry key="S10" value="9.951382372550027" />
+      <entry key="S30" value="22.087425534150697" />
+      <entry key="S60" value="31.13461589210989" />
+      <entry key="M2" value="39.418486748189444" />
+      <entry key="M5" value="53.86073937503401" />
+      <entry key="M10" value="77.65705327661513" />
+      <entry key="M15" value="100.90948284987168" />
+      <entry key="M30" value="179.309588664755" />
+      <entry key="H1" value="383.6513064735324" />
+      <entry key="H2" value="813.7077145028506" />
+      <entry key="H4" value="1489.8094182672583" />
+      <entry key="D1" value="3170.203167193276" />
+      <entry key="W1" value="3730.3203605918306" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -141,6 +140,7 @@
     "Cargo.Test random_store::tests::len_is_empty.executor": "Run",
     "Cargo.Test random_store::tests::new.executor": "Run",
     "Cargo.Test random_store::tests::take_10_digit_seq.executor": "Run",
+    "Cargo.Test ticket::tests.executor": "Run",
     "Cargo.Test ticket::ticket::tests::foo.executor": "Run",
     "Cargo.Test u32_formatter::test.executor": "Run",
     "CidrDebugProfileConversion": "true",
@@ -172,7 +172,7 @@
   <component name="RsExternalLinterProjectSettings">
     <option name="tool" value="Clippy" />
   </component>
-  <component name="RunManager" selected="Cargo.Test random_store::tests">
+  <component name="RunManager" selected="Cargo.Test ticket::tests">
     <configuration name="Run 1_5million" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
       <option name="buildProfileId" value="dev" />
       <option name="command" value="run --package driver --bin 1_5million" />
@@ -244,24 +244,6 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test player::test" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
-      <option name="buildProfileId" value="test" />
-      <option name="command" value="test --package driver --lib -- player::test" />
-      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
-      <envs />
-      <option name="emulateTerminal" value="true" />
-      <option name="channel" value="DEFAULT" />
-      <option name="requiredFeatures" value="true" />
-      <option name="allFeatures" value="false" />
-      <option name="withSudo" value="false" />
-      <option name="buildTarget" value="REMOTE" />
-      <option name="backtrace" value="SHORT" />
-      <option name="isRedirectInput" value="false" />
-      <option name="redirectInputPath" value="" />
-      <method v="2">
-        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Test random_store::tests" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
       <option name="buildProfileId" value="test" />
       <option name="command" value="test --package driver --lib -- random_store::tests" />
@@ -314,13 +296,30 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Test ticket::tests" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="command" value="test --package implementation --lib -- ticket::ticket::tests" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <envs />
+      <option name="emulateTerminal" value="true" />
+      <option name="channel" value="DEFAULT" />
+      <option name="requiredFeatures" value="true" />
+      <option name="allFeatures" value="false" />
+      <option name="withSudo" value="false" />
+      <option name="buildTarget" value="REMOTE" />
+      <option name="backtrace" value="SHORT" />
+      <option name="isRedirectInput" value="false" />
+      <option name="redirectInputPath" value="" />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Cargo.Test ticket::tests" />
         <item itemvalue="Cargo.Test random_store::tests" />
         <item itemvalue="Cargo.Test random_store::tests::take_10_digit_seq" />
         <item itemvalue="Cargo.Test random_store::tests::len_is_empty" />
         <item itemvalue="Cargo.Run 1_5million" />
-        <item itemvalue="Cargo.Test player::test" />
       </list>
     </recent_temporary>
   </component>
@@ -353,7 +352,8 @@
     <MESSAGE value="Add initial Rust workspace and annual driver" />
     <MESSAGE value="add PostgreSQL data source config" />
     <MESSAGE value="add TSV import to SQLite initializer" />
-    <option name="LAST_COMMIT_MESSAGE" value="add TSV import to SQLite initializer" />
+    <MESSAGE value="shuffle random store tickets" />
+    <option name="LAST_COMMIT_MESSAGE" value="shuffle random store tickets" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

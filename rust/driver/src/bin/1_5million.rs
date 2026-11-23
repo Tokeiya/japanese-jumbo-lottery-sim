@@ -12,6 +12,9 @@ use std::collections::HashMap;
 use std::sync::Mutex;
 
 fn main() {
+	println!("1_5million Version: {}", env!("CARGO_PKG_VERSION"));
+	println!("impl Version: {}", implementation::version());
+
 	let _annual = annual();
 	let _rng = rand::rng();
 
