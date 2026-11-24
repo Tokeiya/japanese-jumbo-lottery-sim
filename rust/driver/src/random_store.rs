@@ -82,6 +82,28 @@ mod tests {
 	use std::collections::HashSet;
 
 	#[test]
+	fn take_sequence_test() {
+		let mut rng = rand::rng();
+		let mut shelf = Shelf::build_with_rand(42, 0..=100, &mut rng);
+
+		for _ in 0..100 {
+			let actual = take_sequence(&mut shelf, &mut rng);
+			let mut iter = actual.iter();
+			let t = iter.next().unwrap();
+
+			let grp = t.group();
+			assert_eq!(t.number() % 10, 0);
+			let mut recent = t.number();
+
+			for t in iter {
+				assert_eq!(t.group(), grp);
+				assert_eq!(t.number(), recent + 1);
+				recent += 1;
+			}
+		}
+	}
+
+	#[test]
 	fn len_is_empty() {
 		let mut shelf = Shelf::build(42, 0..100);
 		let mut fixture = Store::new(1_000, &mut shelf, &mut rand::rng());

@@ -8,7 +8,7 @@ use rayon::prelude::*;
 use std::fs::File;
 
 use rust_decimal::Decimal;
-use std::collections::HashMap;
+use std::collections::{HashMap, HashSet};
 use std::sync::Mutex;
 
 fn main() {
@@ -29,14 +29,27 @@ fn main() {
 		players.push(Player::new(i, Strategy::Random10));
 	}
 
-	(0..60).into_par_iter().for_each(|year| {
-		for spec in annual() {
-			let r = proc(year, &spec, &mut rand::rng(), &players);
+	let range = if cfg!(debug_assertions) { 0..5 } else { 0..60 };
 
-			let mut lock = agg.lock().unwrap();
-			lock.push((year, spec.name().to_string(), r));
+	if cfg!(debug_assertions) {
+		for year in range {
+			for spec in annual() {
+				let r = proc(year, &spec, &mut rand::rng(), &players);
+
+				let mut lock = agg.lock().unwrap();
+				lock.push((year, spec.name().to_string(), r));
+			}
 		}
-	});
+	} else {
+		range.into_par_iter().for_each(|year| {
+			for spec in annual() {
+				let r = proc(year, &spec, &mut rand::rng(), &players);
+
+				let mut lock = agg.lock().unwrap();
+				lock.push((year, spec.name().to_string(), r));
+			}
+		});
+	}
 
 	{
 		let file = File::create("./15output_players.tsv").unwrap();
@@ -165,6 +178,45 @@ fn lottery_proc(
 			)
 		})
 		.collect::<Vec<_>>();
+
+	#[cfg(debug_assertions)]
+	{
+		let mut min_grp = 10;
+		let mut min_num = 10;
+		for (t, p) in p.iter() {
+			match p.strategy() {
+				Strategy::Random10 => {
+					let mut grp = HashSet::new();
+					let mut num = HashSet::new();
+
+					for (i, elem) in t.iter().enumerate() {
+						grp.insert(elem.group());
+						num.insert(elem.number() / 10);
+						assert_eq!(elem.number() % 10, i as u32);
+					}
+
+					min_grp = usize::min(min_grp, grp.len());
+					min_num = usize::min(min_num, num.len());
+
+					assert!(grp.len() >= 5, "id:{}:{}", p.id(), grp.len());
+					assert!(num.len() >= 5, "{}", num.len());
+				}
+				Strategy::Sequence10 => {
+					let mut recent = t[0].number();
+					let grp = t[0].group();
+
+					for elem in t.iter() {
+						assert_eq!(elem.number(), recent);
+						assert_eq!(elem.group(), grp);
+						recent += 1;
+					}
+				}
+			}
+		}
+
+		println!("min_grp:{}", min_grp);
+		println!("min_num:{}", min_num);
+	}
 
 	let outcome = drawing_machine::draw(spec, rng);
 
