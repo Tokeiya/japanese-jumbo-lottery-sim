@@ -10,8 +10,8 @@ use dsv_writer::{Encoder, QuoteMode, ToDsv, ToDsvResult};
 
 #[derive(Debug, Eq, PartialEq, Copy, Clone)]
 pub enum Strategy {
-	Random10,
-	Sequence10,
+	Random,
+	Sequence,
 }
 
 pub struct Datum {
@@ -36,14 +36,16 @@ impl Default for Datum {
 
 pub struct Player {
 	id: u64,
+	process_id: u32,
 	strategy: Strategy,
 	pub datum: Mutex<Datum>,
 }
 
 impl Player {
-	pub fn new(id: u64, strategy: Strategy) -> Self {
+	pub fn new(process_id: u32, id: u64, strategy: Strategy) -> Self {
 		Self {
 			id,
+			process_id,
 			strategy,
 			datum: Mutex::new(Datum::default()),
 		}
@@ -53,20 +55,20 @@ impl Player {
 		self.id
 	}
 
+	pub fn process_id(&self) -> u32 {
+		self.process_id
+	}
+
 	pub fn strategy(&self) -> Strategy {
 		self.strategy
 	}
 
-	pub fn try_accumlate(&self, payout: &Payout, cost: Decimal) -> bool {
+	pub fn try_accumulate(&self, payout: &Payout, cost: Decimal) -> bool {
 		if let Ok(mut d) = self.datum.try_lock() {
 			d.payed = d.payed.add(cost);
 
 			for p in payout.records().iter() {
 				let (ttl, cnt) = d.prizes.get_mut(&p.rank()).unwrap();
-
-				if p.payout() == Decimal::from(80_000_000_000u64) {
-					println!("detect");
-				}
 
 				*ttl = ttl.add(p.payout());
 				*cnt += 1;
@@ -84,8 +86,8 @@ impl ToDsv for Player {
 
 	fn to_dsv<T: Encoder>(&self, writer: &mut T) -> ToDsvResult<(), Self::Error> {
 		let tmp = match self.strategy {
-			Strategy::Random10 => "random_10",
-			Strategy::Sequence10 => "sequence_10",
+			Strategy::Random => "random",
+			Strategy::Sequence => "sequence",
 		};
 
 		let lock = self.datum.lock().unwrap();
@@ -124,9 +126,10 @@ mod test {
 	use super::*;
 	#[test]
 	fn new() {
-		let mut fixture = Player::new(42, Strategy::Random10);
+		let mut fixture = Player::new(100, 42, Strategy::Random);
 		assert_eq!(fixture.id, 42);
-		assert_eq!(fixture.strategy, Strategy::Random10);
+		assert_eq!(fixture.strategy, Strategy::Random);
+		assert_eq!(fixture.process_id, 100);
 
 		let ptr = fixture.datum.get_mut().unwrap();
 		assert_eq!(ptr.payed, Decimal::ZERO);
@@ -139,21 +142,27 @@ mod test {
 	}
 
 	#[test]
+	fn process_id() {
+		let fixture = Player::new(100, 42, Strategy::Random);
+		assert_eq!(100, fixture.process_id);
+	}
+
+	#[test]
 	fn id() {
-		let fixture = Player::new(42, Strategy::Random10);
+		let fixture = Player::new(100, 42, Strategy::Random);
 		assert_eq!(fixture.id(), 42);
 	}
 
 	#[test]
 	fn strategy() {
-		let fixture = Player::new(42, Strategy::Random10);
-		assert_eq!(fixture.strategy(), Strategy::Random10);
+		let fixture = Player::new(100, 42, Strategy::Random);
+		assert_eq!(fixture.strategy(), Strategy::Random);
 	}
 
 	#[test]
 	fn try_accumlate() {
 		use implementation::prelude::payout::Record;
-		let fixture = Player::new(42, Strategy::Random10);
+		let fixture = Player::new(100, 42, Strategy::Random);
 
 		let pay = Payout::new(
 			Ticket::new(2, 10, 114_514),
@@ -165,11 +174,11 @@ mod test {
 
 		let p = fixture.datum.lock().unwrap();
 
-		assert!(!fixture.try_accumlate(&pay, Decimal::from(3_000)));
+		assert!(!fixture.try_accumulate(&pay, Decimal::from(3_000)));
 
 		drop(p);
 
-		assert!(fixture.try_accumlate(&pay, Decimal::from(3_000)));
+		assert!(fixture.try_accumulate(&pay, Decimal::from(3_000)));
 
 		let lock = fixture.datum.lock().unwrap();
 
