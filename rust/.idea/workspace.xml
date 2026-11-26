@@ -17,27 +17,10 @@
     </cargoProject>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2268c769-96bb-4645-a0b2-2a826b3c14e4" name="Changes" comment="add debug ticket validation">
-      <change afterPath="$PROJECT_DIR$/../py_home/research/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../py_home/research/simple.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../py_home/sql/first.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/driver/src/args.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/driver/src/bin/100_1_5million.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/driver/src/bin/draw_test.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/driver/src/dump.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../distribute.fish" beforeDir="false" afterPath="$PROJECT_DIR$/../distribute.fish" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../py_home/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../py_home/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../py_home/initialize.py" beforeDir="false" afterPath="$PROJECT_DIR$/../py_home/initialize.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../py_home/main.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../py_home/main.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_19_26,_7_56 PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_19_26__7_56PM__Changes_.xml" beforeDir="false" />
+    <list default="true" id="2268c769-96bb-4645-a0b2-2a826b3c14e4" name="Changes" comment="remove foo driver and shelved IDE patch">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cargo.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/driver/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/driver/Cargo.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/driver/src/bin/1_5million.rs" beforeDir="false" afterPath="$PROJECT_DIR$/driver/src/bin/1_5million.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/driver/src/bin/foo.rs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/driver/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/driver/src/lib.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/driver/src/player.rs" beforeDir="false" afterPath="$PROJECT_DIR$/driver/src/player.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/implementation/src/draw/group.rs" beforeDir="false" afterPath="$PROJECT_DIR$/implementation/src/draw/group.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/implementation/src/draw/number.rs" beforeDir="false" afterPath="$PROJECT_DIR$/implementation/src/draw/number.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +28,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="61" />
+    <option name="cachedIndexableFilesCount" value="59" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="RsBuildProfile:dev" />
@@ -377,7 +360,8 @@
     <MESSAGE value="shuffle random store tickets" />
     <MESSAGE value="print driver and implementation versions" />
     <MESSAGE value="add debug ticket validation" />
-    <option name="LAST_COMMIT_MESSAGE" value="add debug ticket validation" />
+    <MESSAGE value="remove foo driver and shelved IDE patch" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove foo driver and shelved IDE patch" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -7,6 +7,16 @@ pub enum Kind {
 	None,
 }
 
+impl Kind {
+	pub const fn as_str(&self) -> &'static str {
+		match self {
+			Self::AllDigits => "all_digits",
+			Self::LastOneDigit => "last_one_digit",
+			Self::None => "none",
+		}
+	}
+}
+
 #[derive(Debug, Clone)]
 pub struct Group(Kind, u8);
 
