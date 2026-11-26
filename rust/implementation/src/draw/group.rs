@@ -8,7 +8,7 @@ pub enum Kind {
 }
 
 impl Kind {
-	pub const fn as_str(&self) -> &'static str {
+	pub const fn to_snake(&self) -> &'static str {
 		match self {
 			Self::AllDigits => "all_digits",
 			Self::LastOneDigit => "last_one_digit",

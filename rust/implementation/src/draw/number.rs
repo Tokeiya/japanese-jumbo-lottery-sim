@@ -7,9 +7,8 @@ pub enum Kind {
 	LastOneDigit,
 }
 
-
 impl Kind {
-	pub const fn as_str(&self) -> &'static str {
+	pub const fn to_snake(&self) -> &'static str {
 		match self {
 			Self::AllDigits => "all_digits",
 			Self::LastFourDigits => "last_four_digits",
@@ -19,7 +18,6 @@ impl Kind {
 		}
 	}
 }
-
 
 #[derive(Debug, Clone)]
 pub struct Number(Kind, u32);
