@@ -18,9 +18,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2268c769-96bb-4645-a0b2-2a826b3c14e4" name="Changes" comment="add draw kind string helpers">
+      <change afterPath="$PROJECT_DIR$/playground/src/bin/grp.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/implementation/src/draw/group.rs" beforeDir="false" afterPath="$PROJECT_DIR$/implementation/src/draw/group.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/implementation/src/draw/number.rs" beforeDir="false" afterPath="$PROJECT_DIR$/implementation/src/draw/number.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cargo.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/playground/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/playground/Cargo.toml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,61 +56,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.1470110641944857" />
-      <entry key="MS500" value="2.778140525167605" />
-      <entry key="S2" value="4.576235647513469" />
-      <entry key="S5" value="5.651118044972491" />
-      <entry key="S10" value="7.352340547739087" />
-      <entry key="S30" value="11.343270308036411" />
-      <entry key="S60" value="13.315796404433828" />
-      <entry key="M2" value="14.553665160700561" />
-      <entry key="M5" value="15.500372497844785" />
-      <entry key="M10" value="16.948436978369777" />
-      <entry key="M15" value="19.630401433063987" />
-      <entry key="M30" value="44.88456433848245" />
-      <entry key="H1" value="161.01194738646515" />
-      <entry key="H2" value="470.7707620955829" />
-      <entry key="H4" value="1053.0867407414676" />
-      <entry key="D1" value="2859.871968583364" />
-      <entry key="W1" value="3556.585651071105" />
+      <entry key="MS100" value="1.0115177283824548" />
+      <entry key="MS500" value="1.4241937888787704" />
+      <entry key="S2" value="2.5013272206204302" />
+      <entry key="S5" value="3.56680740599162" />
+      <entry key="S10" value="4.2012541942715735" />
+      <entry key="S30" value="6.383792798565943" />
+      <entry key="S60" value="11.466547698845407" />
+      <entry key="M2" value="23.20720475017842" />
+      <entry key="M5" value="56.295945392577984" />
+      <entry key="M10" value="96.53421892203498" />
+      <entry key="M15" value="123.38137442241985" />
+      <entry key="M30" value="176.17933919884862" />
+      <entry key="H1" value="290.7091969291571" />
+      <entry key="H2" value="585.5852942617405" />
+      <entry key="H4" value="1162.4209472121904" />
+      <entry key="D1" value="3024.493334467835" />
+      <entry key="W1" value="3757.699649077158" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="0.0" />
-      <entry key="S2" value="2.74936104E-316" />
-      <entry key="S5" value="1.1539973050910959E-126" />
-      <entry key="S10" value="2.0591261714856799E-63" />
-      <entry key="S30" value="3.1717658455616842E-21" />
-      <entry key="S60" value="1.1247988045161288E-10" />
-      <entry key="M2" value="2.1203832716716162E-5" />
-      <entry key="M5" value="0.03105615236237636" />
-      <entry key="M10" value="0.4017943420427498" />
-      <entry key="M15" value="1.451402084900692" />
-      <entry key="M30" value="11.983798029386367" />
-      <entry key="H1" value="53.68059724102144" />
-      <entry key="H2" value="158.17483506411932" />
-      <entry key="H4" value="360.6625530211321" />
-      <entry key="D1" value="1020.1633174253788" />
-      <entry key="W1" value="1279.6418995927554" />
+      <entry key="MS500" value="6.126999399307264E-75" />
+      <entry key="S2" value="4.293732298272677E-19" />
+      <entry key="S5" value="7.155492502454442E-8" />
+      <entry key="S10" value="4.305429367063751E-4" />
+      <entry key="S30" value="0.15573985290412717" />
+      <entry key="S60" value="0.7657272897004282" />
+      <entry key="M2" value="2.326350272352053" />
+      <entry key="M5" value="7.350189546035335" />
+      <entry key="M10" value="13.845533939595564" />
+      <entry key="M15" value="18.32590436624265" />
+      <entry key="M30" value="30.061405078494595" />
+      <entry key="H1" value="65.91000659019832" />
+      <entry key="H2" value="163.03116916687935" />
+      <entry key="H4" value="361.86720740547224" />
+      <entry key="D1" value="1038.5808617384191" />
+      <entry key="W1" value="1310.8407611690677" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.5775073609945276" />
-      <entry key="MS500" value="2.5624777783263526" />
-      <entry key="S2" value="4.49159263387203" />
-      <entry key="S5" value="5.607582866653177" />
-      <entry key="S10" value="7.322833980672888" />
-      <entry key="S30" value="11.327535852086573" />
-      <entry key="S60" value="13.306510290126939" />
-      <entry key="M2" value="14.548603445657553" />
-      <entry key="M5" value="15.529120400461347" />
-      <entry key="M10" value="17.348137697432552" />
-      <entry key="M15" value="21.078685767347103" />
-      <entry key="M30" value="56.857621696661404" />
-      <entry key="H1" value="214.66779063371072" />
-      <entry key="H2" value="628.9068745619253" />
-      <entry key="H4" value="1413.7022715380697" />
-      <entry key="D1" value="3880.0119601613787" />
-      <entry key="W1" value="4836.223349133465" />
+      <entry key="MS100" value="0.21219081397851722" />
+      <entry key="MS500" value="1.0302776321441107" />
+      <entry key="S2" value="2.2128658018524314" />
+      <entry key="S5" value="3.332340696981705" />
+      <entry key="S10" value="4.044594021805895" />
+      <entry key="S30" value="6.459727044669129" />
+      <entry key="S60" value="12.165271134212594" />
+      <entry key="M2" value="25.464588739660936" />
+      <entry key="M5" value="63.56951331615306" />
+      <entry key="M10" value="110.30646001256076" />
+      <entry key="M15" value="141.64192743659748" />
+      <entry key="M30" value="206.19089841089192" />
+      <entry key="H1" value="356.57532429205855" />
+      <entry key="H2" value="748.5695435724813" />
+      <entry key="H4" value="1524.237545344503" />
+      <entry key="D1" value="4063.049890227036" />
+      <entry key="W1" value="5068.536026380936" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -121,61 +122,62 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Cargo.Run 1_5million.executor&quot;: &quot;Run&quot;,
-    &quot;Cargo.Run annual.executor&quot;: &quot;Run&quot;,
-    &quot;Cargo.Run draw_test.executor&quot;: &quot;Run&quot;,
-    &quot;Cargo.Run foo.executor&quot;: &quot;Run&quot;,
-    &quot;Cargo.Run valentain.executor&quot;: &quot;Run&quot;,
-    &quot;Cargo.Test counter::shelf::tests::len.executor&quot;: &quot;Run&quot;,
-    &quot;Cargo.Test counter::shelf::tests::racks.executor&quot;: &quot;Run&quot;,
-    &quot;Cargo.Test counter::shelf::tests::racks_mut.executor&quot;: &quot;Run&quot;,
-    &quot;Cargo.Test counter::shelf::tests::trim.executor&quot;: &quot;Run&quot;,
-    &quot;Cargo.Test decimal_formatter::test.executor&quot;: &quot;Run&quot;,
-    &quot;Cargo.Test drawing_machine::tests.executor&quot;: &quot;Run&quot;,
-    &quot;Cargo.Test player::test.executor&quot;: &quot;Run&quot;,
-    &quot;Cargo.Test random_store::tests.executor&quot;: &quot;Run&quot;,
-    &quot;Cargo.Test random_store::tests::foo.executor&quot;: &quot;Run&quot;,
-    &quot;Cargo.Test random_store::tests::len_is_empty.executor&quot;: &quot;Run&quot;,
-    &quot;Cargo.Test random_store::tests::new.executor&quot;: &quot;Run&quot;,
-    &quot;Cargo.Test random_store::tests::take_10_digit_seq.executor&quot;: &quot;Run&quot;,
-    &quot;Cargo.Test random_store::tests::take_sequence_test.executor&quot;: &quot;Run&quot;,
-    &quot;Cargo.Test ticket::tests.executor&quot;: &quot;Run&quot;,
-    &quot;Cargo.Test ticket::ticket::tests::foo.executor&quot;: &quot;Run&quot;,
-    &quot;Cargo.Test u32_formatter::test.executor&quot;: &quot;Run&quot;,
-    &quot;CidrDebugProfileConversion&quot;: &quot;true&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.rust.reset.selective.auto.import&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;code.cleanup.on.save&quot;: &quot;true&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;initial__devel&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/mnt/wsl/repo/japanese-jumbo-lottery-sim/rust&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.jshint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.jshint&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;org.rust.cargo.project.model.PROJECT_DISCOVERY&quot;: &quot;true&quot;,
-    &quot;org.rust.cargo.project.model.impl.CargoExternalSystemProjectAware.subscribe.first.balloon&quot;: &quot;&quot;,
-    &quot;org.rust.first.attach.projects&quot;: &quot;true&quot;,
-    &quot;rearrange.code.on.save&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;language.rust.cargo.check&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Cargo.Run 1_5million.executor": "Run",
+    "Cargo.Run annual.executor": "Run",
+    "Cargo.Run draw_test.executor": "Run",
+    "Cargo.Run foo.executor": "Run",
+    "Cargo.Run grp.executor": "Debug",
+    "Cargo.Run valentain.executor": "Run",
+    "Cargo.Test counter::shelf::tests::len.executor": "Run",
+    "Cargo.Test counter::shelf::tests::racks.executor": "Run",
+    "Cargo.Test counter::shelf::tests::racks_mut.executor": "Run",
+    "Cargo.Test counter::shelf::tests::trim.executor": "Run",
+    "Cargo.Test decimal_formatter::test.executor": "Run",
+    "Cargo.Test drawing_machine::tests.executor": "Run",
+    "Cargo.Test player::test.executor": "Run",
+    "Cargo.Test random_store::tests.executor": "Run",
+    "Cargo.Test random_store::tests::foo.executor": "Run",
+    "Cargo.Test random_store::tests::len_is_empty.executor": "Run",
+    "Cargo.Test random_store::tests::new.executor": "Run",
+    "Cargo.Test random_store::tests::take_10_digit_seq.executor": "Run",
+    "Cargo.Test random_store::tests::take_sequence_test.executor": "Run",
+    "Cargo.Test ticket::tests.executor": "Run",
+    "Cargo.Test ticket::ticket::tests::foo.executor": "Run",
+    "Cargo.Test u32_formatter::test.executor": "Run",
+    "CidrDebugProfileConversion": "true",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.rust.reset.selective.auto.import": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "code.cleanup.on.save": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "initial__devel",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "/mnt/wsl/repo/japanese-jumbo-lottery-sim/rust",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.jshint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.jshint": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "org.rust.cargo.project.model.PROJECT_DISCOVERY": "true",
+    "org.rust.cargo.project.model.impl.CargoExternalSystemProjectAware.subscribe.first.balloon": "",
+    "org.rust.first.attach.projects": "true",
+    "rearrange.code.on.save": "true",
+    "settings.editor.selected.configurable": "language.rust.cargo.check",
+    "to.speed.mode.migration.done": "true"
   }
-}</component>
+}]]></component>
   <component name="RsExternalLinterProjectSettings">
     <option name="tool" value="Clippy" />
   </component>
-  <component name="RunManager" selected="Cargo.Run draw_test">
+  <component name="RunManager" selected="Cargo.Run grp">
     <configuration name="Run 1_5million" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
       <option name="buildProfileId" value="dev" />
       <option name="command" value="run --package driver --bin 1_5million" />
@@ -215,6 +217,23 @@
     <configuration name="Run draw_test" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
       <option name="buildProfileId" value="dev" />
       <option name="command" value="run --package driver --bin draw_test" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <envs />
+      <option name="emulateTerminal" value="true" />
+      <option name="channel" value="DEFAULT" />
+      <option name="requiredFeatures" value="true" />
+      <option name="allFeatures" value="false" />
+      <option name="withSudo" value="false" />
+      <option name="buildTarget" value="REMOTE" />
+      <option name="backtrace" value="SHORT" />
+      <option name="isRedirectInput" value="false" />
+      <option name="redirectInputPath" value="" />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Run grp" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="command" value="run --package playground --bin grp" />
       <option name="workingDirectory" value="file://$PROJECT_DIR$" />
       <envs />
       <option name="emulateTerminal" value="true" />
@@ -301,30 +320,13 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test random_store::tests::take_sequence_test" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
-      <option name="command" value="test --package driver --lib -- random_store::tests::take_sequence_test --exact" />
-      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
-      <envs />
-      <option name="emulateTerminal" value="true" />
-      <option name="channel" value="DEFAULT" />
-      <option name="requiredFeatures" value="true" />
-      <option name="allFeatures" value="false" />
-      <option name="withSudo" value="false" />
-      <option name="buildTarget" value="REMOTE" />
-      <option name="backtrace" value="SHORT" />
-      <option name="isRedirectInput" value="false" />
-      <option name="redirectInputPath" value="" />
-      <method v="2">
-        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Cargo.Run grp" />
         <item itemvalue="Cargo.Run draw_test" />
         <item itemvalue="Cargo.Test player::test" />
         <item itemvalue="Cargo.Run 1_5million" />
         <item itemvalue="Cargo.Test random_store::tests" />
-        <item itemvalue="Cargo.Test random_store::tests::take_sequence_test" />
       </list>
     </recent_temporary>
   </component>

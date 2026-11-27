@@ -8,3 +8,5 @@ implementation = { path = "../implementation" }
 driver = { path = "../driver" }
 rust_decimal = "*"
 overwrite-ring-buffer = "*"
+rayon = "*"
+rand = "*"
