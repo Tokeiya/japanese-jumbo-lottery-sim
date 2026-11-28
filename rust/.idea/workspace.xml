@@ -17,10 +17,14 @@
     </cargoProject>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2268c769-96bb-4645-a0b2-2a826b3c14e4" name="Changes" comment="add grp slot module">
-      <change afterPath="$PROJECT_DIR$/playground/src/grp/rack.rs" afterDir="false" />
+    <list default="true" id="2268c769-96bb-4645-a0b2-2a826b3c14e4" name="Changes" comment="add grp rack module&#10;&#10;can't compiled">
+      <change afterPath="$PROJECT_DIR$/driver/src/bin/grp_survey.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/playground/src/grp.rs" beforeDir="false" afterPath="$PROJECT_DIR$/playground/src/grp.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/playground/src/bin/grp.rs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/playground/src/grp.rs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/playground/src/grp/rack.rs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/playground/src/grp/slot.rs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/playground/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/playground/src/lib.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +35,7 @@
     <option name="cachedIndexableFilesCount" value="60" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="RsBuildProfile:test" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="RsBuildProfile:dev" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -55,61 +59,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="8.02872597909104E-12" />
-      <entry key="MS500" value="0.008972021912065507" />
-      <entry key="S2" value="0.51177542441157" />
-      <entry key="S5" value="1.1606979742753987" />
-      <entry key="S10" value="1.642767933035431" />
-      <entry key="S30" value="4.07624834888346" />
-      <entry key="S60" value="7.237060420817484" />
-      <entry key="M2" value="14.22100622464436" />
-      <entry key="M5" value="47.136663187516554" />
-      <entry key="M10" value="107.18443019497587" />
-      <entry key="M15" value="161.44708405067146" />
-      <entry key="M30" value="283.102373494478" />
-      <entry key="H1" value="451.93760746336363" />
-      <entry key="H2" value="767.129450692128" />
-      <entry key="H4" value="1356.9973580815208" />
-      <entry key="D1" value="3317.988393153538" />
-      <entry key="W1" value="4110.02730394548" />
+      <entry key="MS100" value="1.0000002089990985" />
+      <entry key="MS500" value="1.047682655205566" />
+      <entry key="S2" value="1.7583436207098115" />
+      <entry key="S5" value="3.074995725921047" />
+      <entry key="S10" value="4.704491963339034" />
+      <entry key="S30" value="8.797748970885452" />
+      <entry key="S60" value="14.298868268744723" />
+      <entry key="M2" value="23.30772576053379" />
+      <entry key="M5" value="45.30320774675049" />
+      <entry key="M10" value="77.82639632987363" />
+      <entry key="M15" value="110.4461521927806" />
+      <entry key="M30" value="222.26952604867893" />
+      <entry key="H1" value="448.5358295540104" />
+      <entry key="H2" value="837.058554387799" />
+      <entry key="H4" value="1492.652086154059" />
+      <entry key="D1" value="3724.024260299469" />
+      <entry key="W1" value="4668.1574506417555" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0000045051294764" />
-      <entry key="S2" value="1.0460709168175801" />
-      <entry key="S5" value="1.2925044991761676" />
-      <entry key="S10" value="1.5723755798173533" />
-      <entry key="S30" value="2.429810389019851" />
-      <entry key="S60" value="3.2855639544580892" />
-      <entry key="M2" value="4.717063404991839" />
-      <entry key="M5" value="12.541106928497527" />
-      <entry key="M10" value="29.62847663001038" />
-      <entry key="M15" value="44.73338408796351" />
-      <entry key="M30" value="76.4903554183046" />
-      <entry key="H1" value="123.0478336695801" />
-      <entry key="H2" value="220.67335443335926" />
-      <entry key="H4" value="418.91595597441227" />
-      <entry key="D1" value="1124.1741197692793" />
-      <entry key="W1" value="1416.4444692500258" />
+      <entry key="MS100" value="1.9203103774237743E-37" />
+      <entry key="MS500" value="4.536012950060838E-8" />
+      <entry key="S2" value="0.014593856894877251" />
+      <entry key="S5" value="0.1860269501131702" />
+      <entry key="S10" value="0.4860377277190255" />
+      <entry key="S30" value="1.3930047828222412" />
+      <entry key="S60" value="2.2268310745883833" />
+      <entry key="M2" value="3.563447764085776" />
+      <entry key="M5" value="9.580504722561363" />
+      <entry key="M10" value="20.8849973834126" />
+      <entry key="M15" value="32.459704163083785" />
+      <entry key="M30" value="68.93712450336669" />
+      <entry key="H1" value="136.03493532200622" />
+      <entry key="H2" value="251.57960383748286" />
+      <entry key="H4" value="461.7888879387303" />
+      <entry key="D1" value="1244.3001451299608" />
+      <entry key="W1" value="1587.2465624783588" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="2.0784044081058985E-8" />
-      <entry key="MS500" value="0.03320129589311982" />
-      <entry key="S2" value="0.8294647570060346" />
-      <entry key="S5" value="1.9768883210665618" />
-      <entry key="S10" value="2.9017992395321786" />
-      <entry key="S30" value="6.278654887680411" />
-      <entry key="S60" value="10.33249737285849" />
-      <entry key="M2" value="18.79706496972978" />
-      <entry key="M5" value="59.57109702067457" />
-      <entry key="M10" value="136.7155538959331" />
-      <entry key="M15" value="206.088954798941" />
-      <entry key="M30" value="359.51599783888975" />
-      <entry key="H1" value="574.9231708189708" />
-      <entry key="H2" value="987.7465090591438" />
-      <entry key="H4" value="1775.8582592960229" />
-      <entry key="D1" value="4442.136850340954" />
-      <entry key="W1" value="5526.467129860434" />
+      <entry key="MS100" value="0.003173005666576281" />
+      <entry key="MS500" value="0.3600563601165764" />
+      <entry key="S2" value="1.4738975446100542" />
+      <entry key="S5" value="3.066968710766489" />
+      <entry key="S10" value="5.041084842838245" />
+      <entry key="S30" value="10.072272316404874" />
+      <entry key="S60" value="16.405549572797643" />
+      <entry key="M2" value="26.75412150207145" />
+      <entry key="M5" value="54.768049294174666" />
+      <entry key="M10" value="98.60256317783795" />
+      <entry key="M15" value="142.80295572147344" />
+      <entry key="M30" value="291.1131824589565" />
+      <entry key="H1" value="584.4883724422823" />
+      <entry key="H2" value="1088.5670280196769" />
+      <entry key="H4" value="1954.3773191751573" />
+      <entry key="D1" value="4968.295672308616" />
+      <entry key="W1" value="6255.3987667055235" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -121,70 +125,89 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Cargo.Run 1_5million.executor": "Run",
-    "Cargo.Run annual.executor": "Run",
-    "Cargo.Run draw_test.executor": "Run",
-    "Cargo.Run foo.executor": "Run",
-    "Cargo.Run grp.executor": "Debug",
-    "Cargo.Run valentain.executor": "Run",
-    "Cargo.Test counter::shelf::tests::len.executor": "Run",
-    "Cargo.Test counter::shelf::tests::racks.executor": "Run",
-    "Cargo.Test counter::shelf::tests::racks_mut.executor": "Run",
-    "Cargo.Test counter::shelf::tests::trim.executor": "Run",
-    "Cargo.Test decimal_formatter::test.executor": "Run",
-    "Cargo.Test drawing_machine::tests.executor": "Run",
-    "Cargo.Test grp::slot::tests::available_count.executor": "Run",
-    "Cargo.Test grp::slot::tests::issue.executor": "Run",
-    "Cargo.Test grp::slot::tests::issued_count.executor": "Run",
-    "Cargo.Test grp::slot::tests::new.executor": "Run",
-    "Cargo.Test player::test.executor": "Run",
-    "Cargo.Test random_store::tests.executor": "Run",
-    "Cargo.Test random_store::tests::foo.executor": "Run",
-    "Cargo.Test random_store::tests::len_is_empty.executor": "Run",
-    "Cargo.Test random_store::tests::new.executor": "Run",
-    "Cargo.Test random_store::tests::take_10_digit_seq.executor": "Run",
-    "Cargo.Test random_store::tests::take_sequence_test.executor": "Run",
-    "Cargo.Test slot::tests.executor": "Run",
-    "Cargo.Test ticket::tests.executor": "Run",
-    "Cargo.Test ticket::ticket::tests::foo.executor": "Run",
-    "Cargo.Test u32_formatter::test.executor": "Run",
-    "CidrDebugProfileConversion": "true",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.rust.reset.selective.auto.import": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "code.cleanup.on.save": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "initial__devel",
-    "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "/mnt/wsl/repo/japanese-jumbo-lottery-sim/rust",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.jshint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.jshint": "",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "org.rust.cargo.project.model.PROJECT_DISCOVERY": "true",
-    "org.rust.cargo.project.model.impl.CargoExternalSystemProjectAware.subscribe.first.balloon": "",
-    "org.rust.first.attach.projects": "true",
-    "rearrange.code.on.save": "true",
-    "settings.editor.selected.configurable": "language.rust.cargo.check",
-    "to.speed.mode.migration.done": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Cargo.Run 1_5million.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Run annual.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Run draw_test.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Run foo.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Run grp.executor&quot;: &quot;Debug&quot;,
+    &quot;Cargo.Run grp_survey.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Run valentain.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Test counter::shelf::tests::len.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Test counter::shelf::tests::racks.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Test counter::shelf::tests::racks_mut.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Test counter::shelf::tests::trim.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Test decimal_formatter::test.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Test drawing_machine::tests.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Test grp::slot::tests::available_count.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Test grp::slot::tests::issue.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Test grp::slot::tests::issued_count.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Test grp::slot::tests::new.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Test player::test.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Test random_store::tests.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Test random_store::tests::foo.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Test random_store::tests::len_is_empty.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Test random_store::tests::new.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Test random_store::tests::take_10_digit_seq.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Test random_store::tests::take_sequence_test.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Test slot::tests.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Test ticket::tests.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Test ticket::ticket::tests::foo.executor&quot;: &quot;Run&quot;,
+    &quot;Cargo.Test u32_formatter::test.executor&quot;: &quot;Run&quot;,
+    &quot;CidrDebugProfileConversion&quot;: &quot;true&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.rust.reset.selective.auto.import&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;code.cleanup.on.save&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;initial__devel&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/mnt/wsl/repo/japanese-jumbo-lottery-sim/rust&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.jshint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.jshint&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;org.rust.cargo.project.model.PROJECT_DISCOVERY&quot;: &quot;true&quot;,
+    &quot;org.rust.cargo.project.model.impl.CargoExternalSystemProjectAware.subscribe.first.balloon&quot;: &quot;&quot;,
+    &quot;org.rust.first.attach.projects&quot;: &quot;true&quot;,
+    &quot;rearrange.code.on.save&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;language.rust.cargo.check&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RsExternalLinterProjectSettings">
     <option name="tool" value="Clippy" />
   </component>
-  <component name="RunManager" selected="Cargo.Test slot::tests">
+  <component name="RunManager" selected="Cargo.Run grp_survey">
     <configuration name="Run annual" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
       <option name="buildProfileId" value="dev" />
       <option name="command" value="run --package driver --bin annual" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <envs />
+      <option name="emulateTerminal" value="true" />
+      <option name="channel" value="DEFAULT" />
+      <option name="requiredFeatures" value="true" />
+      <option name="allFeatures" value="false" />
+      <option name="withSudo" value="false" />
+      <option name="buildTarget" value="REMOTE" />
+      <option name="backtrace" value="SHORT" />
+      <option name="isRedirectInput" value="false" />
+      <option name="redirectInputPath" value="" />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Run grp_survey" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="buildProfileId" value="dev" />
+      <option name="command" value="run --package driver --bin grp_survey" />
       <option name="workingDirectory" value="file://$PROJECT_DIR$" />
       <envs />
       <option name="emulateTerminal" value="true" />
@@ -269,23 +292,6 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test grp::slot::tests::new" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
-      <option name="command" value="test --package playground --lib -- grp::slot::tests::new --exact" />
-      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
-      <envs />
-      <option name="emulateTerminal" value="true" />
-      <option name="channel" value="DEFAULT" />
-      <option name="requiredFeatures" value="true" />
-      <option name="allFeatures" value="false" />
-      <option name="withSudo" value="false" />
-      <option name="buildTarget" value="REMOTE" />
-      <option name="backtrace" value="SHORT" />
-      <option name="isRedirectInput" value="false" />
-      <option name="redirectInputPath" value="" />
-      <method v="2">
-        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Test japanese-jumbo-lottery-sim" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
       <option name="buildProfileId" value="test" />
       <option name="command" value="test --workspace" />
@@ -323,11 +329,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Cargo.Run grp_survey" />
         <item itemvalue="Cargo.Test slot::tests" />
         <item itemvalue="Cargo.Test grp::slot::tests::available_count" />
         <item itemvalue="Cargo.Test grp::slot::tests::issued_count" />
         <item itemvalue="Cargo.Test grp::slot::tests::issue" />
-        <item itemvalue="Cargo.Test grp::slot::tests::new" />
       </list>
     </recent_temporary>
   </component>
@@ -367,7 +373,8 @@
     <MESSAGE value="add draw kind string helpers" />
     <MESSAGE value="add grp playground bin" />
     <MESSAGE value="add grp slot module" />
-    <option name="LAST_COMMIT_MESSAGE" value="add grp slot module" />
+    <MESSAGE value="add grp rack module&#10;&#10;can't compiled" />
+    <option name="LAST_COMMIT_MESSAGE" value="add grp rack module&#10;&#10;can't compiled" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
