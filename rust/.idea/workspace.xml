@@ -17,11 +17,11 @@
     </cargoProject>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2268c769-96bb-4645-a0b2-2a826b3c14e4" name="Changes" comment="add draw kind string helpers">
-      <change afterPath="$PROJECT_DIR$/playground/src/bin/grp.rs" afterDir="false" />
+    <list default="true" id="2268c769-96bb-4645-a0b2-2a826b3c14e4" name="Changes" comment="add grp playground bin">
+      <change afterPath="$PROJECT_DIR$/playground/src/grp.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/playground/src/grp/slot.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cargo.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/playground/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/playground/Cargo.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/playground/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/playground/src/lib.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,10 +29,10 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="59" />
+    <option name="cachedIndexableFilesCount" value="60" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="RsBuildProfile:dev" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="RsBuildProfile:test" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -56,61 +56,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0115177283824548" />
-      <entry key="MS500" value="1.4241937888787704" />
-      <entry key="S2" value="2.5013272206204302" />
-      <entry key="S5" value="3.56680740599162" />
-      <entry key="S10" value="4.2012541942715735" />
-      <entry key="S30" value="6.383792798565943" />
-      <entry key="S60" value="11.466547698845407" />
-      <entry key="M2" value="23.20720475017842" />
-      <entry key="M5" value="56.295945392577984" />
-      <entry key="M10" value="96.53421892203498" />
-      <entry key="M15" value="123.38137442241985" />
-      <entry key="M30" value="176.17933919884862" />
-      <entry key="H1" value="290.7091969291571" />
-      <entry key="H2" value="585.5852942617405" />
-      <entry key="H4" value="1162.4209472121904" />
-      <entry key="D1" value="3024.493334467835" />
-      <entry key="W1" value="3757.699649077158" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0000015818029508" />
+      <entry key="S2" value="1.036562655158721" />
+      <entry key="S5" value="1.344145176133293" />
+      <entry key="S10" value="2.1473551141487786" />
+      <entry key="S30" value="6.659162618154164" />
+      <entry key="S60" value="13.694249001689661" />
+      <entry key="M2" value="27.37652273482707" />
+      <entry key="M5" value="66.36881260025542" />
+      <entry key="M10" value="122.36783424157635" />
+      <entry key="M15" value="168.66528003248823" />
+      <entry key="M30" value="265.9795267615768" />
+      <entry key="H1" value="410.43518575561114" />
+      <entry key="H2" value="713.0058264206743" />
+      <entry key="H4" value="1295.0591954561617" />
+      <entry key="D1" value="3218.205411604654" />
+      <entry key="W1" value="3988.6656860847097" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="6.126999399307264E-75" />
-      <entry key="S2" value="4.293732298272677E-19" />
-      <entry key="S5" value="7.155492502454442E-8" />
-      <entry key="S10" value="4.305429367063751E-4" />
-      <entry key="S30" value="0.15573985290412717" />
-      <entry key="S60" value="0.7657272897004282" />
-      <entry key="M2" value="2.326350272352053" />
-      <entry key="M5" value="7.350189546035335" />
-      <entry key="M10" value="13.845533939595564" />
-      <entry key="M15" value="18.32590436624265" />
-      <entry key="M30" value="30.061405078494595" />
-      <entry key="H1" value="65.91000659019832" />
-      <entry key="H2" value="163.03116916687935" />
-      <entry key="H4" value="361.86720740547224" />
-      <entry key="D1" value="1038.5808617384191" />
-      <entry key="W1" value="1310.8407611690677" />
+      <entry key="MS100" value="8.187919828499647E-7" />
+      <entry key="MS500" value="0.06376435553981136" />
+      <entry key="S2" value="0.8931888586081439" />
+      <entry key="S5" value="2.1458449974665776" />
+      <entry key="S10" value="3.266467429181042" />
+      <entry key="S30" value="6.163027309892774" />
+      <entry key="S60" value="10.041810980078587" />
+      <entry key="M2" value="16.636325682180995" />
+      <entry key="M5" value="31.438526653657586" />
+      <entry key="M10" value="47.9512432208993" />
+      <entry key="M15" value="59.447832044606464" />
+      <entry key="M30" value="82.0811845841665" />
+      <entry key="H1" value="121.65096870020142" />
+      <entry key="H2" value="216.7281174378557" />
+      <entry key="H4" value="413.9367402068838" />
+      <entry key="D1" value="1108.1104988532477" />
+      <entry key="W1" value="1393.0510344154363" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.21219081397851722" />
-      <entry key="MS500" value="1.0302776321441107" />
-      <entry key="S2" value="2.2128658018524314" />
-      <entry key="S5" value="3.332340696981705" />
-      <entry key="S10" value="4.044594021805895" />
-      <entry key="S30" value="6.459727044669129" />
-      <entry key="S60" value="12.165271134212594" />
-      <entry key="M2" value="25.464588739660936" />
-      <entry key="M5" value="63.56951331615306" />
-      <entry key="M10" value="110.30646001256076" />
-      <entry key="M15" value="141.64192743659748" />
-      <entry key="M30" value="206.19089841089192" />
-      <entry key="H1" value="356.57532429205855" />
-      <entry key="H2" value="748.5695435724813" />
-      <entry key="H4" value="1524.237545344503" />
-      <entry key="D1" value="4063.049890227036" />
-      <entry key="W1" value="5068.536026380936" />
+      <entry key="MS100" value="0.10294887715989791" />
+      <entry key="MS500" value="0.6406533206051223" />
+      <entry key="S2" value="1.4873811041567686" />
+      <entry key="S5" value="3.1055025172660136" />
+      <entry key="S10" value="5.120996750530712" />
+      <entry key="S30" value="12.61467913876329" />
+      <entry key="S60" value="23.552470626781574" />
+      <entry key="M2" value="43.84794656338863" />
+      <entry key="M5" value="97.67590460497003" />
+      <entry key="M10" value="170.21322615323382" />
+      <entry key="M15" value="228.02019732998147" />
+      <entry key="M30" value="347.9889566015632" />
+      <entry key="H1" value="532.0288981085955" />
+      <entry key="H2" value="929.6805672559238" />
+      <entry key="H4" value="1708.9423498957449" />
+      <entry key="D1" value="4326.2907217327065" />
+      <entry key="W1" value="5381.7121686159135" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -136,6 +136,10 @@
     "Cargo.Test counter::shelf::tests::trim.executor": "Run",
     "Cargo.Test decimal_formatter::test.executor": "Run",
     "Cargo.Test drawing_machine::tests.executor": "Run",
+    "Cargo.Test grp::slot::tests::available_count.executor": "Run",
+    "Cargo.Test grp::slot::tests::issue.executor": "Run",
+    "Cargo.Test grp::slot::tests::issued_count.executor": "Run",
+    "Cargo.Test grp::slot::tests::new.executor": "Run",
     "Cargo.Test player::test.executor": "Run",
     "Cargo.Test random_store::tests.executor": "Run",
     "Cargo.Test random_store::tests::foo.executor": "Run",
@@ -143,6 +147,7 @@
     "Cargo.Test random_store::tests::new.executor": "Run",
     "Cargo.Test random_store::tests::take_10_digit_seq.executor": "Run",
     "Cargo.Test random_store::tests::take_sequence_test.executor": "Run",
+    "Cargo.Test slot::tests.executor": "Run",
     "Cargo.Test ticket::tests.executor": "Run",
     "Cargo.Test ticket::ticket::tests::foo.executor": "Run",
     "Cargo.Test u32_formatter::test.executor": "Run",
@@ -177,25 +182,7 @@
   <component name="RsExternalLinterProjectSettings">
     <option name="tool" value="Clippy" />
   </component>
-  <component name="RunManager" selected="Cargo.Run grp">
-    <configuration name="Run 1_5million" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
-      <option name="buildProfileId" value="dev" />
-      <option name="command" value="run --package driver --bin 1_5million" />
-      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
-      <envs />
-      <option name="emulateTerminal" value="true" />
-      <option name="channel" value="DEFAULT" />
-      <option name="requiredFeatures" value="true" />
-      <option name="allFeatures" value="false" />
-      <option name="withSudo" value="false" />
-      <option name="buildTarget" value="REMOTE" />
-      <option name="backtrace" value="SHORT" />
-      <option name="isRedirectInput" value="false" />
-      <option name="redirectInputPath" value="" />
-      <method v="2">
-        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Cargo.Test slot::tests">
     <configuration name="Run annual" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
       <option name="buildProfileId" value="dev" />
       <option name="command" value="run --package driver --bin annual" />
@@ -214,43 +201,77 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Run draw_test" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
-      <option name="buildProfileId" value="dev" />
-      <option name="command" value="run --package driver --bin draw_test" />
-      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
-      <envs />
-      <option name="emulateTerminal" value="true" />
-      <option name="channel" value="DEFAULT" />
-      <option name="requiredFeatures" value="true" />
-      <option name="allFeatures" value="false" />
-      <option name="withSudo" value="false" />
-      <option name="buildTarget" value="REMOTE" />
-      <option name="backtrace" value="SHORT" />
-      <option name="isRedirectInput" value="false" />
-      <option name="redirectInputPath" value="" />
-      <method v="2">
-        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Run grp" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
-      <option name="command" value="run --package playground --bin grp" />
-      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
-      <envs />
-      <option name="emulateTerminal" value="true" />
-      <option name="channel" value="DEFAULT" />
-      <option name="requiredFeatures" value="true" />
-      <option name="allFeatures" value="false" />
-      <option name="withSudo" value="false" />
-      <option name="buildTarget" value="REMOTE" />
-      <option name="backtrace" value="SHORT" />
-      <option name="isRedirectInput" value="false" />
-      <option name="redirectInputPath" value="" />
-      <method v="2">
-        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Run main" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
       <option name="command" value="run --package playground --bin main" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <envs />
+      <option name="emulateTerminal" value="true" />
+      <option name="channel" value="DEFAULT" />
+      <option name="requiredFeatures" value="true" />
+      <option name="allFeatures" value="false" />
+      <option name="withSudo" value="false" />
+      <option name="buildTarget" value="REMOTE" />
+      <option name="backtrace" value="SHORT" />
+      <option name="isRedirectInput" value="false" />
+      <option name="redirectInputPath" value="" />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test grp::slot::tests::available_count" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="command" value="test --package playground --lib -- grp::slot::tests::available_count --exact" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <envs />
+      <option name="emulateTerminal" value="true" />
+      <option name="channel" value="DEFAULT" />
+      <option name="requiredFeatures" value="true" />
+      <option name="allFeatures" value="false" />
+      <option name="withSudo" value="false" />
+      <option name="buildTarget" value="REMOTE" />
+      <option name="backtrace" value="SHORT" />
+      <option name="isRedirectInput" value="false" />
+      <option name="redirectInputPath" value="" />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test grp::slot::tests::issue" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="buildProfileId" value="test" />
+      <option name="command" value="test --package playground --lib -- grp::slot::tests::issue --exact" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <envs />
+      <option name="emulateTerminal" value="true" />
+      <option name="channel" value="DEFAULT" />
+      <option name="requiredFeatures" value="true" />
+      <option name="allFeatures" value="false" />
+      <option name="withSudo" value="false" />
+      <option name="buildTarget" value="REMOTE" />
+      <option name="backtrace" value="SHORT" />
+      <option name="isRedirectInput" value="false" />
+      <option name="redirectInputPath" value="" />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test grp::slot::tests::issued_count" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="command" value="test --package playground --lib -- grp::slot::tests::issued_count --exact" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <envs />
+      <option name="emulateTerminal" value="true" />
+      <option name="channel" value="DEFAULT" />
+      <option name="requiredFeatures" value="true" />
+      <option name="allFeatures" value="false" />
+      <option name="withSudo" value="false" />
+      <option name="buildTarget" value="REMOTE" />
+      <option name="backtrace" value="SHORT" />
+      <option name="isRedirectInput" value="false" />
+      <option name="redirectInputPath" value="" />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test grp::slot::tests::new" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="command" value="test --package playground --lib -- grp::slot::tests::new --exact" />
       <option name="workingDirectory" value="file://$PROJECT_DIR$" />
       <envs />
       <option name="emulateTerminal" value="true" />
@@ -284,27 +305,8 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test player::test" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
-      <option name="buildProfileId" value="test" />
-      <option name="command" value="test --package driver --lib -- player::test" />
-      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
-      <envs />
-      <option name="emulateTerminal" value="true" />
-      <option name="channel" value="DEFAULT" />
-      <option name="requiredFeatures" value="true" />
-      <option name="allFeatures" value="false" />
-      <option name="withSudo" value="false" />
-      <option name="buildTarget" value="REMOTE" />
-      <option name="backtrace" value="SHORT" />
-      <option name="isRedirectInput" value="false" />
-      <option name="redirectInputPath" value="" />
-      <method v="2">
-        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Test random_store::tests" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
-      <option name="buildProfileId" value="test" />
-      <option name="command" value="test --package driver --lib -- random_store::tests" />
+    <configuration name="Test slot::tests" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="command" value="test --package playground --lib -- grp::slot::tests" />
       <option name="workingDirectory" value="file://$PROJECT_DIR$" />
       <envs />
       <option name="emulateTerminal" value="true" />
@@ -322,11 +324,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Cargo.Run grp" />
-        <item itemvalue="Cargo.Run draw_test" />
-        <item itemvalue="Cargo.Test player::test" />
-        <item itemvalue="Cargo.Run 1_5million" />
-        <item itemvalue="Cargo.Test random_store::tests" />
+        <item itemvalue="Cargo.Test slot::tests" />
+        <item itemvalue="Cargo.Test grp::slot::tests::available_count" />
+        <item itemvalue="Cargo.Test grp::slot::tests::issued_count" />
+        <item itemvalue="Cargo.Test grp::slot::tests::issue" />
+        <item itemvalue="Cargo.Test grp::slot::tests::new" />
       </list>
     </recent_temporary>
   </component>
@@ -364,7 +366,8 @@
     <MESSAGE value="add debug ticket validation" />
     <MESSAGE value="remove foo driver and shelved IDE patch" />
     <MESSAGE value="add draw kind string helpers" />
-    <option name="LAST_COMMIT_MESSAGE" value="add draw kind string helpers" />
+    <MESSAGE value="add grp playground bin" />
+    <option name="LAST_COMMIT_MESSAGE" value="add grp playground bin" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
