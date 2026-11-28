@@ -15,7 +15,7 @@ impl Default for MyHasher {
 	fn default() -> Self {
 		let mut buff = Buffer::default();
 
-		for i in 0..buff.capacity() {
+		for _i in 0..buff.capacity() {
 			buff.enqueue(0)
 		}
 

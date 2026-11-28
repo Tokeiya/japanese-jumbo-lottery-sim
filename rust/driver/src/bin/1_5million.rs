@@ -1,6 +1,5 @@
 use driver::player::{Player, Strategy};
 use driver::random_store::{Store, take_sequence};
-use dsv_writer::{Encoder, NewLine, QuoteMode, ToDsv};
 use implementation::lottery::Spec;
 use implementation::prelude::*;
 use rand::Rng;

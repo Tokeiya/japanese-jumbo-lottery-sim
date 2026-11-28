@@ -1,3 +1,5 @@
+use clap::Parser;
+use driver::args::Args;
 use driver::random_store::*;
 use dsv_writer::{Encoder, NewLine, QuoteMode, RawWriter};
 use implementation::prelude::*;
@@ -6,16 +8,22 @@ use std::fs::File;
 use std::sync::atomic::{AtomicUsize, Ordering};
 use std::sync::mpsc::*;
 use std::thread::{self, JoinHandle};
+
 struct AsyncWriter {
-	tx: SyncSender<(usize, [usize; 10])>,
-	handle: JoinHandle<()>,
+	tx: Option<SyncSender<(usize, [usize; 10])>>,
+	handle: Option<JoinHandle<()>>,
 }
 
+const ITERATION: usize = 10_000;
+
 impl AsyncWriter {
-	fn thread_proc(file: File, rx: Receiver<(usize, [usize; 10])>) {
+	fn thread_proc(process_id: u32, file: File, rx: Receiver<(usize, [usize; 10])>) {
 		let mut writer = RawWriter::try_new(file, '\t', NewLine::Lf).unwrap();
 
 		writer.write_str_field("id", QuoteMode::AutoDetect).unwrap();
+		writer
+			.write_str_field("process_id", QuoteMode::AutoDetect)
+			.unwrap();
 		writer
 			.write_str_field("overlap", QuoteMode::AutoDetect)
 			.unwrap();
@@ -30,36 +38,58 @@ impl AsyncWriter {
 				writer
 					.write_value_field(&id, QuoteMode::AutoDetect)
 					.unwrap();
+				writer
+					.write_value_field(&(process_id + 1), QuoteMode::AutoDetect)
+					.unwrap();
 				writer.write_value_field(&i, QuoteMode::AutoDetect).unwrap();
 				writer
 					.write_value_field(cnt, QuoteMode::AutoDetect)
 					.unwrap();
+
+				writer.end_of_record(false).unwrap();
 			}
 		}
 	}
-	pub fn new(file: File, threshold: usize) -> Self {
+	pub fn new(process_id: u32, file: File, threshold: usize) -> Self {
 		let (tx, rx) = sync_channel::<(usize, [usize; 10])>(threshold);
-		let handle = thread::spawn(move || Self::thread_proc(file, rx));
-		Self { tx, handle }
+		let handle = thread::spawn(move || Self::thread_proc(process_id, file, rx));
+		Self {
+			tx: Some(tx),
+			handle: Some(handle),
+		}
 	}
 
 	fn write(&self, id: usize, datum: [usize; 10]) {
-		self.tx.send((id, datum)).unwrap();
+		self.tx.as_ref().unwrap().send((id, datum)).unwrap();
+	}
+
+	fn wait(&mut self) {
+		let tmp = self.tx.take();
+		drop(tmp);
+
+		self.handle.take().unwrap().join().unwrap();
 	}
 }
 fn main() {
+	let arg = Args::parse();
+
 	let file = File::create("grp_100.tsv").unwrap();
-	let async_writer = AsyncWriter::new(file, 100);
+	let mut async_writer = AsyncWriter::new(arg.process_id, file, 100);
 	let cnt = AtomicUsize::new(0);
 
-	(1..=1_000usize).into_par_iter().for_each(|i| {
+	(1..=ITERATION).into_par_iter().for_each(|i| {
 		let ret = proc_100(42);
 		async_writer.write(i, ret);
 		let c = cnt.fetch_add(1, Ordering::Relaxed);
 		if c & 0x7f == 0 {
-			println!("{c}/1_000 {:.2}", (c as f64) / 1_000.0 * 100.0);
+			println!(
+				"{c}/{ITERATION} {:.2}",
+				(c as f64) / (ITERATION as f64) * 100.0
+			);
 		}
-	})
+	});
+
+	async_writer.wait();
 }
 
 fn accumulate_tickets(tickets: &[Ticket], accumulator: &mut [usize; 10]) {
@@ -74,6 +104,7 @@ fn accumulate_tickets(tickets: &[Ticket], accumulator: &mut [usize; 10]) {
 	}
 }
 
+#[allow(dead_code)]
 fn proc_200(unit: u8) -> [usize; 10] {
 	let mut rng = rand::rng();
 
@@ -91,6 +122,7 @@ fn proc_200(unit: u8) -> [usize; 10] {
 	accumulator
 }
 
+#[allow(dead_code)]
 fn proc_100(unit: u8) -> [usize; 10] {
 	let mut rng = rand::rng();
 
